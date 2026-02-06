@@ -67,6 +67,7 @@
       line-height: 50px;
       text-decoration: none;
       transition: background 0.3s, transform 0.2s;
+      z-index: 10;
     }
 
     .switch-button:hover {
@@ -78,6 +79,32 @@
       display: block;
       position: absolute; /* allow independent positioning */
     }
+
+    /* Overlay with earthedbackground.png */
+    #overlay {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+      opacity: 0;
+      transition: opacity 1.2s ease-in; /* fade in like turning on a light */
+    }
+
+    #overlay.show {
+      display: block;
+      opacity: 1;
+    }
+
+    /* Overlay buttons in white */
+    #overlay a img {
+      filter: brightness(0) invert(1); /* make images white */
+      width: auto;
+      height: auto;
+    }
+
   </style>
 </head>
 <body>
@@ -113,7 +140,37 @@
     </a>
 
     <!-- Purple On/Off switch -->
-    <a href="newpage.html" class="switch-button">ON / OFF</a>
+    <a href="#" class="switch-button" onclick="showOverlay(); return false;">ON / OFF</a>
+
+    <!-- Overlay with earthedbackground.png and duplicated white buttons -->
+    <div id="overlay">
+      <img src="images/earthedbackground.png" alt="Earthed Background" style="width:100%; height:auto;">
+
+      <!-- Duplicated buttons in white -->
+      <a href="about.html" style="top: 343px; left: 25%;">
+        <img src="images/abouthoney.png" style="width: 80px; height:auto;">
+      </a>
+      <a href="music.html" style="top: 315px; left: 35%;">
+        <img src="images/musicbutton.png" style="width: 130px; height:auto;">
+      </a>
+      <a href="blog.html" style="top: 349px; left: 57%;">
+        <img src="images/blogbutton.png" style="width: 85px; height:auto;">
+      </a>
+      <a href="gallery.html" style="top: 360px; left: 46%;">
+        <img src="images/gallerybutton.png" style="width: 90px; height:auto;">
+      </a>
+      <a href="contact.html" style="top: 348px; left: 67%;">
+        <img src="images/contactbutton.png" style="width: 80px; height:auto;">
+      </a>
+    </div>
   </div>
+
+  <script>
+    function showOverlay() {
+      const overlay = document.getElementById('overlay');
+      overlay.style.display = 'block';
+      setTimeout(() => overlay.classList.add('show'), 10); // triggers fade-in
+    }
+  </script>
 </body>
 </html>
