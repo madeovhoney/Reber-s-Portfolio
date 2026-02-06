@@ -113,7 +113,6 @@ a {
 
 /* White logo on overlay */
 #overlay .logo-white {
-  filter: brightness(0) invert(1);
   position: absolute;
   top: 125px;
   left: 50%;
@@ -122,33 +121,10 @@ a {
   z-index: 2;
 }
 
-/* White buttons on overlay */
+/* White buttons overlay */
 #overlay a img {
-  filter: brightness(0) invert(1);
-  width: auto;
-  height: auto;
+  display: block;
   z-index: 2;
-}
-
-/* White five-button container inside overlay */
-#overlay .five-button-container {
-  position: absolute;
-  top: 345px; /* align with black buttons */
-  left: 25%;
-  width: 450px; /* total width of five-button image */
-  height: 50px; /* approximate height */
-  z-index: 3;
-}
-
-#overlay .five-button-container img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-#overlay .five-button-container a {
-  position: absolute;
-  display: block;
 }
 </style>
 </head>
@@ -191,22 +167,24 @@ a {
     <!-- White logo -->
     <img src="images/honeyspacelogo.png" alt="White Logo" class="logo-white">
 
-    <!-- White buttons -->
+    <!-- White buttons individually aligned -->
     <a href="about.html" style="top: 343px; left: 25%;">
-      <img src="images/abouthoney.png" style="width: 80px;">
+      <img src="images/whiteaboutbutton.png" style="width: 80px; height:auto;">
     </a>
     <a href="music.html" style="top: 315px; left: 35%;">
-      <img src="images/musicbutton.png" style="width: 130px;">
+      <img src="images/whitemusicbutton.png" style="width: 130px; height:auto;">
     </a>
     <a href="blog.html" style="top: 349px; left: 57%;">
-      <img src="images/blogbutton.png" style="width: 85px;">
+      <img src="images/whiteblogbutton.png" style="width: 85px; height:auto;">
     </a>
     <a href="gallery.html" style="top: 360px; left: 46%;">
-      <img src="images/gallerybutton.png" style="width: 90px;">
+      <img src="images/whitegallerybutton.png" style="width: 90px; height:auto;">
     </a>
     <a href="contact.html" style="top: 348px; left: 67%;">
-      <img src="images/contactbutton.png" style="width: 80px;">
+      <img src="images/whitecontactbutton.png" style="width: 80px; height:auto;">
     </a>
+  </div>
+</div>
 
 <script>
 function toggleOverlay() {
