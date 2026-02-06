@@ -48,18 +48,24 @@
       width: 600px;
     }
 
-    .button {
+    /* Buttons styling */
+    .button-link {
       position: absolute;
-      width: 69px;
-      left: 25%;
-      transform: translateX(0);
-      top: 325px;
+      width: 200px; /* adjust size for each button as needed */
+      left: 50%;
+      transform: translateX(-50%);
     }
+
+    .about-button { top: 325px; width: 150px; }
+    .music-button { top: 400px; width: 150px; }
+    .blog-button { top: 475px; width: 150px; }
+    .gallery-button { top: 550px; width: 150px; }
+    .contact-button { top: 625px; width: 150px; }
 
     /* Purple On/Off switch button */
     .switch-button {
       position: absolute;
-      top: 450px;  /* adjust vertical position */
+      top: 700px;
       left: 50%;
       transform: translateX(-50%);
       width: 100px;
@@ -98,9 +104,25 @@
     <!-- Logo -->
     <img src="images/honeyspacelogo.png" alt="Honey Space Logo" class="logo">
 
-    <!-- About button -->
-    <a href="about.html">
-      <img src="images/abouthoney.png" alt="About Honey" class="button">
+    <!-- Buttons / clickable links -->
+    <a href="about.html" class="button-link about-button">
+      <img src="images/abouthoney.png" alt="About Honey">
+    </a>
+
+    <a href="music.html" class="button-link music-button">
+      <img src="images/musicbutton.png" alt="Music">
+    </a>
+
+    <a href="blog.html" class="button-link blog-button">
+      <img src="images/blogbutton.png" alt="Blog">
+    </a>
+
+    <a href="gallery.html" class="button-link gallery-button">
+      <img src="images/gallerybutton.png" alt="Gallery">
+    </a>
+
+    <a href="contact.html" class="button-link contact-button">
+      <img src="images/contactbutton.png" alt="Contact">
     </a>
 
     <!-- Purple On/Off switch -->
