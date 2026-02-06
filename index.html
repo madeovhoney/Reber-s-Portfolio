@@ -68,7 +68,7 @@ body {
   line-height: 50px;
   text-decoration: none;
   transition: background 0.3s, transform 0.2s;
-  z-index: 1000; /* stays above overlay */
+  z-index: 1000;
 }
 
 .switch-button:hover {
@@ -130,23 +130,23 @@ a {
   z-index: 2;
 }
 
-/* Grouped white five-button container */
-.five-button-container {
+/* White five-button container inside overlay */
+#overlay .five-button-container {
   position: absolute;
   top: 345px; /* align with black buttons */
   left: 25%;
-  width: 450px; /* adjust width of the group */
+  width: 450px; /* total width of five-button image */
   height: 50px; /* approximate height */
-  z-index: 10; /* above overlay */
+  z-index: 3;
 }
 
-.five-button-container img {
+#overlay .five-button-container img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-.five-button-container a {
+#overlay .five-button-container a {
   position: absolute;
   display: block;
 }
@@ -183,17 +183,6 @@ a {
   <!-- Purple ON/OFF button -->
   <a href="#" class="switch-button" onclick="toggleOverlay(); return false;">ON / OFF</a>
 
-  <!-- White five-button group over original buttons -->
-  <div class="five-button-container">
-    <img src="images/whitefivebutton.png" alt="White Five Buttons">
-    <!-- Transparent links for individual buttons -->
-    <a href="about.html" style="top: 0; left: 0; width: 90px; height: 50px;"></a>
-    <a href="music.html" style="top: 0; left: 90px; width: 90px; height: 50px;"></a>
-    <a href="blog.html" style="top: 0; left: 180px; width: 90px; height: 50px;"></a>
-    <a href="gallery.html" style="top: 0; left: 270px; width: 90px; height: 50px;"></a>
-    <a href="contact.html" style="top: 0; left: 360px; width: 90px; height: 50px;"></a>
-  </div>
-
   <!-- Overlay -->
   <div id="overlay">
     <!-- Earthed background image -->
@@ -218,6 +207,17 @@ a {
     <a href="contact.html" style="top: 348px; left: 67%;">
       <img src="images/contactbutton.png" style="width: 80px;">
     </a>
+
+    <!-- White five-button image with individual clickable links -->
+    <div class="five-button-container">
+      <img src="images/whitefivebutton.png" alt="White Five Buttons">
+      <!-- Transparent links for each button -->
+      <a href="about.html" style="top: 0; left: 0; width: 90px; height: 50px;"></a>
+      <a href="music.html" style="top: 0; left: 90px; width: 90px; height: 50px;"></a>
+      <a href="blog.html" style="top: 0; left: 180px; width: 90px; height: 50px;"></a>
+      <a href="gallery.html" style="top: 0; left: 270px; width: 90px; height: 50px;"></a>
+      <a href="contact.html" style="top: 0; left: 360px; width: 90px; height: 50px;"></a>
+    </div>
   </div>
 </div>
 
