@@ -27,18 +27,17 @@
     }
 
     .flicker {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  transform: translateX(-34px) translateY(69px); /* semicolon added */
-  animation: flickerAnimation 7s infinite;
-}
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      transform: translateX(-34px) translateY(69px);
+      animation: flickerAnimation 7s infinite;
+    }
 
-@keyframes flickerAnimation {
-  0%, 15%, 20%, 25%, 50%, 55%, 100% { opacity: 1; }
-  16%, 18%, 22%, 24%, 51%, 54% { opacity: 0.3; } /* fast flashes */
-}
+    @keyframes flickerAnimation {
+      0%, 15%, 20%, 25%, 50%, 55%, 100% { opacity: 1; }
+      16%, 18%, 22%, 24%, 51%, 54% { opacity: 0.3; }
     }
 
     .logo {
@@ -55,6 +54,32 @@
       left: 25%;
       transform: translateX(0);
       top: 325px;
+    }
+
+    /* Purple On/Off switch button */
+    .switch-button {
+      position: absolute;
+      top: 450px;  /* adjust vertical position */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 50px;
+      background-color: purple;
+      border: 2px solid #fff;
+      border-radius: 25px;
+      cursor: pointer;
+      color: white;
+      font-weight: bold;
+      font-family: sans-serif;
+      text-align: center;
+      line-height: 50px;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .switch-button:hover {
+      background-color: #a64ca6;
+      transform: scale(1.05);
     }
 
     a {
@@ -77,6 +102,9 @@
     <a href="about.html">
       <img src="images/abouthoney.png" alt="About Honey" class="button">
     </a>
+
+    <!-- Purple On/Off switch -->
+    <a href="newpage.html" class="switch-button">ON / OFF</a>
   </div>
 </body>
 </html>
