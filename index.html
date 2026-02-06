@@ -28,12 +28,13 @@
 
     /* Flicker animation */
     .flicker {
-      position: absolute;
-      top: 0;
-      left: 2%;
-      animation: flickerAnimation 1.5s infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  animation: flickerAnimation 1.5s infinite;
+  transform: translateX(-20px);
     }
-
     @keyframes flickerAnimation {
       0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
       19%, 21%, 23%, 26%, 54%, 56% { opacity: 0.3; }
