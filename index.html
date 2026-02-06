@@ -1,183 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Honey Space</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Honey Space</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: black;
-    }
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+}
 
-    .container {
-      position: relative;
-      width: 100%;
-      max-width: 1920px;
-      margin: 0 auto;
-      background: black;
-    }
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  background: black;
+}
 
-    .background, .flicker, .logo {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
+.background, .flicker, .logo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
-    .flicker {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      transform: translateX(-34px) translateY(69px);
-      animation: flickerAnimation 7s infinite;
-    }
+.flicker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateX(-34px) translateY(69px);
+  animation: flickerAnimation 7s infinite;
+}
 
-    @keyframes flickerAnimation {
-      0%, 15%, 20%, 25%, 50%, 55%, 100% { opacity: 1; }
-      16%, 18%, 22%, 24%, 51%, 54% { opacity: 0.3; }
-    }
+@keyframes flickerAnimation {
+  0%, 15%, 20%, 25%, 50%, 55%, 100% { opacity: 1; }
+  16%, 18%, 22%, 24%, 51%, 54% { opacity: 0.3; }
+}
 
-    .logo {
-      position: absolute;
-      top: 125px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-    }
+.logo {
+  position: absolute;
+  top: 125px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  z-index: 5;
+}
 
-    /* Purple On/Off switch button */
-    .switch-button {
-      position: absolute;
-      top: 475px;
-      left: 25%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 50px;
-      background-color: purple;
-      border: 2px solid #fff;
-      border-radius: 25px;
-      cursor: pointer;
-      color: white;
-      font-weight: bold;
-      font-family: sans-serif;
-      text-align: center;
-      line-height: 50px;
-      text-decoration: none;
-      transition: background 0.3s, transform 0.2s;
-      z-index: 10;
-    }
+.switch-button {
+  position: absolute;
+  top: 475px;
+  left: 25%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 50px;
+  background-color: purple;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+  z-index: 1000; /* stays above overlay */
+}
 
-    .switch-button:hover {
-      background-color: #a64ca6;
-      transform: scale(1.05);
-    }
+.switch-button:hover {
+  background-color: #a64ca6;
+  transform: scale(1.05);
+}
 
-    a {
-      display: block;
-      position: absolute; /* allow independent positioning */
-    }
+a {
+  display: block;
+  position: absolute;
+}
 
-    /* Fullscreen overlay */
-    #overlay {
-      display: none;
-      position: fixed; /* cover the viewport */
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 9999; /* above everything */
-      background: black; /* fallback */
-      opacity: 0;
-      transition: opacity 1.2s ease-in; /* fade-in effect */
-    }
+/* Fullscreen overlay */
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999; /* under switch button */
+  background: black;
+  opacity: 0;
+  transition: opacity 1.2s ease-in;
+}
 
-    #overlay.show {
-      display: block;
-      opacity: 1;
-    }
+#overlay.show {
+  display: block;
+  opacity: 1;
+}
 
-    #overlay img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* fill viewport */
-      display: block;
-    }
+#overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-    /* White overlay buttons */
-    #overlay a img {
-      filter: brightness(0) invert(1); /* make buttons white */
-      width: auto;
-      height: auto;
-    }
-  </style>
+/* White overlay logo */
+#overlay .logo-white {
+  filter: brightness(0) invert(1);
+  position: absolute;
+  top: 125px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  z-index: 100; /* above overlay background, under switch button */
+}
+
+/* White overlay buttons */
+#overlay a img {
+  filter: brightness(0) invert(1);
+  width: auto;
+  height: auto;
+}
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <!-- Stationary background flowers -->
-    <img src="images/backgnoflickerflow.png" alt="Background Flowers" class="background">
-    
-    <!-- Flickering flowers -->
-    <img src="images/flickerbacklights.png" alt="Flickering Flowers" class="flicker">
+<div class="container">
+  <!-- Stationary background flowers -->
+  <img src="images/backgnoflickerflow.png" alt="Background Flowers" class="background">
 
-    <!-- Logo -->
-    <img src="images/honeyspacelogo.png" alt="Honey Space Logo" class="logo">
+  <!-- Flickering flowers -->
+  <img src="images/flickerbacklights.png" alt="Flickering Flowers" class="flicker">
 
-    <!-- Buttons / clickable links with independent sizes and positions -->
+  <!-- Original logo -->
+  <img src="images/honeyspacelogo.png" alt="Honey Space Logo" class="logo">
+
+  <!-- Buttons / clickable links -->
+  <a href="about.html" style="top: 343px; left: 25%;">
+    <img src="images/abouthoney.png" style="width: 80px; height:auto;">
+  </a>
+  <a href="music.html" style="top: 315px; left: 35%;">
+    <img src="images/musicbutton.png" style="width: 130px; height:auto;">
+  </a>
+  <a href="blog.html" style="top: 349px; left: 57%;">
+    <img src="images/blogbutton.png" style="width: 85px; height:auto;">
+  </a>
+  <a href="gallery.html" style="top: 360px; left: 46%;">
+    <img src="images/gallerybutton.png" style="width: 90px; height:auto;">
+  </a>
+  <a href="contact.html" style="top: 348px; left: 67%;">
+    <img src="images/contactbutton.png" style="width: 80px; height:auto;">
+  </a>
+
+  <!-- Purple On/Off switch -->
+  <a href="#" class="switch-button" onclick="toggleOverlay(); return false;">ON / OFF</a>
+
+  <!-- Overlay -->
+  <div id="overlay">
+    <img src="images/earthedbackground.png" alt="Earthed Background">
+    <!-- White logo -->
+    <img src="images/honeyspacelogo.png" alt="White Logo" class="logo-white">
+
+    <!-- White buttons -->
     <a href="about.html" style="top: 343px; left: 25%;">
-      <img src="images/abouthoney.png" alt="About Honey" style="width: 80px; height: auto;">
+      <img src="images/abouthoney.png" style="width: 80px;">
     </a>
-
     <a href="music.html" style="top: 315px; left: 35%;">
-      <img src="images/musicbutton.png" alt="Music" style="width: 130px; height: auto;">
+      <img src="images/musicbutton.png" style="width: 130px;">
     </a>
-
     <a href="blog.html" style="top: 349px; left: 57%;">
-      <img src="images/blogbutton.png" alt="Blog" style="width: 85px; height: auto;">
+      <img src="images/blogbutton.png" style="width: 85px;">
     </a>
-
     <a href="gallery.html" style="top: 360px; left: 46%;">
-      <img src="images/gallerybutton.png" alt="Gallery" style="width: 90px; height: auto;">
+      <img src="images/gallerybutton.png" style="width: 90px;">
     </a>
-
     <a href="contact.html" style="top: 348px; left: 67%;">
-      <img src="images/contactbutton.png" alt="Contact" style="width: 80px; height: auto;">
+      <img src="images/contactbutton.png" style="width: 80px;">
     </a>
-
-    <!-- Purple On/Off switch -->
-    <a href="#" class="switch-button" onclick="showOverlay(); return false;">ON / OFF</a>
-
-    <!-- Fullscreen overlay with earthedbackground.png and duplicated white buttons -->
-    <div id="overlay">
-      <img src="images/earthedbackground.png" alt="Earthed Background">
-
-      <!-- White duplicate buttons -->
-      <a href="about.html" style="top: 343px; left: 25%;">
-        <img src="images/abouthoney.png" style="width: 80px;">
-      </a>
-      <a href="music.html" style="top: 315px; left: 35%;">
-        <img src="images/musicbutton.png" style="width: 130px;">
-      </a>
-      <a href="blog.html" style="top: 349px; left: 57%;">
-        <img src="images/blogbutton.png" style="width: 85px;">
-      </a>
-      <a href="gallery.html" style="top: 360px; left: 46%;">
-        <img src="images/gallerybutton.png" style="width: 90px;">
-      </a>
-      <a href="contact.html" style="top: 348px; left: 67%;">
-        <img src="images/contactbutton.png" style="width: 80px;">
-      </a>
-    </div>
   </div>
+</div>
 
-  <script>
-    function showOverlay() {
-      const overlay = document.getElementById('overlay');
-      overlay.style.display = 'block';
-      setTimeout(() => overlay.classList.add('show'), 10); // triggers fade-in
-    }
-  </script>
+<script>
+function toggleOverlay() {
+  const overlay = document.getElementById('overlay');
+  overlay.classList.toggle('show');
+}
+</script>
+
 </body>
 </html>
