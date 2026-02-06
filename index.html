@@ -49,6 +49,7 @@ body {
   z-index: 5;
 }
 
+/* Purple On/Off switch button */
 .switch-button {
   position: absolute;
   top: 475px;
@@ -80,51 +81,57 @@ a {
   position: absolute;
 }
 
-/* Fullscreen overlay */
+/* Overlay container */
 #overlay {
   display: none;
-  position: fixed;
+  position: absolute; /* overlay can be positioned inside container */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 999; /* under switch button */
-  background: black;
+  z-index: 900;
   opacity: 0;
   transition: opacity 1.2s ease-in;
 }
 
+/* Show overlay */
 #overlay.show {
   display: block;
   opacity: 1;
 }
 
-#overlay img {
-  width: 100%;
-  height: 100%;
+/* Earthed image (adjustable size/position) */
+#overlay img.overlay-bg {
+  position: absolute;
+  top: 50px;      /* change vertical position */
+  left: 100px;    /* change horizontal position */
+  width: 800px;   /* adjust width */
+  height: auto;
   object-fit: cover;
   display: block;
+  z-index: 1;
 }
 
-/* White overlay logo */
-  #overlay.logo-white { 
-    filter: brightness(0) invert(1)
-    position: absolute;
-    top: 125px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    z-index: 5;
-    
-/* White overlay buttons */
+/* White logo on overlay */
+#overlay .logo-white {
+  filter: brightness(0) invert(1);
+  position: absolute;
+  top: 125px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  z-index: 2; /* above overlay image */
+}
+
+/* White buttons on overlay */
 #overlay a img {
   filter: brightness(0) invert(1);
   width: auto;
   height: auto;
+  z-index: 2;
 }
 </style>
 </head>
-
 <body>
 <div class="container">
   <!-- Stationary background flowers -->
@@ -136,7 +143,7 @@ a {
   <!-- Original logo -->
   <img src="images/honeyspacelogo.png" alt="Honey Space Logo" class="logo">
 
-  <!-- Buttons / clickable links -->
+  <!-- Original buttons -->
   <a href="about.html" style="top: 343px; left: 25%;">
     <img src="images/abouthoney.png" style="width: 80px; height:auto;">
   </a>
@@ -153,12 +160,14 @@ a {
     <img src="images/contactbutton.png" style="width: 80px; height:auto;">
   </a>
 
-  <!-- Purple On/Off switch -->
+  <!-- Purple ON/OFF button -->
   <a href="#" class="switch-button" onclick="toggleOverlay(); return false;">ON / OFF</a>
 
   <!-- Overlay -->
   <div id="overlay">
-    <img src="images/earthedbackground.png" alt="Earthed Background">
+    <!-- Earthed background image -->
+    <img src="images/earthedbackground.png" alt="Earthed Background" class="overlay-bg">
+
     <!-- White logo -->
     <img src="images/honeyspacelogo.png" alt="White Logo" class="logo-white">
 
@@ -187,6 +196,5 @@ function toggleOverlay() {
   overlay.classList.toggle('show');
 }
 </script>
-
 </body>
 </html>
