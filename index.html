@@ -6,25 +6,65 @@
   <title>Honey Space</title>
 
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
       background: black;
     }
 
-    img {
+    .container {
+      position: relative;
+      width: 100%;
+      max-width: 1920px;
+      margin: 0 auto;
+    }
+
+    .background {
       width: 100%;
       height: auto;
+      display: block;
+    }
+
+    .title {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+    }
+
+    .button {
+      position: absolute;
+      width: 300px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .about-button {
+      top: 400px;
+    }
+
+    .music-button {
+      top: 500px;
+    }
+
+    a {
       display: block;
     }
   </style>
 </head>
 <body>
-  <img src="images/home.png" alt="Home Image">
+  <div class="container">
+    <img src="images/backgroundwflowers.png" alt="Background" class="background">
+    <img src="images/honeyspacetitle.png" alt="Honey Space Title" class="title">
 
+    <a href="about.html">
+      <img src="images/aboutmusic.png" alt="About Button" class="button about-button">
+    </a>
+
+    <a href="music.html">
+      <img src="images/musicbutton.png" alt="Music Button" class="button music-button">
+    </a>
+  </div>
 </body>
 </html>
