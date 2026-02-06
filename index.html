@@ -49,7 +49,7 @@ body {
   z-index: 5;
 }
 
-/* Purple On/Off switch button */
+/* Purple ON/OFF button */
 .switch-button {
   position: absolute;
   top: 475px;
@@ -84,7 +84,7 @@ a {
 /* Overlay container */
 #overlay {
   display: none;
-  position: absolute; /* overlay can be positioned inside container */
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -94,18 +94,17 @@ a {
   transition: opacity 1.2s ease-in;
 }
 
-/* Show overlay */
 #overlay.show {
   display: block;
   opacity: 1;
 }
 
-/* Earthed image (adjustable size/position) */
+/* Earthed background overlay */
 #overlay img.overlay-bg {
   position: absolute;
-  top: -40px;      /* change vertical position */
-  left: -70px;    /* change horizontal position */
-  width: 1400px;   /* adjust width */
+  top: -40px;
+  left: -70px;
+  width: 1400px;
   height: auto;
   object-fit: cover;
   display: block;
@@ -120,7 +119,7 @@ a {
   left: 50%;
   transform: translateX(-50%);
   width: 600px;
-  z-index: 2; /* above overlay image */
+  z-index: 2;
 }
 
 /* White buttons on overlay */
@@ -129,6 +128,27 @@ a {
   width: auto;
   height: auto;
   z-index: 2;
+}
+
+/* Grouped white five-button container */
+.five-button-container {
+  position: absolute;
+  top: 345px; /* align with black buttons */
+  left: 25%;
+  width: 450px; /* adjust width of the group */
+  height: 50px; /* approximate height */
+  z-index: 10; /* above overlay */
+}
+
+.five-button-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.five-button-container a {
+  position: absolute;
+  display: block;
 }
 </style>
 </head>
@@ -162,6 +182,17 @@ a {
 
   <!-- Purple ON/OFF button -->
   <a href="#" class="switch-button" onclick="toggleOverlay(); return false;">ON / OFF</a>
+
+  <!-- White five-button group over original buttons -->
+  <div class="five-button-container">
+    <img src="images/whitefivebutton.png" alt="White Five Buttons">
+    <!-- Transparent links for individual buttons -->
+    <a href="about.html" style="top: 0; left: 0; width: 90px; height: 50px;"></a>
+    <a href="music.html" style="top: 0; left: 90px; width: 90px; height: 50px;"></a>
+    <a href="blog.html" style="top: 0; left: 180px; width: 90px; height: 50px;"></a>
+    <a href="gallery.html" style="top: 0; left: 270px; width: 90px; height: 50px;"></a>
+    <a href="contact.html" style="top: 0; left: 360px; width: 90px; height: 50px;"></a>
+  </div>
 
   <!-- Overlay -->
   <div id="overlay">
