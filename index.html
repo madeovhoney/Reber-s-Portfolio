@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Honey Space</title>
 
 <style>
@@ -68,17 +68,12 @@ body {
   line-height: 50px;
   text-decoration: none;
   transition: background 0.3s, transform 0.2s;
-  z-index: 1000;
+  z-index: 1001;
 }
 
 .switch-button:hover {
   background-color: #a64ca6;
   transform: scale(1.05);
-}
-
-a {
-  display: block;
-  position: absolute;
 }
 
 /* Overlay container */
@@ -111,7 +106,7 @@ a {
   z-index: 1;
 }
 
-/* White logo on overlay */
+/* White logo overlay */
 #overlay .logo-white {
   position: absolute;
   top: 125px;
@@ -122,9 +117,16 @@ a {
 }
 
 /* White buttons overlay */
-#overlay a img {
+#overlay a.white-button {
+  position: absolute;
   display: block;
   z-index: 2;
+}
+
+#overlay a.white-button img {
+  display: block;
+  width: auto;
+  height: auto;
 }
 </style>
 </head>
@@ -161,27 +163,27 @@ a {
 
   <!-- Overlay -->
   <div id="overlay">
-    <!-- Earthed background image -->
+    <!-- Earthed background -->
     <img src="images/earthedbackground.png" alt="Earthed Background" class="overlay-bg">
 
     <!-- White logo -->
     <img src="images/honeyspacelogo.png" alt="White Logo" class="logo-white">
 
-    <!-- White buttons, aligned with original buttons -->
-    <a href="about.html" style="top: 343px; left: 25%;">
-      <img src="images/whiteaboutbutton.png" style="width: 80px; height:auto;">
+    <!-- White buttons -->
+    <a href="about.html" class="white-button" style="top: 343px; left: 25%;">
+      <img src="images/whiteaboutbutton.png" style="width: 80px;">
     </a>
-    <a href="music.html" style="top: 315px; left: 35%;">
-      <img src="images/whitemusicbutton.png" style="width: 130px; height:auto;">
+    <a href="music.html" class="white-button" style="top: 315px; left: 35%;">
+      <img src="images/whitemusicbutton.png" style="width: 130px;">
     </a>
-    <a href="blog.html" style="top: 349px; left: 57%;">
-      <img src="images/whiteblogbutton.png" style="width: 85px; height:auto;">
+    <a href="blog.html" class="white-button" style="top: 349px; left: 57%;">
+      <img src="images/whiteblogbutton.png" style="width: 85px;">
     </a>
-    <a href="gallery.html" style="top: 360px; left: 46%;">
-      <img src="images/whitegallerybutton.png" style="width: 90px; height:auto;">
+    <a href="gallery.html" class="white-button" style="top: 360px; left: 46%;">
+      <img src="images/whitegallerybutton.png" style="width: 90px;">
     </a>
-    <a href="contact.html" style="top: 348px; left: 67%;">
-      <img src="images/whitecontactbutton.png" style="width: 80px; height:auto;">
+    <a href="contact.html" class="white-button" style="top: 348px; left: 67%;">
+      <img src="images/whitecontactbutton.png" style="width: 80px;">
     </a>
   </div>
 </div>
