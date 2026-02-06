@@ -48,27 +48,13 @@
       width: 600px;
     }
 
-    /* Example of CSS for all buttons */
-    a img[class*="button"] {
-      width: 73px;       /* default width for all buttons */
-      height: auto;      /* maintain aspect ratio */
-      display: block;
-    }
-
-    /* Individual positioning for each button */
-    .about-button { position: absolute; top: 160px; left: 25%; }
-    .music-button { position: absolute; top: 160px; left: 40%; }
-    .blog-button { position: absolute; top: 160px; left: 55%; }
-    .gallery-button { position: absolute; top: 160px; left: 70%; }
-    .contact-button { position: absolute; top: 160px; left: 85%; }
-
     /* Purple On/Off switch button */
     .switch-button {
       position: absolute;
-      top: 450px;
-      left: 30%;
+      top: 400px;
+      left: 50%;
       transform: translateX(-50%);
-      width: 75px;
+      width: 100px;
       height: 50px;
       background-color: purple;
       border: 2px solid #fff;
@@ -90,6 +76,7 @@
 
     a {
       display: block;
+      position: absolute; /* allow independent positioning */
     }
   </style>
 </head>
@@ -104,25 +91,25 @@
     <!-- Logo -->
     <img src="images/honeyspacelogo.png" alt="Honey Space Logo" class="logo">
 
-    <!-- Buttons / clickable links -->
-    <a href="about.html" class="about-button">
-      <img src="images/abouthoney.png" alt="About Honey" class="about-button">
+    <!-- Buttons / clickable links with independent sizes and positions -->
+    <a href="about.html" style="top: 295px; left: 15%;">
+      <img src="images/abouthoney.png" alt="About Honey" style="width: 80px; height: auto;">
     </a>
 
-    <a href="music.html" class="music-button">
-      <img src="images/musicbutton.png" alt="Music" class="music-button">
+    <a href="music.html" style="top: 295px; left: 30%;">
+      <img src="images/musicbutton.png" alt="Music" style="width: 90px; height: auto;">
     </a>
 
-    <a href="blog.html" class="blog-button">
-      <img src="images/blogbutton.png" alt="Blog" class="blog-button">
+    <a href="blog.html" style="top: 295px; left: 45%;">
+      <img src="images/blogbutton.png" alt="Blog" style="width: 75px; height: auto;">
     </a>
 
-    <a href="gallery.html" class="gallery-button">
-      <img src="images/gallerybutton.png" alt="Gallery" class="gallery-button">
+    <a href="gallery.html" style="top: 295px; left: 60%;">
+      <img src="images/gallerybutton.png" alt="Gallery" style="width: 70px; height: auto;">
     </a>
 
-    <a href="contact.html" class="contact-button">
-      <img src="images/contactbutton.png" alt="Contact" class="contact-button">
+    <a href="contact.html" style="top: 295px; left: 75%;">
+      <img src="images/contactbutton.png" alt="Contact" style="width: 73px; height: auto;">
     </a>
 
     <!-- Purple On/Off switch -->
