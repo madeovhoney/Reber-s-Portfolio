@@ -20,29 +20,39 @@
       background: black;
     }
 
-    .background {
+    .background, .flicker, .logo, .button {
+      display: block;
       width: 100%;
       height: auto;
-      display: block;
+    }
+
+    /* Flicker animation */
+    .flicker {
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: flickerAnimation 1.5s infinite;
+    }
+
+    @keyframes flickerAnimation {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+      19%, 21%, 23%, 26%, 54%, 56% { opacity: 0.3; }
     }
 
     .logo {
       position: absolute;
-      top: 125px; /* adjust as needed */
+      top: 100px;
       left: 50%;
       transform: translateX(-50%);
-      width: 600px; /* displays half of the 1,212 px source */
+      width: 600px;
     }
 
     .button {
       position: absolute;
-      width: 69px;
-      left: 25%;
-      transform: translateX(0);
-    }
-
-    .about-button {
-      top: 345px;
+      width: 300px;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 400px;
     }
 
     a {
@@ -52,11 +62,18 @@
 </head>
 <body>
   <div class="container">
-    <img src="images/backgroundwflowers.png" alt="Background" class="background">
+    <!-- Stationary background flowers -->
+    <img src="images/backgnoflickerflow.png" alt="Background Flowers" class="background">
+    
+    <!-- Flickering flowers -->
+    <img src="images/flickerbacklights.png" alt="Flickering Flowers" class="flicker">
+
+    <!-- Logo -->
     <img src="images/honeyspacelogo.png" alt="Honey Space Logo" class="logo">
 
+    <!-- About button -->
     <a href="about.html">
-      <img src="images/abouthoney.png" alt="About Honey" class="button about-button">
+      <img src="images/abouthoney.png" alt="About Honey" class="button">
     </a>
   </div>
 </body>
