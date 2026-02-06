@@ -81,6 +81,13 @@ a {
   position: absolute;
 }
 
+/* Original buttons */
+a.original-button {
+  position: absolute;
+  display: block;
+  z-index: 1;
+}
+
 /* Overlay container */
 #overlay {
   display: none;
@@ -109,6 +116,25 @@ a {
   object-fit: cover;
   display: block;
   z-index: 1;
+}
+
+/* Snail and bee animation */
+.snailbee {
+  position: absolute;
+  top: 500px;  /* adjust starting vertical position */
+  left: 50px;  /* adjust starting horizontal position */
+  width: 150px; /* adjust size */
+  height: auto;
+  z-index: 3;  /* above overlay, below white buttons */
+  animation: moveSnailBee 6s infinite alternate ease-in-out;
+}
+
+@keyframes moveSnailBee {
+  0%   { transform: translate(0px, 0px) rotate(0deg); }
+  25%  { transform: translate(50px, -20px) rotate(10deg); }
+  50%  { transform: translate(100px, 0px) rotate(-10deg); }
+  75%  { transform: translate(50px, 20px) rotate(5deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
 }
 
 /* White logo overlay */
@@ -146,20 +172,20 @@ a {
   <!-- Original logo -->
   <img src="images/honeyspacelogo.png" alt="Honey Space Logo" class="logo">
 
-  <!-- Original buttons (remain in original positions) -->
-  <a href="about.html" style="top: 345px; left: 25%; z-index:1;">
+  <!-- Original buttons -->
+  <a href="about.html" class="original-button" style="top: 345px; left: 25%;">
     <img src="images/abouthoney.png" style="width: 80px; height:auto;">
   </a>
-  <a href="music.html" style="top: 317px; left: 35%; z-index:1;">
+  <a href="music.html" class="original-button" style="top: 317px; left: 35%;">
     <img src="images/musicbutton.png" style="width: 130px; height:auto;">
   </a>
-  <a href="blog.html" style="top: 349px; left: 57%; z-index:1;">
+  <a href="blog.html" class="original-button" style="top: 349px; left: 57%;">
     <img src="images/blogbutton.png" style="width: 85px; height:auto;">
   </a>
-  <a href="gallery.html" style="top: 360px; left: 46%; z-index:1;">
+  <a href="gallery.html" class="original-button" style="top: 360px; left: 46%;">
     <img src="images/gallerybutton.png" style="width: 90px; height:auto;">
   </a>
-  <a href="contact.html" style="top: 352px; left: 67%; z-index:1;">
+  <a href="contact.html" class="original-button" style="top: 352px; left: 67%;">
     <img src="images/contactbutton.png" style="width: 80px; height:auto;">
   </a>
 
@@ -171,23 +197,26 @@ a {
     <!-- Earthed background -->
     <img src="images/earthedbackground.png" alt="Earthed Background" class="overlay-bg">
 
+    <!-- Snail and bee image -->
+    <img src="images/snailandbee.png" alt="Snail and Bee" class="snailbee">
+
     <!-- White logo -->
     <img src="images/honeyspacelogo.png" alt="White Logo" class="logo-white">
 
-    <!-- White buttons, aligned exactly over original buttons -->
-    <a href="about.html" class="white-button" style="top: 359px; left: 25%;">
-      <img src="images/whiteaboutbutton.png" style="width: 77px; height:auto;">
+    <!-- White buttons -->
+    <a href="about.html" class="white-button" style="top: 345px; left: 25%;">
+      <img src="images/whiteaboutbutton.png" style="width: 80px; height:auto;">
     </a>
-    <a href="music.html" class="white-button" style="top: 361px; left: 35%;">
-      <img src="images/whitemusicbutton.png" style="width: 87px; height:auto;">
+    <a href="music.html" class="white-button" style="top: 317px; left: 35%;">
+      <img src="images/whitemusicbutton.png" style="width: 130px; height:auto;">
     </a>
-    <a href="blog.html" class="white-button" style="top: 359px; left: 57%;">
-      <img src="images/whiteblogbutton.png" style="width: 72px; height:auto;">
+    <a href="blog.html" class="white-button" style="top: 349px; left: 57%;">
+      <img src="images/whiteblogbutton.png" style="width: 85px; height:auto;">
     </a>
     <a href="gallery.html" class="white-button" style="top: 360px; left: 46%;">
       <img src="images/whitegallerybutton.png" style="width: 90px; height:auto;">
     </a>
-    <a href="contact.html" class="white-button" style="top: 367px; left: 67%;">
+    <a href="contact.html" class="white-button" style="top: 352px; left: 67%;">
       <img src="images/whitecontactbutton.png" style="width: 80px; height:auto;">
     </a>
   </div>
