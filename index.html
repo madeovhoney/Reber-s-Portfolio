@@ -159,7 +159,7 @@ a.original-button {
   width: auto;
   height: auto;
 }
-  /* ---------------------------- Media Queries for Mobile ---------------------------- */
+/* ---------------------------- Media Queries for Responsiveness ---------------------------- */
 
 /* Mobile devices (max-width: 768px) */
 @media only screen and (max-width: 768px) {
@@ -167,63 +167,80 @@ a.original-button {
     background: #000;
   }
 
-  /* Logo and Background */
+  /* Logo */
   .logo {
-    width: 80%;  /* Make logo smaller on mobile */
-    top: 20px;   /* Adjust position */
+    width: 70%;  /* Make logo smaller on mobile */
+    top: 20px;   /* Adjust top position */
+    position: absolute;
+    left: 47%;   /* Center horizontally */
+    transform: translateX(-50%);
   }
 
-  .background {
-    width: 100%;
+  /* Background and Flicker */
+  .background, .flicker {
+    width: 100%;  /* Full width */
     height: auto;
+    transform: translateX(0) translateY(0);  /* No offset */
   }
 
-  .flicker {
-    width: 100%;
-    height: auto;
-    transform: translateX(0) translateY(0);  /* Remove any offset */
-  }
-
-  /* Original buttons */
+  /* Original buttons (unclicked state) */
   .original-button {
-    width: 70%;   /* Make buttons more flexible */
-    top: 250px;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 60%;   /* Make buttons more compact on mobile */
+    top: 40%;     /* Position buttons further down vertically */
+    left: 50%;    /* Center horizontally */
+    transform: translateX(-50%);  /* Center horizontally */
     text-align: center;
+    margin-bottom: 20px; /* Add space between buttons */
+    transition: top 0.3s, transform 0.3s;  /* Smooth transition for centering adjustments */
   }
 
-  /* Purple ON/OFF button */
+  /* Adjusting button positions (clicked state) */
+  .original-button.clicked {
+    top: 45%; /* Make the clicked buttons move slightly down */
+    transform: translateX(-50%) scale(1.1); /* Slightly enlarge when clicked */
+  }
+
+  /* Purple ON/OFF button (unclicked state) */
   .switch-button {
-    width: 80%;
-    top: 60%;
+    width: 40%;
+    top: 100%;     /* Position the button further down */
     left: 50%;
     transform: translateX(-50%);
+    transition: top 0.3s, transform 0.3s;  /* Smooth transition for centering adjustments */
   }
 
-  /* Overlay elements */
-  #overlay img.overlay-bg {
-    width: 100%;
-    height: auto;
+  /* Purple ON/OFF button (clicked state) */
+  .switch-button.clicked {
+    top: 80%;     /* Move down when clicked */
+    transform: translateX(-50%) scale(1.1); /* Enlarge slightly when clicked */
   }
 
+  /* Snail and bee animation */
   .snailbee {
-    width: 90%;   /* Make snail/bee smaller */
-    top: 120px;   /* Adjust starting position */
-    left: 5%;
+    width: 80%;   /* Shrink snail/bee animation */
+    top: 30%;     /* Position it higher to spread out content vertically */
+    left: 10%;
+    z-index: 3;
   }
 
   /* White Buttons (overlay) */
   #overlay a.white-button {
-    width: 80%;
-    top: 320px;
-    left: 50%;
+    width: 60%;
+    top: 85%;     /* Position buttons further down in the overlay */
+    left: 50%;    /* Center horizontally */
     transform: translateX(-50%);
+    transition: top 0.3s, transform 0.3s;  /* Smooth transition for centering adjustments */
   }
 
   /* Adjust overlay white button sizes */
   #overlay a.white-button img {
     width: 70%;
+    height: auto;
+  }
+
+  /* Earthed background overlay */
+  #overlay img.overlay-bg {
+    width: 100%;
     height: auto;
   }
 }
@@ -232,26 +249,74 @@ a.original-button {
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .logo {
     width: 60%;
-    top: 40px;
+    top: 40px;   /* Adjust vertical position for tablets */
   }
 
   .switch-button {
     width: 60%;
-    top: 65%;
+    top: 65%;    /* Position ON/OFF button further down */
   }
 
-  /* Button adjustments for tablet */
+  /* Button adjustments for tablet (unclicked state) */
   .original-button {
     width: 50%;
-    top: 300px;
+    top: 300px;  /* Adjust the top position for tablet */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 0.3s, transform 0.3s;  /* Smooth transition for centering adjustments */
+  }
+
+  /* Button adjustments for tablet (clicked state) */
+  .original-button.clicked {
+    top: 305px; /* Move clicked buttons slightly down */
+    transform: translateX(-50%) scale(1.05); /* Slightly enlarge when clicked */
+  }
+
+  .snailbee {
+    width: 80%;  /* Adjust snail/bee size */
+    top: 150px;  /* Adjust vertical position */
+    left: 10%;
+  }
+
+  /* White Buttons (overlay) */
+  #overlay a.white-button {
+    width: 60%;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Desktop and Larger Screens (min-width: 1024px) */
+@media only screen and (min-width: 1024px) {
+  .logo {
+    width: 600px;  /* Original size for desktop */
+    top: 125px;
+  }
+
+  /* Original buttons (unclicked state) */
+  .original-button {
+    width: auto;   /* Default width for buttons */
+    top: 345px;    /* Positioning buttons further down */
+    left: 25%;
+    transform: translateX(0);
+    text-align: center;
+  }
+
+  /* Purple ON/OFF button */
+  .switch-button {
+    width: 100px;
+    top: 475px;    /* Position further down */
     left: 50%;
     transform: translateX(-50%);
   }
 
-  .snailbee {
-    width: 80%;
-    top: 150px;
-    left: 10%;
+  /* White buttons in overlay */
+  #overlay a.white-button {
+    width: auto;
+    top: 358px;
+    left: 25%;
+    transform: translateX(0);
   }
 }
 </style>
