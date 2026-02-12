@@ -160,175 +160,179 @@ a.original-button {
   height: auto;
 }
 /* ---------------------------- Media Queries for Responsiveness ---------------------------- */
-
-/* Mobile devices (max-width: 700px) */
 @media only screen and (max-width: 768px) {
 
-  /* ================== Body and Background ================== */
+  /* ================== General Adjustments for Mobile ================== */
   body {
-    background: #000;
+    margin: 0;
+    padding: 0;
+    background: black;
   }
 
-  /* Background image adjustments for mobile */
-  .background, .flicker {
-    width: 100%;  /* Ensure background takes full width */
-    height: 75vh;   /* Increase height to make the background longer on mobile (150% of viewport height) */
-    object-fit: cover;  /* Ensure the background image covers the area */
-    transform: translateX(0) translateY(0);  /* Remove any offset */
+  .container {
+    width: 100%;        /* Container takes full width of the screen on mobile */
+    max-width: none;    /* Remove max-width for small screens */
+    margin: 0;
+    background: black;
   }
 
-  /* ================== Logo ================== */
-  .logo {
-    width: 100%;  /* Make the logo smaller on mobile */
-    top: 200px;   /* Adjust top position for mobile */
-    position: absolute;
-    left: 60%;   /* Center the logo horizontally */
-    transform: translateX(-50%);  /* Ensure proper centering */
+  .background, .flicker, .logo {
+    display: block;
+    width: 100%;        /* Ensure background and logo images scale to screen width */
+    height: auto;
   }
 
-  /* ================== Original Buttons (Unclicked state) ================== */
+  /* ================== Original Buttons (Unclicked state) - Mobile Adjustments ================== */
   .original-button {
-    width: 30%;   /* Make buttons more compact on mobile */
-    top: 50%;     /* Position buttons further down vertically */
-    left: 56%;    /* Center horizontally */
-    transform: translateX(-25%);  /* Center horizontally */
-    text-align: center;
-    margin-bottom: 400px; /* Add space between buttons */
-    transition: top 0.3s, transform 0.3s;  /* Smooth transition for centering adjustments */
+    width: 40%;          /* Button width is smaller on mobile for a compact look */
+    top: 50%;            /* Center the buttons vertically on the screen */
+    left: 50%;           /* Center the buttons horizontally */
+    transform: translateX(-50%);  /* Ensures buttons are centered */
+    margin-bottom: 30px; /* Add space between buttons for better separation */
+    transition: top 0.3s, transform 0.3s;  /* Smooth transition for positioning */
   }
 
-  /* ================== Adjusting Original Buttons (Clicked state) ================== */
-  .original-button.clicked {
-    top: 45%; /* Move the clicked buttons slightly down */
-    transform: translateX(-50%) scale(1.1); /* Slightly enlarge when clicked */
+  .original-button img {
+    width: 100%;         /* Make button images fill their containers */
+    height: auto;        /* Maintain aspect ratio of the button images */
+    object-fit: contain; /* Ensure images fit within their container without distortion */
   }
 
-  /* ================== Purple ON/OFF Button (Unclicked state) ================== */
-  .switch-button {
-    width: 60%;   /* Width for the purple ON/OFF button */
-    top: 75%;     /* Position the button further down vertically */
-    left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
-    transition: top 0.3s, transform 0.3s; /* Smooth transition for centering adjustments */
+  /* ================== Specific Button Adjustments (Unclicked) ================== */
+  #about-button {
+    top: 40%;   /* Adjust vertical position for the About button */
   }
 
-  /* ================== Purple ON/OFF Button (Clicked state) ================== */
-  .switch-button.clicked {
-    top: 80%;     /* Move down when clicked */
-    transform: translateX(-50%) scale(1.1); /* Enlarge the button slightly when clicked */
+  #music-button {
+    top: 45%;   /* Adjust vertical position for the Music button */
   }
 
-  /* ================== Snail and Bee Animation ================== */
+  #blog-button {
+    top: 50%;   /* Adjust vertical position for the Blog button */
+  }
+
+  #gallery-button {
+    top: 55%;   /* Adjust vertical position for the Gallery button */
+  }
+
+  #contact-button {
+    top: 60%;   /* Adjust vertical position for the Contact button */
+  }
+
+  /* ================== Snail and Bee Animation (Mobile Adjustments) ================== */
   .snailbee {
-    width: 80%;   /* Shrink the snail/bee animation */
-    top: 30%;     /* Position it higher on mobile to spread out content vertically */
-    left: 10%;    /* Adjust left positioning */
-    z-index: 3;   /* Ensure the animation stays on top of other elements */
+    top: 100px;  /* Adjust vertical position of the snail and bee animation */
+    left: 25%;   /* Position animation towards the left */
+    width: 350px; /* Reduce size of animation on mobile */
   }
 
-  /* ================== White Buttons (Overlay - Unclicked state) ================== */
-  #overlay a.white-button {
-    width: 60%;   /* Make the buttons more compact */
-    top: 85%;     /* Position buttons further down */
-    left: 50%;    /* Center horizontally */
-    transform: translateX(-50%);
-    transition: top 0.3s, transform 0.3s; /* Smooth transition for centering adjustments */
+  /* ================== Overlay Background and White Buttons ================== */
+  #overlay {
+    /* Overlay container adjustments */
   }
 
-  /* ================== White Buttons in Overlay (Image Adjustments) ================== */
-  #overlay a.white-button img {
-    width: 70%;   /* Adjust image size for white buttons in overlay */
-    height: auto; /* Maintain aspect ratio */
-  }
-
-  /* ================== Earthed Background Overlay ================== */
   #overlay img.overlay-bg {
-    width: 100%;   /* Make background image fill the entire width */
-    height: auto;  /* Adjust height for proper scaling */
-  }
-}
-
-
-/* Tablet devices (768px to 1024px) */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-
-  /* ================== Logo ================== */
-  .logo {
-    width: 60%;  /* Make the logo smaller on tablets */
-    top: 40px;   /* Adjust vertical position */
+    width: 100%;  /* Ensure overlay background image fits full screen width */
+    height: auto; /* Maintain aspect ratio for overlay background */
   }
 
-  /* ================== Purple ON/OFF Button ================== */
-  .switch-button {
-    width: 60%;
-    top: 65%;    /* Position ON/OFF button further down */
-  }
-
-  /* ================== Original Buttons (Unclicked state) ================== */
-  .original-button {
-    width: 50%;   /* Make buttons smaller on tablets */
-    top: 300px;   /* Adjust button positions */
-    left: 50%;    /* Center horizontally */
-    transform: translateX(-50%);
-    transition: top 0.3s, transform 0.3s;  /* Smooth transition for centering adjustments */
-  }
-
-  /* ================== Adjusting Original Buttons (Clicked state) ================== */
-  .original-button.clicked {
-    top: 305px;   /* Move clicked buttons slightly down */
-    transform: translateX(-50%) scale(1.05); /* Slightly enlarge when clicked */
-  }
-
-  /* ================== Snail and Bee Animation ================== */
-  .snailbee {
-    width: 80%;   /* Adjust snail/bee animation size for tablet */
-    top: 150px;   /* Adjust vertical position for tablet screens */
-    left: 10%;
-  }
-
-  /* ================== White Buttons (Overlay - Unclicked state) ================== */
+  /* White Buttons (Overlay - Unclicked State) */
   #overlay a.white-button {
-    width: 60%;
-    top: 85%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-
-/* Desktop and Larger Screens (min-width: 1024px) */
-@media only screen and (min-width: 1024px) {
-
-  /* ================== Logo ================== */
-  .logo {
-    width: 600px;  /* Set logo to its original size for desktop */
-    top: 125px;    /* Position logo further down */
+    position: absolute; /* Position each white button absolutely within the overlay */
+    display: block;     /* Make each button behave like a block-level element */
+    z-index: 2;         /* Ensure buttons are above the overlay background */
   }
 
-  /* ================== Original Buttons (Unclicked state) ================== */
-  .original-button {
-    width: auto;   /* Original button width */
-    top: 345px;    /* Adjust button position for larger screens */
-    left: 25%;     /* Position buttons with more spacing */
-    transform: translateX(0);
-    text-align: center;
+  #overlay a.white-button img {
+    display: block;     /* Ensure button images behave like block-level elements */
+    width: auto;        /* Adjust width dynamically */
+    height: auto;       /* Maintain aspect ratio of the images */
+    max-width: 100%;     /* Ensure button images don’t exceed container width */
   }
 
-  /* ================== Purple ON/OFF Button ================== */
+  /* Specific Adjustments for Each White Button */
+  #overlay #white-about-button {
+    top: 358px;  /* Position the "About" white button vertically */
+    left: 25%;   /* Position horizontally */
+  }
+
+  #overlay #white-music-button {
+    top: 363px;  /* Position the "Music" white button vertically */
+    left: 35%;   /* Position horizontally */
+  }
+
+  #overlay #white-blog-button {
+    top: 360px;  /* Position the "Blog" white button vertically */
+    left: 57%;   /* Position horizontally */
+  }
+
+  #overlay #white-gallery-button {
+    top: 363px;  /* Position the "Gallery" white button vertically */
+    left: 46%;   /* Position horizontally */
+  }
+
+  #overlay #white-contact-button {
+    top: 365px;  /* Position the "Contact" white button vertically */
+    left: 67%;   /* Position horizontally */
+  }
+
+  /* ================== Purple ON/OFF Button (Unclicked State) ================== */
   .switch-button {
-    width: 100px;
-    top: 475px;    /* Adjust vertical position for larger screens */
-    left: 50%;
-    transform: translateX(-50%);
+    position: absolute;           /* Position the button absolutely on the screen */
+    top: 475px;                   /* Vertical position of the button */
+    left: 25%;                    /* Horizontal position (centered) */
+    transform: translateX(-50%);  /* Center horizontally */
+    width: 100px;                 /* Width of the button */
+    height: 50px;                 /* Height of the button */
+    background-color: purple;    /* Purple background color */
+    border: 2px solid #fff;      /* White border */
+    border-radius: 25px;         /* Rounded corners */
+    cursor: pointer;             /* Makes it appear clickable */
+    color: white;                /* Text color (if any) inside the button */
+    font-weight: bold;           /* Bold text */
+    font-family: sans-serif;     /* Use sans-serif font */
+    text-align: center;          /* Center text inside the button */
+    line-height: 50px;           /* Vertically center text inside button */
+    text-decoration: none;       /* Remove text underline (if it's a link) */
+    transition: background 0.3s, transform 0.2s; /* Smooth transition for background and scaling */
+    z-index: 1001;               /* Ensure button is above other content */
   }
 
-  /* ================== White Buttons (Overlay - Unclicked state) ================== */
-  #overlay a.white-button {
-    width: auto;
-    top: 358px;
-    left: 25%;
-    transform: translateX(0);
+  /* Hover Effect for Purple Button (Unclicked State) */
+  .switch-button:hover {
+    background-color: #a64ca6;   /* Lighter purple when hovered */
+    transform: scale(1.05);       /* Slightly enlarge the button on hover */
   }
+
+  /* ================== Purple ON/OFF Button (Clicked State) ================== */
+  .switch-button.clicked {
+    background-color: #8e3fa7;    /* Darker purple when clicked */
+    transform: scale(1.1);         /* Slightly enlarge the button when clicked */
+  }
+
+  /* Active State for the Purple Button */
+  .switch-button:active {
+    background-color: #7b2b8e;     /* Even darker purple when pressed */
+    transform: scale(1.05);         /* Slightly shrink back when actively pressed */
+  }
+
+  /* ================== Logo Adjustments for Mobile ================== */
+  .logo {
+    width: 400px;  /* Reduce logo size on mobile */
+    top: 100px;    /* Adjust vertical position for mobile */
+    left: 50%;     /* Center logo horizontally */
+    transform: translateX(-50%);  /* Center logo horizontally */
+  }
+
+  #overlay .logo-white {
+    width: 400px;  /* Adjust white logo size for mobile */
+  }
+
+  /* ================== Button Spacing and Vertical Adjustments ================== */
+  .original-button {
+    margin-bottom: 30px; /* Add more space between buttons */
+  }
+
 }
 </style>
 </head>
