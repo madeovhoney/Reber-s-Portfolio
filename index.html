@@ -6,6 +6,7 @@
 <title>Honey Space</title>
 
 <style>
+/* Base Styles (for larger screens) */
 body {
   margin: 0;
   padding: 0;
@@ -159,74 +160,68 @@ a.original-button {
   width: auto;
   height: auto;
 }
-</style>
-</head>
-<body>
-<div class="container">
-  <!-- Stationary background flowers -->
-  <img src="images/backgnoflickerflow.png" alt="Background Flowers" class="background">
 
-  <!-- Flickering flowers -->
-  <img src="images/flickerbacklights.png" alt="Flickering Flowers" class="flicker">
+/* ---------------------------- Media Queries for Mobile ---------------------------- */
 
-  <!-- Original logo -->
-  <img src="images/honeyspacelogo.png" alt="Honey Space Logo" class="logo">
+/* Mobile devices (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+  body {
+    background: #000;
+  }
 
-  <!-- Original buttons -->
-  <a href="about.html" class="original-button" style="top: 345px; left: 25%;">
-    <img src="images/abouthoney.png" style="width: 85px; height:auto;">
-  </a>
-  <a href="music.html" class="original-button" style="top: 317px; left: 35%;">
-    <img src="images/musicbutton.png" style="width: 133px; height:auto;">
-  </a>
-  <a href="blog.html" class="original-button" style="top: 354px; left: 57%;">
-    <img src="images/blogbutton.png" style="width: 81px; height:auto;">
-  </a>
-  <a href="gallery.html" class="original-button" style="top: 363px; left: 46%;">
-    <img src="images/gallerybutton.png" style="width: 90px; height:auto;">
-  </a>
-  <a href="contact.html" class="original-button" style="top: 348px; left: 67%;">
-    <img src="images/contactbutton.png" style="width: 80px; height:auto;">
-  </a>
+  /* Logo and Background */
+  .logo {
+    width: 80%;  /* Make logo smaller on mobile */
+    top: 20px;   /* Adjust position */
+  }
 
-  <!-- Purple ON/OFF button -->
-  <a href="#" class="switch-button" onclick="toggleOverlay(); return false;">ON / OFF</a>
+  .background {
+    width: 100%;
+    height: auto;
+  }
 
-  <!-- Overlay -->
-  <div id="overlay">
-    <!-- Earthed background -->
-    <img src="images/earthedbackground.png" alt="Earthed Background" class="overlay-bg">
+  .flicker {
+    width: 100%;
+    height: auto;
+    transform: translateX(0) translateY(0);  /* Remove any offset */
+  }
 
-    <!-- Snail and bee image -->
-    <img src="images/snailandbee.png" alt="Snail and Bee" class="snailbee">
+  /* Original buttons */
+  .original-button {
+    width: 70%;   /* Make buttons more flexible */
+    top: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
 
-    <!-- White logo -->
-    <img src="images/honeyspacelogo.png" alt="White Logo" class="logo-white">
+  /* Purple ON/OFF button */
+  .switch-button {
+    width: 80%;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-    <!-- White buttons -->
-    <a href="about.html" class="white-button" style="top: 358px; left: 25%;">
-      <img src="images/whiteaboutbutton.png" style="width: 79px; height:auto;">
-    </a>
-    <a href="music.html" class="white-button" style="top: 363px; left: 35%;">
-      <img src="images/whitemusicbutton.png" style="width: 90px; height:auto;">
-    </a>
-    <a href="blog.html" class="white-button" style="top: 360px; left: 57%;">
-      <img src="images/whiteblogbutton.png" style="width: 69px; height:auto;">
-    </a>
-    <a href="gallery.html" class="white-button" style="top: 363px; left: 46%;">
-      <img src="images/whitegallerybutton.png" style="width: 90px; height:auto;">
-    </a>
-    <a href="contact.html" class="white-button" style="top: 365px; left: 67%;">
-      <img src="images/whitecontactbutton.png" style="width: 80px; height:auto;">
-    </a>
-  </div>
-</div>
+  /* Overlay elements */
+  #overlay img.overlay-bg {
+    width: 100%;
+    height: auto;
+  }
 
-<script>
-function toggleOverlay() {
-  const overlay = document.getElementById('overlay');
-  overlay.classList.toggle('show');
-}
-</script>
-</body>
-</html>
+  .snailbee {
+    width: 90%;   /* Make snail/bee smaller */
+    top: 120px;   /* Adjust starting position */
+    left: 5%;
+  }
+
+  /* White Buttons (overlay) */
+  #overlay a.white-button {
+    width: 80%;
+    top: 320px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Adjust overlay white button sizes */
+  #overlay a.white-but
