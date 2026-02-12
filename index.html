@@ -159,39 +159,9 @@ a.original-button {
   width: auto;
   height: auto;
 }
-/* ---------------------------- Media Queries for Responsiveness ---------------------------- */
-@media only screen and (max-width: 768px) {
+Sure! I've added the actual background image names wherever they appeared in the previous code. Please make sure you update the file paths to match the exact location and names of your images.
 
-  /* ================== General Adjustments for Mobile ================== */
-  body {
-    margin: 0;
-    padding: 0;
-    background: black;
-  }
-
-  .container {
-    width: 100%;        /* Container takes full width of the screen on mobile */
-    max-width: none;    /* Remove max-width for small screens */
-    margin: 0;
-    background: black;
-  }
-
-  .background, .flicker, .logo {
-    display: block;
-    width: 100%;        /* Ensure background and logo images scale to screen width */
-    height: auto;
-  }
-/* ---------------------------- General Background Style ---------------------------- */
-body {
-  margin: 0;
-  padding: 0;
-  background: black;
-  background-image: url('images/your-background-image.jpg'); /* Add your image */
-  background-size: cover; /* Ensures the image covers the entire viewport */
-  background-repeat: no-repeat;
-  background-position: center top; /* Position the background image from the top */
-  background-attachment: fixed; /* Keeps background in place while scrolling (optional) */
-}
+Here’s the updated code with the background images and other image elements included:
 
 /* ---------------------------- Media Queries for Responsiveness ---------------------------- */
 @media only screen and (max-width: 768px) {
@@ -201,7 +171,7 @@ body {
     margin: 0;
     padding: 0;
     background: black;
-    background-image: url('images/your-background-image.jpg'); /* Add your image */
+    background-image: url('images/backgnoflickerflow.png'); /* Replace with your actual background image name */
     background-size: auto 200%; /* This will extend the background vertically */
     background-position: center top; /* Keep the top of the background image aligned to the viewport */
     background-repeat: no-repeat;
@@ -265,6 +235,7 @@ body {
     top: 100px;  /* Adjust vertical position of the snail and bee animation */
     left: 25%;   /* Position animation towards the left */
     width: 350px; /* Reduce size of animation on mobile */
+    content: url('images/snailandbee.png'); /* Make sure to replace with your actual snail and bee image */
   }
 
   /* ================== Overlay Background and White Buttons ================== */
@@ -275,6 +246,7 @@ body {
   #overlay img.overlay-bg {
     width: 100%;  /* Ensure overlay background image fits full screen width */
     height: auto; /* Maintain aspect ratio for overlay background */
+    content: url('images/earthedbackground.png'); /* Replace with the actual image name for the background overlay */
   }
 
   /* White Buttons (Overlay - Unclicked State) */
@@ -363,16 +335,19 @@ body {
     top: 100px;    /* Adjust vertical position for mobile */
     left: 50%;     /* Center logo horizontally */
     transform: translateX(-50%);  /* Center logo horizontally */
+    content: url('images/honeyspacelogo.png'); /* Replace with the actual logo image path */
   }
 
   #overlay .logo-white {
     width: 400px;  /* Adjust white logo size for mobile */
+    content: url('images/honeyspacelogo.png'); /* Replace with the actual white logo image path */
   }
 
   /* ================== Button Spacing and Vertical Adjustments ================== */
   .original-button {
     margin-bottom: 30px; /* Add more space between buttons */
   }
+
 }
 </style>
 </head>
