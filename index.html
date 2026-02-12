@@ -163,27 +163,30 @@ a.original-button {
 
 /* Mobile devices (max-width: 768px) */
 @media only screen and (max-width: 768px) {
+
+  /* ================== Body and Background ================== */
   body {
     background: #000;
   }
 
-  /* Logo */
-  .logo {
-    width: 70%;  /* Make logo smaller on mobile */
-    top: 20px;   /* Adjust top position */
-    position: absolute;
-    left: 47%;   /* Center horizontally */
-    transform: translateX(-50%);
-  }
-
-  /* Background and Flicker */
+  /* Background image adjustments for mobile */
   .background, .flicker {
-    width: 100%;  /* Full width */
-    height: auto;
-    transform: translateX(0) translateY(0);  /* No offset */
+    width: 100%;  /* Ensure background takes full width */
+    height: 500vh;   /* Increase height to make the background longer on mobile (150% of viewport height) */
+    object-fit: cover;  /* Ensure the background image covers the area */
+    transform: translateX(0) translateY(0);  /* Remove any offset */
   }
 
-  /* Original buttons (unclicked state) */
+  /* ================== Logo ================== */
+  .logo {
+    width: 70%;  /* Make the logo smaller on mobile */
+    top: 20px;   /* Adjust top position for mobile */
+    position: absolute;
+    left: 50%;   /* Center the logo horizontally */
+    transform: translateX(-50%);  /* Ensure proper centering */
+  }
+
+  /* ================== Original Buttons (Unclicked state) ================== */
   .original-button {
     width: 60%;   /* Make buttons more compact on mobile */
     top: 40%;     /* Position buttons further down vertically */
@@ -194,91 +197,96 @@ a.original-button {
     transition: top 0.3s, transform 0.3s;  /* Smooth transition for centering adjustments */
   }
 
-  /* Adjusting button positions (clicked state) */
+  /* ================== Adjusting Original Buttons (Clicked state) ================== */
   .original-button.clicked {
-    top: 45%; /* Make the clicked buttons move slightly down */
+    top: 45%; /* Move the clicked buttons slightly down */
     transform: translateX(-50%) scale(1.1); /* Slightly enlarge when clicked */
   }
 
-  /* Purple ON/OFF button (unclicked state) */
+  /* ================== Purple ON/OFF Button (Unclicked state) ================== */
   .switch-button {
-    width: 40%;
-    top: 100%;     /* Position the button further down */
+    width: 60%;   /* Width for the purple ON/OFF button */
+    top: 75%;     /* Position the button further down vertically */
     left: 50%;
-    transform: translateX(-50%);
-    transition: top 0.3s, transform 0.3s;  /* Smooth transition for centering adjustments */
+    transform: translateX(-50%); /* Center horizontally */
+    transition: top 0.3s, transform 0.3s; /* Smooth transition for centering adjustments */
   }
 
-  /* Purple ON/OFF button (clicked state) */
+  /* ================== Purple ON/OFF Button (Clicked state) ================== */
   .switch-button.clicked {
     top: 80%;     /* Move down when clicked */
-    transform: translateX(-50%) scale(1.1); /* Enlarge slightly when clicked */
+    transform: translateX(-50%) scale(1.1); /* Enlarge the button slightly when clicked */
   }
 
-  /* Snail and bee animation */
+  /* ================== Snail and Bee Animation ================== */
   .snailbee {
-    width: 80%;   /* Shrink snail/bee animation */
-    top: 30%;     /* Position it higher to spread out content vertically */
-    left: 10%;
-    z-index: 3;
+    width: 80%;   /* Shrink the snail/bee animation */
+    top: 30%;     /* Position it higher on mobile to spread out content vertically */
+    left: 10%;    /* Adjust left positioning */
+    z-index: 3;   /* Ensure the animation stays on top of other elements */
   }
 
-  /* White Buttons (overlay) */
+  /* ================== White Buttons (Overlay - Unclicked state) ================== */
   #overlay a.white-button {
-    width: 60%;
-    top: 85%;     /* Position buttons further down in the overlay */
+    width: 60%;   /* Make the buttons more compact */
+    top: 85%;     /* Position buttons further down */
     left: 50%;    /* Center horizontally */
     transform: translateX(-50%);
-    transition: top 0.3s, transform 0.3s;  /* Smooth transition for centering adjustments */
+    transition: top 0.3s, transform 0.3s; /* Smooth transition for centering adjustments */
   }
 
-  /* Adjust overlay white button sizes */
+  /* ================== White Buttons in Overlay (Image Adjustments) ================== */
   #overlay a.white-button img {
-    width: 70%;
-    height: auto;
+    width: 70%;   /* Adjust image size for white buttons in overlay */
+    height: auto; /* Maintain aspect ratio */
   }
 
-  /* Earthed background overlay */
+  /* ================== Earthed Background Overlay ================== */
   #overlay img.overlay-bg {
-    width: 100%;
-    height: auto;
+    width: 100%;   /* Make background image fill the entire width */
+    height: auto;  /* Adjust height for proper scaling */
   }
 }
 
+
 /* Tablet devices (768px to 1024px) */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+  /* ================== Logo ================== */
   .logo {
-    width: 60%;
-    top: 40px;   /* Adjust vertical position for tablets */
+    width: 60%;  /* Make the logo smaller on tablets */
+    top: 40px;   /* Adjust vertical position */
   }
 
+  /* ================== Purple ON/OFF Button ================== */
   .switch-button {
     width: 60%;
     top: 65%;    /* Position ON/OFF button further down */
   }
 
-  /* Button adjustments for tablet (unclicked state) */
+  /* ================== Original Buttons (Unclicked state) ================== */
   .original-button {
-    width: 50%;
-    top: 300px;  /* Adjust the top position for tablet */
-    left: 50%;
+    width: 50%;   /* Make buttons smaller on tablets */
+    top: 300px;   /* Adjust button positions */
+    left: 50%;    /* Center horizontally */
     transform: translateX(-50%);
     transition: top 0.3s, transform 0.3s;  /* Smooth transition for centering adjustments */
   }
 
-  /* Button adjustments for tablet (clicked state) */
+  /* ================== Adjusting Original Buttons (Clicked state) ================== */
   .original-button.clicked {
-    top: 305px; /* Move clicked buttons slightly down */
+    top: 305px;   /* Move clicked buttons slightly down */
     transform: translateX(-50%) scale(1.05); /* Slightly enlarge when clicked */
   }
 
+  /* ================== Snail and Bee Animation ================== */
   .snailbee {
-    width: 80%;  /* Adjust snail/bee size */
-    top: 150px;  /* Adjust vertical position */
+    width: 80%;   /* Adjust snail/bee animation size for tablet */
+    top: 150px;   /* Adjust vertical position for tablet screens */
     left: 10%;
   }
 
-  /* White Buttons (overlay) */
+  /* ================== White Buttons (Overlay - Unclicked state) ================== */
   #overlay a.white-button {
     width: 60%;
     top: 85%;
@@ -287,31 +295,34 @@ a.original-button {
   }
 }
 
+
 /* Desktop and Larger Screens (min-width: 1024px) */
 @media only screen and (min-width: 1024px) {
+
+  /* ================== Logo ================== */
   .logo {
-    width: 600px;  /* Original size for desktop */
-    top: 125px;
+    width: 600px;  /* Set logo to its original size for desktop */
+    top: 125px;    /* Position logo further down */
   }
 
-  /* Original buttons (unclicked state) */
+  /* ================== Original Buttons (Unclicked state) ================== */
   .original-button {
-    width: auto;   /* Default width for buttons */
-    top: 345px;    /* Positioning buttons further down */
-    left: 25%;
+    width: auto;   /* Original button width */
+    top: 345px;    /* Adjust button position for larger screens */
+    left: 25%;     /* Position buttons with more spacing */
     transform: translateX(0);
     text-align: center;
   }
 
-  /* Purple ON/OFF button */
+  /* ================== Purple ON/OFF Button ================== */
   .switch-button {
     width: 100px;
-    top: 475px;    /* Position further down */
+    top: 475px;    /* Adjust vertical position for larger screens */
     left: 50%;
     transform: translateX(-50%);
   }
 
-  /* White buttons in overlay */
+  /* ================== White Buttons (Overlay - Unclicked state) ================== */
   #overlay a.white-button {
     width: auto;
     top: 358px;
