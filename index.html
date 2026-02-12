@@ -181,6 +181,47 @@ a.original-button {
     width: 100%;        /* Ensure background and logo images scale to screen width */
     height: auto;
   }
+/* ---------------------------- General Background Style ---------------------------- */
+body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  background-image: url('images/your-background-image.jpg'); /* Add your image */
+  background-size: cover; /* Ensures the image covers the entire viewport */
+  background-repeat: no-repeat;
+  background-position: center top; /* Position the background image from the top */
+  background-attachment: fixed; /* Keeps background in place while scrolling (optional) */
+}
+
+/* ---------------------------- Media Queries for Responsiveness ---------------------------- */
+@media only screen and (max-width: 768px) {
+
+  /* ================== General Adjustments for Mobile ================== */
+  body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    background-image: url('images/your-background-image.jpg'); /* Add your image */
+    background-size: auto 200%; /* This will extend the background vertically */
+    background-position: center top; /* Keep the top of the background image aligned to the viewport */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps background in place while scrolling */
+  }
+
+  .container {
+    width: 100%;        /* Container takes full width of the screen on mobile */
+    max-width: none;    /* Remove max-width for small screens */
+    margin: 0;
+    background: black;
+    height: 100vh;      /* Ensure the container takes full height of the screen */
+    overflow: hidden;   /* Hide anything that extends beyond the container (background image) */
+  }
+
+  .background, .flicker, .logo {
+    display: block;
+    width: 100%;        /* Ensure background and logo images scale to screen width */
+    height: auto;
+  }
 
   /* ================== Original Buttons (Unclicked state) - Mobile Adjustments ================== */
   .original-button {
@@ -332,7 +373,6 @@ a.original-button {
   .original-button {
     margin-bottom: 30px; /* Add more space between buttons */
   }
-
 }
 </style>
 </head>
