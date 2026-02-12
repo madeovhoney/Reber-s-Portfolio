@@ -159,10 +159,6 @@ a.original-button {
   width: auto;
   height: auto;
 }
-Sure! I've added the actual background image names wherever they appeared in the previous code. Please make sure you update the file paths to match the exact location and names of your images.
-
-Here’s the updated code with the background images and other image elements included:
-
 /* ---------------------------- Media Queries for Responsiveness ---------------------------- */
 @media only screen and (max-width: 768px) {
 
@@ -171,71 +167,71 @@ Here’s the updated code with the background images and other image elements in
     margin: 0;
     padding: 0;
     background: black;
-    background-image: url('images/backgnoflickerflow.png'); /* Replace with your actual background image name */
-    background-size: auto 200%; /* This will extend the background vertically */
-    background-position: center top; /* Keep the top of the background image aligned to the viewport */
+    background-image: url('images/backgnoflickerflow.png'); /* Background Image */
+    background-size: auto 200%; /* Extend background vertically */
+    background-position: center top; /* Position top of background to top of viewport */
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Keeps background in place while scrolling */
+    background-attachment: fixed; /* Keeps background fixed while scrolling */
   }
 
   .container {
-    width: 100%;        /* Container takes full width of the screen on mobile */
-    max-width: none;    /* Remove max-width for small screens */
+    width: 100%;        /* Full container width on mobile */
+    max-width: none;    /* Remove max-width constraint for smaller screens */
     margin: 0;
     background: black;
-    height: 100vh;      /* Ensure the container takes full height of the screen */
-    overflow: hidden;   /* Hide anything that extends beyond the container (background image) */
+    height: 100vh;      /* Full viewport height */
+    overflow: hidden;   /* Hide overflow of background image */
   }
 
   .background, .flicker, .logo {
     display: block;
-    width: 100%;        /* Ensure background and logo images scale to screen width */
+    width: 100%;        /* Ensure images scale with screen width */
     height: auto;
   }
 
   /* ================== Original Buttons (Unclicked state) - Mobile Adjustments ================== */
   .original-button {
-    width: 40%;          /* Button width is smaller on mobile for a compact look */
-    top: 50%;            /* Center the buttons vertically on the screen */
-    left: 50%;           /* Center the buttons horizontally */
-    transform: translateX(-50%);  /* Ensures buttons are centered */
-    margin-bottom: 30px; /* Add space between buttons for better separation */
+    width: 40%;          /* Button width for a more compact look on mobile */
+    top: 50%;            /* Center buttons vertically */
+    left: 50%;           /* Center buttons horizontally */
+    transform: translateX(-50%);  /* Center horizontally */
+    margin-bottom: 30px; /* Add space between buttons */
     transition: top 0.3s, transform 0.3s;  /* Smooth transition for positioning */
   }
 
   .original-button img {
-    width: 100%;         /* Make button images fill their containers */
-    height: auto;        /* Maintain aspect ratio of the button images */
-    object-fit: contain; /* Ensure images fit within their container without distortion */
+    width: 100%;         /* Ensure button images fill their containers */
+    height: auto;        /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure no distortion of button images */
   }
 
   /* ================== Specific Button Adjustments (Unclicked) ================== */
   #about-button {
-    top: 40%;   /* Adjust vertical position for the About button */
+    top: 40%;   /* Vertical position for the "About" button */
   }
 
   #music-button {
-    top: 45%;   /* Adjust vertical position for the Music button */
+    top: 45%;   /* Vertical position for the "Music" button */
   }
 
   #blog-button {
-    top: 50%;   /* Adjust vertical position for the Blog button */
+    top: 50%;   /* Vertical position for the "Blog" button */
   }
 
   #gallery-button {
-    top: 55%;   /* Adjust vertical position for the Gallery button */
+    top: 55%;   /* Vertical position for the "Gallery" button */
   }
 
   #contact-button {
-    top: 60%;   /* Adjust vertical position for the Contact button */
+    top: 60%;   /* Vertical position for the "Contact" button */
   }
 
   /* ================== Snail and Bee Animation (Mobile Adjustments) ================== */
   .snailbee {
-    top: 100px;  /* Adjust vertical position of the snail and bee animation */
-    left: 25%;   /* Position animation towards the left */
+    top: 100px;  /* Adjust vertical position */
+    left: 25%;   /* Adjust horizontal position */
     width: 350px; /* Reduce size of animation on mobile */
-    content: url('images/snailandbee.png'); /* Make sure to replace with your actual snail and bee image */
+    content: url('images/snailandbee.png'); /* Replace with your actual snail and bee image */
   }
 
   /* ================== Overlay Background and White Buttons ================== */
@@ -244,23 +240,23 @@ Here’s the updated code with the background images and other image elements in
   }
 
   #overlay img.overlay-bg {
-    width: 100%;  /* Ensure overlay background image fits full screen width */
-    height: auto; /* Maintain aspect ratio for overlay background */
-    content: url('images/earthedbackground.png'); /* Replace with the actual image name for the background overlay */
+    width: 100%;  /* Ensure overlay background image fits full width */
+    height: auto; /* Maintain aspect ratio for the overlay background */
+    content: url('images/earthedbackground.png'); /* Replace with your overlay background image */
   }
 
   /* White Buttons (Overlay - Unclicked State) */
   #overlay a.white-button {
-    position: absolute; /* Position each white button absolutely within the overlay */
-    display: block;     /* Make each button behave like a block-level element */
-    z-index: 2;         /* Ensure buttons are above the overlay background */
+    position: absolute; /* Position buttons absolutely within the overlay */
+    display: block;     /* Make buttons behave like block elements */
+    z-index: 2;         /* Ensure buttons appear above overlay background */
   }
 
   #overlay a.white-button img {
-    display: block;     /* Ensure button images behave like block-level elements */
+    display: block;     /* Ensure button images behave like block elements */
     width: auto;        /* Adjust width dynamically */
-    height: auto;       /* Maintain aspect ratio of the images */
-    max-width: 100%;     /* Ensure button images don’t exceed container width */
+    height: auto;       /* Maintain aspect ratio */
+    max-width: 100%;     /* Prevent image overflow */
   }
 
   /* Specific Adjustments for Each White Button */
@@ -291,56 +287,56 @@ Here’s the updated code with the background images and other image elements in
 
   /* ================== Purple ON/OFF Button (Unclicked State) ================== */
   .switch-button {
-    position: absolute;           /* Position the button absolutely on the screen */
-    top: 475px;                   /* Vertical position of the button */
-    left: 25%;                    /* Horizontal position (centered) */
-    transform: translateX(-50%);  /* Center horizontally */
-    width: 100px;                 /* Width of the button */
-    height: 50px;                 /* Height of the button */
-    background-color: purple;    /* Purple background color */
+    position: absolute;           /* Position the button absolutely */
+    top: 475px;                   /* Vertical position */
+    left: 25%;                    /* Horizontal center */
+    transform: translateX(-50%);  /* Center the button horizontally */
+    width: 100px;                 /* Button width */
+    height: 50px;                 /* Button height */
+    background-color: purple;    /* Purple background */
     border: 2px solid #fff;      /* White border */
     border-radius: 25px;         /* Rounded corners */
-    cursor: pointer;             /* Makes it appear clickable */
-    color: white;                /* Text color (if any) inside the button */
+    cursor: pointer;             /* Mouse cursor */
+    color: white;                /* Text color */
     font-weight: bold;           /* Bold text */
-    font-family: sans-serif;     /* Use sans-serif font */
-    text-align: center;          /* Center text inside the button */
-    line-height: 50px;           /* Vertically center text inside button */
-    text-decoration: none;       /* Remove text underline (if it's a link) */
-    transition: background 0.3s, transform 0.2s; /* Smooth transition for background and scaling */
-    z-index: 1001;               /* Ensure button is above other content */
+    font-family: sans-serif;     /* Font family */
+    text-align: center;          /* Center text */
+    line-height: 50px;           /* Center text vertically */
+    text-decoration: none;       /* Remove text underline */
+    transition: background 0.3s, transform 0.2s; /* Smooth transition */
+    z-index: 1001;               /* Ensure button stays above other content */
   }
 
   /* Hover Effect for Purple Button (Unclicked State) */
   .switch-button:hover {
-    background-color: #a64ca6;   /* Lighter purple when hovered */
-    transform: scale(1.05);       /* Slightly enlarge the button on hover */
+    background-color: #a64ca6;   /* Lighter purple on hover */
+    transform: scale(1.05);       /* Slightly enlarge button */
   }
 
   /* ================== Purple ON/OFF Button (Clicked State) ================== */
   .switch-button.clicked {
     background-color: #8e3fa7;    /* Darker purple when clicked */
-    transform: scale(1.1);         /* Slightly enlarge the button when clicked */
+    transform: scale(1.1);         /* Slightly enlarge button when clicked */
   }
 
   /* Active State for the Purple Button */
   .switch-button:active {
     background-color: #7b2b8e;     /* Even darker purple when pressed */
-    transform: scale(1.05);         /* Slightly shrink back when actively pressed */
+    transform: scale(1.05);         /* Slight shrink effect when pressed */
   }
 
   /* ================== Logo Adjustments for Mobile ================== */
   .logo {
-    width: 400px;  /* Reduce logo size on mobile */
-    top: 100px;    /* Adjust vertical position for mobile */
+    width: 400px;  /* Reduce logo size */
+    top: 100px;    /* Adjust vertical position */
     left: 50%;     /* Center logo horizontally */
-    transform: translateX(-50%);  /* Center logo horizontally */
-    content: url('images/honeyspacelogo.png'); /* Replace with the actual logo image path */
+    transform: translateX(-50%);  /* Ensure logo is perfectly centered */
+    content: url('images/honeyspacelogo.png'); /* Your actual logo image path */
   }
 
   #overlay .logo-white {
-    width: 400px;  /* Adjust white logo size for mobile */
-    content: url('images/honeyspacelogo.png'); /* Replace with the actual white logo image path */
+    width: 400px;  /* Adjust size of the white logo for mobile */
+    content: url('images/honeyspacelogo.png'); /* Your white logo image path */
   }
 
   /* ================== Button Spacing and Vertical Adjustments ================== */
