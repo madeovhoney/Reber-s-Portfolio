@@ -31,4 +31,297 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  transform: translateX(-34
+  transform: translateX(-34px) translateY(69px);
+  animation: flickerAnimation 7s infinite;
+}
+
+@keyframes flickerAnimation {
+  0%, 15%, 20%, 25%, 50%, 55%, 100% { opacity: 1; }
+  16%, 18%, 22%, 24%, 51%, 54% { opacity: 0.3; }
+}
+
+.logo {
+  position: absolute;
+  top: 125px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  z-index: 5;
+}
+
+/* Purple ON/OFF button */
+.switch-button {
+  position: absolute;
+  top: 475px;
+  left: 25%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 50px;
+  background-color: purple;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-align: center;
+  line-height: 50px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+  z-index: 1001;
+}
+
+.switch-button:hover {
+  background-color: #a64ca6;
+  transform: scale(1.05);
+}
+
+a {
+  display: block;
+  position: absolute;
+}
+
+/* Original buttons */
+a.original-button {
+  position: absolute;
+  display: block;
+  z-index: 1;
+}
+
+/* Overlay container */
+#overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 900;
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
+}
+
+#overlay.show {
+  display: block;
+  opacity: 1;
+}
+
+/* Earthed background overlay */
+#overlay img.overlay-bg {
+  position: absolute;
+  top: -40px;
+  left: -70px;
+  width: 1400px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+}
+
+/* Snail and bee animation */
+.snailbee {
+  position: absolute;
+  top: 100px;  /* adjust starting vertical position */
+  left: 235px;  /* adjust starting horizontal position */
+  width: 600px; /* adjust size */
+  height: auto;
+  z-index: 3;  /* above overlay, below white buttons */
+  animation: moveSnailBee 4s infinite alternate ease-in-out;
+}
+
+@keyframes moveSnailBee {
+  0%   { transform: translate(0px, 0px) rotate(0deg); }
+  25%  { transform: translate(50px, -20px) rotate(10deg); }
+  50%  { transform: translate(100px, 0px) rotate(-10deg); }
+  75%  { transform: translate(30px, 10px) rotate(5deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
+}
+
+/* White logo overlay */
+#overlay .logo-white {
+  position: absolute;
+  top: 125px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  z-index: 2;
+}
+
+/* White buttons overlay */
+#overlay a.white-button {
+  position: absolute;
+  display: block;
+  z-index: 2;
+}
+
+#overlay a.white-button img {
+  display: block;
+  width: auto;
+  height: auto;
+}
+  /* ---------------------------- Media Queries for Mobile ---------------------------- */
+
+/* Mobile devices (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+  body {
+    background: #000;
+  }
+
+  /* Logo and Background */
+  .logo {
+    width: 80%;  /* Make logo smaller on mobile */
+    top: 20px;   /* Adjust position */
+  }
+
+  .background {
+    width: 100%;
+    height: auto;
+  }
+
+  .flicker {
+    width: 100%;
+    height: auto;
+    transform: translateX(0) translateY(0);  /* Remove any offset */
+  }
+
+  /* Original buttons */
+  .original-button {
+    width: 70%;   /* Make buttons more flexible */
+    top: 250px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+
+  /* Purple ON/OFF button */
+  .switch-button {
+    width: 80%;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Overlay elements */
+  #overlay img.overlay-bg {
+    width: 100%;
+    height: auto;
+  }
+
+  .snailbee {
+    width: 90%;   /* Make snail/bee smaller */
+    top: 120px;   /* Adjust starting position */
+    left: 5%;
+  }
+
+  /* White Buttons (overlay) */
+  #overlay a.white-button {
+    width: 80%;
+    top: 320px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* Adjust overlay white button sizes */
+  #overlay a.white-button img {
+    width: 70%;
+    height: auto;
+  }
+}
+
+/* Tablet devices (768px to 1024px) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .logo {
+    width: 60%;
+    top: 40px;
+  }
+
+  .switch-button {
+    width: 60%;
+    top: 65%;
+  }
+
+  /* Button adjustments for tablet */
+  .original-button {
+    width: 50%;
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .snailbee {
+    width: 80%;
+    top: 150px;
+    left: 10%;
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- Stationary background flowers -->
+  <img src="images/backgnoflickerflow.png" alt="Background Flowers" class="background">
+
+  <!-- Flickering flowers -->
+  <img src="images/flickerbacklights.png" alt="Flickering Flowers" class="flicker">
+
+  <!-- Original logo -->
+  <img src="images/honeyspacelogo.png" alt="Honey Space Logo" class="logo">
+
+  <!-- Original buttons -->
+  <a href="about.html" class="original-button" style="top: 345px; left: 25%;">
+    <img src="images/abouthoney.png" style="width: 85px; height:auto;">
+  </a>
+  <a href="music.html" class="original-button" style="top: 317px; left: 35%;">
+    <img src="images/musicbutton.png" style="width: 133px; height:auto;">
+  </a>
+  <a href="blog.html" class="original-button" style="top: 354px; left: 57%;">
+    <img src="images/blogbutton.png" style="width: 81px; height:auto;">
+  </a>
+  <a href="gallery.html" class="original-button" style="top: 363px; left: 46%;">
+    <img src="images/gallerybutton.png" style="width: 90px; height:auto;">
+  </a>
+  <a href="contact.html" class="original-button" style="top: 348px; left: 67%;">
+    <img src="images/contactbutton.png" style="width: 80px; height:auto;">
+  </a>
+
+  <!-- Purple ON/OFF button -->
+  <a href="#" class="switch-button" onclick="toggleOverlay(); return false;">ON / OFF</a>
+
+  <!-- Overlay -->
+  <div id="overlay">
+    <!-- Earthed background -->
+    <img src="images/earthedbackground.png" alt="Earthed Background" class="overlay-bg">
+
+    <!-- Snail and bee image -->
+    <img src="images/snailandbee.png" alt="Snail and Bee" class="snailbee">
+
+    <!-- White logo -->
+    <img src="images/honeyspacelogo.png" alt="White Logo" class="logo-white">
+
+    <!-- White buttons -->
+    <a href="about.html" class="white-button" style="top: 358px; left: 25%;">
+      <img src="images/whiteaboutbutton.png" style="width: 79px; height:auto;">
+    </a>
+    <a href="music.html" class="white-button" style="top: 363px; left: 35%;">
+      <img src="images/whitemusicbutton.png" style="width: 90px; height:auto;">
+    </a>
+    <a href="blog.html" class="white-button" style="top: 360px; left: 57%;">
+      <img src="images/whiteblogbutton.png" style="width: 69px; height:auto;">
+    </a>
+    <a href="gallery.html" class="white-button" style="top: 363px; left: 46%;">
+      <img src="images/whitegallerybutton.png" style="width: 90px; height:auto;">
+    </a>
+    <a href="contact.html" class="white-button" style="top: 365px; left: 67%;">
+      <img src="images/whitecontactbutton.png" style="width: 80px; height:auto;">
+    </a>
+  </div>
+</div>
+
+<script>
+function toggleOverlay() {
+  const overlay = document.getElementById('overlay');
+  overlay.classList.toggle('show');
+}
+</script>
+</body>
+</html>
