@@ -6,10 +6,16 @@
 <title>Honey Space</title>
 
 <style>
+
+/* =======================================================
+   1. GLOBAL PAGE STYLING
+   ======================================================= */
+
 body {
   margin: 0;
   padding: 0;
   background: black;
+  overflow-x: hidden;
 }
 
 .container {
@@ -20,25 +26,37 @@ body {
   background: black;
 }
 
-.background, .flicker, .logo {
+/* =======================================================
+   2. BACKGROUND LAYER
+   ======================================================= */
+
+.background {
   display: block;
   width: 100%;
   height: auto;
 }
+
+/* =======================================================
+   3. FLICKER EFFECT LAYER
+   ======================================================= */
 
 .flicker {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  transform: translateX(-34px) translateY(69px);
   animation: flickerAnimation 7s infinite;
+  z-index: 1;
 }
 
 @keyframes flickerAnimation {
   0%, 15%, 20%, 25%, 50%, 55%, 100% { opacity: 1; }
   16%, 18%, 22%, 24%, 51%, 54% { opacity: 0.3; }
 }
+
+/* =======================================================
+   4. MAIN LOGO
+   ======================================================= */
 
 .logo {
   position: absolute;
@@ -49,53 +67,51 @@ body {
   z-index: 5;
 }
 
-/* Purple ON/OFF button */
+/* =======================================================
+   5. NAVIGATION BUTTONS (CLICK VERSION SET)
+   ======================================================= */
+
+.original-button {
+  position: absolute;
+  display: block;
+  z-index: 5;
+}
+
+.original-button img {
+  display: block;
+  height: auto;
+}
+
+/* =======================================================
+   6. PURPLE TOGGLE BUTTON (IMAGE-BASED)
+   ======================================================= */
+
 .switch-button {
   position: absolute;
   top: 475px;
   left: 25%;
   transform: translateX(-50%);
-  width: 100px;
-  height: 50px;
-  background-color: purple;
-  border: 2px solid #fff;
-  border-radius: 25px;
-  cursor: pointer;
-  color: white;
-  font-weight: bold;
-  font-family: sans-serif;
-  text-align: center;
-  line-height: 50px;
-  text-decoration: none;
-  transition: background 0.3s, transform 0.2s;
+  width: 120px;
   z-index: 1001;
+  cursor: pointer;
 }
 
-.switch-button:hover {
-  background-color: #a64ca6;
-  transform: scale(1.05);
-}
-
-a {
+.switch-button img {
+  width: 100%;
+  height: auto;
   display: block;
-  position: absolute;
 }
 
-/* Original buttons */
-a.original-button {
-  position: absolute;
-  display: block;
-  z-index: 1;
-}
+/* =======================================================
+   7. OVERLAY MODE
+   ======================================================= */
 
-/* Overlay container */
 #overlay {
   display: none;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
   z-index: 900;
   opacity: 0;
   transition: opacity 0.8s ease-in;
@@ -106,38 +122,15 @@ a.original-button {
   opacity: 1;
 }
 
-/* Earthed background overlay */
-#overlay img.overlay-bg {
+/* Overlay Background */
+#overlay .overlay-bg {
   position: absolute;
-  top: -40px;
-  left: -70px;
-  width: 1400px;
-  height: auto;
-  object-fit: cover;
-  display: block;
-  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
 
-/* Snail and bee animation */
-.snailbee {
-  position: absolute;
-  top: 100px;  /* adjust starting vertical position */
-  left: 235px;  /* adjust starting horizontal position */
-  width: 600px; /* adjust size */
-  height: auto;
-  z-index: 3;  /* above overlay, below white buttons */
-  animation: moveSnailBee 4s infinite alternate ease-in-out;
-}
-
-@keyframes moveSnailBee {
-  0%   { transform: translate(0px, 0px) rotate(0deg); }
-  25%  { transform: translate(50px, -20px) rotate(10deg); }
-  50%  { transform: translate(100px, 0px) rotate(-10deg); }
-  75%  { transform: translate(30px, 10px) rotate(5deg); }
-  100% { transform: translate(0px, 0px) rotate(0deg); }
-}
-
-/* White logo overlay */
+/* Overlay Logo */
 #overlay .logo-white {
   position: absolute;
   top: 125px;
@@ -147,266 +140,148 @@ a.original-button {
   z-index: 2;
 }
 
-/* White buttons overlay */
-#overlay a.white-button {
+/* Overlay White Navigation Buttons */
+#overlay .white-button {
   position: absolute;
   display: block;
-  z-index: 2;
+  z-index: 3;
 }
 
-#overlay a.white-button img {
+#overlay .white-button img {
   display: block;
-  width: auto;
   height: auto;
 }
-/* ---------------------------- Media Queries for Responsiveness ---------------------------- */
+
+/* =======================================================
+   8. MOBILE RESPONSIVENESS
+   ======================================================= */
+
 @media only screen and (max-width: 768px) {
 
-  /* ================== General Adjustments for Mobile ================== */
-  body {
-    margin: 0;
-    padding: 0;
-    background: black;
-    background-image: url('images/backgnoflickerflow.png'); /* Background Image */
-    background-size: auto 200%; /* Extend background vertically */
-    background-position: center top; /* Position top of background to top of viewport */
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Keeps background fixed while scrolling */
-  }
-
-  .container {
-    width: 100%;        /* Full container width on mobile */
-    max-width: none;    /* Remove max-width constraint for smaller screens */
-    margin: 0;
-    background: black;
-    height: 100vh;      /* Full viewport height */
-    overflow: hidden;   /* Hide overflow of background image */
-  }
-
-  .background, .flicker, .logo {
-    display: block;
-    width: 100%;        /* Ensure images scale with screen width */
-    height: auto;
-  }
-
-  /* ================== Original Buttons (Unclicked state) - Mobile Adjustments ================== */
-  .original-button {
-    width: 40%;          /* Button width for a more compact look on mobile */
-    top: 50%;            /* Center buttons vertically */
-    left: 50%;           /* Center buttons horizontally */
-    transform: translateX(-50%);  /* Center horizontally */
-    margin-bottom: 30px; /* Add space between buttons */
-    transition: top 0.3s, transform 0.3s;  /* Smooth transition for positioning */
-  }
-
-  .original-button img {
-    width: 100%;         /* Ensure button images fill their containers */
-    height: auto;        /* Maintain aspect ratio */
-    object-fit: contain; /* Ensure no distortion of button images */
-  }
-
-  /* ================== Specific Button Adjustments (Unclicked) ================== */
-  #about-button {
-    top: 40%;   /* Vertical position for the "About" button */
-  }
-
-  #music-button {
-    top: 45%;   /* Vertical position for the "Music" button */
-  }
-
-  #blog-button {
-    top: 50%;   /* Vertical position for the "Blog" button */
-  }
-
-  #gallery-button {
-    top: 55%;   /* Vertical position for the "Gallery" button */
-  }
-
-  #contact-button {
-    top: 60%;   /* Vertical position for the "Contact" button */
-  }
-
-  /* ================== Snail and Bee Animation (Mobile Adjustments) ================== */
-  .snailbee {
-    top: 100px;  /* Adjust vertical position */
-    left: 25%;   /* Adjust horizontal position */
-    width: 350px; /* Reduce size of animation on mobile */
-    content: url('images/snailandbee.png'); /* Replace with your actual snail and bee image */
-  }
-
-  /* ================== Overlay Background and White Buttons ================== */
-  #overlay {
-    /* Overlay container adjustments */
-  }
-
-  #overlay img.overlay-bg {
-    width: 100%;  /* Ensure overlay background image fits full width */
-    height: auto; /* Maintain aspect ratio for the overlay background */
-    content: url('images/earthedbackground.png'); /* Replace with your overlay background image */
-  }
-
-  /* White Buttons (Overlay - Unclicked State) */
-  #overlay a.white-button {
-    position: absolute; /* Position buttons absolutely within the overlay */
-    display: block;     /* Make buttons behave like block elements */
-    z-index: 2;         /* Ensure buttons appear above overlay background */
-  }
-
-  #overlay a.white-button img {
-    display: block;     /* Ensure button images behave like block elements */
-    width: auto;        /* Adjust width dynamically */
-    height: auto;       /* Maintain aspect ratio */
-    max-width: 100%;     /* Prevent image overflow */
-  }
-
-  /* Specific Adjustments for Each White Button */
-  #overlay #white-about-button {
-    top: 358px;  /* Position the "About" white button vertically */
-    left: 25%;   /* Position horizontally */
-  }
-
-  #overlay #white-music-button {
-    top: 363px;  /* Position the "Music" white button vertically */
-    left: 35%;   /* Position horizontally */
-  }
-
-  #overlay #white-blog-button {
-    top: 360px;  /* Position the "Blog" white button vertically */
-    left: 57%;   /* Position horizontally */
-  }
-
-  #overlay #white-gallery-button {
-    top: 363px;  /* Position the "Gallery" white button vertically */
-    left: 46%;   /* Position horizontally */
-  }
-
-  #overlay #white-contact-button {
-    top: 365px;  /* Position the "Contact" white button vertically */
-    left: 67%;   /* Position horizontally */
-  }
-
-  /* ================== Purple ON/OFF Button (Unclicked State) ================== */
-  .switch-button {
-    position: absolute;           /* Position the button absolutely */
-    top: 475px;                   /* Vertical position */
-    left: 25%;                    /* Horizontal center */
-    transform: translateX(-50%);  /* Center the button horizontally */
-    width: 100px;                 /* Button width */
-    height: 50px;                 /* Button height */
-    background-color: purple;    /* Purple background */
-    border: 2px solid #fff;      /* White border */
-    border-radius: 25px;         /* Rounded corners */
-    cursor: pointer;             /* Mouse cursor */
-    color: white;                /* Text color */
-    font-weight: bold;           /* Bold text */
-    font-family: sans-serif;     /* Font family */
-    text-align: center;          /* Center text */
-    line-height: 50px;           /* Center text vertically */
-    text-decoration: none;       /* Remove text underline */
-    transition: background 0.3s, transform 0.2s; /* Smooth transition */
-    z-index: 1001;               /* Ensure button stays above other content */
-  }
-
-  /* Hover Effect for Purple Button (Unclicked State) */
-  .switch-button:hover {
-    background-color: #a64ca6;   /* Lighter purple on hover */
-    transform: scale(1.05);       /* Slightly enlarge button */
-  }
-
-  /* ================== Purple ON/OFF Button (Clicked State) ================== */
-  .switch-button.clicked {
-    background-color: #8e3fa7;    /* Darker purple when clicked */
-    transform: scale(1.1);         /* Slightly enlarge button when clicked */
-  }
-
-  /* Active State for the Purple Button */
-  .switch-button:active {
-    background-color: #7b2b8e;     /* Even darker purple when pressed */
-    transform: scale(1.05);         /* Slight shrink effect when pressed */
-  }
-
-  /* ================== Logo Adjustments for Mobile ================== */
-  .logo {
-    width: 400px;  /* Reduce logo size */
-    top: 100px;    /* Adjust vertical position */
-    left: 50%;     /* Center logo horizontally */
-    transform: translateX(-50%);  /* Ensure logo is perfectly centered */
-    content: url('images/honeyspacelogo.png'); /* Your actual logo image path */
-  }
-
+  .logo,
   #overlay .logo-white {
-    width: 400px;  /* Adjust size of the white logo for mobile */
-    content: url('images/honeyspacelogo.png'); /* Your white logo image path */
+    width: 400px;
+    top: 100px;
   }
 
-  /* ================== Button Spacing and Vertical Adjustments ================== */
   .original-button {
-    margin-bottom: 30px; /* Add more space between buttons */
+    width: 40%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
+  .switch-button {
+    top: 420px;
+    width: 100px;
+  }
 }
+
 </style>
 </head>
+
 <body>
+
 <div class="container">
-  <!-- Stationary background flowers -->
-  <img src="images/backgnoflickerflow.png" alt="Background Flowers" class="background">
 
-  <!-- Flickering flowers -->
-  <img src="images/flickerbacklights.png" alt="Flickering Flowers" class="flicker">
+  <!-- =====================================================
+       BACKGROUND IMAGE (BASE LAYER)
+       ===================================================== -->
+  <img src="images/BlackUnearthBackground.png" 
+       alt="Background" 
+       class="background">
 
-  <!-- Original logo -->
-  <img src="images/honeyspacelogo.png" alt="Honey Space Logo" class="logo">
+  <!-- =====================================================
+       FLICKER OVERLAY LAYER
+       (You can swap this image to any flicker variation)
+       ===================================================== -->
+  <img src="images/Flowersandboltflicker.png" 
+       alt="Flicker Layer" 
+       class="flicker">
 
-  <!-- Original buttons -->
+  <!-- =====================================================
+       MAIN LOGO
+       ===================================================== -->
+  <img src="images/Logoandbeelight.png" 
+       alt="Honey Space Logo" 
+       class="logo">
+
+  <!-- =====================================================
+       MAIN NAVIGATION BUTTONS (CLICK STYLE)
+       ===================================================== -->
+
   <a href="about.html" class="original-button" style="top: 345px; left: 25%;">
-    <img src="images/abouthoney.png" style="width: 85px; height:auto;">
+    <img src="images/Aboutlinkclick.png" style="width: 85px;">
   </a>
+
   <a href="music.html" class="original-button" style="top: 317px; left: 35%;">
-    <img src="images/musicbutton.png" style="width: 133px; height:auto;">
+    <img src="images/Musiclinkclick.png" style="width: 133px;">
   </a>
+
   <a href="blog.html" class="original-button" style="top: 354px; left: 57%;">
-    <img src="images/blogbutton.png" style="width: 81px; height:auto;">
+    <img src="images/bloglinkclick.png" style="width: 81px;">
   </a>
+
   <a href="gallery.html" class="original-button" style="top: 363px; left: 46%;">
-    <img src="images/gallerybutton.png" style="width: 90px; height:auto;">
+    <img src="images/Gallerylinkclick.png" style="width: 90px;">
   </a>
+
   <a href="contact.html" class="original-button" style="top: 348px; left: 67%;">
-    <img src="images/contactbutton.png" style="width: 80px; height:auto;">
+    <img src="images/contactlinkclick.png" style="width: 80px;">
   </a>
 
-  <!-- Purple ON/OFF button -->
-  <a href="#" class="switch-button" onclick="toggleOverlay(); return false;">ON / OFF</a>
+  <!-- =====================================================
+       PURPLE TOGGLE BUTTON
+       ===================================================== -->
 
-  <!-- Overlay -->
+  <a href="#" class="switch-button" onclick="toggleOverlay(); return false;">
+    <img src="images/purplebutton.png" alt="Toggle Overlay">
+  </a>
+
+  <!-- =====================================================
+       OVERLAY MODE CONTENT
+       ===================================================== -->
+
   <div id="overlay">
-    <!-- Earthed background -->
-    <img src="images/earthedbackground.png" alt="Earthed Background" class="overlay-bg">
 
-    <!-- Snail and bee image -->
-    <img src="images/snailandbee.png" alt="Snail and Bee" class="snailbee">
+    <!-- Overlay Background -->
+    <img src="images/BlackUnearthBackground.png" 
+         alt="Overlay Background" 
+         class="overlay-bg">
 
-    <!-- White logo -->
-    <img src="images/honeyspacelogo.png" alt="White Logo" class="logo-white">
+    <!-- Overlay Logo -->
+    <img src="images/Logoandbeelight.png" 
+         alt="Honey Space Logo" 
+         class="logo-white">
 
-    <!-- White buttons -->
+    <!-- White Navigation Buttons -->
+
     <a href="about.html" class="white-button" style="top: 358px; left: 25%;">
-      <img src="images/whiteaboutbutton.png" style="width: 79px; height:auto;">
+      <img src="images/whiteaboutbutton.png" style="width: 79px;">
     </a>
+
     <a href="music.html" class="white-button" style="top: 363px; left: 35%;">
-      <img src="images/whitemusicbutton.png" style="width: 90px; height:auto;">
+      <img src="images/whitemusicbutton.png" style="width: 90px;">
     </a>
+
     <a href="blog.html" class="white-button" style="top: 360px; left: 57%;">
-      <img src="images/whiteblogbutton.png" style="width: 69px; height:auto;">
+      <img src="images/whiteblogbutton.png" style="width: 69px;">
     </a>
+
     <a href="gallery.html" class="white-button" style="top: 363px; left: 46%;">
-      <img src="images/whitegallerybutton.png" style="width: 90px; height:auto;">
+      <img src="images/whitegallerybutton.png" style="width: 90px;">
     </a>
+
     <a href="contact.html" class="white-button" style="top: 365px; left: 67%;">
-      <img src="images/whitecontactbutton.png" style="width: 80px; height:auto;">
+      <img src="images/whitecontactbutton.png" style="width: 80px;">
     </a>
+
   </div>
+
 </div>
+
+<!-- =====================================================
+     JAVASCRIPT — OVERLAY TOGGLE FUNCTION
+     ===================================================== -->
 
 <script>
 function toggleOverlay() {
@@ -414,5 +289,6 @@ function toggleOverlay() {
   overlay.classList.toggle('show');
 }
 </script>
+
 </body>
 </html>
