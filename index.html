@@ -7,7 +7,9 @@
 
 <style>
 
-/* ================= GLOBAL ================= */
+/* =======================================================
+   1. GLOBAL STYLING
+   ======================================================= */
 body {
   margin: 0;
   padding: 0;
@@ -22,35 +24,41 @@ body {
   margin: 0 auto;
 }
 
-/* ================= BACKGROUND ================= */
+/* =======================================================
+   2. MAIN BACKGROUND (UNEART HED)
+   ======================================================= */
 .background {
-  display: block;
-  width: 100%;
+  width: 100%;        /* EDIT background size */
   height: auto;
+  display: block;
   z-index: 1;
 }
 
-/* ================= EART HED OVERLAY ================= */
+/* =======================================================
+   3. EART HED FADE OVERLAY
+   ======================================================= */
 .earthed-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 0;             /* EDIT overlay vertical position */
+  left: 0;            /* EDIT overlay horizontal position */
+  width: 100%;        /* EDIT overlay size */
   opacity: 0;
   transition: opacity 1.2s ease-in-out;
   pointer-events: none;
-  z-index: 3;
+  z-index: 2;
 }
 
-.earthed-overlay.active {
+.overlay-active .earthed-overlay {
   opacity: 1;
 }
 
-/* ================= FLICKERS ================= */
+/* =======================================================
+   4. FLICKER IMAGES (ALL EDITABLE)
+   ======================================================= */
 .flicker-layer {
   position: absolute;
   opacity: 1;
-  z-index: 2;
+  z-index: 3;
   pointer-events: none;
   filter: brightness(1);
   transition: filter 0.05s ease-in-out;
@@ -60,17 +68,41 @@ body {
   filter: brightness(3);
 }
 
-/* ================= LOGO ================= */
-.logo {
+/* =======================================================
+   5. LOGO SYSTEM (SWAP CLEANLY)
+   ======================================================= */
+.logo-group {
   position: absolute;
-  top: 125px;
-  left: 50%;
+  top: 125px;           /* EDIT logo vertical position */
+  left: 50%;            /* EDIT logo horizontal position */
   transform: translateX(-50%);
-  width: 600px;
+  width: 600px;         /* EDIT logo size */
   z-index: 6;
 }
 
-/* ================= BUTTONS ================= */
+.logo-group img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hide overlay logo by default */
+.overlay-logo {
+  display: none;
+}
+
+/* Swap when active */
+.overlay-active .normal-logo {
+  display: none;
+}
+
+.overlay-active .overlay-logo {
+  display: block;
+}
+
+/* =======================================================
+   6. NAV BUTTON SYSTEM (SWAP CLEANLY)
+   ======================================================= */
 .nav-group {
   position: absolute;
   z-index: 6;
@@ -81,12 +113,12 @@ body {
   height: auto;
 }
 
-/* Hide overlay versions by default */
+/* Hide overlay buttons by default */
 .overlay-version {
   display: none;
 }
 
-/* When active, swap */
+/* Swap button versions */
 .overlay-active .normal-version {
   display: none;
 }
@@ -95,13 +127,15 @@ body {
   display: block;
 }
 
-/* ================= PURPLE BUTTON ================= */
+/* =======================================================
+   7. PURPLE BUTTON (NEVER MOVES)
+   ======================================================= */
 .switch-button {
   position: absolute;
-  top: 500px;
-  left: 50%;
+  top: 500px;           /* EDIT button vertical position */
+  left: 50%;            /* EDIT button horizontal position */
   transform: translateX(-50%);
-  width: 75px;
+  width: 75px;          /* EDIT button size */
   z-index: 10;
   cursor: pointer;
 }
@@ -118,126 +152,162 @@ body {
 
 <div class="container" id="mainContainer">
 
-  <!-- Background -->
-  <img id="background" class="background" alt="Background">
+  <!-- ================= BACKGROUND ================= -->
+  <img src="images/BlackUnearthBackground.png"
+       class="background"
+       alt="Unearthed Background">
 
-  <!-- Earthed Fade Overlay -->
-  <img id="earthedOverlay"
+  <!-- ================= EART HED FADE IMAGE ================= -->
+  <img src="images/Earthedoverlayfadein.png"
        class="earthed-overlay"
-       src="images/Earthedoverlayfadein.png"
-       alt="Earthed Overlay">
+       alt="Earthed Fade Overlay">
 
-  <!-- ================= FLICKERS ================= -->
-  <img id="flicker1" class="flicker-layer"
-       style="width:1275px; top:-150px; left:-89px;"
-       src="images/Flowersandboltflicker.png">
+  <!-- ================= FLICKER IMAGES ================= -->
 
-  <img id="flicker2" class="flicker-layer"
-       style="width:189px; top:825px; left:500px;"
-       src="images/Boltandheartflicker.png">
+  <!-- EDIT width / top / left individually -->
+  <img src="images/Flowersandboltflicker.png"
+       class="flicker-layer"
+       style="width:1275px; top:-150px; left:-89px;">
 
-  <img id="flicker3" class="flicker-layer"
-       style="width:675px; top:250px; left:25px;"
-       src="images/Boltandstarflicker.png">
+  <img src="images/Boltandheartflicker.png"
+       class="flicker-layer"
+       style="width:189px; top:825px; left:500px;">
 
-  <img id="flicker4" class="flicker-layer"
-       style="width:100px; top:85px; left:575px;"
-       src="images/Starsflicker.png">
+  <img src="images/Boltandstarflicker.png"
+       class="flicker-layer"
+       style="width:675px; top:250px; left:25px;">
 
-  <img id="flicker5" class="flicker-layer"
-       style="width:650px; top:825px; left:10px;"
-       src="images/starandalienflicker.png">
+  <img src="images/Starsflicker.png"
+       class="flicker-layer"
+       style="width:100px; top:85px; left:575px;">
 
-  <img id="flicker6" class="flicker-layer"
-       style="width:575px; top:7px; left:480px;"
-       src="images/flowersflicker.png">
+  <img src="images/starandalienflicker.png"
+       class="flicker-layer"
+       style="width:650px; top:825px; left:10px;">
 
-  <!-- ================= LOGO ================= -->
-  <img src="images/Logoandbeelight.png" class="logo">
+  <img src="images/flowersflicker.png"
+       class="flicker-layer"
+       style="width:575px; top:7px; left:480px;">
+
+  <!-- ================= LOGO (SWAPS) ================= -->
+  <div class="logo-group">
+
+    <!-- Normal Logo -->
+    <img src="images/Logoandbeelight.png"
+         class="normal-logo"
+         alt="Main Logo">
+
+    <!-- Overlay Logo -->
+    <img src="images/Overlaylogo.png"
+         class="overlay-logo"
+         alt="Overlay Logo">
+
+  </div>
 
   <!-- ================= NAV BUTTONS ================= -->
+
   <!-- About -->
-  <a href="about.html" class="nav-group" style="top:345px; left:25%;">
-    <img src="images/Aboutlinkclick.png" class="normal-version" style="width:85px;">
-    <img src="images/Overlayaboutlink.png" class="overlay-version" style="width:85px;">
+  <a href="about.html" class="nav-group"
+     style="top:345px; left:25%;">
+    <img src="images/Aboutlinkclick.png"
+         class="normal-version"
+         style="width:85px;">
+    <img src="images/Overlayaboutlink.png"
+         class="overlay-version"
+         style="width:85px;">
   </a>
 
   <!-- Music -->
-  <a href="music.html" class="nav-group" style="top:350px; left:57%;">
-    <img src="images/Musiclinkclick.png" class="normal-version" style="width:86px;">
-    <img src="images/Overlaymusiclink.png" class="overlay-version" style="width:86px;">
+  <a href="music.html" class="nav-group"
+     style="top:350px; left:57%;">
+    <img src="images/Musiclinkclick.png"
+         class="normal-version"
+         style="width:86px;">
+    <img src="images/Overlaymusiclink.png"
+         class="overlay-version"
+         style="width:86px;">
   </a>
 
   <!-- Blog -->
-  <a href="blog.html" class="nav-group" style="top:360px; left:46%;">
-    <img src="images/bloglinkclick.png" class="normal-version" style="width:81px;">
-    <img src="images/Overlaybloglink.png" class="overlay-version" style="width:81px;">
+  <a href="blog.html" class="nav-group"
+     style="top:360px; left:46%;">
+    <img src="images/bloglinkclick.png"
+         class="normal-version"
+         style="width:81px;">
+    <img src="images/Overlaybloglink.png"
+         class="overlay-version"
+         style="width:81px;">
   </a>
 
   <!-- Gallery -->
-  <a href="gallery.html" class="nav-group" style="top:369px; left:35%;">
-    <img src="images/Gallerylinkclick.png" class="normal-version" style="width:90px;">
-    <img src="images/Overlaygallerylink.png" class="overlay-version" style="width:90px;">
+  <a href="gallery.html" class="nav-group"
+     style="top:369px; left:35%;">
+    <img src="images/Gallerylinkclick.png"
+         class="normal-version"
+         style="width:90px;">
+    <img src="images/Overlaygallerylink.png"
+         class="overlay-version"
+         style="width:90px;">
   </a>
 
   <!-- Contact -->
-  <a href="contact.html" class="nav-group" style="top:360px; left:67%;">
-    <img src="images/contactlinkclick.png" class="normal-version" style="width:80px;">
-    <img src="images/Overlaycontactlink.png" class="overlay-version" style="width:80px;">
+  <a href="contact.html" class="nav-group"
+     style="top:360px; left:67%;">
+    <img src="images/contactlinkclick.png"
+         class="normal-version"
+         style="width:80px;">
+    <img src="images/Overlaycontactlink.png"
+         class="overlay-version"
+         style="width:80px;">
   </a>
 
   <!-- ================= PURPLE BUTTON ================= -->
   <div id="toggleOverlay" class="switch-button">
-    <img src="images/purplebutton.png">
+    <img src="images/purplebutton.png" alt="Toggle Overlay">
   </div>
 
 </div>
 
 <script>
 
-document.addEventListener('DOMContentLoaded', () => {
+/* =======================================================
+   FLICKER SYSTEM
+   ======================================================= */
+function flashFlicker(img) {
+  function cycle() {
+    const flashes = Math.floor(Math.random()*3)+1;
+    let count = 0;
 
-  // Background
-  document.getElementById('background').src =
-    "images/BlackUnearthBackground.png";
-
-  // Flicker logic
-  function flashFlicker(img) {
-    function cycle() {
-      const flashes = Math.floor(Math.random()*3)+1;
-      let count = 0;
-
-      function flash() {
-        img.classList.add('flash');
-        setTimeout(() => {
-          img.classList.remove('flash');
-          count++;
-          if(count < flashes) {
-            setTimeout(flash, 70 + Math.random()*80);
-          } else {
-            setTimeout(cycle, 10000 + Math.random()*5000);
-          }
-        }, 70);
-      }
-
-      flash();
+    function flash() {
+      img.classList.add('flash');
+      setTimeout(() => {
+        img.classList.remove('flash');
+        count++;
+        if(count < flashes) {
+          setTimeout(flash, 70 + Math.random()*80);
+        } else {
+          setTimeout(cycle, 10000 + Math.random()*5000);
+        }
+      }, 70);
     }
-    setTimeout(cycle, Math.random()*8000);
+
+    flash();
   }
 
-  document.querySelectorAll('.flicker-layer')
-    .forEach(flashFlicker);
+  setTimeout(cycle, Math.random()*8000);
+}
 
-  // Overlay toggle
-  const container = document.getElementById('mainContainer');
-  const overlay = document.getElementById('earthedOverlay');
-  const toggle = document.getElementById('toggleOverlay');
+document.querySelectorAll('.flicker-layer')
+  .forEach(flashFlicker);
 
-  toggle.addEventListener('click', () => {
-    overlay.classList.toggle('active');
-    container.classList.toggle('overlay-active');
-  });
+/* =======================================================
+   OVERLAY TOGGLE SYSTEM
+   ======================================================= */
+const container = document.getElementById('mainContainer');
+const toggle = document.getElementById('toggleOverlay');
 
+toggle.addEventListener('click', () => {
+  container.classList.toggle('overlay-active');
 });
 
 </script>
