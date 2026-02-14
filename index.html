@@ -112,22 +112,22 @@ body {
   z-index: 7;
   display: none;
 
-  /* Smooth snail-like movement along a path */
-  animation: snailMove 30s linear infinite;
+  /* Reverse direction and speed up: 15s instead of 30s */
+  animation: snailMoveReverse 15s linear infinite;
 }
 
 .container.overlay-active #overlayBeeSnail {
   display: block;
 }
 
-/* Snail movement keyframes */
-@keyframes snailMove {
-  0%   { transform: translate(0px, 0px) rotate(0deg); }
-  20%  { transform: translate(30px, 10px) rotate(2deg); }
-  40%  { transform: translate(60px, -10px) rotate(-2deg); }
-  60%  { transform: translate(90px, 5px) rotate(1deg); }
-  80%  { transform: translate(120px, -5px) rotate(-1deg); }
-  100% { transform: translate(150px, 0px) rotate(0deg); }
+/* Snail movement keyframes: reversed and faster */
+@keyframes snailMoveReverse {
+  0%   { transform: translate(150px, 0px) rotate(0deg); }
+  20%  { transform: translate(120px, 5px) rotate(1deg); }
+  40%  { transform: translate(90px, -5px) rotate(-1deg); }
+  60%  { transform: translate(60px, 10px) rotate(2deg); }
+  80%  { transform: translate(30px, -10px) rotate(-2deg); }
+  100% { transform: translate(0px, 0px) rotate(0deg); }
 }
 
 /* ===============================
