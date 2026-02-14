@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Honey Space Fast Flicker Animation</title>
+<title>Honey Space Visible Flicker Animation</title>
 
 <style>
 /* =======================================================
@@ -43,27 +43,18 @@ body {
   left: 0;
   width: auto;
   height: auto;
-  opacity: 0; /* Start hidden */
+  opacity: 1;             /* Visible by default */
   z-index: 2;
   pointer-events: none;
+  filter: brightness(1);   /* Normal brightness */
+  transition: filter 0.05s ease-in-out, opacity 0.05s ease-in-out;
 }
 
-/* Quick flash animation */
-@keyframes flash {
-  0% { opacity: 0; }
-  10% { opacity: 1; }
-  20% { opacity: 0; }
-  30% { opacity: 1; }
-  40% { opacity: 0; }
-  100% { opacity: 0; }
-}
-
+/* Quick flash effect */
 .flash {
-  animation-name: flash;
-  animation-duration: 0.5s; /* Very short flash */
-  animation-timing-function: ease-in-out;
+  filter: brightness(3);   /* Bright flash */
 }
-
+ 
 /* =======================================================
    4. MAIN LOGO
    ======================================================= */
@@ -162,17 +153,14 @@ body {
 
 </div>
 
-<!-- =======================================================
-     JAVASCRIPT: FAST INDEPENDENT FLICKERS WITH RANDOM INTERVALS
-     ======================================================= -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const timestamp = new Date().getTime();
 
-  // Background with timestamp for auto-refresh
+  // Background auto-refresh
   document.getElementById('background').src = 'images/BlackUnearthBackground.png?t=' + timestamp;
 
-  // Flicker images map
+  // Flicker images
   const flickerMap = {
     'flicker1': 'images/Flowersandboltflicker.png',
     'flicker2': 'images/Boltandheartflicker.png',
@@ -182,30 +170,34 @@ document.addEventListener('DOMContentLoaded', () => {
     'flicker6': 'images/flowersflicker.png'
   };
 
-  // Assign src to each flicker
+  // Set src for each flicker with timestamp
   Object.keys(flickerMap).forEach(id => {
     const img = document.getElementById(id);
     if(img) img.src = flickerMap[id] + '?t=' + timestamp;
   });
 
-  // Function to flash a flicker image quickly, then schedule next flash
+  // Function to flash the flicker image temporarily
   function flashFlicker(img) {
-    const flashCount = Math.floor(Math.random() * 3) + 1; // 1-3 quick flashes
-    let flashes = 0;
-
     function doFlash() {
-      img.classList.add('flash');
-      setTimeout(() => {
-        img.classList.remove('flash');
-        flashes++;
-        if(flashes < flashCount) {
-          setTimeout(doFlash, 100 + Math.random()*200); // very short delay between flashes
-        } else {
-          // Schedule next burst after ~10-30 seconds random
-          const nextTime = 10000 + Math.random() * 20000;
-          setTimeout(doFlash, nextTime);
-        }
-      }, 100); // duration of each flash
+      const flashCount = Math.floor(Math.random()*3)+1; // 1-3 quick flashes
+      let flashes = 0;
+
+      function singleFlash() {
+        img.classList.add('flash');
+        setTimeout(() => {
+          img.classList.remove('flash');
+          flashes++;
+          if(flashes < flashCount) {
+            setTimeout(singleFlash, 100 + Math.random()*100); // very short interval
+          } else {
+            // Schedule next flash burst randomly within 10–30 seconds
+            const nextTime = 10000 + Math.random()*20000;
+            setTimeout(doFlash, nextTime);
+          }
+        }, 100); // duration of each flash
+      }
+
+      singleFlash();
     }
 
     doFlash();
