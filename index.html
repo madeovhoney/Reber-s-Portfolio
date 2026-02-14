@@ -3,12 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Honey Space Flicker Animation</title>
+<title>Honey Space</title>
 
 <style>
-/* =======================================================
-   1. GLOBAL STYLING
-   ======================================================= */
+
+/* ================= GLOBAL ================= */
 body {
   margin: 0;
   padding: 0;
@@ -21,236 +20,226 @@ body {
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
-  background: black;
 }
 
-/* =======================================================
-   2. MAIN BACKGROUND IMAGE
-   ======================================================= */
+/* ================= BACKGROUND ================= */
 .background {
   display: block;
-  width: 100%;             /* Resize background by changing width */
+  width: 100%;
   height: auto;
   z-index: 1;
 }
 
-/* =======================================================
-   3. FLICKER IMAGES (ALL)
-   ======================================================= */
+/* ================= EART HED OVERLAY ================= */
+.earthed-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.earthed-overlay.active {
+  opacity: 1;
+}
+
+/* ================= FLICKERS ================= */
 .flicker-layer {
-  position: absolute;       /* Required to place images anywhere */
-  top: 0;                   /* Adjust vertical position */
-  left: 0;                  /* Adjust horizontal position */
-  width: auto;              /* Adjust size individually */
-  height: auto;             /* Maintain aspect ratio */
-  opacity: 1;               /* Always visible */
+  position: absolute;
+  opacity: 1;
   z-index: 2;
-  pointer-events: none;     /* Pass clicks through to buttons */
+  pointer-events: none;
   filter: brightness(1);
-  transition: filter 0.05s ease-in-out, opacity 0.05s ease-in-out;
+  transition: filter 0.05s ease-in-out;
 }
 
-/* Quick flash effect */
 .flash {
-  filter: brightness(3);    /* Adjust brightness for flash */
+  filter: brightness(3);
 }
 
-/* =======================================================
-   4. MAIN LOGO
-   ======================================================= */
+/* ================= LOGO ================= */
 .logo {
   position: absolute;
-  top: 125px;              /* Adjust vertical position */
-  left: 50%;               /* Adjust horizontal position */
+  top: 125px;
+  left: 50%;
   transform: translateX(-50%);
-  width: 600px;            /* Adjust size */
-  z-index: 5;
+  width: 600px;
+  z-index: 6;
 }
 
-/* =======================================================
-   5. NAVIGATION BUTTONS
-   ======================================================= */
-.original-button {
+/* ================= BUTTONS ================= */
+.nav-group {
   position: absolute;
-  display: block;
-  z-index: 5;
+  z-index: 6;
 }
 
-.original-button img {
+.nav-group img {
   display: block;
-  height: auto;           /* Adjust button size with width only */
+  height: auto;
 }
 
-/* =======================================================
-   6. PURPLE TOGGLE BUTTON
-   ======================================================= */
+/* Hide overlay versions by default */
+.overlay-version {
+  display: none;
+}
+
+/* When active, swap */
+.overlay-active .normal-version {
+  display: none;
+}
+
+.overlay-active .overlay-version {
+  display: block;
+}
+
+/* ================= PURPLE BUTTON ================= */
 .switch-button {
   position: absolute;
-  top: 500px;             /* Adjust vertical position */
-  left: 50%;              /* Adjust horizontal position */
+  top: 500px;
+  left: 50%;
   transform: translateX(-50%);
-  width: 75px;           /* Adjust size */
-  z-index: 1001;
+  width: 75px;
+  z-index: 10;
   cursor: pointer;
 }
 
 .switch-button img {
   width: 100%;
   height: auto;
-  display: block;
 }
 
-/* =======================================================
-   7. MOBILE RESPONSIVENESS
-   ======================================================= */
-@media only screen and (max-width: 768px) {
-  .logo { width: 400px; top: 100px; }
-  .original-button { width: 40%; left: 50%; transform: translateX(-50%); }
-  .switch-button { top: 420px; width: 100px; }
-}
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="container" id="mainContainer">
 
-  <!-- =======================================================
-       MAIN BACKGROUND IMAGE
-       ======================================================= -->
+  <!-- Background -->
   <img id="background" class="background" alt="Background">
 
-  <!-- =======================================================
-       FLICKER IMAGES
-       Each image labeled for easy resizing and positioning
-       ======================================================= -->
+  <!-- Earthed Fade Overlay -->
+  <img id="earthedOverlay"
+       class="earthed-overlay"
+       src="images/Earthedoverlayfadein.png"
+       alt="Earthed Overlay">
 
-  <!-- Flicker 1: Flowers and Bolt -->
-  <img id="flicker1" class="flicker-layer" 
-       style="width:1275px; top:-150px; left:-89px;" 
-       alt="Flowers and Bolt Flicker">
+  <!-- ================= FLICKERS ================= -->
+  <img id="flicker1" class="flicker-layer"
+       style="width:1275px; top:-150px; left:-89px;"
+       src="images/Flowersandboltflicker.png">
 
-  <!-- Flicker 2: Bolt and Heart -->
-  <img id="flicker2" class="flicker-layer" 
-       style="width:189px; top:825px; left:500px;" 
-       alt="Bolt and Heart Flicker">
+  <img id="flicker2" class="flicker-layer"
+       style="width:189px; top:825px; left:500px;"
+       src="images/Boltandheartflicker.png">
 
-  <!-- Flicker 3: Bolt and Star -->
-  <img id="flicker3" class="flicker-layer" 
-       style="width:675px; top:250px; left:25px;" 
-       alt="Bolt and Star Flicker">
+  <img id="flicker3" class="flicker-layer"
+       style="width:675px; top:250px; left:25px;"
+       src="images/Boltandstarflicker.png">
 
-  <!-- Flicker 4: Stars -->
-  <img id="flicker4" class="flicker-layer" 
-       style="width:100px; top:85px; left:575px;" 
-       alt="Stars Flicker">
+  <img id="flicker4" class="flicker-layer"
+       style="width:100px; top:85px; left:575px;"
+       src="images/Starsflicker.png">
 
-  <!-- Flicker 5: Star and Alien -->
-  <img id="flicker5" class="flicker-layer" 
-       style="width:650px; top:825px; left:10px;" 
-       alt="Star and Alien Flicker">
+  <img id="flicker5" class="flicker-layer"
+       style="width:650px; top:825px; left:10px;"
+       src="images/starandalienflicker.png">
 
-  <!-- Flicker 6: Flowers -->
-  <img id="flicker6" class="flicker-layer" 
-       style="width:575px; top:7px; left:480px;" 
-       alt="Flowers Flicker">
+  <img id="flicker6" class="flicker-layer"
+       style="width:575px; top:7px; left:480px;"
+       src="images/flowersflicker.png">
 
-  <!-- =======================================================
-       MAIN LOGO
-       ======================================================= -->
-  <img src="images/Logoandbeelight.png" alt="Honey Space Logo" class="logo">
+  <!-- ================= LOGO ================= -->
+  <img src="images/Logoandbeelight.png" class="logo">
 
-  <!-- =======================================================
-       NAVIGATION BUTTONS
-       ======================================================= -->
-  <a href="about.html" class="original-button" style="top:345px; left:25%;">
-    <img src="images/Aboutlinkclick.png" style="width:85px;" alt="About Button">
+  <!-- ================= NAV BUTTONS ================= -->
+  <!-- About -->
+  <a href="about.html" class="nav-group" style="top:345px; left:25%;">
+    <img src="images/Aboutlinkclick.png" class="normal-version" style="width:85px;">
+    <img src="images/Overlayaboutlink.png" class="overlay-version" style="width:85px;">
   </a>
 
-  <a href="music.html" class="original-button" style="top:350px; left:57%;">
-    <img src="images/Musiclinkclick.png" style="width:86px;" alt="Music Button">
+  <!-- Music -->
+  <a href="music.html" class="nav-group" style="top:350px; left:57%;">
+    <img src="images/Musiclinkclick.png" class="normal-version" style="width:86px;">
+    <img src="images/Overlaymusiclink.png" class="overlay-version" style="width:86px;">
   </a>
 
-  <a href="blog.html" class="original-button" style="top:360px; left:46%;">
-    <img src="images/bloglinkclick.png" style="width:81px;" alt="Blog Button">
+  <!-- Blog -->
+  <a href="blog.html" class="nav-group" style="top:360px; left:46%;">
+    <img src="images/bloglinkclick.png" class="normal-version" style="width:81px;">
+    <img src="images/Overlaybloglink.png" class="overlay-version" style="width:81px;">
   </a>
 
-  <a href="gallery.html" class="original-button" style="top:369px; left:35%;">
-    <img src="images/Gallerylinkclick.png" style="width:90px;" alt="Gallery Button">
+  <!-- Gallery -->
+  <a href="gallery.html" class="nav-group" style="top:369px; left:35%;">
+    <img src="images/Gallerylinkclick.png" class="normal-version" style="width:90px;">
+    <img src="images/Overlaygallerylink.png" class="overlay-version" style="width:90px;">
   </a>
 
-  <a href="contact.html" class="original-button" style="top:360px; left:67%;">
-    <img src="images/contactlinkclick.png" style="width:80px;" alt="Contact Button">
+  <!-- Contact -->
+  <a href="contact.html" class="nav-group" style="top:360px; left:67%;">
+    <img src="images/contactlinkclick.png" class="normal-version" style="width:80px;">
+    <img src="images/Overlaycontactlink.png" class="overlay-version" style="width:80px;">
   </a>
 
-  <!-- PURPLE TOGGLE BUTTON -->
-  <a href="#" class="switch-button">
-    <img src="images/purplebutton.png" alt="Toggle Overlay">
-  </a>
+  <!-- ================= PURPLE BUTTON ================= -->
+  <div id="toggleOverlay" class="switch-button">
+    <img src="images/purplebutton.png">
+  </div>
 
 </div>
 
 <script>
+
 document.addEventListener('DOMContentLoaded', () => {
-  const timestamp = new Date().getTime();
 
-  // =======================================================
-  // Auto-refresh background
-  // =======================================================
-  document.getElementById('background').src = 'images/BlackUnearthBackground.png?t=' + timestamp;
+  // Background
+  document.getElementById('background').src =
+    "images/BlackUnearthBackground.png";
 
-  // =======================================================
-  // Map all flicker images with cache-busting
-  // =======================================================
-  const flickerMap = {
-    'flicker1': 'images/Flowersandboltflicker.png',
-    'flicker2': 'images/Boltandheartflicker.png',
-    'flicker3': 'images/Boltandstarflicker.png',
-    'flicker4': 'images/Starsflicker.png',
-    'flicker5': 'images/starandalienflicker.png',
-    'flicker6': 'images/flowersflicker.png'
-  };
-
-  Object.keys(flickerMap).forEach(id => {
-    const img = document.getElementById(id);
-    if(img) img.src = flickerMap[id] + '?t=' + timestamp;
-  });
-
-  // =======================================================
-  // Function: fast flash flicker images independently
-  // =======================================================
+  // Flicker logic
   function flashFlicker(img) {
-    function doFlash() {
-      const flashCount = Math.floor(Math.random()*3)+1; // 1–3 flashes
-      let flashes = 0;
+    function cycle() {
+      const flashes = Math.floor(Math.random()*3)+1;
+      let count = 0;
 
-      function singleFlash() {
+      function flash() {
         img.classList.add('flash');
         setTimeout(() => {
           img.classList.remove('flash');
-          flashes++;
-          if(flashes < flashCount) {
-            setTimeout(singleFlash, 80 + Math.random()*80); // very fast flash
+          count++;
+          if(count < flashes) {
+            setTimeout(flash, 70 + Math.random()*80);
           } else {
-            // Next flash randomly 10–15s
-            const nextTime = 10000 + Math.random()*5000;
-            setTimeout(doFlash, nextTime);
+            setTimeout(cycle, 10000 + Math.random()*5000);
           }
-        }, 80);
+        }, 70);
       }
 
-      singleFlash();
+      flash();
     }
-
-    doFlash();
+    setTimeout(cycle, Math.random()*8000);
   }
 
-  // Initialize all flicker images
-  Object.keys(flickerMap).forEach(id => {
-    const img = document.getElementById(id);
-    if(img) flashFlicker(img);
+  document.querySelectorAll('.flicker-layer')
+    .forEach(flashFlicker);
+
+  // Overlay toggle
+  const container = document.getElementById('mainContainer');
+  const overlay = document.getElementById('earthedOverlay');
+  const toggle = document.getElementById('toggleOverlay');
+
+  toggle.addEventListener('click', () => {
+    overlay.classList.toggle('active');
+    container.classList.toggle('overlay-active');
   });
+
 });
+
 </script>
 
 </body>
