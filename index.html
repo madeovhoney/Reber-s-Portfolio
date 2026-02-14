@@ -24,6 +24,9 @@ body {
   background: black;
 }
 
+/* =======================================================
+   2. MAIN BACKGROUND IMAGE
+   ======================================================= */
 .background {
   display: block;
   width: 100%;
@@ -31,6 +34,9 @@ body {
   z-index: 1;
 }
 
+/* =======================================================
+   3. FLICKER IMAGES (OVERLAY)
+   ======================================================= */
 .flicker-layer {
   position: absolute;
   top: 0;
@@ -51,6 +57,9 @@ body {
   10%, 30%, 50%, 70%, 90% { opacity: 0.3; }
 }
 
+/* =======================================================
+   4. MAIN LOGO
+   ======================================================= */
 .logo {
   position: absolute;
   top: 125px;
@@ -60,6 +69,9 @@ body {
   z-index: 5;
 }
 
+/* =======================================================
+   5. NAVIGATION BUTTONS
+   ======================================================= */
 .original-button {
   position: absolute;
   display: block;
@@ -71,6 +83,9 @@ body {
   height: auto;
 }
 
+/* =======================================================
+   6. PURPLE TOGGLE BUTTON
+   ======================================================= */
 .switch-button {
   position: absolute;
   top: 475px;
@@ -87,6 +102,9 @@ body {
   display: block;
 }
 
+/* =======================================================
+   7. MOBILE RESPONSIVENESS
+   ======================================================= */
 @media only screen and (max-width: 768px) {
   .logo { width: 400px; top: 100px; }
   .original-button { width: 40%; left: 50%; transform: translateX(-50%); }
@@ -144,20 +162,20 @@ body {
 </div>
 
 <!-- =======================================================
-     JAVASCRIPT FOR AUTOMATIC IMAGE REFRESH
+     JAVASCRIPT FOR AUTOMATIC FLICKER IMAGE REFRESH
      ======================================================= -->
 <script>
-  function refreshImages() {
-    const timestamp = new Date().getTime(); // unique value for cache-busting
-    const imgs = document.querySelectorAll('img');
-    imgs.forEach(img => {
+  function refreshFlickers() {
+    const timestamp = new Date().getTime();
+    // Only update flicker images
+    const flickers = document.querySelectorAll('.flicker-layer');
+    flickers.forEach(img => {
       const src = img.getAttribute('src').split('?')[0]; // remove old query string
-      img.src = src + '?t=' + timestamp;                // append new timestamp
+      img.src = src + '?t=' + timestamp;                // append timestamp
     });
   }
 
-  // Refresh images on page load
-  window.addEventListener('load', refreshImages);
+  window.addEventListener('load', refreshFlickers);
 </script>
 
 </body>
