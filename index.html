@@ -35,7 +35,7 @@ body {
 }
 
 /* =======================================================
-   3. FLICKER IMAGES (OVERLAY)
+   3. FLICKER IMAGES
    ======================================================= */
 .flicker-layer {
   position: absolute;
@@ -121,18 +121,12 @@ body {
   <img src="images/BlackUnearthBackground.png" alt="Background" class="background">
 
   <!-- FLICKER IMAGES -->
-  <img src="images/Flowersandboltflicker.png" class="flicker-layer"
-       style="width:1200px; top:-125px; left:-25px; animation-delay:0s;">
-  <img src="images/Boltandheartflicker.png" class="flicker-layer"
-       style="width:300px; top:800px; left:350px; animation-delay:1.5s;">
-  <img src="images/Boltandstarflicker.png" class="flicker-layer"
-       style="width:675px; top:250px; left:25px; animation-delay:3s;">
-  <img src="images/Starsflicker.png" class="flicker-layer"
-       style="width:100px; top:85px; left:575px; animation-delay:4.5s;">
-  <img src="images/starandalienflicker.png" class="flicker-layer"
-       style="width:750px; top:800px; left:50px; animation-delay:6s;">
-  <img src="images/flowersflicker.png" class="flicker-layer"
-       style="width:575px; top:7px; left:480px; animation-delay:7.5s;">
+  <img id="flicker1" class="flicker-layer" style="width:1200px; top:-125px; left:-25px; animation-delay:0s;">
+  <img id="flicker2" class="flicker-layer" style="width:300px; top:800px; left:350px; animation-delay:1.5s;">
+  <img id="flicker3" class="flicker-layer" style="width:675px; top:250px; left:25px; animation-delay:3s;">
+  <img id="flicker4" class="flicker-layer" style="width:100px; top:85px; left:575px; animation-delay:4.5s;">
+  <img id="flicker5" class="flicker-layer" style="width:750px; top:800px; left:50px; animation-delay:6s;">
+  <img id="flicker6" class="flicker-layer" style="width:575px; top:7px; left:480px; animation-delay:7.5s;">
 
   <!-- MAIN LOGO -->
   <img src="images/Logoandbeelight.png" alt="Honey Space Logo" class="logo">
@@ -162,20 +156,33 @@ body {
 </div>
 
 <!-- =======================================================
-     JAVASCRIPT FOR AUTOMATIC FLICKER IMAGE REFRESH
+     JAVASCRIPT: AUTOMATIC FLICKER IMAGE REFRESH
      ======================================================= -->
 <script>
-  function refreshFlickers() {
+  function initFlickers() {
     const timestamp = new Date().getTime();
-    // Only update flicker images
-    const flickers = document.querySelectorAll('.flicker-layer');
-    flickers.forEach(img => {
-      const src = img.getAttribute('src').split('?')[0]; // remove old query string
-      img.src = src + '?t=' + timestamp;                // append timestamp
+
+    // Map flicker IDs to their image files
+    const flickerMap = {
+      'flicker1': 'images/Flowersandboltflicker.png',
+      'flicker2': 'images/Boltandheartflicker.png',
+      'flicker3': 'images/Boltandstarflicker.png',
+      'flicker4': 'images/Starsflicker.png',
+      'flicker5': 'images/starandalienflicker.png',
+      'flicker6': 'images/flowersflicker.png'
+    };
+
+    Object.keys(flickerMap).forEach(id => {
+      const img = document.getElementById(id);
+      if(img) {
+        // Set src with timestamp, replacing any old src
+        img.src = flickerMap[id] + '?t=' + timestamp;
+      }
     });
   }
 
-  window.addEventListener('load', refreshFlickers);
+  // Run on page load
+  window.addEventListener('load', initFlickers);
 </script>
 
 </body>
