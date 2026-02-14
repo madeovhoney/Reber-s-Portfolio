@@ -118,9 +118,10 @@ body {
 <div class="container">
 
   <!-- MAIN BACKGROUND -->
-  <img src="images/BlackUnearthBackground.png" alt="Background" class="background">
+  <!-- No version in HTML, will be set via JS -->
+  <img id="background" class="background" alt="Background">
 
-  <!-- FLICKER IMAGES -->
+  <!-- FLICKER IMAGES WITHOUT SRC -->
   <img id="flicker1" class="flicker-layer" style="width:1200px; top:-125px; left:-25px; animation-delay:0s;">
   <img id="flicker2" class="flicker-layer" style="width:300px; top:800px; left:350px; animation-delay:1.5s;">
   <img id="flicker3" class="flicker-layer" style="width:675px; top:250px; left:25px; animation-delay:3s;">
@@ -156,33 +157,34 @@ body {
 </div>
 
 <!-- =======================================================
-     JAVASCRIPT: AUTOMATIC FLICKER IMAGE REFRESH
+     JAVASCRIPT: SET ALL IMAGE SRC WITH CACHE-BUSTING
      ======================================================= -->
 <script>
-  function initFlickers() {
-    const timestamp = new Date().getTime();
+document.addEventListener('DOMContentLoaded', () => {
+  const timestamp = new Date().getTime();
 
-    // Map flicker IDs to their image files
-    const flickerMap = {
-      'flicker1': 'images/Flowersandboltflicker.png',
-      'flicker2': 'images/Boltandheartflicker.png',
-      'flicker3': 'images/Boltandstarflicker.png',
-      'flicker4': 'images/Starsflicker.png',
-      'flicker5': 'images/starandalienflicker.png',
-      'flicker6': 'images/flowersflicker.png'
-    };
+  // Set background src with timestamp
+  const background = document.getElementById('background');
+  background.src = 'images/BlackUnearthBackground.png?t=' + timestamp;
 
-    Object.keys(flickerMap).forEach(id => {
-      const img = document.getElementById(id);
-      if(img) {
-        // Set src with timestamp, replacing any old src
-        img.src = flickerMap[id] + '?t=' + timestamp;
-      }
-    });
-  }
+  // Map of flicker IDs to image paths
+  const flickerMap = {
+    'flicker1': 'images/Flowersandboltflicker.png',
+    'flicker2': 'images/Boltandheartflicker.png',
+    'flicker3': 'images/Boltandstarflicker.png',
+    'flicker4': 'images/Starsflicker.png',
+    'flicker5': 'images/starandalienflicker.png',
+    'flicker6': 'images/flowersflicker.png'
+  };
 
-  // Run on page load
-  window.addEventListener('load', initFlickers);
+  // Set each flicker src with timestamp
+  Object.keys(flickerMap).forEach(id => {
+    const img = document.getElementById(id);
+    if(img) {
+      img.src = flickerMap[id] + '?t=' + timestamp;
+    }
+  });
+});
 </script>
 
 </body>
