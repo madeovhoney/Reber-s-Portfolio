@@ -35,7 +35,7 @@ body {
 }
 
 /* =======================================================
-   3. EART HED FADE IMAGE (HIDDEN BY DEFAULT)
+   3. EART HED FADE IMAGE
    ======================================================= */
 .earthed-overlay {
   position: absolute;
@@ -48,6 +48,11 @@ body {
   z-index: 2;
 }
 
+/* Overlay visible when active */
+.container.overlay-active .earthed-overlay {
+  opacity: 1;
+}
+
 /* =======================================================
    4. FLICKERS
    ======================================================= */
@@ -56,9 +61,17 @@ body {
   z-index: 3;
   pointer-events: none;
   filter: brightness(1);
-  transition: filter 0.05s ease-in-out;
+  transition: filter 0.05s ease-in-out, opacity 0.4s ease;
+  opacity: 1;
 }
 
+/* Flickers completely hidden in overlay mode */
+.container.overlay-active .flicker-layer {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+/* Flash effect */
 .flash {
   filter: brightness(3);
 }
@@ -68,10 +81,10 @@ body {
    ======================================================= */
 .logo-group {
   position: absolute;
-  top: 125px;           /* EDIT vertical */
-  left: 50%;            /* EDIT horizontal */
+  top: 125px;          /* EDIT vertical */
+  left: 50%;           /* EDIT horizontal */
   transform: translateX(-50%);
-  width: 600px;         /* EDIT size */
+  width: 600px;        /* EDIT size */
   z-index: 6;
 }
 
@@ -81,9 +94,18 @@ body {
   display: block;
 }
 
-/* FORCE overlay logo hidden by default */
+/* Hide overlay logo by default */
 .overlay-logo {
   display: none !important;
+}
+
+/* Swap in overlay mode */
+.container.overlay-active .normal-logo {
+  display: none !important;
+}
+
+.container.overlay-active .overlay-logo {
+  display: block !important;
 }
 
 /* =======================================================
@@ -99,9 +121,18 @@ body {
   height: auto;
 }
 
-/* FORCE overlay button images hidden */
+/* Hide overlay buttons by default */
 .overlay-version {
   display: none !important;
+}
+
+/* Swap in overlay mode */
+.container.overlay-active .normal-version {
+  display: none !important;
+}
+
+.container.overlay-active .overlay-version {
+  display: block !important;
 }
 
 /* =======================================================
@@ -120,29 +151,6 @@ body {
 .switch-button img {
   width: 100%;
   height: auto;
-}
-
-/* =======================================================
-   8. ACTIVE STATE (ONLY TRIGGERED BY BUTTON)
-   ======================================================= */
-.container.overlay-active .earthed-overlay {
-  opacity: 1;
-}
-
-.container.overlay-active .normal-logo {
-  display: none !important;
-}
-
-.container.overlay-active .overlay-logo {
-  display: block !important;
-}
-
-.container.overlay-active .normal-version {
-  display: none !important;
-}
-
-.container.overlay-active .overlay-version {
-  display: block !important;
 }
 
 </style>
@@ -187,9 +195,8 @@ body {
        class="flicker-layer"
        style="width:575px; top:7px; left:480px;">
 
-  <!-- ================= LOGO GROUP ================= -->
+  <!-- ================= LOGO ================= -->
   <div class="logo-group">
-
     <img src="images/Logoandbeelight.png"
          class="normal-logo"
          alt="Main Logo">
@@ -197,7 +204,6 @@ body {
     <img src="images/Overlaylogo.png"
          class="overlay-logo"
          alt="Overlay Logo">
-
   </div>
 
   <!-- ================= NAV BUTTONS ================= -->
