@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Honey Space Visible Flicker Animation</title>
+<title>Honey Space All Flickers</title>
 
 <style>
 /* =======================================================
@@ -43,18 +43,18 @@ body {
   left: 0;
   width: auto;
   height: auto;
-  opacity: 1;             /* Visible by default */
+  opacity: 1;               /* Always visible */
   z-index: 2;
   pointer-events: none;
-  filter: brightness(1);   /* Normal brightness */
+  filter: brightness(1);
   transition: filter 0.05s ease-in-out, opacity 0.05s ease-in-out;
 }
 
 /* Quick flash effect */
 .flash {
-  filter: brightness(3);   /* Bright flash */
+  filter: brightness(3);      /* Bright flash */
 }
- 
+
 /* =======================================================
    4. MAIN LOGO
    ======================================================= */
@@ -118,13 +118,18 @@ body {
   <!-- MAIN BACKGROUND -->
   <img id="background" class="background" alt="Background">
 
-  <!-- FLICKER IMAGES -->
+  <!-- =======================================================
+       FLICKER IMAGES
+       All images with "flicker" in name included
+  ======================================================= -->
   <img id="flicker1" class="flicker-layer" style="width:1200px; top:-125px; left:-25px;">
   <img id="flicker2" class="flicker-layer" style="width:300px; top:800px; left:350px;">
   <img id="flicker3" class="flicker-layer" style="width:675px; top:250px; left:25px;">
   <img id="flicker4" class="flicker-layer" style="width:100px; top:85px; left:575px;">
   <img id="flicker5" class="flicker-layer" style="width:750px; top:800px; left:50px;">
   <img id="flicker6" class="flicker-layer" style="width:575px; top:7px; left:480px;">
+  <img id="flicker7" class="flicker-layer" style="width:400px; top:100px; left:300px;"> <!-- Boltandstarflicker example -->
+  <img id="flicker8" class="flicker-layer" style="width:500px; top:600px; left:200px;"> <!-- Starandalienflicker example -->
 
   <!-- MAIN LOGO -->
   <img src="images/Logoandbeelight.png" alt="Honey Space Logo" class="logo">
@@ -157,29 +162,31 @@ body {
 document.addEventListener('DOMContentLoaded', () => {
   const timestamp = new Date().getTime();
 
-  // Background auto-refresh
+  // Auto-refresh background
   document.getElementById('background').src = 'images/BlackUnearthBackground.png?t=' + timestamp;
 
-  // Flicker images
+  // Map of all flicker images
   const flickerMap = {
     'flicker1': 'images/Flowersandboltflicker.png',
     'flicker2': 'images/Boltandheartflicker.png',
     'flicker3': 'images/Boltandstarflicker.png',
     'flicker4': 'images/Starsflicker.png',
     'flicker5': 'images/starandalienflicker.png',
-    'flicker6': 'images/flowersflicker.png'
+    'flicker6': 'images/flowersflicker.png',
+    'flicker7': 'images/Boltandstarflicker.png',
+    'flicker8': 'images/starandalienflicker.png'
   };
 
-  // Set src for each flicker with timestamp
+  // Assign src to each flicker with cache-busting timestamp
   Object.keys(flickerMap).forEach(id => {
     const img = document.getElementById(id);
     if(img) img.src = flickerMap[id] + '?t=' + timestamp;
   });
 
-  // Function to flash the flicker image temporarily
+  // Flashing function: stays visible, quick bright flash
   function flashFlicker(img) {
     function doFlash() {
-      const flashCount = Math.floor(Math.random()*3)+1; // 1-3 quick flashes
+      const flashCount = Math.floor(Math.random()*3)+1; // 1-3 flashes
       let flashes = 0;
 
       function singleFlash() {
@@ -188,13 +195,12 @@ document.addEventListener('DOMContentLoaded', () => {
           img.classList.remove('flash');
           flashes++;
           if(flashes < flashCount) {
-            setTimeout(singleFlash, 100 + Math.random()*100); // very short interval
+            setTimeout(singleFlash, 100 + Math.random()*100); // short interval
           } else {
-            // Schedule next flash burst randomly within 10–30 seconds
-            const nextTime = 10000 + Math.random()*20000;
+            const nextTime = 10000 + Math.random()*20000; // 10–30s to next burst
             setTimeout(doFlash, nextTime);
           }
-        }, 100); // duration of each flash
+        }, 100);
       }
 
       singleFlash();
