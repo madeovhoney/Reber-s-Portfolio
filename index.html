@@ -102,32 +102,32 @@ body {
 }
 
 /* ===============================
-   OVERLAY BEE & SNAIL (ANIMATED)
+   OVERLAY BEE & SNAIL (CIRCULAR ANIMATION)
    =============================== */
 #overlayBeeSnail {
   position: absolute;
-  top: 110px;
-  left: 25%;
-  width: 650px;
+  top: 200px;      /* Adjust starting vertical position */
+  left: 50%;       /* Center starting horizontal position */
+  width: 150px;    /* Adjust size of bee & snail */
   z-index: 7;
   display: none;
 
-  /* Reverse direction and speed up: 15s instead of 30s */
-  animation: snailMoveReverse 15s linear infinite;
+  /* Circular motion animation: reversed, fast, continuous */
+  animation: snailBeeCircle 12s linear infinite;
+  transform-origin: 50% 50%; /* pivot for circular motion */
 }
 
 .container.overlay-active #overlayBeeSnail {
   display: block;
 }
 
-/* Snail movement keyframes: reversed and faster */
-@keyframes snailMoveReverse {
-  0%   { transform: translate(150px, 0px) rotate(0deg); }
-  20%  { transform: translate(120px, 5px) rotate(1deg); }
-  40%  { transform: translate(90px, -5px) rotate(-1deg); }
-  60%  { transform: translate(60px, 10px) rotate(2deg); }
-  80%  { transform: translate(30px, -10px) rotate(-2deg); }
-  100% { transform: translate(0px, 0px) rotate(0deg); }
+/* Circular motion keyframes */
+@keyframes snailBeeCircle {
+  0%   { transform: translate(-50%, -50%) rotate(0deg) translateX(100px) rotate(0deg); }
+  25%  { transform: translate(-50%, -50%) rotate(90deg) translateX(100px) rotate(-90deg); }
+  50%  { transform: translate(-50%, -50%) rotate(180deg) translateX(100px) rotate(-180deg); }
+  75%  { transform: translate(-50%, -50%) rotate(270deg) translateX(100px) rotate(-270deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg) translateX(100px) rotate(-360deg); }
 }
 
 /* ===============================
