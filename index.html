@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Honey Space Visible Flicker</title>
+<title>Honey Space Flicker Animation</title>
 
 <style>
 /* =======================================================
@@ -29,30 +29,30 @@ body {
    ======================================================= */
 .background {
   display: block;
-  width: 100%;
+  width: 100%;             /* Resize background by changing width */
   height: auto;
   z-index: 1;
 }
 
 /* =======================================================
-   3. FLICKER IMAGES
+   3. FLICKER IMAGES (ALL)
    ======================================================= */
 .flicker-layer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: auto;
-  height: auto;
+  position: absolute;       /* Required to place images anywhere */
+  top: 0;                   /* Adjust vertical position */
+  left: 0;                  /* Adjust horizontal position */
+  width: auto;              /* Adjust size individually */
+  height: auto;             /* Maintain aspect ratio */
   opacity: 1;               /* Always visible */
   z-index: 2;
-  pointer-events: none;
+  pointer-events: none;     /* Pass clicks through to buttons */
   filter: brightness(1);
   transition: filter 0.05s ease-in-out, opacity 0.05s ease-in-out;
 }
 
 /* Quick flash effect */
 .flash {
-  filter: brightness(3);      /* Bright flash */
+  filter: brightness(3);    /* Adjust brightness for flash */
 }
 
 /* =======================================================
@@ -60,10 +60,10 @@ body {
    ======================================================= */
 .logo {
   position: absolute;
-  top: 125px;
-  left: 50%;
+  top: 125px;              /* Adjust vertical position */
+  left: 50%;               /* Adjust horizontal position */
   transform: translateX(-50%);
-  width: 600px;
+  width: 600px;            /* Adjust size */
   z-index: 5;
 }
 
@@ -78,7 +78,7 @@ body {
 
 .original-button img {
   display: block;
-  height: auto;
+  height: auto;           /* Adjust button size with width only */
 }
 
 /* =======================================================
@@ -86,10 +86,10 @@ body {
    ======================================================= */
 .switch-button {
   position: absolute;
-  top: 475px;
-  left: 25%;
+  top: 475px;             /* Adjust vertical position */
+  left: 25%;              /* Adjust horizontal position */
   transform: translateX(-50%);
-  width: 120px;
+  width: 120px;           /* Adjust size */
   z-index: 1001;
   cursor: pointer;
 }
@@ -115,38 +115,72 @@ body {
 
 <div class="container">
 
-  <!-- MAIN BACKGROUND -->
+  <!-- =======================================================
+       MAIN BACKGROUND IMAGE
+       ======================================================= -->
   <img id="background" class="background" alt="Background">
 
   <!-- =======================================================
        FLICKER IMAGES
-       Each image stays visible and flashes quickly independently
-  ======================================================= -->
-  <img id="flicker1" class="flicker-layer" style="width:1200px; top:-125px; left:-25px;">
-  <img id="flicker2" class="flicker-layer" style="width:300px; top:800px; left:350px;">
-  <img id="flicker3" class="flicker-layer" style="width:675px; top:250px; left:25px;">
-  <img id="flicker4" class="flicker-layer" style="width:100px; top:85px; left:575px;">
-  <img id="flicker5" class="flicker-layer" style="width:750px; top:800px; left:50px;">
-  <img id="flicker6" class="flicker-layer" style="width:575px; top:7px; left:480px;">
+       Each image labeled for easy resizing and positioning
+       ======================================================= -->
 
-  <!-- MAIN LOGO -->
+  <!-- Flicker 1: Flowers and Bolt -->
+  <img id="flicker1" class="flicker-layer" 
+       style="width:1200px; top:-125px; left:-25px;" 
+       alt="Flowers and Bolt Flicker">
+
+  <!-- Flicker 2: Bolt and Heart -->
+  <img id="flicker2" class="flicker-layer" 
+       style="width:300px; top:800px; left:350px;" 
+       alt="Bolt and Heart Flicker">
+
+  <!-- Flicker 3: Bolt and Star -->
+  <img id="flicker3" class="flicker-layer" 
+       style="width:675px; top:250px; left:25px;" 
+       alt="Bolt and Star Flicker">
+
+  <!-- Flicker 4: Stars -->
+  <img id="flicker4" class="flicker-layer" 
+       style="width:100px; top:85px; left:575px;" 
+       alt="Stars Flicker">
+
+  <!-- Flicker 5: Star and Alien -->
+  <img id="flicker5" class="flicker-layer" 
+       style="width:750px; top:800px; left:50px;" 
+       alt="Star and Alien Flicker">
+
+  <!-- Flicker 6: Flowers -->
+  <img id="flicker6" class="flicker-layer" 
+       style="width:575px; top:7px; left:480px;" 
+       alt="Flowers Flicker">
+
+  <!-- =======================================================
+       MAIN LOGO
+       ======================================================= -->
   <img src="images/Logoandbeelight.png" alt="Honey Space Logo" class="logo">
 
-  <!-- NAVIGATION BUTTONS -->
+  <!-- =======================================================
+       NAVIGATION BUTTONS
+       ======================================================= -->
   <a href="about.html" class="original-button" style="top:345px; left:25%;">
-    <img src="images/Aboutlinkclick.png" style="width:85px;">
+    <img src="images/Aboutlinkclick.png" style="width:85px;" alt="About Button">
   </a>
+
   <a href="music.html" class="original-button" style="top:317px; left:35%;">
-    <img src="images/Musiclinkclick.png" style="width:133px;">
+    <img src="images/Musiclinkclick.png" style="width:133px;" alt="Music Button">
   </a>
+
   <a href="blog.html" class="original-button" style="top:354px; left:57%;">
-    <img src="images/bloglinkclick.png" style="width:81px;">
+    <img src="images/bloglinkclick.png" style="width:81px;" alt="Blog Button">
   </a>
+
   <a href="gallery.html" class="original-button" style="top:363px; left:46%;">
-    <img src="images/Gallerylinkclick.png" style="width:90px;">
+    <img src="images/Gallerylinkclick.png" style="width:90px;" alt="Gallery Button">
   </a>
+
   <a href="contact.html" class="original-button" style="top:348px; left:67%;">
-    <img src="images/contactlinkclick.png" style="width:80px;">
+    <img src="images/contactlinkclick.png" style="width:80px;" alt="Contact Button">
   </a>
 
   <!-- PURPLE TOGGLE BUTTON -->
@@ -160,10 +194,14 @@ body {
 document.addEventListener('DOMContentLoaded', () => {
   const timestamp = new Date().getTime();
 
+  // =======================================================
   // Auto-refresh background
+  // =======================================================
   document.getElementById('background').src = 'images/BlackUnearthBackground.png?t=' + timestamp;
 
-  // Flicker images map
+  // =======================================================
+  // Map all flicker images with cache-busting
+  // =======================================================
   const flickerMap = {
     'flicker1': 'images/Flowersandboltflicker.png',
     'flicker2': 'images/Boltandheartflicker.png',
@@ -173,16 +211,17 @@ document.addEventListener('DOMContentLoaded', () => {
     'flicker6': 'images/flowersflicker.png'
   };
 
-  // Set src with cache-busting
   Object.keys(flickerMap).forEach(id => {
     const img = document.getElementById(id);
     if(img) img.src = flickerMap[id] + '?t=' + timestamp;
   });
 
-  // Function to flash flicker images quickly
+  // =======================================================
+  // Function: fast flash flicker images independently
+  // =======================================================
   function flashFlicker(img) {
     function doFlash() {
-      const flashCount = Math.floor(Math.random()*3)+1; // 1-3 flashes
+      const flashCount = Math.floor(Math.random()*3)+1; // 1–3 flashes
       let flashes = 0;
 
       function singleFlash() {
@@ -191,13 +230,13 @@ document.addEventListener('DOMContentLoaded', () => {
           img.classList.remove('flash');
           flashes++;
           if(flashes < flashCount) {
-            setTimeout(singleFlash, 80 + Math.random()*80); // very fast flashes
+            setTimeout(singleFlash, 80 + Math.random()*80); // very fast flash
           } else {
-            // Schedule next flash independently every 10–15s
+            // Next flash randomly 10–15s
             const nextTime = 10000 + Math.random()*5000;
             setTimeout(doFlash, nextTime);
           }
-        }, 80); // duration of each flash
+        }, 80);
       }
 
       singleFlash();
