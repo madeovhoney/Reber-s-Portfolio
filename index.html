@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Honey Space All Flickers</title>
+<title>Honey Space Visible Flicker</title>
 
 <style>
 /* =======================================================
@@ -120,7 +120,7 @@ body {
 
   <!-- =======================================================
        FLICKER IMAGES
-       All images with "flicker" in name included
+       Each image stays visible and flashes quickly independently
   ======================================================= -->
   <img id="flicker1" class="flicker-layer" style="width:1200px; top:-125px; left:-25px;">
   <img id="flicker2" class="flicker-layer" style="width:300px; top:800px; left:350px;">
@@ -128,8 +128,6 @@ body {
   <img id="flicker4" class="flicker-layer" style="width:100px; top:85px; left:575px;">
   <img id="flicker5" class="flicker-layer" style="width:750px; top:800px; left:50px;">
   <img id="flicker6" class="flicker-layer" style="width:575px; top:7px; left:480px;">
-  <img id="flicker7" class="flicker-layer" style="width:400px; top:100px; left:300px;"> <!-- Boltandstarflicker example -->
-  <img id="flicker8" class="flicker-layer" style="width:500px; top:600px; left:200px;"> <!-- Starandalienflicker example -->
 
   <!-- MAIN LOGO -->
   <img src="images/Logoandbeelight.png" alt="Honey Space Logo" class="logo">
@@ -165,25 +163,23 @@ document.addEventListener('DOMContentLoaded', () => {
   // Auto-refresh background
   document.getElementById('background').src = 'images/BlackUnearthBackground.png?t=' + timestamp;
 
-  // Map of all flicker images
+  // Flicker images map
   const flickerMap = {
     'flicker1': 'images/Flowersandboltflicker.png',
     'flicker2': 'images/Boltandheartflicker.png',
     'flicker3': 'images/Boltandstarflicker.png',
     'flicker4': 'images/Starsflicker.png',
     'flicker5': 'images/starandalienflicker.png',
-    'flicker6': 'images/flowersflicker.png',
-    'flicker7': 'images/Boltandstarflicker.png',
-    'flicker8': 'images/starandalienflicker.png'
+    'flicker6': 'images/flowersflicker.png'
   };
 
-  // Assign src to each flicker with cache-busting timestamp
+  // Set src with cache-busting
   Object.keys(flickerMap).forEach(id => {
     const img = document.getElementById(id);
     if(img) img.src = flickerMap[id] + '?t=' + timestamp;
   });
 
-  // Flashing function: stays visible, quick bright flash
+  // Function to flash flicker images quickly
   function flashFlicker(img) {
     function doFlash() {
       const flashCount = Math.floor(Math.random()*3)+1; // 1-3 flashes
@@ -195,12 +191,13 @@ document.addEventListener('DOMContentLoaded', () => {
           img.classList.remove('flash');
           flashes++;
           if(flashes < flashCount) {
-            setTimeout(singleFlash, 100 + Math.random()*100); // short interval
+            setTimeout(singleFlash, 80 + Math.random()*80); // very fast flashes
           } else {
-            const nextTime = 10000 + Math.random()*20000; // 10–30s to next burst
+            // Schedule next flash independently every 10–15s
+            const nextTime = 10000 + Math.random()*5000;
             setTimeout(doFlash, nextTime);
           }
-        }, 100);
+        }, 80); // duration of each flash
       }
 
       singleFlash();
@@ -209,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     doFlash();
   }
 
-  // Initialize all flickers
+  // Initialize all flicker images
   Object.keys(flickerMap).forEach(id => {
     const img = document.getElementById(id);
     if(img) flashFlicker(img);
