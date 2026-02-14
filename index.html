@@ -6,11 +6,9 @@
 <title>Honey Space</title>
 
 <style>
-
 /* =======================================================
    1. GLOBAL PAGE STYLING
    ======================================================= */
-
 body {
   margin: 0;
   padding: 0;
@@ -27,37 +25,18 @@ body {
 }
 
 /* =======================================================
-   2. BACKGROUND LAYER
+   2. BACKGROUND IMAGE
    ======================================================= */
-
 .background {
   display: block;
   width: 100%;
   height: auto;
-}
-
-/* =======================================================
-   3. FLICKER EFFECT LAYER
-   ======================================================= */
-
-.flicker {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  animation: flickerAnimation 7s infinite;
   z-index: 1;
 }
 
-@keyframes flickerAnimation {
-  0%, 15%, 20%, 25%, 50%, 55%, 100% { opacity: 1; }
-  16%, 18%, 22%, 24%, 51%, 54% { opacity: 0.3; }
-}
-
 /* =======================================================
-   4. MAIN LOGO
+   3. MAIN LOGO
    ======================================================= */
-
 .logo {
   position: absolute;
   top: 125px;
@@ -68,9 +47,8 @@ body {
 }
 
 /* =======================================================
-   5. NAVIGATION BUTTONS (CLICK VERSION SET)
+   4. NAVIGATION BUTTONS (CLICK STYLE)
    ======================================================= */
-
 .original-button {
   position: absolute;
   display: block;
@@ -83,9 +61,8 @@ body {
 }
 
 /* =======================================================
-   6. PURPLE TOGGLE BUTTON (IMAGE-BASED)
+   5. PURPLE TOGGLE BUTTON (IMAGE-BASED)
    ======================================================= */
-
 .switch-button {
   position: absolute;
   top: 475px;
@@ -103,63 +80,11 @@ body {
 }
 
 /* =======================================================
-   7. OVERLAY MODE
+   6. MOBILE RESPONSIVENESS
    ======================================================= */
-
-#overlay {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 900;
-  opacity: 0;
-  transition: opacity 0.8s ease-in;
-}
-
-#overlay.show {
-  display: block;
-  opacity: 1;
-}
-
-/* Overlay Background */
-#overlay .overlay-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
-/* Overlay Logo */
-#overlay .logo-white {
-  position: absolute;
-  top: 125px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  z-index: 2;
-}
-
-/* Overlay White Navigation Buttons */
-#overlay .white-button {
-  position: absolute;
-  display: block;
-  z-index: 3;
-}
-
-#overlay .white-button img {
-  display: block;
-  height: auto;
-}
-
-/* =======================================================
-   8. MOBILE RESPONSIVENESS
-   ======================================================= */
-
 @media only screen and (max-width: 768px) {
 
-  .logo,
-  #overlay .logo-white {
+  .logo {
     width: 400px;
     top: 100px;
   }
@@ -184,19 +109,11 @@ body {
 <div class="container">
 
   <!-- =====================================================
-       BACKGROUND IMAGE (BASE LAYER)
+       MAIN BACKGROUND (No overlay, no flicker)
        ===================================================== -->
   <img src="images/BlackUnearthBackground.png" 
        alt="Background" 
        class="background">
-
-  <!-- =====================================================
-       FLICKER OVERLAY LAYER
-       (You can swap this image to any flicker variation)
-       ===================================================== -->
-  <img src="images/Flowersandboltflicker.png" 
-       alt="Flicker Layer" 
-       class="flicker">
 
   <!-- =====================================================
        MAIN LOGO
@@ -206,7 +123,7 @@ body {
        class="logo">
 
   <!-- =====================================================
-       MAIN NAVIGATION BUTTONS (CLICK STYLE)
+       NAVIGATION BUTTONS (CLICK VERSION)
        ===================================================== -->
 
   <a href="about.html" class="original-button" style="top: 345px; left: 25%;">
@@ -230,65 +147,13 @@ body {
   </a>
 
   <!-- =====================================================
-       PURPLE TOGGLE BUTTON
+       PURPLE TOGGLE BUTTON (IMAGE-BASED)
        ===================================================== -->
-
-  <a href="#" class="switch-button" onclick="toggleOverlay(); return false;">
+  <a href="#" class="switch-button">
     <img src="images/purplebutton.png" alt="Toggle Overlay">
   </a>
 
-  <!-- =====================================================
-       OVERLAY MODE CONTENT
-       ===================================================== -->
-
-  <div id="overlay">
-
-    <!-- Overlay Background -->
-    <img src="images/BlackUnearthBackground.png" 
-         alt="Overlay Background" 
-         class="overlay-bg">
-
-    <!-- Overlay Logo -->
-    <img src="images/Logoandbeelight.png" 
-         alt="Honey Space Logo" 
-         class="logo-white">
-
-    <!-- White Navigation Buttons -->
-
-    <a href="about.html" class="white-button" style="top: 358px; left: 25%;">
-      <img src="images/whiteaboutbutton.png" style="width: 79px;">
-    </a>
-
-    <a href="music.html" class="white-button" style="top: 363px; left: 35%;">
-      <img src="images/whitemusicbutton.png" style="width: 90px;">
-    </a>
-
-    <a href="blog.html" class="white-button" style="top: 360px; left: 57%;">
-      <img src="images/whiteblogbutton.png" style="width: 69px;">
-    </a>
-
-    <a href="gallery.html" class="white-button" style="top: 363px; left: 46%;">
-      <img src="images/whitegallerybutton.png" style="width: 90px;">
-    </a>
-
-    <a href="contact.html" class="white-button" style="top: 365px; left: 67%;">
-      <img src="images/whitecontactbutton.png" style="width: 80px;">
-    </a>
-
-  </div>
-
 </div>
-
-<!-- =====================================================
-     JAVASCRIPT — OVERLAY TOGGLE FUNCTION
-     ===================================================== -->
-
-<script>
-function toggleOverlay() {
-  const overlay = document.getElementById('overlay');
-  overlay.classList.toggle('show');
-}
-</script>
 
 </body>
 </html>
