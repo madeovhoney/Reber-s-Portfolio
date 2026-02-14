@@ -7,7 +7,7 @@
 
 <style>
 /* =======================================================
-   1. GLOBAL PAGE STYLING
+   1. GLOBAL STYLING
    ======================================================= */
 body {
   margin: 0;
@@ -25,7 +25,7 @@ body {
 }
 
 /* =======================================================
-   2. BACKGROUND IMAGE
+   2. BACKGROUND
    ======================================================= */
 .background {
   display: block;
@@ -35,7 +35,31 @@ body {
 }
 
 /* =======================================================
-   3. MAIN LOGO
+   3. FLICKER LAYERS
+   ======================================================= */
+.flicker-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  z-index: 2;
+  pointer-events: none; /* Clicks pass through */
+  animation-name: flickerAnimation;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* Flicker keyframes */
+@keyframes flickerAnimation {
+  0%, 20%, 40%, 60%, 80%, 100% { opacity: 1; }
+  10%, 30%, 50%, 70%, 90% { opacity: 0.3; }
+}
+
+/* =======================================================
+   4. MAIN LOGO
    ======================================================= */
 .logo {
   position: absolute;
@@ -47,7 +71,7 @@ body {
 }
 
 /* =======================================================
-   4. NAVIGATION BUTTONS (CLICK STYLE)
+   5. NAVIGATION BUTTONS
    ======================================================= */
 .original-button {
   position: absolute;
@@ -61,7 +85,7 @@ body {
 }
 
 /* =======================================================
-   5. PURPLE TOGGLE BUTTON (IMAGE-BASED)
+   6. PURPLE TOGGLE BUTTON
    ======================================================= */
 .switch-button {
   position: absolute;
@@ -80,7 +104,7 @@ body {
 }
 
 /* =======================================================
-   6. MOBILE RESPONSIVENESS
+   7. MOBILE RESPONSIVENESS
    ======================================================= */
 @media only screen and (max-width: 768px) {
 
@@ -103,29 +127,34 @@ body {
 
 </style>
 </head>
-
 <body>
 
 <div class="container">
 
   <!-- =====================================================
-       MAIN BACKGROUND (No overlay, no flicker)
+       MAIN BACKGROUND
        ===================================================== -->
-  <img src="images/BlackUnearthBackground.png" 
-       alt="Background" 
-       class="background">
+  <img src="images/BlackUnearthBackground.png" alt="Background" class="background">
+
+  <!-- =====================================================
+       FLICKER OVERLAYS
+       ===================================================== -->
+
+  <img src="images/Flowersandboltflicker.png" class="flicker-layer" style="animation-delay: 0s;">
+  <img src="images/Boltandheartflicker.png" class="flicker-layer" style="animation-delay: 1.5s;">
+  <img src="images/Boltandstarflicker.png" class="flicker-layer" style="animation-delay: 3s;">
+  <img src="images/Starsflicker.png" class="flicker-layer" style="animation-delay: 4.5s;">
+  <img src="images/starandalienflicker.png" class="flicker-layer" style="animation-delay: 6s;">
+  <img src="images/flowersflicker.png" class="flicker-layer" style="animation-delay: 7.5s;">
 
   <!-- =====================================================
        MAIN LOGO
        ===================================================== -->
-  <img src="images/Logoandbeelight.png" 
-       alt="Honey Space Logo" 
-       class="logo">
+  <img src="images/Logoandbeelight.png" alt="Honey Space Logo" class="logo">
 
   <!-- =====================================================
        NAVIGATION BUTTONS (CLICK VERSION)
        ===================================================== -->
-
   <a href="about.html" class="original-button" style="top: 345px; left: 25%;">
     <img src="images/Aboutlinkclick.png" style="width: 85px;">
   </a>
@@ -147,7 +176,7 @@ body {
   </a>
 
   <!-- =====================================================
-       PURPLE TOGGLE BUTTON (IMAGE-BASED)
+       PURPLE TOGGLE BUTTON
        ===================================================== -->
   <a href="#" class="switch-button">
     <img src="images/purplebutton.png" alt="Toggle Overlay">
