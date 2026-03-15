@@ -14,20 +14,25 @@
       overflow-x: hidden;
       font-family: sans-serif;
       background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* viewport height */
     }
 
     /* ===============================
-       FULLSCREEN BACKGROUND IMAGE
+       FULLSCREEN BACKGROUND IMAGE (fully visible)
     =============================== */
     #blogBG {
-      width: 100vw;       /* full viewport width */
-      height: 100vh;      /* full viewport height */
-      object-fit: cover;   /* scale and crop to fill screen */
+      width: 100vw;        /* full viewport width */
+      height: 100vh;       /* full viewport height */
+      object-fit: contain; /* scale so the entire image is visible */
       display: block;
-      position: fixed;     /* stays behind content */
-      top: 300;
+      position: fixed;
+      top: 0;
       left: 0;
-      z-index: -1;         /* behind all other content */
+      z-index: -1;          /* behind content */
+      background-color: black; /* fills empty space */
     }
 
     /* ===============================
@@ -37,9 +42,8 @@
       position: relative;
       z-index: 1;
       color: white;
-      padding: 50px;
-      max-width: 1200px;
-      margin: 0 auto;
+      text-align: center;
+      padding: 20px;
     }
 
     h1 {
@@ -50,18 +54,20 @@
     p {
       font-size: 1.2rem;
       line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
     }
   </style>
 </head>
 <body>
 
-  <!-- Fullscreen Blog Background -->
+  <!-- Full Blog Background -->
   <img src="../Images/blog-background.png" id="blogBG" alt="Blog Background">
 
   <!-- Page Content -->
   <div class="content">
     <h1>Blog</h1>
-    <p>Welcome to the Honey Space blog. Add your posts and content here!</p>
+    <p>Welcome to the Honey Space blog. Here’s your content displayed on top of the full background image, fully visible without cropping.</p>
   </div>
 
 </body>
