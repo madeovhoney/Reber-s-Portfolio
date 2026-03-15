@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honey Space – Music</title>
+  <style>
+    /* ===============================
+       GLOBAL STYLING
+    =============================== */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: black; /* black behind transparent image */
+      color: white;
+    }
 
+    /* ===============================
+       SCROLLABLE FULL-BACKGROUND IMAGE
+    =============================== */
+    #musicBG {
+      width: 100%;
+      height: auto;           /* maintains aspect ratio */
+      max-width: 1920px;      /* optional max width */
+      display: block;
+    }
+
+    /* ===============================
+       PAGE CONTENT
+    =============================== */
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scrollable Music Background -->
+  <img src="../Images/music-background.png" id="musicBG" alt="Music Background">
+
+  <!-- Page Content -->
+  <div class="content">
+    <h1>Music</h1>
+    <p>Welcome to the Honey Space music page. The background scrolls naturally, just like on the homepage, and the black page background ensures your transparent image displays correctly.</p>
+  </div>
+
+</body>
+</html>
