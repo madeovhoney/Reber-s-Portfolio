@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Honey Space – Blog</title>
   <style>
-    /* ===============================
-       GLOBAL STYLING
-    =============================== */
     body {
       margin: 0;
       padding: 0;
@@ -16,19 +13,13 @@
       color: white;
     }
 
-    /* ===============================
-       SCROLLABLE FULL-BACKGROUND IMAGE
-    =============================== */
     #blogBG {
       width: 100%;
-      height: auto;           /* allow natural height */
-      max-width: 1920px;      /* optional: limit very large images */
+      height: auto;
+      max-width: 1920px;
       display: block;
     }
 
-    /* ===============================
-       PAGE CONTENT
-    =============================== */
     .content {
       position: relative;
       z-index: 1;
@@ -46,19 +37,34 @@
       font-size: 1.2rem;
       line-height: 1.6;
     }
+
+    #homeButton {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 50px;
+      z-index: 1000;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    #homeButton:hover {
+      transform: scale(1.2);
+    }
   </style>
 </head>
 <body>
 
-  <!-- Scrollable Blog Background -->
   <img src="../Images/blog-background.png" id="blogBG" alt="Blog Background">
 
-  <!-- Page Content -->
   <div class="content">
     <h1>Blog</h1>
-    <p>Welcome to the Honey Space blog. The background scrolls with the page, just like on the homepage, keeping it visually consistent.</p>
-    <p>Keep adding posts or sections here. The image will move naturally as you scroll.</p>
+    <p>Welcome to the Honey Space blog. Add your posts and content here!</p>
   </div>
+
+  <a href="../index.html?overlay=1">
+    <img src="../Images/purplebutton.png" id="homeButton" alt="Go Home">
+  </a>
 
 </body>
 </html>
