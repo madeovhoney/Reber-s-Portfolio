@@ -12,7 +12,7 @@
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background: black; /* black background behind transparent image */
+      background: black; /* black behind transparent image */
       color: white;
     }
 
@@ -21,8 +21,8 @@
     =============================== */
     #aboutBG {
       width: 100%;
-      height: auto;          /* keep image proportion */
-      max-width: 1920px;     /* optional max width */
+      height: auto;           /* maintain aspect ratio */
+      max-width: 1920px;      /* optional max width */
       display: block;
     }
 
@@ -46,6 +46,23 @@
       font-size: 1.2rem;
       line-height: 1.6;
     }
+
+    /* ===============================
+       PURPLE HOME BUTTON
+    =============================== */
+    #homeButton {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 50px;
+      z-index: 1000;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    #homeButton:hover {
+      transform: scale(1.2);
+    }
   </style>
 </head>
 <body>
@@ -57,7 +74,13 @@
   <div class="content">
     <h1>About</h1>
     <p>Welcome to Honey Space. This page uses a transparent background image, but the black page background ensures it displays correctly.</p>
+    <p>Here you can include more information about the project, yourself, or any other content you’d like visitors to see.</p>
   </div>
+
+  <!-- Purple Home Button -->
+  <a href="../index.html">
+    <img src="../Images/purplebutton.png" id="homeButton" alt="Go Home">
+  </a>
 
 </body>
 </html>
