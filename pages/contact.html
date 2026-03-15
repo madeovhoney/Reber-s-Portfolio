@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honey Space – Contact</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: black;
+      color: white;
+    }
 
+    #contactBG {
+      width: 100%;
+      height: auto;
+      max-width: 1920px;
+      display: block;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    #homeButton {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 50px;
+      z-index: 1000;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    #homeButton:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+
+  <img src="../Images/contact-background.png" id="contactBG" alt="Contact Background">
+
+  <div class="content">
+    <h1>Contact</h1>
+    <p>Get in touch with Honey Space. The black background ensures any transparency in the image displays correctly.</p>
+  </div>
+
+  <a href="../index.html?overlay=1">
+    <img src="../Images/purplebutton.png" id="homeButton" alt="Go Home">
+  </a>
+
+</body>
+</html>
