@@ -11,28 +11,19 @@
     body {
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
       font-family: sans-serif;
       background: black;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh; /* viewport height */
+      color: white;
     }
 
     /* ===============================
-       FULLSCREEN BACKGROUND IMAGE (fully visible)
+       SCROLLABLE FULL-BACKGROUND IMAGE
     =============================== */
     #blogBG {
-      width: 100vw;        /* full viewport width */
-      height: 100vh;       /* full viewport height */
-      object-fit: contain; /* scale so the entire image is visible */
+      width: 100%;
+      height: auto;           /* allow natural height */
+      max-width: 1920px;      /* optional: limit very large images */
       display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;          /* behind content */
-      background-color: black; /* fills empty space */
     }
 
     /* ===============================
@@ -41,9 +32,9 @@
     .content {
       position: relative;
       z-index: 1;
-      color: white;
-      text-align: center;
-      padding: 20px;
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     h1 {
@@ -54,20 +45,19 @@
     p {
       font-size: 1.2rem;
       line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto;
     }
   </style>
 </head>
 <body>
 
-  <!-- Full Blog Background -->
+  <!-- Scrollable Blog Background -->
   <img src="../Images/blog-background.png" id="blogBG" alt="Blog Background">
 
   <!-- Page Content -->
   <div class="content">
     <h1>Blog</h1>
-    <p>Welcome to the Honey Space blog. Here’s your content displayed on top of the full background image, fully visible without cropping.</p>
+    <p>Welcome to the Honey Space blog. The background scrolls with the page, just like on the homepage, keeping it visually consistent.</p>
+    <p>Keep adding posts or sections here. The image will move naturally as you scroll.</p>
   </div>
 
 </body>
