@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- =================================================
+HEAD
+================================================= -->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Honey Space</title>
 
 <style>
-/* ===============================
-   GLOBAL STYLING
-   =============================== */
+
+/* =================================================
+GLOBAL STYLING
+================================================= */
 body {
   margin: 0;
   padding: 0;
   background: black;
   overflow-x: hidden;
 }
+
 .container {
   position: relative;
   width: 100%;
@@ -22,9 +28,10 @@ body {
   margin: 0 auto;
 }
 
-/* ===============================
-   BACKGROUNDS
-   =============================== */
+
+/* =================================================
+BACKGROUND IMAGES
+================================================= */
 #unearthedBG {
   width: 100%;
   display: block;
@@ -45,9 +52,10 @@ body {
   opacity: 1;
 }
 
-/* ===============================
-   FLICKER IMAGES (UNEART HED ONLY)
-   =============================== */
+
+/* =================================================
+FLICKER IMAGES (UNEART HED MODE)
+================================================= */
 .flicker {
   position: absolute;
   pointer-events: none;
@@ -63,17 +71,18 @@ body {
   filter: brightness(3);
 }
 
-/* ---- INDIVIDUAL FLICKER POSITIONS & SIZES ---- */
+/* Flicker Positions */
 #flowersBolt { width:1275px; top:-150px; left:-89px; }
 #boltHeart   { width:189px;  top:825px;  left:500px; }
 #boltStar    { width:675px;  top:250px;  left:25px; }
-#stars       { width:100px;  top:85px;  left:575px; }
-#alienStar   { width:650px;  top:825px; left:10px; }
-#flowers     { width:575px;  top:7px;   left:480px; }
+#stars       { width:100px;  top:85px;   left:575px; }
+#alienStar   { width:650px;  top:825px;  left:10px; }
+#flowers     { width:575px;  top:7px;    left:480px; }
 
-/* ===============================
-   LOGOS
-   =============================== */
+
+/* =================================================
+LOGOS
+================================================= */
 #normalLogo {
   position: absolute;
   top: 125px;
@@ -101,38 +110,44 @@ body {
   display: block;
 }
 
-/* ===============================
-   OVERLAY BEE & SNAIL (CIRCULAR ANIMATION)
-   =============================== */
+
+/* =================================================
+OVERLAY BEE & SNAIL ANIMATION
+================================================= */
 #overlayBeeSnail {
   position: absolute;
-  top: 200px;      /* Adjust starting vertical position */
-  left: 50%;       /* Center starting horizontal position */
-  width: 800px;    /* Adjust size of bee & snail */
+  top: 200px;
+  left: 50%;
+  width: 800px;
   z-index: 7;
   display: none;
 
-  /* Circular motion animation: reversed, fast, continuous */
   animation: snailBeeCircle 12s linear infinite;
-  transform-origin: 50% 50%; /* pivot for circular motion */
+  transform-origin: 50% 50%;
 }
 
 .container.overlay-active #overlayBeeSnail {
   display: block;
 }
 
-/* Circular motion keyframes */
 @keyframes snailBeeCircle {
+
   0%   { transform: translate(-50%, -50%) rotate(0deg) translateX(100px) rotate(0deg); }
+
   25%  { transform: translate(-50%, -50%) rotate(90deg) translateX(100px) rotate(-90deg); }
+
   50%  { transform: translate(-50%, -50%) rotate(180deg) translateX(100px) rotate(-180deg); }
+
   75%  { transform: translate(-50%, -50%) rotate(270deg) translateX(100px) rotate(-270deg); }
+
   100% { transform: translate(-50%, -50%) rotate(360deg) translateX(100px) rotate(-360deg); }
+
 }
 
-/* ===============================
-   NORMAL NAV LINKS
-   =============================== */
+
+/* =================================================
+NAVIGATION LINKS (NORMAL MODE)
+================================================= */
 .normal-link {
   position: absolute;
   z-index: 6;
@@ -148,9 +163,10 @@ body {
 #galleryLink { top:369px; left:35%; width:90px; }
 #contactLink { top:360px; left:67%; width:80px; }
 
-/* ===============================
-   OVERLAY NAV LINKS
-   =============================== */
+
+/* =================================================
+NAVIGATION LINKS (OVERLAY MODE)
+================================================= */
 .overlay-link {
   position: absolute;
   z-index: 7;
@@ -167,9 +183,10 @@ body {
 #overlayGallery { top:369px; left:35%; width:90px; }
 #overlayContact { top:371px; left:67%; width:80px; }
 
-/* ===============================
-   PURPLE TOGGLE BUTTON
-   =============================== */
+
+/* =================================================
+PURPLE TOGGLE BUTTON
+================================================= */
 #purpleButton {
   position: absolute;
   top: 500px;
@@ -180,103 +197,223 @@ body {
   cursor: pointer;
 }
 
-/* ===============================
-   RESPONSIVE
-   =============================== */
+
+/* =================================================
+RESPONSIVE DESIGN
+================================================= */
 @media only screen and (max-width:768px) {
-  #normalLogo, #overlayLogo { width:400px; top:100px; }
-  .normal-link, .overlay-link { width:40%; left:50%; transform:translateX(-50%); }
-  #purpleButton { top:420px; width:100px; }
+
+  #normalLogo,
+  #overlayLogo {
+    width:400px;
+    top:100px;
+  }
+
+  .normal-link,
+  .overlay-link {
+    width:40%;
+    left:50%;
+    transform:translateX(-50%);
+  }
+
+  #purpleButton {
+    top:420px;
+    width:100px;
+  }
+
 }
+
 </style>
 </head>
 
+
+
+<!-- =================================================
+BODY
+================================================= -->
 <body>
+
 <div class="container" id="mainContainer">
 
-  <!-- BACKGROUNDS -->
-  <img id="unearthedBG" src="Images/BlackUnearthBackground.png?v=1" alt="Unearthed Background">
-  <img id="earthedFade" src="Images/Earthedoverlayfadein.png?v=1" alt="Earthed Fade">
 
-  <!-- FLICKER IMAGES -->
-  <img src="Images/Flowersandboltflicker.png?v=1" id="flowersBolt" class="flicker" alt="Flowers & Bolt Flicker">
-  <img src="Images/Boltandheartflicker.png?v=1"   id="boltHeart" class="flicker" alt="Bolt & Heart Flicker">
-  <img src="Images/Boltandstarflicker.png?v=1"    id="boltStar" class="flicker" alt="Bolt & Star Flicker">
-  <img src="Images/Starsflicker.png?v=1"          id="stars" class="flicker" alt="Stars Flicker">
-  <img src="Images/starandalienflicker.png?v=1"   id="alienStar" class="flicker" alt="Star & Alien Flicker">
-  <img src="Images/flowersflicker.png?v=1"        id="flowers" class="flicker" alt="Flowers Flicker">
+<!-- =================================================
+BACKGROUND IMAGES
+================================================= -->
+<img id="unearthedBG" src="Images/BlackUnearthBackground.png?v=1">
+<img id="earthedFade" src="Images/Earthedoverlayfadein.png?v=1">
 
-  <!-- LOGOS -->
-  <img src="Images/Logoandbeelight.png?v=1" id="normalLogo" alt="Normal Logo">
-  <img src="Images/Overlaylogo.png?v=1" id="overlayLogo" alt="Overlay Logo">
 
-  <!-- OVERLAY BEE & SNAIL -->
-  <img src="Images/Overlaybeeandsnail.png?v=1" id="overlayBeeSnail" alt="Overlay Bee & Snail">
 
-  <!-- NORMAL LINKS -->
-  <a href="#"><img src="Images/Aboutlinkclick.png?v=1" id="aboutLink" class="normal-link" alt="About Link"></a>
-  <a href="#"><img src="Images/Musiclinkclick.png?v=1" id="musicLink" class="normal-link" alt="Music Link"></a>
-  <a href="#"><img src="Images/bloglinkclick.png?v=1" id="blogLink" class="normal-link" alt="Blog Link"></a>
-  <a href="#"><img src="Images/Gallerylinkclick.png?v=1" id="galleryLink" class="normal-link" alt="Gallery Link"></a>
-  <a href="#"><img src="Images/contactlinkclick.png?v=1" id="contactLink" class="normal-link" alt="Contact Link"></a>
+<!-- =================================================
+FLICKER EFFECT IMAGES
+================================================= -->
+<img src="Images/Flowersandboltflicker.png?v=1" id="flowersBolt" class="flicker">
+<img src="Images/Boltandheartflicker.png?v=1"   id="boltHeart" class="flicker">
+<img src="Images/Boltandstarflicker.png?v=1"    id="boltStar" class="flicker">
+<img src="Images/Starsflicker.png?v=1"          id="stars" class="flicker">
+<img src="Images/starandalienflicker.png?v=1"   id="alienStar" class="flicker">
+<img src="Images/flowersflicker.png?v=1"        id="flowers" class="flicker">
 
-  <!-- OVERLAY LINKS -->
-  <a href="#"><img src="Images/Overlayaboutlink.png?v=1" id="overlayAbout" class="overlay-link" alt="Overlay About"></a>
-  <a href="#"><img src="Images/Overlaymusiclink.png?v=1" id="overlayMusic" class="overlay-link" alt="Overlay Music"></a>
-  <a href="#"><img src="Images/Overlaybloglink.png?v=1" id="overlayBlog" class="overlay-link" alt="Overlay Blog"></a>
-  <a href="#"><img src="Images/Overlaygallerylink.png?v=1" id="overlayGallery" class="overlay-link" alt="Overlay Gallery"></a>
-  <a href="#"><img src="Images/Overlaycontactlink.png?v=1" id="overlayContact" class="overlay-link" alt="Overlay Contact"></a>
 
-  <!-- PURPLE BUTTON -->
-  <img src="Images/purplebutton.png?v=1" id="purpleButton" alt="Purple Toggle Button">
+
+<!-- =================================================
+LOGOS
+================================================= -->
+<img src="Images/Logoandbeelight.png?v=1" id="normalLogo">
+<img src="Images/Overlaylogo.png?v=1" id="overlayLogo">
+
+
+
+<!-- =================================================
+OVERLAY BEE & SNAIL
+================================================= -->
+<img src="Images/Overlaybeeandsnail.png?v=1" id="overlayBeeSnail">
+
+
+
+<!-- =================================================
+NAVIGATION LINKS (NORMAL)
+================================================= -->
+<a href="about.html">
+<img src="Images/Aboutlinkclick.png?v=1" id="aboutLink" class="normal-link">
+</a>
+
+<a href="#">
+<img src="Images/Musiclinkclick.png?v=1" id="musicLink" class="normal-link">
+</a>
+
+<a href="#">
+<img src="Images/bloglinkclick.png?v=1" id="blogLink" class="normal-link">
+</a>
+
+<a href="#">
+<img src="Images/Gallerylinkclick.png?v=1" id="galleryLink" class="normal-link">
+</a>
+
+<a href="#">
+<img src="Images/contactlinkclick.png?v=1" id="contactLink" class="normal-link">
+</a>
+
+
+
+<!-- =================================================
+NAVIGATION LINKS (OVERLAY)
+================================================= -->
+<a href="about.html">
+<img src="Images/Overlayaboutlink.png?v=1" id="overlayAbout" class="overlay-link">
+</a>
+
+<a href="#">
+<img src="Images/Overlaymusiclink.png?v=1" id="overlayMusic" class="overlay-link">
+</a>
+
+<a href="#">
+<img src="Images/Overlaybloglink.png?v=1" id="overlayBlog" class="overlay-link">
+</a>
+
+<a href="#">
+<img src="Images/Overlaygallerylink.png?v=1" id="overlayGallery" class="overlay-link">
+</a>
+
+<a href="#">
+<img src="Images/Overlaycontactlink.png?v=1" id="overlayContact" class="overlay-link">
+</a>
+
+
+
+<!-- =================================================
+PURPLE MODE TOGGLE BUTTON
+================================================= -->
+<img src="Images/purplebutton.png?v=1" id="purpleButton">
+
+
 
 </div>
 
+
+
+<!-- =================================================
+JAVASCRIPT
+================================================= -->
 <script>
-// ===============================
-// FLICKER FUNCTION
-// ===============================
+
+/* =================================================
+FLICKER EFFECT
+================================================= */
 function flickerEffect(img){
+
   function cycle(){
+
     const flashes = Math.floor(Math.random()*3)+1;
     let count=0;
+
     function flash(){
+
       img.classList.add("flash");
+
       setTimeout(()=>{
+
         img.classList.remove("flash");
         count++;
+
         if(count<flashes){
+
           setTimeout(flash,70 + Math.random()*80);
-        }else{
+
+        } else {
+
           setTimeout(cycle,10000 + Math.random()*5000);
+
         }
+
       },70);
+
     }
+
     flash();
+
   }
+
   setTimeout(cycle, Math.random()*8000);
+
 }
 
-// Apply flicker only on unearthed images
 document.querySelectorAll(".flicker").forEach(flickerEffect);
 
-// ===============================
-// PURPLE BUTTON TOGGLE
-// ===============================
+
+
+/* =================================================
+PURPLE BUTTON TOGGLE
+================================================= */
 document.getElementById("purpleButton").addEventListener("click", function(){
+
   const container = document.getElementById("mainContainer");
+
   container.classList.toggle("overlay-active");
 
-  // Force-refresh overlay images
+
   const timestamp = new Date().getTime();
-  document.getElementById("overlayLogo").src = "Images/Overlaylogo.png?v="+timestamp;
-  document.getElementById("earthedFade").src = "Images/Earthedoverlayfadein.png?v="+timestamp;
-  document.getElementById("overlayBeeSnail").src = "Images/Overlaybeeandsnail.png?v="+timestamp;
+
+  document.getElementById("overlayLogo").src =
+    "Images/Overlaylogo.png?v="+timestamp;
+
+  document.getElementById("earthedFade").src =
+    "Images/Earthedoverlayfadein.png?v="+timestamp;
+
+  document.getElementById("overlayBeeSnail").src =
+    "Images/Overlaybeeandsnail.png?v="+timestamp;
+
   document.querySelectorAll(".overlay-link").forEach(img=>{
+
     const originalSrc = img.src.split("?v=")[0];
     img.src = originalSrc + "?v=" + timestamp;
+
   });
+
 });
+
 </script>
+
+
 </body>
 </html>
