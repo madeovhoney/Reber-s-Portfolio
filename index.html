@@ -223,7 +223,13 @@ body {
 if (window.location.search) {
   window.history.replaceState({}, document.title, window.location.pathname);
 }
-
+/* ===============================
+   RESET STATE ON PAGE RETURN (FIX)
+   =============================== */
+window.addEventListener("pageshow", function () {
+  const container = document.getElementById("mainContainer");
+  container.classList.remove("overlay-active");
+});
 /* ===============================
    FLICKER EFFECT
    =============================== */
