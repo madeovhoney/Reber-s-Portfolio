@@ -30,11 +30,17 @@
        PAGE CONTENT
     =============================== */
     .content {
-      position: relative;
+      position: absolute; /* allows free placement */
       z-index: 1;
-      padding: 50px 20px;
+      
+      /* ========== ADJUST THIS AREA TO MOVE "ABOUT ME" ========== */
+      top: 150px;    /* distance from top of page */
+      left: 50px;    /* distance from left of page */
       max-width: 1200px;
-      margin: 0 auto;
+      padding: 20px;
+      /* optional centering text */
+      /* text-align: center; */
+      /* ======================================================== */
     }
 
     h1 {
