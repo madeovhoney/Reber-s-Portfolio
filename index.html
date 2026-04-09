@@ -119,7 +119,7 @@ body {
 }
 
 /* ===============================
-   NORMAL NAV LINKS
+   NAV LINKS
    =============================== */
 .normal-link {
   position: absolute;
@@ -128,15 +128,6 @@ body {
 .container.overlay-active .normal-link {
   display: none;
 }
-#aboutLink   { top:345px; left:25%; width:85px; }
-#musicLink   { top:350px; left:57%; width:86px; }
-#blogLink    { top:360px; left:46%; width:81px; }
-#galleryLink { top:369px; left:35%; width:90px; }
-#contactLink { top:360px; left:67%; width:80px; }
-
-/* ===============================
-   OVERLAY NAV LINKS
-   =============================== */
 .overlay-link {
   position: absolute;
   z-index: 7;
@@ -145,14 +136,9 @@ body {
 .container.overlay-active .overlay-link {
   display: block;
 }
-#overlayAbout   { top:367px; left:25%; width:85px; }
-#overlayMusic   { top:367px; left:57%; width:86px; }
-#overlayBlog    { top:369px; left:46%; width:76px; }
-#overlayGallery { top:369px; left:35%; width:90px; }
-#overlayContact { top:371px; left:67%; width:80px; }
 
 /* ===============================
-   PURPLE TOGGLE BUTTON
+   PURPLE BUTTON
    =============================== */
 #purpleButton {
   position: absolute;
@@ -172,7 +158,6 @@ body {
   .normal-link, .overlay-link { width:40%; left:50%; transform:translateX(-50%); }
   #purpleButton { top:420px; width:100px; }
 }
-
 </style>
 </head>
 
@@ -180,69 +165,28 @@ body {
 <div class="container" id="mainContainer">
 
   <!-- BACKGROUNDS -->
-  <img id="unearthedBG" src="Images/BlackUnearthBackground.png?v=1" alt="Unearthed Background">
-  <img id="earthedFade" src="Images/Earthedoverlayfadein.png?v=1" alt="Overlay Fade">
-
-  <!-- FLICKER IMAGES -->
-  <img src="Images/Flowersandboltflicker.png?v=1" id="flowersBolt" class="flicker" alt="Flowers & Bolt Flicker">
-  <img src="Images/Boltandheartflicker.png?v=1" id="boltHeart" class="flicker" alt="Bolt & Heart Flicker">
-  <img src="Images/Boltandstarflicker.png?v=1" id="boltStar" class="flicker" alt="Bolt & Star Flicker">
-  <img src="Images/Starsflicker.png?v=1" id="stars" class="flicker" alt="Stars Flicker">
-  <img src="Images/starandalienflicker.png?v=1" id="alienStar" class="flicker" alt="Star & Alien Flicker">
-  <img src="Images/flowersflicker.png?v=1" id="flowers" class="flicker" alt="Flowers Flicker">
+  <img id="unearthedBG" src="Images/BlackUnearthBackground.png?v=1">
+  <img id="earthedFade" src="Images/Earthedoverlayfadein.png?v=1">
 
   <!-- LOGOS -->
-  <img src="Images/Logoandbeelight.png?v=1" id="normalLogo" alt="Normal Logo">
-  <img src="Images/Overlaylogo.png?v=1" id="overlayLogo" alt="Overlay Logo">
+  <img src="Images/Logoandbeelight.png?v=1" id="normalLogo">
+  <img src="Images/Overlaylogo.png?v=1" id="overlayLogo">
 
-  <!-- OVERLAY BEE & SNAIL -->
-  <img src="Images/Overlaybeeandsnail.png?v=1" id="overlayBeeSnail" alt="Overlay Bee & Snail">
+  <!-- OVERLAY -->
+  <img src="Images/Overlaybeeandsnail.png?v=1" id="overlayBeeSnail">
 
-  <!-- ===============================
-       NORMAL NAV LINKS
-       =============================== -->
-  <a href="pages/about.html"><img src="Images/Aboutlinkclick.png?v=1" id="aboutLink" class="normal-link" alt="About Link"></a>
-  <a href="pages/music.html"><img src="Images/Musiclinkclick.png?v=1" id="musicLink" class="normal-link" alt="Music Link"></a>
-  <a href="pages/blog.html"><img src="Images/bloglinkclick.png?v=1" id="blogLink" class="normal-link" alt="Blog Link"></a>
-  <a href="pages/gallery.html"><img src="Images/Gallerylinkclick.png?v=1" id="galleryLink" class="normal-link" alt="Gallery Link"></a>
-  <a href="pages/contact.html"><img src="Images/contactlinkclick.png?v=1" id="contactLink" class="normal-link" alt="Contact Link"></a>
-
-  <!-- ===============================
-       OVERLAY NAV LINKS
-       =============================== -->
-  <a href="pages/about.html"><img src="Images/Overlayaboutlink.png?v=1" id="overlayAbout" class="overlay-link" alt="Overlay About"></a>
-  <a href="pages/music.html"><img src="Images/Overlaymusiclink.png?v=1" id="overlayMusic" class="overlay-link" alt="Overlay Music"></a>
-  <a href="pages/blog.html"><img src="Images/Overlaybloglink.png?v=1" id="overlayBlog" class="overlay-link" alt="Overlay Blog"></a>
-  <a href="pages/gallery.html"><img src="Images/Overlaygallerylink.png?v=1" id="overlayGallery" class="overlay-link" alt="Overlay Gallery"></a>
-  <a href="pages/contact.html"><img src="Images/Overlaycontactlink.png?v=1" id="overlayContact" class="overlay-link" alt="Overlay Contact"></a>
-
-  <!-- PURPLE BUTTON -->
-  <img src="Images/purplebutton.png?v=1" id="purpleButton" alt="Purple Toggle Button">
+  <!-- BUTTON -->
+  <img src="Images/purplebutton.png?v=1" id="purpleButton">
 
 </div>
 
 <script>
 /* ===============================
-   FLICKER EFFECT
+   CLEAN URL (NEW FIX)
    =============================== */
-function flickerEffect(img){
-  function cycle(){
-    const flashes = Math.floor(Math.random()*3)+1;
-    let count=0;
-    function flash(){
-      img.classList.add("flash");
-      setTimeout(()=>{
-        img.classList.remove("flash");
-        count++;
-        if(count<flashes){ setTimeout(flash,70 + Math.random()*80); }
-        else{ setTimeout(cycle,10000 + Math.random()*5000); }
-      },70);
-    }
-    flash();
-  }
-  setTimeout(cycle, Math.random()*8000);
+if (window.location.search) {
+  window.history.replaceState({}, document.title, window.location.pathname);
 }
-document.querySelectorAll(".flicker").forEach(flickerEffect);
 
 /* ===============================
    PURPLE BUTTON TOGGLE
@@ -255,11 +199,6 @@ document.getElementById("purpleButton").addEventListener("click", function(){
   document.getElementById("overlayLogo").src = "Images/Overlaylogo.png?v="+timestamp;
   document.getElementById("earthedFade").src = "Images/Earthedoverlayfadein.png?v="+timestamp;
   document.getElementById("overlayBeeSnail").src = "Images/Overlaybeeandsnail.png?v="+timestamp;
-
-  document.querySelectorAll(".overlay-link").forEach(img=>{
-    const originalSrc = img.src.split("?v=")[0];
-    img.src = originalSrc + "?v=" + timestamp;
-  });
 });
 </script>
 
