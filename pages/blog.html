@@ -5,14 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Honey Space – Blog</title>
   <style>
+    /* ===============================
+       GLOBAL STYLING
+    =============================== */
     body {
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background: black;
-      color: black;
+      background: black; /* black behind transparent image */
+      color: white;      /* text color visible over background */
     }
 
+    /* ===============================
+       SCROLLABLE FULL-BACKGROUND IMAGE
+    =============================== */
     #blogBG {
       width: 100%;
       height: auto;
@@ -20,12 +26,21 @@
       display: block;
     }
 
+    /* ===============================
+       PAGE CONTENT
+    =============================== */
     .content {
-      position: relative;
+      position: absolute; /* allows free placement */
       z-index: 1;
-      padding: 50px 20px;
+
+      /* ========== ADJUST THIS AREA TO MOVE BLOG CONTENT ========== */
+      top: 200px;    /* distance from top of page */
+      left: 50px;    /* distance from left of page */
       max-width: 1200px;
-      margin: 0 auto;
+      padding: 20px;
+      /* optional: center text inside the block */
+      /* text-align: center; */
+      /* ======================================================== */
     }
 
     h1 {
@@ -38,10 +53,13 @@
       line-height: 1.6;
     }
 
+    /* ===============================
+       PURPLE HOME BUTTON
+    =============================== */
     #homeButton {
       position: fixed;
-      top: 20px;
-      left: 20px;
+      top: 200px;
+      left: 450px;
       width: 50px;
       z-index: 1000;
       cursor: pointer;
@@ -55,13 +73,16 @@
 </head>
 <body>
 
+  <!-- Scrollable Blog Background -->
   <img src="../Images/blog-background.png" id="blogBG" alt="Blog Background">
 
+  <!-- Page Content -->
   <div class="content">
-    <p>A link to my HoneySpace blog will be place here!</p>
+    <p>A link to my HoneySpace blog will be placed here!</p>
     <p>Stay tuned for more.</p>
   </div>
 
+  <!-- Purple Home Button linking to homepage overlay -->
   <a href="../index.html?overlay=1">
     <img src="../Images/purplebutton.png" id="homeButton" alt="Go Home">
   </a>
