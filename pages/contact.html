@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Honey Space – Contact</title>
+
   <style>
     /* ===============================
        GLOBAL STYLING
@@ -12,12 +13,12 @@
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background: black; /* black behind transparent image */
-      color: black;      /* text color visible over background */
+      background: black;
+      color: black;
     }
 
     /* ===============================
-       SCROLLABLE FULL-BACKGROUND IMAGE
+       BACKGROUND IMAGE
     =============================== */
     #contactBG {
       width: 100%;
@@ -27,34 +28,42 @@
     }
 
     /* ===============================
-       PAGE CONTENT
+       CUPID IMAGES (FOR ANIMATION LATER)
+       👉 Adjust position + size here
     =============================== */
-    .content {
-      position: absolute; /* allows free placement */
-      z-index: 1;
 
-      /* ========== ADJUST THIS AREA TO MOVE Contact CONTENT ========== */
-      top: 200px;    /* distance from top of page */
-      left: 700px;    /* distance from left of page */
-      max-width: 1200px;
-      padding: 20px;
-      /* optional: center text inside the block */
-      /* text-align: center; */
-      /* ======================================================== */
+    /* BLUE UFO CUPID */
+    #cupidBlueUFO {
+      position: absolute;
+      top: 300px;     /* move up/down */
+      left: 200px;    /* move left/right */
+      width: 200px;   /* resize */
+      z-index: 2;
     }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1.2rem;
-      line-height: 1.6;
+    /* RED & YELLOW CUPIDS */
+    #cupidRedYellow {
+      position: absolute;
+      top: 500px;     /* move up/down */
+      left: 900px;    /* move left/right */
+      width: 250px;   /* resize */
+      z-index: 2;
     }
 
     /* ===============================
-       PURPLE HOME BUTTON
+       PAGE CONTENT (if needed later)
+    =============================== */
+    .content {
+      position: absolute;
+      z-index: 1;
+      top: 200px;
+      left: 700px;
+      max-width: 1200px;
+      padding: 20px;
+    }
+
+    /* ===============================
+       HOME BUTTON
     =============================== */
     #homeButton {
       position: fixed;
@@ -71,15 +80,25 @@
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Scrollable Contact Background -->
+  <!-- Background -->
   <img src="../Images/contactbackground.png" id="contactBG" alt="Contact Background">
 
-  <!-- Page Content -->
-  
+  <!-- ===============================
+       CUPID IMAGES (LAYERED ABOVE BG)
+       =============================== -->
 
-  <!-- Purple Home Button linking to homepage overlay -->
+  <!-- BLUE UFO CUPID -->
+  <img src="../Images/bluecupidufocontact.png" id="cupidBlueUFO" alt="Blue Cupid UFO">
+
+  <!-- RED & YELLOW CUPIDS -->
+  <img src="../Images/redandyellowcupids.png" id="cupidRedYellow" alt="Red and Yellow Cupids">
+
+  <!-- ===============================
+       HOME BUTTON
+    =============================== -->
   <a href="../index.html?overlay=1">
     <img src="../Images/purplebutton.png" id="homeButton" alt="Go Home">
   </a>
