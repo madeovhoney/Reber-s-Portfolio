@@ -1,106 +1,194 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
+  <!-- Makes site responsive on mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Honey Space – Contact</title>
 
   <style>
+
     /* ===============================
-       GLOBAL STYLING
-    =============================== */
+       1. GLOBAL PAGE STYLING
+       =============================== */
     body {
       margin: 0;
       padding: 0;
       font-family: sans-serif;
+
+      /* Black background shows behind transparent images */
       background: black;
+
+      /* Default text color */
       color: black;
     }
 
+
     /* ===============================
-       BACKGROUND IMAGE
-    =============================== */
+       2. BACKGROUND IMAGE (FULL WIDTH)
+       =============================== */
     #contactBG {
-      width: 100%;
-      height: auto;
-      max-width: 1920px;
-      display: block;
+      width: 100%;        /* fills screen width */
+      height: auto;       /* keeps proportions */
+      max-width: 1920px;  /* prevents oversized scaling */
+      display: block;     /* removes spacing issues */
     }
 
-    /* ===============================
-       CUPID IMAGES (FOR ANIMATION LATER)
-       👉 Adjust position + size here
-    =============================== */
 
-    /* BLUE UFO CUPID */
+    /* ===============================
+       3. CUPID IMAGES (MAIN VISUAL LAYER)
+       👉 Adjust ALL positions & sizes here
+       =============================== */
+
+
+    /* --------------------------------
+       3A. BLUE UFO CUPID (STATIC for now)
+       -------------------------------- */
     #cupidBlueUFO {
       position: absolute;
+
+      /* POSITION CONTROLS */
       top: 185px;     /* move up/down */
-      left: 50px;    /* move left/right */
-      width: 1175px;   /* resize */
-      z-index: 2;
+      left: 50px;     /* move left/right */
+
+      /* SIZE CONTROL */
+      width: 1175px;  /* resize image */
+
+      z-index: 2;     /* ensures it sits above background */
     }
 
-    /* RED & YELLOW CUPIDS */
+
+    /* --------------------------------
+       3B. RED & YELLOW CUPIDS (ANIMATED)
+       -------------------------------- */
     #cupidRedYellow {
       position: absolute;
-      top: 698px;     /* move up/down */
-      left: 50px;    /* move left/right */
-      width: 1150px;   /* resize */
+
+      /* POSITION CONTROLS */
+      top: 698px;
+      left: 50px;
+
+      /* SIZE CONTROL */
+      width: 1150px;
+
       z-index: 2;
+
+      /* ✨ ANIMATION APPLIED HERE */
+      animation: dreamyFloat 6s ease-in-out infinite;
     }
 
+
     /* ===============================
-       PAGE CONTENT (if needed later)
-    =============================== */
+       4. DREAMY FLOAT ANIMATION
+       👉 Controls movement style
+       =============================== */
+    @keyframes dreamyFloat {
+
+      /* Starting position */
+      0% {
+        transform: translate(0px, 0px) rotate(0deg);
+      }
+
+      /* Slight drift up + right */
+      25% {
+        transform: translate(5px, -10px) rotate(1deg);
+      }
+
+      /* Highest floating point */
+      50% {
+        transform: translate(0px, -20px) rotate(0deg);
+      }
+
+      /* Drift up + left */
+      75% {
+        transform: translate(-5px, -10px) rotate(-1deg);
+      }
+
+      /* Return to start */
+      100% {
+        transform: translate(0px, 0px) rotate(0deg);
+      }
+    }
+
+
+    /* ===============================
+       5. PAGE CONTENT (OPTIONAL TEXT)
+       =============================== */
     .content {
       position: absolute;
       z-index: 1;
+
       top: 200px;
       left: 700px;
+
       max-width: 1200px;
       padding: 20px;
     }
 
+
     /* ===============================
-       HOME BUTTON
-    =============================== */
+       6. HOME BUTTON (TOP-LEFT CORNER)
+       =============================== */
     #homeButton {
       position: fixed;
+
       top: 20px;
       left: 20px;
+
       width: 50px;
+
       z-index: 1000;
+
       cursor: pointer;
+
+      /* Smooth hover animation */
       transition: transform 0.2s ease;
     }
 
+    /* Hover effect */
     #homeButton:hover {
       transform: scale(1.2);
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- Background -->
-  <img src="../Images/contactbackground.png" id="contactBG" alt="Contact Background">
+  <!-- ===============================
+       BACKGROUND IMAGE
+       =============================== -->
+  <img src="../Images/contactbackground.png"
+       id="contactBG"
+       alt="Contact Background">
+
 
   <!-- ===============================
-       CUPID IMAGES (LAYERED ABOVE BG)
+       CUPID IMAGES LAYER
        =============================== -->
 
   <!-- BLUE UFO CUPID -->
-  <img src="../Images/bluecupidufocontact.png" id="cupidBlueUFO" alt="Blue Cupid UFO">
+  <img src="../Images/bluecupidufocontact.png"
+       id="cupidBlueUFO"
+       alt="Blue Cupid UFO">
 
-  <!-- RED & YELLOW CUPIDS -->
-  <img src="../Images/redandyellowcupids.png" id="cupidRedYellow" alt="Red and Yellow Cupids">
+  <!-- RED & YELLOW CUPIDS (FLOATING) -->
+  <img src="../Images/redandyellowcupids.png"
+       id="cupidRedYellow"
+       alt="Red and Yellow Cupids">
+
 
   <!-- ===============================
        HOME BUTTON
-    =============================== -->
+       =============================== -->
   <a href="../index.html?overlay=1">
-    <img src="../Images/purplebutton.png" id="homeButton" alt="Go Home">
+    <img src="../Images/purplebutton.png"
+         id="homeButton"
+         alt="Go Home">
   </a>
 
 </body>
