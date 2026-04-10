@@ -5,14 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Honey Space – Contact</title>
   <style>
+    /* ===============================
+       GLOBAL STYLING
+    =============================== */
     body {
       margin: 0;
       padding: 0;
       font-family: sans-serif;
-      background: black;
-      color: white;
+      background: black; /* black behind transparent image */
+      color: black;      /* text color visible over background */
     }
 
+    /* ===============================
+       SCROLLABLE FULL-BACKGROUND IMAGE
+    =============================== */
     #contactBG {
       width: 100%;
       height: auto;
@@ -20,12 +26,21 @@
       display: block;
     }
 
+    /* ===============================
+       PAGE CONTENT
+    =============================== */
     .content {
-      position: relative;
+      position: absolute; /* allows free placement */
       z-index: 1;
-      padding: 50px 20px;
+
+      /* ========== ADJUST THIS AREA TO MOVE Contact CONTENT ========== */
+      top: 200px;    /* distance from top of page */
+      left: 700px;    /* distance from left of page */
       max-width: 1200px;
-      margin: 0 auto;
+      padding: 20px;
+      /* optional: center text inside the block */
+      /* text-align: center; */
+      /* ======================================================== */
     }
 
     h1 {
@@ -38,6 +53,9 @@
       line-height: 1.6;
     }
 
+    /* ===============================
+       PURPLE HOME BUTTON
+    =============================== */
     #homeButton {
       position: fixed;
       top: 20px;
@@ -55,13 +73,13 @@
 </head>
 <body>
 
-  <img src="../Images/contact-background.png" id="contactBG" alt="Contact Background">
+  <!-- Scrollable Contact Background -->
+  <img src="../Images/contactbackground.png" id="blogBG" alt="Contact Background">
 
-  <div class="content">
-    <h1>Contact</h1>
-    <p>Get in touch with Honey Space. The black background ensures any transparency in the image displays correctly.</p>
-  </div>
+  <!-- Page Content -->
+  
 
+  <!-- Purple Home Button linking to homepage overlay -->
   <a href="../index.html?overlay=1">
     <img src="../Images/purplebutton.png" id="homeButton" alt="Go Home">
   </a>
