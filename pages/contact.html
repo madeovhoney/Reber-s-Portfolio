@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <!-- Makes site responsive on mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Honey Space – Contact</title>
@@ -11,7 +9,7 @@
   <style>
 
     /* ===============================
-       1. GLOBAL PAGE STYLING
+       1. GLOBAL STYLING
     =============================== */
     body {
       margin: 0;
@@ -37,18 +35,34 @@
        3. CUPID IMAGES
     =============================== */
 
+    /* -------------------------------
+       BLUE CUPID (GROW ANIMATION)
+    ------------------------------- */
     #cupidBlueUFO {
       position: absolute;
+
       top: 190px;
       left: 50px;
+
       width: 1175px;
       z-index: 2;
+
+      transform-origin: center;
+
+      /* ✨ ENTER ANIMATION */
+      animation: cupidGrowIn 2.5s ease-out forwards;
     }
 
+
+    /* -------------------------------
+       RED + YELLOW CUPIDS (FLOAT)
+    ------------------------------- */
     #cupidRedYellow {
       position: absolute;
+
       top: 685px;
       left: 50px;
+
       width: 1150px;
       z-index: 2;
 
@@ -57,8 +71,29 @@
 
 
     /* ===============================
-       4. FLOAT ANIMATION
+       4. ANIMATIONS
     =============================== */
+
+    /* BLUE CUPID GROW-IN EFFECT */
+    @keyframes cupidGrowIn {
+      0% {
+        transform: scale(0.2);
+        opacity: 0;
+      }
+
+      80% {
+        transform: scale(1.05);
+        opacity: 1;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+
+    /* FLOATING CUPID MOTION */
     @keyframes dreamyFloat {
       0%   { transform: translate(0px, 0px) rotate(0deg); }
       25%  { transform: translate(5px, -10px) rotate(1deg); }
@@ -70,15 +105,14 @@
 
     /* ===============================
        5. CONTACT FORM CONTAINER
-       👉 MAIN POSITION + SIZE CONTROL
     =============================== */
     #contactFormContainer {
       position: absolute;
 
-      top: 700px;   /* 🔧 MOVE FORM UP/DOWN */
-      left: 480px;  /* 🔧 MOVE FORM LEFT/RIGHT */
+      top: 350px;
+      left: 750px;
 
-      width: 320px; /* 🔧 CHANGE FORM WIDTH */
+      width: 320px;
 
       z-index: 3;
       color: white;
@@ -86,24 +120,22 @@
 
 
     /* ===============================
-       6. FORM BOX STYLE
-       👉 VISUAL STYLE CONTROL
+       6. FORM STYLE BOX
     =============================== */
     #contactForm {
-      background: rgba(0, 0, 0, 0.6); /* прозрачный dark panel */
-      padding: 20px;
+      background: rgba(0,0,0,0.6);
       border: 1px solid white;
-      backdrop-filter: blur(5px); /* soft glass effect */
+      padding: 20px;
+      backdrop-filter: blur(6px);
     }
 
 
     /* ===============================
        7. INPUT FIELDS
-       =============================== */
+    =============================== */
     #contactForm input,
     #contactForm textarea {
       width: 100%;
-
       padding: 10px;
       margin-top: 6px;
       margin-bottom: 15px;
@@ -111,44 +143,44 @@
       background: rgba(255,255,255,0.1);
       border: 1px solid white;
       color: white;
-
-      font-size: 14px;
     }
 
     #contactForm textarea {
-      resize: none; /* prevents drag resize */
+      resize: none;
     }
 
 
     /* ===============================
-       8. BUTTON STYLE
+       8. SUBMIT BUTTON (NEW IMAGE)
+       purplebuttonoff.png (#9023f4 theme)
     =============================== */
     #contactForm button {
-      width: 100%;
-      padding: 12px;
-
-      background: purple;
+      background: none;
       border: none;
-      color: white;
-
+      padding: 0;
       cursor: pointer;
-      transition: 0.2s;
+      width: 100%;
     }
 
-    #contactForm button:hover {
-      background: violet;
-      transform: scale(1.05);
+    #contactForm button img {
+      width: 180px; /* adjust size */
+      transition: transform 0.2s ease;
+      display: block;
+      margin: 0 auto;
+    }
+
+    #contactForm button img:hover {
+      transform: scale(1.15);
     }
 
 
     /* ===============================
-       9. SUCCESS MESSAGE
+       9. SUCCESS MESSAGE (OPTIONAL)
     =============================== */
     #formSuccess {
       display: none;
+      color: #9023f4;
       margin-top: 10px;
-      color: #ffccff;
-      font-size: 14px;
     }
 
 
@@ -175,48 +207,52 @@
 
 <body>
 
-  <!-- BACKGROUND -->
+  <!-- ===============================
+       BACKGROUND
+  =============================== -->
   <img src="../Images/contactbackground.png" id="contactBG">
 
 
-  <!-- CUPIDS -->
+  <!-- ===============================
+       CUPIDS
+  =============================== -->
   <img src="../Images/bluecupidufocontact.png" id="cupidBlueUFO">
   <img src="../Images/redandyellowcupids.png" id="cupidRedYellow">
 
 
   <!-- ===============================
-       11. CONTACT FORM (FORM SPREE)
-    =============================== -->
+       CONTACT FORM
+  =============================== -->
   <div id="contactFormContainer">
 
     <form id="contactForm"
           action="https://formspree.io/f/mlgoqenk"
           method="POST">
 
-      <!-- NAME -->
-      <label>Your Name:</label>
+      <label>Name</label>
       <input type="text" name="name" required>
 
-      <!-- EMAIL -->
-      <label>Your Email:</label>
+      <label>Email</label>
       <input type="email" name="email" required>
 
-      <!-- MESSAGE -->
-      <label>So, What's Up?</label>
+      <label>Message</label>
       <textarea name="message" rows="5" required></textarea>
 
-      <!-- SUBMIT -->
-      <button type="submit">Send It!</button>
+      <!-- SUBMIT BUTTON (IMAGE) -->
+      <button type="submit">
+        <img src="../Images/purplebuttonoff.png" alt="Send Message">
+      </button>
 
-      <!-- SUCCESS TEXT -->
-      <div id="formSuccess">✨ Message sent successfully!</div>
+      <div id="formSuccess">Message sent ✨</div>
 
     </form>
 
   </div>
 
 
-  <!-- HOME BUTTON -->
+  <!-- ===============================
+       HOME BUTTON
+  =============================== -->
   <a href="../index.html?overlay=1">
     <img src="../Images/purplebutton.png" id="homeButton">
   </a>
