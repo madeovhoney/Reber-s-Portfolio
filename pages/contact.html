@@ -35,34 +35,23 @@
        3. CUPID IMAGES
     =============================== */
 
-    /* -------------------------------
-       BLUE CUPID (GROW ANIMATION)
-    ------------------------------- */
+    /* BLUE CUPID (ENTER ANIMATION) */
     #cupidBlueUFO {
       position: absolute;
-
       top: 190px;
       left: 50px;
-
       width: 1175px;
       z-index: 2;
 
       transform-origin: center;
-
-      /* ✨ ENTER ANIMATION */
       animation: cupidGrowIn 2.5s ease-out forwards;
     }
 
-
-    /* -------------------------------
-       RED + YELLOW CUPIDS (FLOAT)
-    ------------------------------- */
+    /* RED + YELLOW CUPID (FLOATING) */
     #cupidRedYellow {
       position: absolute;
-
       top: 685px;
       left: 50px;
-
       width: 1150px;
       z-index: 2;
 
@@ -74,26 +63,21 @@
        4. ANIMATIONS
     =============================== */
 
-    /* BLUE CUPID GROW-IN EFFECT */
     @keyframes cupidGrowIn {
       0% {
         transform: scale(0.2);
         opacity: 0;
       }
-
       80% {
         transform: scale(1.05);
         opacity: 1;
       }
-
       100% {
         transform: scale(1);
         opacity: 1;
       }
     }
 
-
-    /* FLOATING CUPID MOTION */
     @keyframes dreamyFloat {
       0%   { transform: translate(0px, 0px) rotate(0deg); }
       25%  { transform: translate(5px, -10px) rotate(1deg); }
@@ -104,7 +88,7 @@
 
 
     /* ===============================
-       5. CONTACT FORM CONTAINER
+       5. CONTACT FORM POSITION
     =============================== */
     #contactFormContainer {
       position: absolute;
@@ -113,14 +97,14 @@
       left: 475px;
 
       width: 350px;
-
       z-index: 3;
+
       color: white;
     }
 
 
     /* ===============================
-       6. FORM STYLE BOX
+       6. FORM PANEL STYLE
     =============================== */
     #contactForm {
       background: rgba(0,0,0,0.6);
@@ -131,18 +115,31 @@
 
 
     /* ===============================
-       7. INPUT FIELDS
+       7. LABEL SPACING FIX
+    =============================== */
+    #contactForm label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      color: white;
+      font-size: 13px;
+    }
+
+
+    /* ===============================
+       8. INPUT FIELD SPACING FIX
     =============================== */
     #contactForm input,
     #contactForm textarea {
       width: 100%;
-      padding: 10px;
-      margin-top: 6px;
+      padding: 12px;
       margin-bottom: 15px;
 
       background: rgba(255,255,255,0.1);
       border: 1px solid white;
       color: white;
+
+      box-sizing: border-box;
     }
 
     #contactForm textarea {
@@ -151,41 +148,46 @@
 
 
     /* ===============================
-       8. SUBMIT BUTTON (NEW IMAGE)
-       purplebuttonoff.png (#9023f4 theme)
+       9. SUBMIT BUTTON (PURPLE THEME)
+       COLOR: #9023f4
     =============================== */
     #contactForm button {
-      background: none;
-      border: none;
-      padding: 0;
-      cursor: pointer;
       width: 100%;
+      padding: 12px;
+
+      background: #9023f4;
+      border: none;
+      color: white;
+
+      font-size: 14px;
+      letter-spacing: 0.5px;
+
+      cursor: pointer;
+
+      border-radius: 6px;
+
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    #contactForm button img {
-      width: 180px; /* adjust size */
-      transition: transform 0.2s ease;
-      display: block;
-      margin: 0 auto;
-    }
-
-    #contactForm button img:hover {
-      transform: scale(1.15);
+    #contactForm button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 18px rgba(144, 35, 244, 0.7);
     }
 
 
     /* ===============================
-       9. SUCCESS MESSAGE (OPTIONAL)
+       10. SUCCESS MESSAGE (OPTIONAL)
     =============================== */
     #formSuccess {
       display: none;
-      color: #9023f4;
       margin-top: 10px;
+      color: #9023f4;
+      font-size: 13px;
     }
 
 
     /* ===============================
-       10. HOME BUTTON
+       11. HOME BUTTON
     =============================== */
     #homeButton {
       position: fixed;
@@ -207,22 +209,16 @@
 
 <body>
 
-  <!-- ===============================
-       BACKGROUND
-  =============================== -->
+  <!-- BACKGROUND -->
   <img src="../Images/contactbackground.png" id="contactBG">
 
 
-  <!-- ===============================
-       CUPIDS
-  =============================== -->
+  <!-- CUPIDS -->
   <img src="../Images/bluecupidufocontact.png" id="cupidBlueUFO">
   <img src="../Images/redandyellowcupids.png" id="cupidRedYellow">
 
 
-  <!-- ===============================
-       CONTACT FORM
-  =============================== -->
+  <!-- CONTACT FORM -->
   <div id="contactFormContainer">
 
     <form id="contactForm"
@@ -238,19 +234,16 @@
       <label>Message</label>
       <textarea name="message" rows="5" required></textarea>
 
-      <!-- SUBMIT --> 
-      <button type="submit">Send Message</button> 
-      
-      <!-- SUCCESS TEXT --> 
-      <div id="formSuccess">✨ Message sent successfully!</div> 
+      <button type="submit">Send Message</button>
+
+      <div id="formSuccess">✨ Message sent successfully!</div>
+
     </form>
 
   </div>
 
 
-  <!-- ===============================
-       HOME BUTTON
-  =============================== -->
+  <!-- HOME BUTTON -->
   <a href="../index.html?overlay=1">
     <img src="../Images/purplebuttonon.png" id="homeButton">
   </a>
