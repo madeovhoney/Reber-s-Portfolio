@@ -20,7 +20,7 @@
       padding: 0;
       font-family: 'Shadows Into Light', cursive;
       background: black;
-      color: black; /* FIXED visibility */
+      color: black;
     }
 
     /* ===============================
@@ -53,10 +53,15 @@
     }
 
     /* ===============================
-       SPOTIFY PLAYER
+       🎧 SPOTIFY PLAYER (NOW MOVABLE)
     =============================== */
     .spotify-player {
-      margin-top: 15px;
+      position: absolute;
+
+      top: 700px;   /* 🔧 adjust vertical position */
+      left: 500px;  /* 🔧 adjust horizontal position */
+
+      z-index: 2;
     }
 
     /* ===============================
@@ -80,7 +85,7 @@
 
 <body>
 
-  <!-- Background (cache-busted so it refreshes) -->
+  <!-- Background -->
   <img src="../Images/music-background.png?v=2" id="musicBG" alt="Music Background">
 
   <!-- Home Button -->
@@ -92,18 +97,18 @@
   <div class="content">
     <p>A Spotify music player with my personal playlist is below.</p>
     <p>We'll dance soon, so please standby.</p>
+  </div>
 
-    <!-- 🎧 SPOTIFY EMBED (replace with my playlist later) -->
-    <div class="spotify-player">
-      <iframe style="border-radius:12px"
-        src="INSERT MY SPOTIFY PLAYLIST LINK"
-        width="400"
-        height="400"
-        frameborder="0"
-        allowfullscreen=""
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-      </iframe>
-    </div>
+  <!-- 🎧 MOVABLE SPOTIFY PLAYER -->
+  <div class="spotify-player">
+    <iframe style="border-radius:12px"
+      src="INSERT MY SPOTIFY PLAYLIST LINK"
+      width="400"
+      height="400"
+      frameborder="0"
+      allowfullscreen=""
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
   </div>
 
 </body>
