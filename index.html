@@ -93,12 +93,13 @@
       border-radius: 6px;
     }
 
+    /* 🔥 FORCE CLICK PRIORITY */
     #homeLogo {
       position: fixed;
       top: 125px;
       left: 400px;
       width: 525px;
-      z-index: 1000;
+      z-index: 9999; /* VERY HIGH so nothing blocks it */
       cursor: pointer;
       transition: transform 0.2s ease;
     }
@@ -112,11 +113,11 @@
 <body>
 
   <!-- BACKGROUND -->
-  <img src="../Images/contact-background.png?v=3" id="contactBG" alt="Contact Background">
+  <img src="../Images/contact-background.png?v=3" id="contactBG">
 
-  <!-- ✅ FIXED HOME LINK -->
-  <a href="index.html?overlay=1">
-    <img src="../Images/contact-homebuttonlogo.png?v=3" id="homeLogo" alt="Home">
+  <!-- ✅ BULLETPROOF LINK -->
+  <a href="/" style="position:fixed; z-index:9999;">
+    <img src="../Images/contact-homebuttonlogo.png?v=3" id="homeLogo">
   </a>
 
   <!-- CUPIDS -->
