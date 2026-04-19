@@ -47,14 +47,27 @@
       padding: 20px;
     }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-
     p {
       font-size: 1.2rem;
       line-height: 1.6;
+    }
+
+    /* ===============================
+       📸 YOUR PHOTO (FULL CONTROL AREA)
+    =============================== */
+    #myPhoto {
+      position: absolute;
+
+      top: 300px;   /* 🔧 move up/down */
+      left: 200px;  /* 🔧 move left/right */
+
+      width: 250px; /* 🔧 resize photo */
+
+      z-index: 2;
+
+      /* OPTIONAL STYLING */
+      /* border-radius: 20px; */
+      /* box-shadow: 0 0 20px rgba(0,0,0,0.5); */
     }
 
     /* ===============================
@@ -78,13 +91,16 @@
 
 <body>
 
-  <!-- Background (CACHE-BUSTED) -->
+  <!-- Background -->
   <img src="../Images/about-background.png?v=2" id="aboutBG" alt="About Background">
 
-  <!-- LOGO = HOME BUTTON -->
+  <!-- LOGO -->
   <a href="../index.html?overlay=1">
     <img src="../Images/Logo-aboutpage.png" id="homeLogo" alt="Home Button Logo">
   </a>
+
+  <!-- 📸 YOUR PHOTO -->
+  <img src="../Images/Me 2026.jpeg" id="myPhoto" alt="Photo of me">
 
   <!-- Content -->
   <div class="content">
