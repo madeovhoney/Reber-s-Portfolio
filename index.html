@@ -24,8 +24,12 @@ body{
   margin:0 auto;
 }
 
-/* BACKGROUNDS */
-#unearthedBG{width:100%;display:block;z-index:1;}
+/* Backgrounds */
+#unearthedBG{
+  width:100%;
+  display:block;
+  z-index:1;
+}
 
 #earthedFade{
   position:absolute;
@@ -41,16 +45,24 @@ body{
   opacity:1;
 }
 
-/* FLICKER */
+/* Flicker elements */
 .flicker{
   position:absolute;
   pointer-events:none;
   z-index:3;
+  transition: opacity 0.6s ease;
 }
 
-.flash{filter:brightness(3);}
+/* Hide flicker elements during overlay */
+.container.overlay-active .flicker{
+  opacity:0 !important;
+}
 
-/* POSITIONS */
+.flash{
+  filter:brightness(3);
+}
+
+/* Positions */
 #flowersBolt{width:1275px;top:-150px;left:-89px;}
 #boltHeart{width:189px;top:825px;left:500px;}
 #boltStar{width:675px;top:250px;left:25px;}
@@ -58,8 +70,9 @@ body{
 #alienStar{width:650px;top:825px;left:10px;}
 #flowers{width:575px;top:7px;left:480px;}
 
-/* LOGOS */
-#normalLogo,#overlayLogo{
+/* Logos */
+#normalLogo,
+#overlayLogo{
   position:absolute;
   top:125px;
   left:50%;
@@ -68,12 +81,20 @@ body{
 }
 
 #normalLogo{z-index:6;}
-#overlayLogo{z-index:7;display:none;}
+#overlayLogo{
+  z-index:7;
+  display:none;
+}
 
-.container.overlay-active #normalLogo{display:none;}
-.container.overlay-active #overlayLogo{display:block;}
+.container.overlay-active #normalLogo{
+  display:none;
+}
 
-/* 🐝 gentle floating (no spinning) */
+.container.overlay-active #overlayLogo{
+  display:block;
+}
+
+/* Overlay animation object */
 #overlayBeeSnail{
   position:absolute;
   top:250px;
@@ -85,7 +106,9 @@ body{
   animation:gentleFloat 6s ease-in-out infinite;
 }
 
-.container.overlay-active #overlayBeeSnail{display:block;}
+.container.overlay-active #overlayBeeSnail{
+  display:block;
+}
 
 @keyframes gentleFloat{
   0%   { transform:translate(-50%,0px); }
@@ -93,14 +116,27 @@ body{
   100% { transform:translate(-50%,0px); }
 }
 
-/* LINKS */
-.normal-link{position:absolute;z-index:6;}
-.overlay-link{position:absolute;z-index:7;display:none;}
+/* Navigation */
+.normal-link{
+  position:absolute;
+  z-index:6;
+}
 
-.container.overlay-active .normal-link{display:none;}
-.container.overlay-active .overlay-link{display:block;}
+.overlay-link{
+  position:absolute;
+  z-index:7;
+  display:none;
+}
 
-/* NAV POSITIONS */
+.container.overlay-active .normal-link{
+  display:none;
+}
+
+.container.overlay-active .overlay-link{
+  display:block;
+}
+
+/* Navigation positions */
 #aboutLink{top:345px;left:25%;width:85px;}
 #musicLink{top:350px;left:57%;width:86px;}
 #blogLink{top:360px;left:46%;width:81px;}
@@ -113,7 +149,7 @@ body{
 #overlayGallery{top:369px;left:35%;width:90px;}
 #overlayContact{top:371px;left:67%;width:80px;}
 
-/* BUTTON */
+/* Toggle button */
 #purpleButton{
   position:absolute;
   top:450px;
@@ -132,7 +168,7 @@ body{
 <img id="unearthedBG" src="Images/BlackUnearthBackground.png?v=1">
 <img id="earthedFade" src="Images/Earthedoverlayfadein.png?v=1">
 
-<!-- FLICKERS -->
+<!-- Flicker elements -->
 <img src="Images/Flowersandboltflicker.png?v=1" class="flicker" id="flowersBolt">
 <img src="Images/Boltandheartflicker.png?v=1" class="flicker" id="boltHeart">
 <img src="Images/Boltandstarflicker.png?v=1" class="flicker" id="boltStar">
@@ -140,14 +176,14 @@ body{
 <img src="Images/starandalienflicker.png?v=1" class="flicker" id="alienStar">
 <img src="Images/flowersflicker.png?v=1" class="flicker" id="flowers">
 
-<!-- LOGOS -->
+<!-- Logos -->
 <img src="Images/Logoandbeelight.png?v=1" id="normalLogo">
 <img src="Images/Overlaylogo.png?v=1" id="overlayLogo">
 
-<!-- OVERLAY -->
+<!-- Overlay object -->
 <img src="Images/Overlaybeeandsnail.png?v=1" id="overlayBeeSnail">
 
-<!-- NAV -->
+<!-- Navigation -->
 <a href="pages/about.html"><img src="Images/Aboutlinkclick.png?v=1" id="aboutLink" class="normal-link"></a>
 <a href="pages/music.html"><img src="Images/Musiclinkclick.png?v=1" id="musicLink" class="normal-link"></a>
 <a href="pages/blog.html"><img src="Images/bloglinkclick.png?v=1" id="blogLink" class="normal-link"></a>
@@ -168,12 +204,11 @@ body{
 const container = document.getElementById('mainContainer');
 const button = document.getElementById('purpleButton');
 
-/* 🔥 SLOWER RANDOM FLICKER (FIXED) */
+/* Randomized flicker timing */
 document.querySelectorAll('.flicker').forEach(el => {
   function flicker() {
-
-    const delay = Math.random() * 6000 + 2000; // 2–8 seconds
-    const duration = Math.random() * 80 + 30;  // quick flash
+    const delay = Math.random() * 6000 + 2000;
+    const duration = Math.random() * 80 + 30;
 
     setTimeout(() => {
       el.classList.add('flash');
@@ -189,8 +224,8 @@ document.querySelectorAll('.flicker').forEach(el => {
   flicker();
 });
 
-/* OVERLAY */
-button.addEventListener('click',()=>{
+/* Overlay toggle */
+button.addEventListener('click', () => {
   container.classList.toggle('overlay-active');
 });
 </script>
