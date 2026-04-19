@@ -4,12 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
-  <title>Honey Space – Home</title>
+  <title>Honey Space – Contact</title>
 
   <style>
     body {
@@ -17,34 +16,94 @@
       padding: 0;
       font-family: 'Shadows Into Light', cursive;
       background: black;
-      color: white;
+      color: black;
     }
 
-    #homeBG {
+    #contactBG {
       width: 100%;
       height: auto;
       max-width: 1920px;
       display: block;
     }
 
-    /* NAV BUTTONS */
-    .nav {
+    #cupidBlueUFO {
       position: absolute;
-      top: 200px;
-      left: 100px;
-      z-index: 10;
+      top: 190px;
+      left: 50px;
+      width: 1175px;
+      z-index: 2;
+      animation: cupidGrowIn 2.5s ease-out forwards;
     }
 
-    .nav a {
-      display: block;
-      margin: 10px 0;
+    #cupidRedYellow {
+      position: absolute;
+      top: 685px;
+      left: 50px;
+      width: 1150px;
+      z-index: 2;
+      animation: dreamyFloat 6s ease-in-out infinite;
+    }
+
+    @keyframes cupidGrowIn {
+      0% { transform: scale(0.2); opacity: 0; }
+      80% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes dreamyFloat {
+      0%   { transform: translate(0px, 0px); }
+      50%  { transform: translate(0px, -20px); }
+      100% { transform: translate(0px, 0px); }
+    }
+
+    #contactFormContainer {
+      position: absolute;
+      top: 650px;
+      left: 470px;
+      width: 350px;
+      z-index: 3;
       color: white;
-      font-size: 1.5rem;
-      text-decoration: none;
     }
 
-    .nav a:hover {
-      text-decoration: underline;
+    #contactForm {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid white;
+      padding: 32px;
+    }
+
+    #contactForm input,
+    #contactForm textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid white;
+      color: white;
+      box-sizing: border-box;
+    }
+
+    #contactForm button {
+      width: 100%;
+      padding: 12px;
+      background: #9023f4;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+
+    #homeButton {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 60px;
+      z-index: 9999;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    #homeButton:hover {
+      transform: scale(1.2);
     }
   </style>
 </head>
@@ -52,15 +111,30 @@
 <body>
 
   <!-- BACKGROUND -->
-  <img src="Images/home-background.png?v=3" id="homeBG" alt="Home Background">
+  <img src="Images/contact-background.png?v=3" id="contactBG">
 
-  <!-- NAVIGATION -->
-  <div class="nav">
-    <a href="about.html">About</a>
-    <a href="blog.html">Blog</a>
-    <a href="music.html">Music</a>
-    <a href="contact.html">Contact</a>
+  <!-- CUPIDS -->
+  <img src="Images/bluecupidufocontact.png?v=3" id="cupidBlueUFO">
+  <img src="Images/redandyellowcupids.png?v=3" id="cupidRedYellow">
+
+  <!-- FORM -->
+  <div id="contactFormContainer">
+    <form id="contactForm"
+          action="https://formspree.io/f/mlgoqenk"
+          method="POST">
+
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" rows="5" placeholder="Message" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
   </div>
+
+  <!--  CLEAN WORKING LINK -->
+  <a href="index.html">
+    <img src="Images/homebutton-logo.png?v=3" id="homeButton" alt="Home">
+  </a>
 
 </body>
 </html>
