@@ -1,214 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-  <title>Honey Space – Home</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+  <title>Honey Space – Contact</title>
+
   <style>
-    /* ===============================
-       GLOBAL STYLING
-    =============================== */
     body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Shadows Into Light', cursive;
-  background: black;
-  color: black;
-}
-<style>
-body { margin:0; padding:0; background:black; overflow-x:hidden; }
-.container { position:relative; width:100%; max-width:1920px; margin:0 auto; }
+      margin: 0;
+      padding: 0;
+      font-family: 'Shadows Into Light', cursive;
+      background: black;
+      color: black;
+    }
 
-/* BACKGROUNDS */
-#unearthedBG { width:100%; display:block; z-index:1; }
-#earthedFade {
-  position:absolute; top:0; left:0; width:100%;
-  opacity:0; transition:opacity 1.2s ease; z-index:2;
-}
-.container.overlay-active #earthedFade { opacity:1; }
+    /* BACKGROUND */
+    #contactBG {
+      width: 100%;
+      height: auto;
+      max-width: 1920px;
+      display: block;
+    }
 
-/* FLICKERS */
-.flicker { position:absolute; pointer-events:none; z-index:3; transition:opacity .4s ease; }
-.container.overlay-active .flicker { opacity:0 !important; }
-.flash { filter:brightness(3); }
+    /* CUPIDS */
+    #cupidBlueUFO {
+      position: absolute;
+      top: 190px;
+      left: 50px;
+      width: 1175px;
+      z-index: 2;
+      animation: cupidGrowIn 2.5s ease-out forwards;
+    }
 
-#flowersBolt { width:1275px; top:-150px; left:-89px; }
-#boltHeart   { width:189px;  top:825px;  left:500px; }
-#boltStar    { width:675px;  top:250px;  left:25px; }
-#stars       { width:100px;  top:85px;   left:575px; }
-#alienStar   { width:650px;  top:825px;  left:10px; }
-#flowers     { width:575px;  top:7px;    left:480px; }
+    #cupidRedYellow {
+      position: absolute;
+      top: 685px;
+      left: 50px;
+      width: 1150px;
+      z-index: 2;
+      animation: dreamyFloat 6s ease-in-out infinite;
+    }
 
-/* LOGOS */
-#normalLogo, #overlayLogo {
-  position:absolute; top:125px; left:50%;
-  transform:translateX(-50%);
-  width:600px;
-}
-#normalLogo { z-index:6; }
-#overlayLogo { z-index:7; display:none; }
+    @keyframes cupidGrowIn {
+      0% { transform: scale(0.2); opacity: 0; }
+      80% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
 
-.container.overlay-active #normalLogo { display:none; }
-.container.overlay-active #overlayLogo { display:block; }
+    @keyframes dreamyFloat {
+      0%   { transform: translate(0px, 0px); }
+      50%  { transform: translate(0px, -20px); }
+      100% { transform: translate(0px, 0px); }
+    }
 
-/* OVERLAY */
-#overlayBeeSnail {
-  position:absolute; top:200px; left:50%; width:800px;
-  z-index:7; display:none;
-  animation:snailBeeCircle 12s linear infinite;
-}
-.container.overlay-active #overlayBeeSnail { display:block; }
+    /* FORM */
+    #contactFormContainer {
+      position: absolute;
+      top: 650px;
+      left: 470px;
+      width: 350px;
+      z-index: 3;
+      color: white;
+    }
 
-@keyframes snailBeeCircle {
-  0% { transform:translate(-50%,-50%) rotate(0) translateX(100px) rotate(0); }
-  100% { transform:translate(-50%,-50%) rotate(360deg) translateX(100px) rotate(-360deg); }
-}
+    #contactForm {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid white;
+      padding: 32px;
+      backdrop-filter: blur(6px);
+    }
 
-/* LINKS */
-.normal-link { position:absolute; z-index:6; }
-.overlay-link { position:absolute; z-index:7; display:none; }
+    #contactForm input,
+    #contactForm textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid white;
+      color: white;
+      box-sizing: border-box;
+    }
 
-.container.overlay-active .normal-link { display:none; }
-.container.overlay-active .overlay-link { display:block; }
+    #contactForm button {
+      width: 100%;
+      padding: 12px;
+      background: #9023f4;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 6px;
+    }
 
-/* POSITIONS */
-#aboutLink{top:345px;left:25%;width:85px;}
-#musicLink{top:350px;left:57%;width:86px;}
-#blogLink{top:360px;left:46%;width:81px;}
-#galleryLink{top:369px;left:35%;width:90px;}
-#contactLink{top:360px;left:67%;width:80px;}
+    /* HOME LOGO */
+    #homeLogo {
+      position: fixed;
+      top: 20px;
+      left: 420px;
+      width: 600px;
+      z-index: 1000;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
 
-#overlayAbout{top:367px;left:25%;width:85px;}
-#overlayMusic{top:367px;left:57%;width:86px;}
-#overlayBlog{top:369px;left:46%;width:76px;}
-#overlayGallery{top:369px;left:35%;width:90px;}
-#overlayContact{top:371px;left:67%;width:80px;}
-
-/* BUTTON */
-#purpleButton {
-  position:absolute; top:450px; left:34%;
-  transform:translateX(-50%);
-  width:50px; z-index:10; cursor:pointer;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  #normalLogo,#overlayLogo{width:400px;top:100px;}
-  .normal-link,.overlay-link{width:40%;left:50%;transform:translateX(-50%);}
-  #purpleButton{top:420px;width:100px;}
-}
-</style>
+    #homeLogo:hover {
+      transform: scale(1.2);
+    }
+  </style>
 </head>
 
 <body>
-<div class="container" id="mainContainer">
 
-<img id="unearthedBG" src="Images/BlackUnearthBackground.png?v=1" loading="eager" decoding="async">
-<img id="earthedFade" src="Images/Earthedoverlayfadein.png?v=1" decoding="async">
+  <!-- BACKGROUND (CACHE-BUSTED) -->
+  <!-- CHANGE ?v=1 → 2 → 3 EVERY TIME YOU UPDATE IMAGE -->
+  <img src="../Images/contact-background.png?v=3" id="contactBG" alt="Contact Background">
 
-<!-- FLICKERS -->
-<img src="Images/Flowersandboltflicker.png?v=1" class="flicker" id="flowersBolt" loading="lazy" decoding="async">
-<img src="Images/Boltandheartflicker.png?v=1" class="flicker" id="boltHeart" loading="lazy" decoding="async">
-<img src="Images/Boltandstarflicker.png?v=1" class="flicker" id="boltStar" loading="lazy" decoding="async">
-<img src="Images/Starsflicker.png?v=1" class="flicker" id="stars" loading="lazy" decoding="async">
-<img src="Images/starandalienflicker.png?v=1" class="flicker" id="alienStar" loading="lazy" decoding="async">
-<img src="Images/flowersflicker.png?v=1" class="flicker" id="flowers" loading="lazy" decoding="async">
+  <!-- HOME LOGO -->
+  <a href="../index.html?overlay=1">
+    <img src="../Images/homebutton-logo.png" id="homeLogo" alt="Home">
+  </a>
 
-<!-- LOGOS -->
-<img src="Images/Logoandbeelight.png?v=1" id="normalLogo" decoding="async">
-<img src="Images/Overlaylogo.png?v=1" id="overlayLogo" decoding="async">
+  <!-- CUPIDS -->
+  <img src="../Images/bluecupidufocontact.png?v=3" id="cupidBlueUFO">
+  <img src="../Images/redandyellowcupids.png?v=3" id="cupidRedYellow">
 
-<!-- OVERLAY -->
-<img src="Images/Overlaybeeandsnail.png?v=1" id="overlayBeeSnail" decoding="async">
+  <!-- FORM -->
+  <div id="contactFormContainer">
+    <form id="contactForm"
+          action="https://formspree.io/f/mlgoqenk"
+          method="POST">
 
-<!-- NAV -->
-<a href="pages/about.html"><img src="Images/Aboutlinkclick.png?v=1" id="aboutLink" class="normal-link"></a>
-<a href="pages/music.html"><img src="Images/Musiclinkclick.png?v=1" id="musicLink" class="normal-link"></a>
-<a href="pages/blog.html"><img src="Images/bloglinkclick.png?v=1" id="blogLink" class="normal-link"></a>
-<a href="pages/gallery.html"><img src="Images/Gallerylinkclick.png?v=1" id="galleryLink" class="normal-link"></a>
-<a href="pages/contact.html"><img src="Images/contactlinkclick.png?v=1" id="contactLink" class="normal-link"></a>
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" rows="5" placeholder="Message" required></textarea>
 
-<a href="pages/about.html"><img src="Images/Overlayaboutlink.png?v=1" id="overlayAbout" class="overlay-link"></a>
-<a href="pages/music.html"><img src="Images/Overlaymusiclink.png?v=1" id="overlayMusic" class="overlay-link"></a>
-<a href="pages/blog.html"><img src="Images/Overlaybloglink.png?v=1" id="overlayBlog" class="overlay-link"></a>
-<a href="pages/gallery.html"><img src="Images/Overlaygallerylink.png?v=1" id="overlayGallery" class="overlay-link"></a>
-<a href="pages/contact.html"><img src="Images/Overlaycontactlink.png?v=1" id="overlayContact" class="overlay-link"></a>
-
-<img src="Images/purplebuttonon.png?v=1" id="purpleButton">
-
-</div>
-
-<script>
-/* CLEAN URL */
-if (window.location.search) {
-  window.history.replaceState({}, document.title, window.location.pathname);
-}
-
-/* FLICKER */
-function flickerEffect(img){
-  if(img.dataset.active) return;
-  img.dataset.active = "true";
-
-  function cycle(){
-    const flashes = Math.floor(Math.random()*3)+1;
-    let count=0;
-
-    function flash(){
-      img.classList.add("flash");
-      setTimeout(()=>{
-        img.classList.remove("flash");
-        count++;
-        if(count<flashes){
-          setTimeout(flash,70+Math.random()*80);
-        } else {
-          setTimeout(cycle,10000+Math.random()*5000);
-        }
-      },70);
-    }
-    flash();
-  }
-  setTimeout(cycle, Math.random()*8000);
-}
-
-function startFlickers(){
-  document.querySelectorAll(".flicker").forEach(flickerEffect);
-}
-
-/* RESET + FIX BACK NAV */
-window.addEventListener("pageshow", function () {
-  const container = document.getElementById("mainContainer");
-  container.classList.remove("overlay-active");
-
-  document.querySelectorAll(".flicker").forEach(img=>{
-    img.classList.remove("flash");
-    img.dataset.active = "";
-  });
-
-  startFlickers();
-});
-
-/* INITIAL RUN */
-startFlickers();
-
-/* BUTTON */
-document.getElementById("purpleButton").addEventListener("click", function(){
-  const container = document.getElementById("mainContainer");
-  container.classList.toggle("overlay-active");
-
-  const t = Date.now();
-  overlayLogo.src = "Images/Overlaylogo.png?v="+t;
-  earthedFade.src = "Images/Earthedoverlayfadein.png?v="+t;
-  overlayBeeSnail.src = "Images/Overlaybeeandsnail.png?v="+t;
-
-  document.querySelectorAll(".overlay-link").forEach(img=>{
-    img.src = img.src.split("?v=")[0] + "?v=" + t;
-  });
-});
-</script>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
 
 </body>
 </html>
