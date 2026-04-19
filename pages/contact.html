@@ -95,18 +95,18 @@
       border-radius: 6px;
     }
 
-    /* HOME BUTTON */
-    #homeButton {
+    /* RESTORED LARGE HOME LOGO */
+    #homeLogo {
       position: fixed;
       top: 20px;
-      left: 20px;
-      width: 120px; /* increased so it's visible */
+      left: 420px;   /* ← your original right-shift */
+      width: 600px;  /* ← large size restored */
       z-index: 9999;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
 
-    #homeButton:hover {
+    #homeLogo:hover {
       transform: scale(1.1);
     }
   </style>
@@ -116,6 +116,11 @@
 
   <!-- BACKGROUND -->
   <img src="../Images/contact-background.png?v=3" id="contactBG" alt="Contact Background">
+
+  <!-- HOME LOGO (restored style) -->
+  <a href="../index.html">
+    <img src="../Images/contact-homebuttonlogo.png?v=3" id="homeLogo" alt="Home">
+  </a>
 
   <!-- CUPIDS -->
   <img src="../Images/bluecupidufocontact.png?v=3" id="cupidBlueUFO" alt="">
@@ -134,11 +139,6 @@
       <button type="submit">Send Message</button>
     </form>
   </div>
-
-  <!-- ✅ CORRECT HOME BUTTON -->
-  <a href="../index.html">
-    <img src="../Images/contact-homebuttonlogo.png?v=3" id="homeButton" alt="Home">
-  </a>
 
 </body>
 </html>
