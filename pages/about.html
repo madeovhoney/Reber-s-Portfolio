@@ -3,24 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
   <title>Honey Space – About</title>
+
   <style>
     /* ===============================
        GLOBAL STYLING
     =============================== */
     body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Shadows Into Light', cursive;
-  background: black;
-  color: black;
-}
+      margin: 0;
+      padding: 0;
+      font-family: 'Shadows Into Light', cursive;
+      background: black;
+      color: white; /* FIXED: text is now visible */
+    }
 
     /* ===============================
-       SCROLLABLE FULL-BACKGROUND IMAGE
+       BACKGROUND IMAGE
     =============================== */
     #aboutBG {
       width: 100%;
@@ -33,17 +37,14 @@
        PAGE CONTENT
     =============================== */
     .content {
-      position: absolute; /* allows free placement */
+      position: absolute;
       z-index: 1;
-      
-      /* ========== ADJUST THIS AREA TO MOVE "ABOUT ME" ========== */
-      top: 200px;    /* distance from top of page */
-      left: 475px;    /* distance from left of page */
+
+      top: 200px;
+      left: 475px;
+
       max-width: 1200px;
       padding: 20px;
-      /* optional centering text */
-      /* text-align: center; */
-      /* ======================================================== */
     }
 
     h1 {
@@ -57,39 +58,40 @@
     }
 
     /* ===============================
-       PURPLE HOME BUTTON
+       LOGO HOME BUTTON
     =============================== */
-    #homeButton {
+    #homeLogo {
       position: fixed;
       top: 20px;
       left: 20px;
-      width: 50px;
+      width: 60px;
       z-index: 1000;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
 
-    #homeButton:hover {
+    #homeLogo:hover {
       transform: scale(1.2);
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Scrollable About Background -->
-  <img src="../Images/about-background.png" id="about me page BG" alt="About Background">
-  <img src="../Images/Logo-aboutpage.png" id="HoneySpace-Home Button" alt="Home Button Logo">
-  <!-- Page Content -->
+  <!-- Background -->
+  <img src="../Images/about-background.png" id="aboutBG" alt="About Background">
+
+  <!-- LOGO = HOME BUTTON -->
+  <a href="../index.html?overlay=1">
+    <img src="../Images/Logo-aboutpage.png" id="homeLogo" alt="Home Button Logo">
+  </a>
+
+  <!-- Content -->
   <div class="content">
-    <p>Welcome to Honey Space! This page is a work in progress. </p>
-    <p>However, Please have a look around although you might not find much information.</p>
+    <p>Welcome to Honey Space! This page is a work in progress.</p>
+    <p>Please have a look around, although you might not find much information.</p>
     <p>My name is Reber Kai Kellam and I'll introduce myself soon enough.</p>
   </div>
-
-  <!-- Purple Home Button linking to homepage overlay -->
-  <a href="../index.html?overlay=1">
-    <img src="../Images/purplebuttonoff.png" id="homeButton" alt="Go Home">
-  </a>
 
 </body>
 </html>
