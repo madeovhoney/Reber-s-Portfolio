@@ -73,7 +73,7 @@ body{
 .container.overlay-active #normalLogo{display:none;}
 .container.overlay-active #overlayLogo{display:block;}
 
-/* GENTLE FLOAT */
+/* 🐝 gentle floating (no spinning) */
 #overlayBeeSnail{
   position:absolute;
   top:250px;
@@ -147,7 +147,7 @@ body{
 <!-- OVERLAY -->
 <img src="Images/Overlaybeeandsnail.png?v=1" id="overlayBeeSnail">
 
-<!-- FIXED NAVIGATION -->
+<!-- NAV -->
 <a href="pages/about.html"><img src="Images/Aboutlinkclick.png?v=1" id="aboutLink" class="normal-link"></a>
 <a href="pages/music.html"><img src="Images/Musiclinkclick.png?v=1" id="musicLink" class="normal-link"></a>
 <a href="pages/blog.html"><img src="Images/bloglinkclick.png?v=1" id="blogLink" class="normal-link"></a>
@@ -168,20 +168,24 @@ body{
 const container = document.getElementById('mainContainer');
 const button = document.getElementById('purpleButton');
 
-/* RANDOM FLICKER */
+/* 🔥 SLOWER RANDOM FLICKER (FIXED) */
 document.querySelectorAll('.flicker').forEach(el => {
   function flicker() {
-    const delay = Math.random() * 3000 + 500;
-    const duration = Math.random() * 120 + 40;
+
+    const delay = Math.random() * 6000 + 2000; // 2–8 seconds
+    const duration = Math.random() * 80 + 30;  // quick flash
 
     setTimeout(() => {
       el.classList.add('flash');
+
       setTimeout(() => {
         el.classList.remove('flash');
         flicker();
       }, duration);
+
     }, delay);
   }
+
   flicker();
 });
 
