@@ -19,7 +19,6 @@
       color: black;
     }
 
-    /* BACKGROUND */
     #contactBG {
       width: 100%;
       height: auto;
@@ -27,7 +26,6 @@
       display: block;
     }
 
-    /* CUPIDS */
     #cupidBlueUFO {
       position: absolute;
       top: 190px;
@@ -58,7 +56,6 @@
       100% { transform: translate(0px, 0px); }
     }
 
-    /* FORM */
     #contactFormContainer {
       position: absolute;
       top: 650px;
@@ -96,7 +93,6 @@
       border-radius: 6px;
     }
 
-    /* HOME LOGO */
     #homeLogo {
       position: fixed;
       top: 20px;
@@ -115,13 +111,12 @@
 
 <body>
 
-  <!-- BACKGROUND (CACHE-BUSTED) -->
-  <!-- CHANGE ?v=1 → 2 → 3 EVERY TIME YOU UPDATE IMAGE -->
+  <!-- BACKGROUND -->
   <img src="../Images/contact-background.png?v=3" id="contactBG" alt="Contact Background">
 
-  <!-- HOME LOGO -->
+  <!-- ✅ FIXED LOGO (cache-busted) -->
   <a href="../index.html?overlay=1">
-    <img src="../Images/contact-homebuttonlogo.png" id="homeLogo" alt="Home">
+    <img src="../Images/contact-homebuttonlogo.png?v=3" id="homeLogo" alt="Home">
   </a>
 
   <!-- CUPIDS -->
