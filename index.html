@@ -17,7 +17,6 @@ body{
   overflow-x:hidden;
 }
 
-/* CONTAINER (REQUIRED) */
 .container{
   position:relative;
   width:100%;
@@ -47,11 +46,7 @@ body{
   position:absolute;
   pointer-events:none;
   z-index:3;
-  transition:opacity .4s ease;
-}
-
-.container.overlay-active .flicker{
-  opacity:0 !important;
+  opacity:1;
 }
 
 .flash{filter:brightness(3);}
@@ -79,22 +74,26 @@ body{
 .container.overlay-active #normalLogo{display:none;}
 .container.overlay-active #overlayLogo{display:block;}
 
-/* OVERLAY OBJECT */
+/* 🐝 GENTLE FLOAT (FIXED) */
 #overlayBeeSnail{
   position:absolute;
-  top:200px;
+  top:250px;
   left:50%;
   width:800px;
+  transform:translateX(-50%);
   z-index:7;
   display:none;
-  animation:spin 12s linear infinite;
+  animation:gentleFloat 6s ease-in-out infinite;
 }
 
 .container.overlay-active #overlayBeeSnail{display:block;}
 
-@keyframes spin{
-  from{transform:translate(-50%,-50%) rotate(0deg);}
-  to{transform:translate(-50%,-50%) rotate(360deg);}
+@keyframes gentleFloat{
+  0%   { transform:translate(-50%,0px) scale(1); }
+  25%  { transform:translate(-48%,-10px) scale(1.02); }
+  50%  { transform:translate(-52%,-20px) scale(1.03); }
+  75%  { transform:translate(-49%,-10px) scale(1.02); }
+  100% { transform:translate(-50%,0px) scale(1); }
 }
 
 /* LINKS */
@@ -148,7 +147,7 @@ body{
 <img src="Images/Logoandbeelight.png?v=1" id="normalLogo">
 <img src="Images/Overlaylogo.png?v=1" id="overlayLogo">
 
-<!-- OVERLAY OBJECT -->
+<!-- OVERLAY -->
 <img src="Images/Overlaybeeandsnail.png?v=1" id="overlayBeeSnail">
 
 <!-- NAV -->
@@ -172,15 +171,27 @@ body{
 const container = document.getElementById('mainContainer');
 const button = document.getElementById('purpleButton');
 
-/* flicker */
-setInterval(()=>{
-  document.querySelectorAll('.flicker').forEach(el=>{
-    el.classList.add('flash');
-    setTimeout(()=>el.classList.remove('flash'),100);
-  });
-},1200);
+/* 🔥 RANDOM FLICKER FIX */
+document.querySelectorAll('.flicker').forEach(el => {
+  function flicker() {
+    const delay = Math.random() * 3000 + 500;
+    const duration = Math.random() * 120 + 40;
 
-/* overlay toggle */
+    setTimeout(() => {
+      el.classList.add('flash');
+
+      setTimeout(() => {
+        el.classList.remove('flash');
+        flicker();
+      }, duration);
+
+    }, delay);
+  }
+
+  flicker();
+});
+
+/* OVERLAY TOGGLE */
 button.addEventListener('click',()=>{
   container.classList.toggle('overlay-active');
 });
