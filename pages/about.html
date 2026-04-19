@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
@@ -12,33 +11,27 @@
   <title>Honey Space – About</title>
 
   <style>
-    /* ===============================
-       GLOBAL STYLING
-    =============================== */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Shadows Into Light', cursive;
       background: black;
-      color: black;
+      color: white; /* FIXED visibility */
     }
 
-    /* ===============================
-       BACKGROUND IMAGE
-    =============================== */
+    /* BACKGROUND */
     #aboutBG {
+      position: fixed;      /* keeps it behind everything */
+      top: 0;
+      left: 0;
       width: 100%;
-      height: auto;
-      max-width: 1920px;
-      display: block;
+      z-index: -1;          /* prevents blocking content */
     }
 
-    /* ===============================
-       PAGE CONTENT
-    =============================== */
+    /* CONTENT */
     .content {
       position: absolute;
-      z-index: 1;
+      z-index: 2;
 
       top: 200px;
       left: 475px;
@@ -52,57 +45,46 @@
       line-height: 1.6;
     }
 
-    /* ===============================
-       📸 YOUR PHOTO (FULL CONTROL AREA)
-    =============================== */
+    /* PHOTO */
     #myPhoto {
       position: absolute;
-
-      top: 225px;   /* move up/down */
-      left: 175px;  /* move left/right */
-
-      width: 250px; /* resize */
-
+      top: 225px;
+      left: 175px;
+      width: 250px;
       z-index: 2;
-
-      /* Optional styling */
-      /* border-radius: 20px; */
-      /* box-shadow: 0 0 20px rgba(0,0,0,0.5); */
     }
 
-    /* ===============================
-       LOGO HOME BUTTON
-    =============================== */
+    /* HOME LOGO */
     #homeLogo {
       position: fixed;
       top: 20px;
       left: 420px;
       width: 600px;
-      z-index: 1000;
+      z-index: 9999;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
 
     #homeLogo:hover {
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Background (cache-busted) -->
+  <!-- BACKGROUND -->
   <img src="../Images/about-background.png?v=2" id="aboutBG" alt="About Background">
 
-  <!-- Logo -->
-  <a href="../index.html?overlay=1">
-    <img src="../Images/Logo-aboutpage.png" id="homeLogo" alt="Home Button Logo">
+  <!-- HOME BUTTON (FIXED LINK) -->
+  <a href="../index.html">
+    <img src="../Images/Logo-aboutpage.png?v=2" id="homeLogo" alt="Home">
   </a>
 
-  <!-- 📸 My PHOTO (FIXED) -->
+  <!-- PHOTO -->
   <img src="../Images/Me-2026.jpg" id="myPhoto" alt="Photo of me">
 
-  <!-- Content -->
+  <!-- CONTENT -->
   <div class="content">
     <p>Welcome to Honey Space! This page is a work in progress.</p>
     <p>Please have a look around, although you might not find much information.</p>
