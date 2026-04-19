@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
   <title>Honey Space – Music</title>
+
   <style>
     /* ===============================
        GLOBAL STYLING
     =============================== */
     body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Shadows Into Light', cursive;
-  background: black;
-  color: black;
-}
+      margin: 0;
+      padding: 0;
+      font-family: 'Shadows Into Light', cursive;
+      background: black;
+      color: white; /* FIXED visibility */
+    }
 
     /* ===============================
-       SCROLLABLE FULL-BACKGROUND IMAGE
+       BACKGROUND IMAGE
     =============================== */
     #musicBG {
       width: 100%;
@@ -30,25 +34,17 @@
     }
 
     /* ===============================
-       PAGE CONTENT
+       CONTENT
     =============================== */
     .content {
-      position: absolute; /* allows free placement */
+      position: absolute;
       z-index: 1;
 
-      /* ========== ADJUST THIS AREA TO MOVE MUSIC CONTENT ========== */
-      top: 550px;    /* distance from top of page */
-      left: 300px;    /* distance from left of page */
+      top: 550px;
+      left: 300px;
+
       max-width: 1200px;
       padding: 20px;
-      /* optional: center text inside the block */
-      /* text-align: center; */
-      /* ============================================================ */
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
     }
 
     p {
@@ -57,13 +53,20 @@
     }
 
     /* ===============================
-       PURPLE HOME BUTTON
+       SPOTIFY PLAYER
+    =============================== */
+    .spotify-player {
+      margin-top: 20px;
+    }
+
+    /* ===============================
+       HOME BUTTON
     =============================== */
     #homeButton {
       position: fixed;
       top: 20px;
       left: 20px;
-      width: 50px;
+      width: 60px;
       z-index: 1000;
       cursor: pointer;
       transition: transform 0.2s ease;
@@ -74,21 +77,34 @@
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Scrollable Music Background -->
-  <img src="../Images/music-background.png" id="musicBG" alt="Music Background">
+  <!-- Background (cache-busted so it refreshes) -->
+  <img src="../Images/music-background.png?v=2" id="musicBG" alt="Music Background">
 
-  <!-- Page Content -->
-  <div class="content">
-    <p>A Spotify music player with my personal playlist will be added here.</p>
-    <p>We'll dance soon, so please standby.</p>
-  </div>
-
-  <!-- Purple Home Button linking to homepage overlay -->
+  <!-- Home Button -->
   <a href="../index.html?overlay=1">
-    <img src="../Images/purplebuttonoff.png" id="homeButton" alt="Go Home">
+    <img src="../Images/homebutton-logo.png" id="homeButton" alt="Home">
   </a>
+
+  <!-- Content -->
+  <div class="content">
+    <p>A Spotify music player with my personal playlist is below.</p>
+    <p>We'll dance soon, so please standby.</p>
+
+    <!-- 🎧 SPOTIFY EMBED (replace with your playlist later) -->
+    <div class="spotify-player">
+      <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M"
+        width="300"
+        height="380"
+        frameborder="0"
+        allowfullscreen=""
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+      </iframe>
+    </div>
+  </div>
 
 </body>
 </html>
