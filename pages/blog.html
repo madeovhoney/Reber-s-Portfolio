@@ -66,6 +66,13 @@
       text-decoration: underline;
     }
 
+    /* LINK POSITION CONTROL */
+    .link-wrapper {
+      position: relative;
+      left: 120px; /*
+      margin-top: 10px;
+    }
+
     /* ===============================
        HOME BUTTON (YOUR ORIGINAL POSITION)
     =============================== */
@@ -109,7 +116,7 @@
   <!-- Background -->
   <img src="../Images/blog-background.png" id="blogBG" alt="Blog Background">
 
-  <!-- Home Button (restored placement) -->
+  <!-- Home Button -->
   <a href="../index.html?overlay=1">
     <img src="../Images/homebutton-logo.png" id="homeButton" alt="Home">
   </a>
@@ -126,11 +133,12 @@
 
     <p>To read more, click below and be redirected to Wordpress.com:</p>
 
-    <p>
+    <!-- MOVABLE HYPERLINK -->
+    <div class="link-wrapper">
       <a href="https://reberkk.wordpress.com/" target="_blank" class="blog-link">
         Visit My WordPress Blog
       </a>
-    </p>
+    </div>
   </div>
 
 </body>
