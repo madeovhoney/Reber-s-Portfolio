@@ -19,6 +19,7 @@
       color: black;
     }
 
+    /* BACKGROUND */
     #contactBG {
       width: 100%;
       height: auto;
@@ -26,6 +27,7 @@
       display: block;
     }
 
+    /* CUPIDS */
     #cupidBlueUFO {
       position: absolute;
       top: 190px;
@@ -56,6 +58,7 @@
       100% { transform: translate(0px, 0px); }
     }
 
+    /* FORM */
     #contactFormContainer {
       position: absolute;
       top: 650px;
@@ -92,24 +95,33 @@
       border-radius: 6px;
     }
 
+    /* HOME BUTTON */
     #homeButton {
       position: fixed;
       top: 20px;
       left: 20px;
-      width: 60px;
+      width: 120px; /* increased so it's visible */
       z-index: 9999;
       cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    #homeButton:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 
 <body>
 
-  <img src="../Images/contact-background.png?v=3" id="contactBG">
+  <!-- BACKGROUND -->
+  <img src="../Images/contact-background.png?v=3" id="contactBG" alt="Contact Background">
 
-  <img src="../Images/bluecupidufocontact.png?v=3" id="cupidBlueUFO">
-  <img src="../Images/redandyellowcupids.png?v=3" id="cupidRedYellow">
+  <!-- CUPIDS -->
+  <img src="../Images/bluecupidufocontact.png?v=3" id="cupidBlueUFO" alt="">
+  <img src="../Images/redandyellowcupids.png?v=3" id="cupidRedYellow" alt="">
 
+  <!-- FORM -->
   <div id="contactFormContainer">
     <form id="contactForm"
           action="https://formspree.io/f/mlgoqenk"
@@ -123,9 +135,9 @@
     </form>
   </div>
 
-  <!--  FIXED NAVIGATION -->
-  <a href="index.html">
-    <img src="../Images/homebutton-logo.png?v=3" id="homeButton" alt="Home">
+  <!-- ✅ CORRECT HOME BUTTON -->
+  <a href="../index.html">
+    <img src="../Images/contact-homebuttonlogo.png?v=3" id="homeButton" alt="Home">
   </a>
 
 </body>
