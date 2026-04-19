@@ -66,21 +66,21 @@
       text-decoration: underline;
     }
 
-    /* LINK POSITION CONTROL */
+    /* LINK POSITION CONTROL (your tweakable offset) */
     .link-wrapper {
       position: relative;
-      left: 120px; /*
+      left: 120px; /* adjust this */
       margin-top: 10px;
     }
 
     /* ===============================
-       HOME BUTTON (YOUR ORIGINAL POSITION)
+       HOME BUTTON (FIXED - now visible)
     =============================== */
     #homeButton {
       position: fixed;
-      top: 0px;
-      left: 700px;
-      width: 500px;
+      top: 40px;        /* FIX: was 0px */
+      left: 700px;      /* your original value kept */
+      width: 500px;     /* your original size kept */
       z-index: 1000;
       cursor: pointer;
       transition: transform 0.2s ease;
@@ -133,7 +133,6 @@
 
     <p>To read more, click below and be redirected to Wordpress.com:</p>
 
-    <!-- MOVABLE HYPERLINK -->
     <div class="link-wrapper">
       <a href="https://reberkk.wordpress.com/" target="_blank" class="blog-link">
         Visit My WordPress Blog
