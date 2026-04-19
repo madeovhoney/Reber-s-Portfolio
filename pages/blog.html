@@ -3,24 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
   <title>Honey Space – Blog</title>
+
   <style>
     /* ===============================
        GLOBAL STYLING
     =============================== */
     body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Shadows Into Light', cursive;
-  background: black;
-  color: black;
-}
+      margin: 0;
+      padding: 0;
+      font-family: 'Shadows Into Light', cursive;
+      background: black;
+      color: white;
+    }
 
     /* ===============================
-       SCROLLABLE FULL-BACKGROUND IMAGE
+       BACKGROUND IMAGE
     =============================== */
     #blogBG {
       width: 100%;
@@ -33,22 +37,14 @@
        PAGE CONTENT
     =============================== */
     .content {
-      position: absolute; /* allows free placement */
+      position: absolute;
       z-index: 1;
 
-      /* ========== ADJUST THIS AREA TO MOVE BLOG CONTENT ========== */
-      top: 200px;    /* distance from top of page */
-      left: 700px;    /* distance from left of page */
+      top: 200px;
+      left: 700px;
+
       max-width: 1200px;
       padding: 20px;
-      /* optional: center text inside the block */
-      /* text-align: center; */
-      /* ======================================================== */
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
     }
 
     p {
@@ -57,13 +53,13 @@
     }
 
     /* ===============================
-       PURPLE HOME BUTTON
+       UNIVERSAL HOME BUTTON
     =============================== */
     #homeButton {
       position: fixed;
       top: 20px;
       left: 20px;
-      width: 50px;
+      width: 60px;
       z-index: 1000;
       cursor: pointer;
       transition: transform 0.2s ease;
@@ -72,23 +68,47 @@
     #homeButton:hover {
       transform: scale(1.2);
     }
+
+    /* ===============================
+       BEE IMAGE (ANIMATED)
+    =============================== */
+    #beeImage {
+      position: absolute;
+      top: 150px;   /* adjust position */
+      left: 200px;  /* adjust position */
+      width: 150px;
+      z-index: 2;
+
+      animation: floatBees 4s ease-in-out infinite;
+    }
+
+    /* Smooth floating animation */
+    @keyframes floatBees {
+      0%   { transform: translateY(0px); }
+      50%  { transform: translateY(-20px); }
+      100% { transform: translateY(0px); }
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- Scrollable Blog Background -->
+  <!-- Background -->
   <img src="../Images/blog-background.png" id="blogBG" alt="Blog Background">
 
-  <!-- Page Content -->
+  <!-- UNIVERSAL HOME BUTTON -->
+  <a href="../index.html?overlay=1">
+    <img src="../Images/homebutton-logo.png" id="homeButton" alt="Home">
+  </a>
+
+  <!-- Animated Bees -->
+  <img src="../Images/BeeLovers-blogpage.png" id="beeImage" alt="Bee Lovers">
+
+  <!-- Content -->
   <div class="content">
     <p>A link to my HoneySpace blog will be placed here!</p>
     <p>Stay tuned for more.</p>
   </div>
-
-  <!-- Purple Home Button linking to homepage overlay -->
-  <a href="../index.html?overlay=1">
-    <img src="../Images/purplebuttonoff.png" id="homeButton" alt="Go Home">
-  </a>
 
 </body>
 </html>
