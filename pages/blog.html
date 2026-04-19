@@ -20,7 +20,7 @@
       padding: 0;
       font-family: 'Shadows Into Light', cursive;
       background: black;
-      color: white; /* FIXED visibility */
+      color: white;
     }
 
     /* ===============================
@@ -62,18 +62,18 @@
     }
 
     .blog-link:hover {
-      color: #ff4d4d; /* lighter red on hover */
+      color: #ff4d4d;
       text-decoration: underline;
     }
 
     /* ===============================
-       HOME BUTTON
+       HOME BUTTON (YOUR ORIGINAL POSITION)
     =============================== */
     #homeButton {
       position: fixed;
-      top: 20px;
-      left: 20px;
-      width: 60px;
+      top: 0px;
+      left: 700px;
+      width: 500px;
       z-index: 1000;
       cursor: pointer;
       transition: transform 0.2s ease;
@@ -88,8 +88,8 @@
     =============================== */
     #beeImage {
       position: absolute;
-      top: 775px;
-      left: 700px;
+      top: 750px;
+      left: 750px;
       width: 100px;
       z-index: 2;
 
@@ -109,7 +109,7 @@
   <!-- Background -->
   <img src="../Images/blog-background.png" id="blogBG" alt="Blog Background">
 
-  <!-- Home Button -->
+  <!-- Home Button (restored placement) -->
   <a href="../index.html?overlay=1">
     <img src="../Images/homebutton-logo.png" id="homeButton" alt="Home">
   </a>
