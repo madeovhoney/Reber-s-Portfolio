@@ -1,124 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
-  <title>Honey Space – Home</title>
+<title>Honey Space – Home</title>
 
-  <style>
-    body {
-      margin:0;
-      padding:0;
-      font-family:'Shadows Into Light', cursive;
-      background:black;
-      color:black;
-      overflow-x:hidden;
-    }
+<style>
+body{
+  margin:0;
+  padding:0;
+  font-family:'Shadows Into Light', cursive;
+  background:black;
+  overflow-x:hidden;
+}
 
-    .container {
-      position:relative;
-      width:100%;
-      max-width:1920px;
-      margin:0 auto;
-    }
+/* CONTAINER (REQUIRED) */
+.container{
+  position:relative;
+  width:100%;
+  max-width:1920px;
+  margin:0 auto;
+}
 
-    /* BACKGROUNDS */
-    #unearthedBG { width:100%; display:block; z-index:1; }
-    #earthedFade {
-      position:absolute; top:0; left:0; width:100%;
-      opacity:0; transition:opacity 1.2s ease; z-index:2;
-    }
-    .container.overlay-active #earthedFade { opacity:1; }
+/* BACKGROUNDS */
+#unearthedBG{width:100%;display:block;z-index:1;}
 
-    /* FLICKERS */
-    .flicker { position:absolute; pointer-events:none; z-index:3; transition:opacity .4s ease; }
-    .container.overlay-active .flicker { opacity:0 !important; }
-    .flash { filter:brightness(3); }
+#earthedFade{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  opacity:0;
+  transition:opacity 1.2s ease;
+  z-index:2;
+}
 
-    #flowersBolt { width:1275px; top:-150px; left:-89px; }
-    #boltHeart   { width:189px;  top:825px;  left:500px; }
-    #boltStar    { width:675px;  top:250px;  left:25px; }
-    #stars       { width:100px;  top:85px;   left:575px; }
-    #alienStar   { width:650px;  top:825px;  left:10px; }
-    #flowers     { width:575px;  top:7px;    left:480px; }
+.container.overlay-active #earthedFade{
+  opacity:1;
+}
 
-    /* LOGOS */
-    #normalLogo, #overlayLogo {
-      position:absolute;
-      top:125px;
-      left:50%;
-      transform:translateX(-50%);
-      width:600px;
-    }
-    #normalLogo { z-index:6; }
-    #overlayLogo { z-index:7; display:none; }
+/* FLICKER */
+.flicker{
+  position:absolute;
+  pointer-events:none;
+  z-index:3;
+  transition:opacity .4s ease;
+}
 
-    .container.overlay-active #normalLogo { display:none; }
-    .container.overlay-active #overlayLogo { display:block; }
+.container.overlay-active .flicker{
+  opacity:0 !important;
+}
 
-    /* OVERLAY */
-    #overlayBeeSnail {
-      position:absolute;
-      top:200px;
-      left:50%;
-      width:800px;
-      z-index:7;
-      display:none;
-      animation:snailBeeCircle 12s linear infinite;
-    }
-    .container.overlay-active #overlayBeeSnail { display:block; }
+.flash{filter:brightness(3);}
 
-    @keyframes snailBeeCircle {
-      0% { transform:translate(-50%,-50%) rotate(0) translateX(100px) rotate(0); }
-      100% { transform:translate(-50%,-50%) rotate(360deg) translateX(100px) rotate(-360deg); }
-    }
+/* POSITIONS */
+#flowersBolt{width:1275px;top:-150px;left:-89px;}
+#boltHeart{width:189px;top:825px;left:500px;}
+#boltStar{width:675px;top:250px;left:25px;}
+#stars{width:100px;top:85px;left:575px;}
+#alienStar{width:650px;top:825px;left:10px;}
+#flowers{width:575px;top:7px;left:480px;}
 
-    /* LINKS */
-    .normal-link { position:absolute; z-index:6; }
-    .overlay-link { position:absolute; z-index:7; display:none; }
+/* LOGOS */
+#normalLogo,#overlayLogo{
+  position:absolute;
+  top:125px;
+  left:50%;
+  transform:translateX(-50%);
+  width:600px;
+}
 
-    .container.overlay-active .normal-link { display:none; }
-    .container.overlay-active .overlay-link { display:block; }
+#normalLogo{z-index:6;}
+#overlayLogo{z-index:7;display:none;}
 
-    /* POSITIONS */
-    #aboutLink{top:345px;left:25%;width:85px;}
-    #musicLink{top:350px;left:57%;width:86px;}
-    #blogLink{top:360px;left:46%;width:81px;}
-    #galleryLink{top:369px;left:35%;width:90px;}
-    #contactLink{top:360px;left:67%;width:80px;}
+.container.overlay-active #normalLogo{display:none;}
+.container.overlay-active #overlayLogo{display:block;}
 
-    #overlayAbout{top:367px;left:25%;width:85px;}
-    #overlayMusic{top:367px;left:57%;width:86px;}
-    #overlayBlog{top:369px;left:46%;width:76px;}
-    #overlayGallery{top:369px;left:35%;width:90px;}
-    #overlayContact{top:371px;left:67%;width:80px;}
+/* OVERLAY OBJECT */
+#overlayBeeSnail{
+  position:absolute;
+  top:200px;
+  left:50%;
+  width:800px;
+  z-index:7;
+  display:none;
+  animation:spin 12s linear infinite;
+}
 
-    /* BUTTON */
-    #purpleButton {
-      position:absolute;
-      top:450px;
-      left:34%;
-      transform:translateX(-50%);
-      width:50px;
-      z-index:10;
-      cursor:pointer;
-    }
+.container.overlay-active #overlayBeeSnail{display:block;}
 
-    /* MOBILE */
-    @media(max-width:768px){
-      #normalLogo,#overlayLogo{width:400px;top:100px;}
-      .normal-link,.overlay-link{width:40%;left:50%;transform:translateX(-50%);}
-      #purpleButton{top:420px;width:100px;}
-    }
-  </style>
+@keyframes spin{
+  from{transform:translate(-50%,-50%) rotate(0deg);}
+  to{transform:translate(-50%,-50%) rotate(360deg);}
+}
+
+/* LINKS */
+.normal-link{position:absolute;z-index:6;}
+.overlay-link{position:absolute;z-index:7;display:none;}
+
+.container.overlay-active .normal-link{display:none;}
+.container.overlay-active .overlay-link{display:block;}
+
+/* NAV POSITIONS */
+#aboutLink{top:345px;left:25%;width:85px;}
+#musicLink{top:350px;left:57%;width:86px;}
+#blogLink{top:360px;left:46%;width:81px;}
+#galleryLink{top:369px;left:35%;width:90px;}
+#contactLink{top:360px;left:67%;width:80px;}
+
+#overlayAbout{top:367px;left:25%;width:85px;}
+#overlayMusic{top:367px;left:57%;width:86px;}
+#overlayBlog{top:369px;left:46%;width:76px;}
+#overlayGallery{top:369px;left:35%;width:90px;}
+#overlayContact{top:371px;left:67%;width:80px;}
+
+/* BUTTON */
+#purpleButton{
+  position:absolute;
+  top:450px;
+  left:34%;
+  width:50px;
+  z-index:10;
+  cursor:pointer;
+}
+</style>
 </head>
 
 <body>
+
 <div class="container" id="mainContainer">
 
 <img id="unearthedBG" src="Images/BlackUnearthBackground.png?v=1">
@@ -136,22 +148,43 @@
 <img src="Images/Logoandbeelight.png?v=1" id="normalLogo">
 <img src="Images/Overlaylogo.png?v=1" id="overlayLogo">
 
-<!-- OVERLAY -->
+<!-- OVERLAY OBJECT -->
 <img src="Images/Overlaybeeandsnail.png?v=1" id="overlayBeeSnail">
 
 <!-- NAV -->
-<a href="pages/about.html"><img src="Images/Aboutlinkclick.png?v=1" id="aboutLink" class="normal-link"></a>
-<a href="pages/music.html"><img src="Images/Musiclinkclick.png?v=1" id="musicLink" class="normal-link"></a>
-<a href="pages/blog.html"><img src="Images/bloglinkclick.png?v=1" id="blogLink" class="normal-link"></a>
-<a href="pages/gallery.html"><img src="Images/Gallerylinkclick.png?v=1" id="galleryLink" class="normal-link"></a>
+<a href="about.html"><img src="Images/Aboutlinkclick.png?v=1" id="aboutLink" class="normal-link"></a>
+<a href="music.html"><img src="Images/Musiclinkclick.png?v=1" id="musicLink" class="normal-link"></a>
+<a href="blog.html"><img src="Images/bloglinkclick.png?v=1" id="blogLink" class="normal-link"></a>
+<a href="gallery.html"><img src="Images/Gallerylinkclick.png?v=1" id="galleryLink" class="normal-link"></a>
 <a href="pages/contact.html"><img src="Images/contactlinkclick.png?v=1" id="contactLink" class="normal-link"></a>
 
-<a href="pages/about.html"><img src="Images/Overlayaboutlink.png?v=1" id="overlayAbout" class="overlay-link"></a>
-<a href="pages/music.html"><img src="Images/Overlaymusiclink.png?v=1" id="overlayMusic" class="overlay-link"></a>
-<a href="pages/blog.html"><img src="Images/Overlaybloglink.png?v=1" id="overlayBlog" class="overlay-link"></a>
-<a href="pages/gallery.html"><img src="Images/Overlaygallerylink.png?v=1" id="overlayGallery" class="overlay-link"></a>
+<a href="about.html"><img src="Images/Overlayaboutlink.png?v=1" id="overlayAbout" class="overlay-link"></a>
+<a href="music.html"><img src="Images/Overlaymusiclink.png?v=1" id="overlayMusic" class="overlay-link"></a>
+<a href="blog.html"><img src="Images/Overlaybloglink.png?v=1" id="overlayBlog" class="overlay-link"></a>
+<a href="gallery.html"><img src="Images/Overlaygallerylink.png?v=1" id="overlayGallery" class="overlay-link"></a>
 <a href="pages/contact.html"><img src="Images/Overlaycontactlink.png?v=1" id="overlayContact" class="overlay-link"></a>
 
 <img src="Images/purplebuttonon.png?v=1" id="purpleButton">
 
 </div>
+
+<script>
+const container = document.getElementById('mainContainer');
+const button = document.getElementById('purpleButton');
+
+/* flicker */
+setInterval(()=>{
+  document.querySelectorAll('.flicker').forEach(el=>{
+    el.classList.add('flash');
+    setTimeout(()=>el.classList.remove('flash'),100);
+  });
+},1200);
+
+/* overlay toggle */
+button.addEventListener('click',()=>{
+  container.classList.toggle('overlay-active');
+});
+</script>
+
+</body>
+</html>
