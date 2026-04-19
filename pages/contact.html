@@ -11,9 +11,6 @@
   <title>Honey Space – Contact</title>
 
   <style>
-    /* ===============================
-       GLOBAL STYLING
-    =============================== */
     body {
       margin: 0;
       padding: 0;
@@ -22,9 +19,6 @@
       color: black;
     }
 
-    /* ===============================
-       BACKGROUND IMAGE
-    =============================== */
     #contactBG {
       width: 100%;
       height: auto;
@@ -32,18 +26,12 @@
       display: block;
     }
 
-    /* ===============================
-       CUPID IMAGES
-    =============================== */
-
     #cupidBlueUFO {
       position: absolute;
       top: 190px;
       left: 50px;
       width: 1175px;
       z-index: 2;
-
-      transform-origin: center;
       animation: cupidGrowIn 2.5s ease-out forwards;
     }
 
@@ -53,13 +41,9 @@
       left: 50px;
       width: 1150px;
       z-index: 2;
-
       animation: dreamyFloat 6s ease-in-out infinite;
     }
 
-    /* ===============================
-       ANIMATIONS
-    =============================== */
     @keyframes cupidGrowIn {
       0% { transform: scale(0.2); opacity: 0; }
       80% { transform: scale(1.05); opacity: 1; }
@@ -67,16 +51,11 @@
     }
 
     @keyframes dreamyFloat {
-      0%   { transform: translate(0px, 0px) rotate(0deg); }
-      25%  { transform: translate(5px, -10px) rotate(1deg); }
-      50%  { transform: translate(0px, -20px) rotate(0deg); }
-      75%  { transform: translate(-5px, -10px) rotate(-1deg); }
-      100% { transform: translate(0px, 0px) rotate(0deg); }
+      0%   { transform: translate(0px, 0px); }
+      50%  { transform: translate(0px, -20px); }
+      100% { transform: translate(0px, 0px); }
     }
 
-    /* ===============================
-       CONTACT FORM POSITION
-    =============================== */
     #contactFormContainer {
       position: absolute;
       top: 650px;
@@ -86,9 +65,6 @@
       color: white;
     }
 
-    /* ===============================
-       FORM PANEL
-    =============================== */
     #contactForm {
       background: rgba(0,0,0,0.6);
       border: 1px solid white;
@@ -101,7 +77,6 @@
       margin-top: 10px;
       margin-bottom: 5px;
       color: white;
-      font-size: 16px;
     }
 
     #contactForm input,
@@ -115,43 +90,23 @@
       box-sizing: border-box;
     }
 
-    #contactForm textarea {
-      resize: none;
-    }
-
     #contactForm button {
       width: 100%;
       padding: 12px;
       background: #9023f4;
       border: none;
       color: white;
-      font-size: 14px;
       cursor: pointer;
       border-radius: 6px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    #contactForm button:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 18px rgba(144, 35, 244, 0.7);
-    }
-
-    #formSuccess {
-      display: none;
-      margin-top: 10px;
-      color: #9023f4;
-      font-size: 13px;
-    }
-
-    /* ===============================
-       HOME BUTTON
-    =============================== */
+    /* 🔥 FIXED HOME BUTTON */
     #homeButton {
       position: fixed;
       top: 20px;
       left: 20px;
       width: 60px;
-      z-index: 1000;
+      z-index: 9999; /* ensure clickable */
       cursor: pointer;
       transition: transform 0.2s ease;
     }
@@ -164,12 +119,12 @@
 
 <body>
 
-  <!-- ✅ FIXED BACKGROUND NAME + CACHE BUST -->
-  <img src="../Images/contact-background.png?v=2" id="contactBG" alt="Contact Background">
+  <!-- BACKGROUND -->
+  <img src="../Images/contact-background.png?v=3" id="contactBG">
 
   <!-- CUPIDS -->
-  <img src="../Images/bluecupidufocontact.png" id="cupidBlueUFO">
-  <img src="../Images/redandyellowcupids.png" id="cupidRedYellow">
+  <img src="../Images/bluecupidufocontact.png?v=3" id="cupidBlueUFO">
+  <img src="../Images/redandyellowcupids.png?v=3" id="cupidRedYellow">
 
   <!-- CONTACT FORM -->
   <div id="contactFormContainer">
@@ -189,13 +144,12 @@
       <button type="submit">Send Message</button>
 
       <div id="formSuccess">✨ Message sent successfully!</div>
-
     </form>
   </div>
 
-  <!-- HOME BUTTON (standardized) -->
-  <a href="../index.html?overlay=1">
-    <img src="../Images/homebutton-logo.png" id="homeButton" alt="Home">
+  <!-- ✅ FIXED LINK -->
+  <a href="/index.html">
+    <img src="../Images/homebutton-logo.png?v=3" id="homeButton" alt="Home">
   </a>
 
 </body>
