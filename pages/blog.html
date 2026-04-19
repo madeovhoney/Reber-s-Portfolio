@@ -20,7 +20,7 @@
       padding: 0;
       font-family: 'Shadows Into Light', cursive;
       background: black;
-      color: black;
+      color: white; /* FIXED visibility */
     }
 
     /* ===============================
@@ -34,7 +34,7 @@
     }
 
     /* ===============================
-       WORDS/ CONTENT
+       CONTENT
     =============================== */
     .content {
       position: absolute;
@@ -53,13 +53,27 @@
     }
 
     /* ===============================
-       UNIVERSAL HOME BUTTON
+       CRIMSON WORDPRESS LINK
+    =============================== */
+    .blog-link {
+      color: crimson;
+      text-decoration: none;
+      font-size: 1.3rem;
+    }
+
+    .blog-link:hover {
+      color: #ff4d4d; /* lighter red on hover */
+      text-decoration: underline;
+    }
+
+    /* ===============================
+       HOME BUTTON
     =============================== */
     #homeButton {
       position: fixed;
-      top: 0px;
-      left: 700px;
-      width: 500px;
+      top: 20px;
+      left: 20px;
+      width: 60px;
       z-index: 1000;
       cursor: pointer;
       transition: transform 0.2s ease;
@@ -70,19 +84,18 @@
     }
 
     /* ===============================
-       BEE IMAGE (ANIMATED)
+       BEE IMAGE
     =============================== */
     #beeImage {
       position: absolute;
-      top: 750px;   /* adjust position */
-      left: 750px;  /* adjust position */
+      top: 750px;
+      left: 750px;
       width: 100px;
       z-index: 2;
 
       animation: floatBees 4s ease-in-out infinite;
     }
 
-    /* Smooth floating animation */
     @keyframes floatBees {
       0%   { transform: translateY(0px); }
       50%  { transform: translateY(-20px); }
@@ -96,20 +109,28 @@
   <!-- Background -->
   <img src="../Images/blog-background.png" id="blogBG" alt="Blog Background">
 
-  <!-- UNIVERSAL HOME BUTTON -->
+  <!-- Home Button -->
   <a href="../index.html?overlay=1">
     <img src="../Images/homebutton-logo.png" id="homeButton" alt="Home">
   </a>
 
-  <!-- Animated Bees -->
+  <!-- Bees -->
   <img src="../Images/BeeLovers-blogpage.png" id="beeImage" alt="Bee Lovers">
 
   <!-- Content -->
   <div class="content">
-    <p>After taking an intense Newswriting Class, I was inspired to keep a personal/portfolio of scientific research 
-    I found interesting and important to seek peer-reviewed and credible information for the public. 
-    To read more, click the link below to be redirected to WordPress.com 
-    <p>https://reberkk.wordpress.com/ </p>
+    <p>
+      After taking an intense Newswriting class, I was inspired to keep a personal portfolio of scientific research 
+      I found interesting and important, with a focus on peer-reviewed and credible information for the public.
+    </p>
+
+    <p>To read more, click below:</p>
+
+    <p>
+      <a href="https://reberkk.wordpress.com/" target="_blank" class="blog-link">
+        Visit My WordPress Blog
+      </a>
+    </p>
   </div>
 
 </body>
