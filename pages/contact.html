@@ -3,37 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
   <title>Honey Space – Contact</title>
+
   <style>
     /* ===============================
        GLOBAL STYLING
     =============================== */
     body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Shadows Into Light', cursive;
-  background: black;
-  color: black;
-}
-  <style>
-
-    /* ===============================
-       1. GLOBAL STYLING
-    =============================== */
-    body {
       margin: 0;
       padding: 0;
-      font-family: sans-serif;
+      font-family: 'Shadows Into Light', cursive;
       background: black;
       color: black;
     }
 
-
     /* ===============================
-       2. BACKGROUND IMAGE
+       BACKGROUND IMAGE
     =============================== */
     #contactBG {
       width: 100%;
@@ -42,12 +32,10 @@
       display: block;
     }
 
-
     /* ===============================
-       3. CUPID IMAGES
+       CUPID IMAGES
     =============================== */
 
-    /* BLUE CUPID (ENTER ANIMATION) */
     #cupidBlueUFO {
       position: absolute;
       top: 190px;
@@ -59,7 +47,6 @@
       animation: cupidGrowIn 2.5s ease-out forwards;
     }
 
-    /* RED + YELLOW CUPID (FLOATING) */
     #cupidRedYellow {
       position: absolute;
       top: 685px;
@@ -70,24 +57,13 @@
       animation: dreamyFloat 6s ease-in-out infinite;
     }
 
-
     /* ===============================
-       4. ANIMATIONS
+       ANIMATIONS
     =============================== */
-
     @keyframes cupidGrowIn {
-      0% {
-        transform: scale(0.2);
-        opacity: 0;
-      }
-      80% {
-        transform: scale(1.05);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
+      0% { transform: scale(0.2); opacity: 0; }
+      80% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     @keyframes dreamyFloat {
@@ -98,25 +74,20 @@
       100% { transform: translate(0px, 0px) rotate(0deg); }
     }
 
-
     /* ===============================
-       5. CONTACT FORM POSITION
+       CONTACT FORM POSITION
     =============================== */
     #contactFormContainer {
       position: absolute;
-
       top: 650px;
       left: 470px;
-
       width: 350px;
       z-index: 3;
-
       color: white;
     }
 
-
     /* ===============================
-       6. FORM PANEL STYLE
+       FORM PANEL
     =============================== */
     #contactForm {
       background: rgba(0,0,0,0.6);
@@ -125,10 +96,6 @@
       backdrop-filter: blur(6px);
     }
 
-
-    /* ===============================
-       7. LABEL SPACING FIX
-    =============================== */
     #contactForm label {
       display: block;
       margin-top: 10px;
@@ -137,20 +104,14 @@
       font-size: 16px;
     }
 
-
-    /* ===============================
-       8. INPUT FIELD SPACING FIX
-    =============================== */
     #contactForm input,
     #contactForm textarea {
       width: 100%;
       padding: 12px;
       margin-bottom: 15px;
-
       background: rgba(255,255,255,0.1);
       border: 1px solid white;
       color: white;
-
       box-sizing: border-box;
     }
 
@@ -158,26 +119,15 @@
       resize: none;
     }
 
-
-    /* ===============================
-       9. SUBMIT BUTTON (PURPLE THEME)
-       COLOR: #9023f4
-    =============================== */
     #contactForm button {
       width: 100%;
       padding: 12px;
-
       background: #9023f4;
       border: none;
       color: white;
-
       font-size: 14px;
-      letter-spacing: 0.5px;
-
       cursor: pointer;
-
       border-radius: 6px;
-
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -186,10 +136,6 @@
       box-shadow: 0 0 18px rgba(144, 35, 244, 0.7);
     }
 
-
-    /* ===============================
-       10. SUCCESS MESSAGE (OPTIONAL)
-    =============================== */
     #formSuccess {
       display: none;
       margin-top: 10px;
@@ -197,15 +143,14 @@
       font-size: 13px;
     }
 
-
     /* ===============================
-       11. HOME BUTTON
+       HOME BUTTON
     =============================== */
     #homeButton {
       position: fixed;
       top: 20px;
       left: 20px;
-      width: 50px;
+      width: 60px;
       z-index: 1000;
       cursor: pointer;
       transition: transform 0.2s ease;
@@ -214,25 +159,20 @@
     #homeButton:hover {
       transform: scale(1.2);
     }
-
   </style>
 </head>
 
-
 <body>
 
-  <!-- BACKGROUND -->
-  <img src="../Images/contactbackground.png" id="contactBG">
-
+  <!-- ✅ FIXED BACKGROUND NAME + CACHE BUST -->
+  <img src="../Images/contact-background.png?v=2" id="contactBG" alt="Contact Background">
 
   <!-- CUPIDS -->
   <img src="../Images/bluecupidufocontact.png" id="cupidBlueUFO">
   <img src="../Images/redandyellowcupids.png" id="cupidRedYellow">
 
-
   <!-- CONTACT FORM -->
   <div id="contactFormContainer">
-
     <form id="contactForm"
           action="https://formspree.io/f/mlgoqenk"
           method="POST">
@@ -251,13 +191,11 @@
       <div id="formSuccess">✨ Message sent successfully!</div>
 
     </form>
-
   </div>
 
-
-  <!-- HOME BUTTON -->
+  <!-- HOME BUTTON (standardized) -->
   <a href="../index.html?overlay=1">
-    <img src="../Images/purplebuttonon.png" id="homeButton">
+    <img src="../Images/homebutton-logo.png" id="homeButton" alt="Home">
   </a>
 
 </body>
