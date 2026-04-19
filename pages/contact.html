@@ -19,11 +19,15 @@
       color: black;
     }
 
+    /*  BACKGROUND FIX */
     #contactBG {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
       height: auto;
-      max-width: 1920px;
-      display: block;
+      z-index: -1;              /* always behind everything */
+      pointer-events: none;     /* cannot block clicks */
     }
 
     #cupidBlueUFO {
@@ -72,13 +76,6 @@
       backdrop-filter: blur(6px);
     }
 
-    #contactForm label {
-      display: block;
-      margin-top: 10px;
-      margin-bottom: 5px;
-      color: white;
-    }
-
     #contactForm input,
     #contactForm textarea {
       width: 100%;
@@ -100,13 +97,14 @@
       border-radius: 6px;
     }
 
-    /* 🔥 FIXED HOME BUTTON */
+    /*  BUTTON FIX */
     #homeButton {
       position: fixed;
       top: 20px;
       left: 20px;
       width: 60px;
-      z-index: 9999; /* ensure clickable */
+      z-index: 9999;
+      pointer-events: auto;
       cursor: pointer;
       transition: transform 0.2s ease;
     }
@@ -126,28 +124,21 @@
   <img src="../Images/bluecupidufocontact.png?v=3" id="cupidBlueUFO">
   <img src="../Images/redandyellowcupids.png?v=3" id="cupidRedYellow">
 
-  <!-- CONTACT FORM -->
+  <!-- FORM -->
   <div id="contactFormContainer">
     <form id="contactForm"
           action="https://formspree.io/f/mlgoqenk"
           method="POST">
 
-      <label>Name</label>
-      <input type="text" name="name" required>
-
-      <label>Email</label>
-      <input type="email" name="email" required>
-
-      <label>Message</label>
-      <textarea name="message" rows="5" required></textarea>
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" rows="5" placeholder="Message" required></textarea>
 
       <button type="submit">Send Message</button>
-
-      <div id="formSuccess">✨ Message sent successfully!</div>
     </form>
   </div>
 
-  <!-- ✅ FIXED LINK -->
+  <!-- WORKING HOME BUTTON -->
   <a href="/index.html">
     <img src="../Images/homebutton-logo.png?v=3" id="homeButton" alt="Home">
   </a>
