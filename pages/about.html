@@ -3,38 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-body {
-    font-family: Arial, Helvetica, sans-serif;
-  }
 
   <title>Honey Space – About</title>
+
+  <!-- OPTIONAL: handwritten font -->
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Shadows Into Light', cursive;
+      font-family: Arial, Helvetica, sans-serif;
       background: black;
-      color: black; /* FIXED visibility */
+      color: white;
     }
 
     /* BACKGROUND */
     #aboutBG {
-      position: fixed;      /* keeps it behind everything */
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      z-index: -1;          /* prevents blocking content */
+      z-index: -1;
     }
 
     /* CONTENT */
     .content {
       position: absolute;
       z-index: 2;
-
       top: 200px;
       left: 475px;
-
       max-width: 1200px;
       padding: 20px;
     }
@@ -72,25 +70,26 @@ body {
 
 <body>
 
-  <!-- BACKGROUND -->
   <img src="../Images/about-background.png?v=2" id="aboutBG" alt="About Background">
 
-  <!-- HOME BUTTON (FIXED LINK) -->
   <a href="../index.html">
     <img src="../Images/Logo-aboutpage.png?v=2" id="homeLogo" alt="Home">
   </a>
 
-  <!-- PHOTO -->
   <img src="../Images/Me-2026.jpg" id="myPhoto" alt="Photo of me">
 
-  <!-- CONTENT -->
   <div class="content">
     <p>Hello, I'm Reber :p</p>
-    <p>I tend to enjoy my own company, but I also value meaningful connections and love spending time with people who are genuine and like-minded. 
-    I'm drawn to the simple things: animals, coookies, water, rest, peacful places, a good breeze, and singling loudly and openly.
-    <p>I;m currently a bachelor's student in communications at Colorado State University (Go Rams!), and I'm excited to be heading
-    into my senior year. I look forward to starting my career as a communications professional and to whatever meaningful chapters come next in 
-    my personal life. </p></p>
+
+    <p>
+      I tend to enjoy my own company, but I also value meaningful connections and love spending time with people who are genuine and like-minded.
+      I'm drawn to the simple things: animals, cookies, water, rest, peaceful places, a good breeze, and singing loudly and openly.
+    </p>
+
+    <p>
+      I'm currently a bachelor's student in communications at Colorado State University (Go Rams!), and I'm excited to be heading
+      into my senior year. I look forward to starting my career as a communications professional and to whatever meaningful chapters come next in my personal life.
+    </p>
   </div>
 
 </body>
