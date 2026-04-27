@@ -17,12 +17,12 @@
       padding: 0;
       font-family: Arial, Helvetica, sans-serif;
 
-      background-color: black; /* restores black background */
-      background-image: url("../Images/about-background.png?v=2");
+      background-color: black;
+      background-image: url("Images/about-background.png?v=2"); /* FIXED PATH */
       background-repeat: no-repeat;
       background-position: center top;
+      background-size: contain;
 
-      background-size: contain; /* restores original look */
       color: black;
     }
 
@@ -80,7 +80,7 @@
         overflow-x: hidden;
         color: white;
 
-        background-size: cover;      /* fills screen on mobile */
+        background-size: cover;
         background-position: center top;
       }
 
@@ -119,12 +119,15 @@
 
 <body>
 
+  <!-- HOME BUTTON -->
   <a href="../index.html">
-    <img src="../Images/Logo-aboutpage.png?v=2" id="homeLogo" alt="Home">
+    <img src="Images/Logo-aboutpage.png?v=2" id="homeLogo" alt="Home">
   </a>
 
-  <img src="../Images/Me-2026.jpg" id="myPhoto" alt="Photo of me">
+  <!-- PHOTO -->
+  <img src="Images/Me-2026.jpg" id="myPhoto" alt="Photo of me">
 
+  <!-- CONTENT -->
   <div class="content">
     <p>Hello, I'm Reber — a Photographer and Science Research Journalist.</p>
 
