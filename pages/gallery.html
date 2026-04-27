@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
   <title>Honey Space – Gallery</title>
@@ -13,17 +11,20 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Shadows Into Light', cursive;
       background: black;
       color: white;
+      overflow-x: hidden;
     }
 
+    /* FULL BACKGROUND FIX */
     #galleryBG {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
+      height: 100%;
+      object-fit: cover;
       z-index: -1;
     }
 
@@ -34,11 +35,6 @@
       width: 400px;
       z-index: 1000;
       cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    #homeLogo:hover {
-      transform: scale(1.2);
     }
 
     /* SLIDESHOW */
@@ -48,10 +44,9 @@
       left: 200px;
 
       width: 600px;
-      height: 450px; /* adjust height here */
+      height: 450px;
 
       overflow: hidden;
-      border-radius: 10px;
       background: black;
     }
 
@@ -61,28 +56,23 @@
       animation: scroll 25s linear infinite;
     }
 
-    /* EACH SLIDE */
-    .slide {
+    .slide-track img {
       width: 600px;
       height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .slide img {
-      max-width: 100%;
-      max-height: 85%;
       object-fit: contain;
     }
 
-    /* CAPTION */
-    .caption {
-      margin-top: 8px;
-      font-size: 1rem;
+    /* FALLBACK TEXT */
+    .img-fallback {
+      width: 600px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: black;
+      color: white;
       text-align: center;
-      opacity: 0.85;
+      padding: 10px;
     }
 
     @keyframes scroll {
@@ -94,59 +84,33 @@
 
 <body>
 
-  <img src="../Images/gallery-background.png?v=2" id="galleryBG" alt="Gallery Background">
+  <img src="../Images/gallery-background.png?v=2" id="galleryBG">
 
   <a href="../index.html">
-    <img src="../Images/homebutton-logowhite.png?v=2" id="homeLogo" alt="Home">
+    <img src="../Images/homebutton-logowhite.png?v=2" id="homeLogo">
   </a>
 
   <div class="slideshow">
     <div class="slide-track">
 
-      <!-- SLIDE 1 -->
-      <div class="slide">
-        <img src="../Images/gallery_IMG 1.jpg" alt="Photo 1">
-        <div class="caption">Photo Title 1</div>
-      </div>
+      <img src="../Images/gallery_IMG 1.jpg" alt="Gallery image 1"
+           onerror="this.outerHTML='<div class=&quot;img-fallback&quot;>Gallery image 1</div>';">
+      <img src="../Images/gallery_IMG 2.jpg" alt="Gallery image 2"
+           onerror="this.outerHTML='<div class=&quot;img-fallback&quot;>Gallery image 2</div>';">
+      <img src="../Images/gallery_IMG 3.jpg" alt="Gallery image 3"
+           onerror="this.outerHTML='<div class=&quot;img-fallback&quot;>Gallery image 3</div>';">
+      <img src="../Images/gallery_IMG 4.jpg" alt="Gallery image 4"
+           onerror="this.outerHTML='<div class=&quot;img-fallback&quot;>Gallery image 4</div>';">
 
-      <!-- SLIDE 2 -->
-      <div class="slide">
-        <img src="../Images/gallery_IMG 2.jpg" alt="Photo 2">
-        <div class="caption">Photo Title 2</div>
-      </div>
-
-      <!-- SLIDE 3 -->
-      <div class="slide">
-        <img src="../Images/gallery_IMG 3.jpg" alt="Photo 3">
-        <div class="caption">Photo Title 3</div>
-      </div>
-
-      <!-- SLIDE 4 -->
-      <div class="slide">
-        <img src="../Images/gallery_IMG 4.jpg" alt="Photo 4">
-        <div class="caption">Photo Title 4</div>
-      </div>
-
-      <!-- DUPLICATES FOR LOOP -->
-      <div class="slide">
-        <img src="../Images/gallery_IMG 1.jpg" alt="">
-        <div class="caption">Photo Title 1</div>
-      </div>
-
-      <div class="slide">
-        <img src="../Images/gallery_IMG 2.jpg" alt="">
-        <div class="caption">Photo Title 2</div>
-      </div>
-
-      <div class="slide">
-        <img src="../Images/gallery_IMG 3.jpg" alt="">
-        <div class="caption">Photo Title 3</div>
-      </div>
-
-      <div class="slide">
-        <img src="../Images/gallery_IMG 4.jpg" alt="">
-        <div class="caption">Photo Title 4</div>
-      </div>
+      <!-- duplicate -->
+      <img src="../Images/gallery_IMG 1.jpg" alt=""
+           onerror="this.outerHTML='<div class=&quot;img-fallback&quot;>Gallery image 1</div>';">
+      <img src="../Images/gallery_IMG 2.jpg" alt=""
+           onerror="this.outerHTML='<div class=&quot;img-fallback&quot;>Gallery image 2</div>';">
+      <img src="../Images/gallery_IMG 3.jpg" alt=""
+           onerror="this.outerHTML='<div class=&quot;img-fallback&quot;>Gallery image 3</div>';">
+      <img src="../Images/gallery_IMG 4.jpg" alt=""
+           onerror="this.outerHTML='<div class=&quot;img-fallback&quot;>Gallery image 4</div>';">
 
     </div>
   </div>
