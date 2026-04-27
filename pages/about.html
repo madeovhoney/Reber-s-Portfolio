@@ -17,18 +17,10 @@
       margin: 0;
       padding: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: black;
       color: black;
-    }
 
-    /* ===============================
-       BACKGROUND
-    =============================== */
-    #aboutBG {
-      width: 100%;
-      height: auto;
-      max-width: 1920px;
-      display: block;
+      background: url("../Images/about-background.png?v=2") no-repeat center center;
+      background-size: cover;
     }
 
     /* ===============================
@@ -83,31 +75,21 @@
     =============================== */
     @media (max-width: 768px) {
 
-      #aboutBG {
-        position: fixed;
-        top: 0;
-        left: 0;
-
-        width: 100vw;
-        height: 100vh;
-
-        object-fit: cover;
-        z-index: -1;
-      }
-
       body {
         overflow-x: hidden;
         color: white;
+
+        /* Adjust crop for tall screens */
+        background-position: center top;
+        background-size: cover;
       }
 
-      /* Center logo */
       #homeLogo {
         left: 50%;
         transform: translateX(-50%);
         width: 250px;
       }
 
-      /* Photo stacks above text */
       #myPhoto {
         position: relative;
         top: auto;
@@ -119,7 +101,6 @@
         max-width: 280px;
       }
 
-      /* Content becomes full-width */
       .content {
         position: relative;
         top: auto;
@@ -129,19 +110,25 @@
         max-width: 100%;
       }
 
-      /* Text readability */
       p {
         font-size: 1rem;
         line-height: 1.5;
       }
     }
+
+    /* ===============================
+       EXTRA TALL PHONES (Pro Max)
+    =============================== */
+    @media (max-width: 768px) and (min-height: 800px) {
+      body {
+        background-position: center top;
+      }
+    }
+
   </style>
 </head>
 
 <body>
-
-  <!-- BACKGROUND -->
-  <img src="../Images/about-background.png?v=2" id="aboutBG" alt="About Background">
 
   <!-- HOME BUTTON -->
   <a href="../index.html">
