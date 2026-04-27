@@ -1,234 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-
-<title>Honey Space – Home</title>
-
 <style>
-body{
-  margin:0;
-  padding:0;
-  font-family:'Shadows Into Light', cursive;
-  background:black;
-  overflow-x:hidden;
-}
+/* ===============================
+   MOBILE / SMALL SCREENS
+   (ADDED ONLY — NO CHANGES ABOVE)
+=============================== */
+@media (max-width: 768px) {
 
-.container{
-  position:relative;
-  width:100%;
-  max-width:1920px;
-  margin:0 auto;
-}
-
-/* Backgrounds */
-#unearthedBG{
-  width:100%;
-  display:block;
-  z-index:1;
-}
-
-#earthedFade{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  opacity:0;
-  transition:opacity 1.2s ease;
-  z-index:2;
-}
-
-.container.overlay-active #earthedFade{
-  opacity:1;
-}
-
-/* Flicker elements */
-.flicker{
-  position:absolute;
-  pointer-events:none;
-  z-index:3;
-  transition: opacity 0.6s ease;
-}
-
-/* Hide flicker elements during overlay */
-.container.overlay-active .flicker{
-  opacity:0 !important;
-}
-
-.flash{
-  filter:brightness(3);
-}
-
-/* Positions */
-#flowersBolt{width:1275px;top:-150px;left:-89px;}
-#boltHeart{width:189px;top:825px;left:500px;}
-#boltStar{width:675px;top:250px;left:25px;}
-#stars{width:100px;top:85px;left:575px;}
-#alienStar{width:650px;top:825px;left:10px;}
-#flowers{width:575px;top:7px;left:480px;}
-
-/* Logos */
-#normalLogo,
-#overlayLogo{
-  position:absolute;
-  top:125px;
-  left:50%;
-  transform:translateX(-50%);
-  width:600px;
-}
-
-#normalLogo{z-index:6;}
-#overlayLogo{
-  z-index:7;
-  display:none;
-}
-
-.container.overlay-active #normalLogo{
-  display:none;
-}
-
-.container.overlay-active #overlayLogo{
-  display:block;
-}
-
-/* Overlay animation object */
-#overlayBeeSnail{
-  position:absolute;
-  top:250px;
-  left:50%;
-  width:800px;
-  transform:translateX(-50%);
-  z-index:7;
-  display:none;
-  animation:gentleFloat 6s ease-in-out infinite;
-}
-
-.container.overlay-active #overlayBeeSnail{
-  display:block;
-}
-
-@keyframes gentleFloat{
-  0%   { transform:translate(-50%,0px); }
-  50%  { transform:translate(-52%,-20px); }
-  100% { transform:translate(-50%,0px); }
-}
-
-/* Navigation */
-.normal-link{
-  position:absolute;
-  z-index:6;
-}
-
-.overlay-link{
-  position:absolute;
-  z-index:7;
-  display:none;
-}
-
-.container.overlay-active .normal-link{
-  display:none;
-}
-
-.container.overlay-active .overlay-link{
-  display:block;
-}
-
-/* Navigation positions */
-#aboutLink{top:345px;left:25%;width:85px;}
-#musicLink{top:350px;left:57%;width:86px;}
-#blogLink{top:360px;left:46%;width:81px;}
-#galleryLink{top:369px;left:35%;width:90px;}
-#contactLink{top:360px;left:67%;width:80px;}
-
-#overlayAbout{top:367px;left:25%;width:85px;}
-#overlayMusic{top:367px;left:57%;width:86px;}
-#overlayBlog{top:369px;left:46%;width:76px;}
-#overlayGallery{top:369px;left:35%;width:90px;}
-#overlayContact{top:371px;left:67%;width:80px;}
-
-/* Toggle button */
-#purpleButton{
-  position:absolute;
-  top:450px;
-  left:34%;
-  width:50px;
-  z-index:10;
-  cursor:pointer;
-}
-</style>
-</head>
-
-<body>
-
-<div class="container" id="mainContainer">
-
-<img id="unearthedBG" src="Images/BlackUnearthBackground.png?v=1">
-<img id="earthedFade" src="Images/Earthedoverlayfadein.png?v=1">
-
-<!-- Flicker elements -->
-<img src="Images/Flowersandboltflicker.png?v=1" class="flicker" id="flowersBolt">
-<img src="Images/Boltandheartflicker.png?v=1" class="flicker" id="boltHeart">
-<img src="Images/Boltandstarflicker.png?v=1" class="flicker" id="boltStar">
-<img src="Images/Starsflicker.png?v=1" class="flicker" id="stars">
-<img src="Images/starandalienflicker.png?v=1" class="flicker" id="alienStar">
-<img src="Images/flowersflicker.png?v=1" class="flicker" id="flowers">
-
-<!-- Logos -->
-<img src="Images/Logoandbeelight.png?v=1" id="normalLogo">
-<img src="Images/Overlaylogo.png?v=1" id="overlayLogo">
-
-<!-- Overlay object -->
-<img src="Images/Overlaybeeandsnail.png?v=1" id="overlayBeeSnail">
-
-<!-- Navigation -->
-<a href="pages/about.html"><img src="Images/Aboutlinkclick.png?v=1" id="aboutLink" class="normal-link"></a>
-<a href="pages/music.html"><img src="Images/Musiclinkclick.png?v=1" id="musicLink" class="normal-link"></a>
-<a href="pages/blog.html"><img src="Images/bloglinkclick.png?v=1" id="blogLink" class="normal-link"></a>
-<a href="pages/gallery.html"><img src="Images/Gallerylinkclick.png?v=1" id="galleryLink" class="normal-link"></a>
-<a href="pages/contact.html"><img src="Images/contactlinkclick.png?v=1" id="contactLink" class="normal-link"></a>
-
-<a href="pages/about.html"><img src="Images/Overlayaboutlink.png?v=1" id="overlayAbout" class="overlay-link"></a>
-<a href="pages/music.html"><img src="Images/Overlaymusiclink.png?v=1" id="overlayMusic" class="overlay-link"></a>
-<a href="pages/blog.html"><img src="Images/Overlaybloglink.png?v=1" id="overlayBlog" class="overlay-link"></a>
-<a href="pages/gallery.html"><img src="Images/Overlaygallerylink.png?v=1" id="overlayGallery" class="overlay-link"></a>
-<a href="pages/contact.html"><img src="Images/Overlaycontactlink.png?v=1" id="overlayContact" class="overlay-link"></a>
-
-<img src="Images/purplebuttonon.png?v=1" id="purpleButton">
-
-</div>
-
-<script>
-const container = document.getElementById('mainContainer');
-const button = document.getElementById('purpleButton');
-
-/* Randomized flicker timing */
-document.querySelectorAll('.flicker').forEach(el => {
-  function flicker() {
-    const delay = Math.random() * 6000 + 2000;
-    const duration = Math.random() * 80 + 30;
-
-    setTimeout(() => {
-      el.classList.add('flash');
-
-      setTimeout(() => {
-        el.classList.remove('flash');
-        flicker();
-      }, duration);
-
-    }, delay);
+  /* Keep everything inside screen */
+  .container {
+    max-width: 100%;
   }
 
-  flicker();
-});
+  /* Scale main logo */
+  #normalLogo,
+  #overlayLogo {
+    width: 80%;
+    max-width: 350px;
+    top: 80px;
+  }
 
-/* Overlay toggle */
-button.addEventListener('click', () => {
-  container.classList.toggle('overlay-active');
-});
-</script>
+  /* Scale overlay object */
+  #overlayBeeSnail {
+    width: 90%;
+    max-width: 400px;
+    top: 180px;
+  }
 
-</body>
-</html>
+  /* Resize flicker elements so they don't overflow */
+  .flicker {
+    max-width: 90%;
+  }
+
+  /* Navigation reposition (centered and stacked slightly tighter) */
+  #aboutLink, #overlayAbout {
+    left: 20%;
+    top: 320px;
+    width: 70px;
+  }
+
+  #galleryLink, #overlayGallery {
+    left: 30%;
+    top: 340px;
+    width: 75px;
+  }
+
+  #blogLink, #overlayBlog {
+    left: 45%;
+    top: 330px;
+    width: 70px;
+  }
+
+  #musicLink, #overlayMusic {
+    left: 60%;
+    top: 320px;
+    width: 70px;
+  }
+
+  #contactLink, #overlayContact {
+    left: 75%;
+    top: 330px;
+    width: 70px;
+  }
+
+  /* Button reposition */
+  #purpleButton {
+    top: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+  }
+}
+</style>
