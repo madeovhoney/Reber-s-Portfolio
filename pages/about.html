@@ -1,48 +1,162 @@
-<style>
-/* ===============================
-   MOBILE / SMALL SCREENS
-   (ADDED ONLY — NOTHING CHANGED ABOVE)
-=============================== */
-@media (max-width: 768px) {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  /* Prevent sideways scroll */
-  body {
-    overflow-x: hidden;
-  }
+  <title>Honey Space – About</title>
 
-  /* Center and resize logo */
-  #homeLogo {
-    left: 50%;
-    transform: translateX(-50%);
-    width: 250px;
-  }
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
-  /* Stack photo above content */
-  #myPhoto {
-    position: relative;
-    top: auto;
-    left: auto;
+  <style>
+    /* ===============================
+       GLOBAL
+    =============================== */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: black;
+      color: black;
+    }
 
-    display: block;
-    margin: 120px auto 20px auto;
-    width: 70%;
-    max-width: 280px;
-  }
+    /* ===============================
+       BACKGROUND
+    =============================== */
+    #aboutBG {
+      width: 100%;
+      height: auto;
+      max-width: 1920px;
+      display: block;
+    }
 
-  /* Make content flow naturally */
-  .content {
-    position: relative;
-    top: auto;
-    left: auto;
+    /* ===============================
+       CONTENT (DESKTOP)
+    =============================== */
+    .content {
+      position: absolute;
+      z-index: 2;
 
-    margin: 20px;
-    max-width: 100%;
-  }
+      top: 200px;
+      left: 450px;
 
-  /* Improve readability */
-  p {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-}
-</style>
+      max-width: 1100px;
+      padding: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* ===============================
+       PHOTO (DESKTOP)
+    =============================== */
+    #myPhoto {
+      position: absolute;
+      top: 200px;
+      left: 175px;
+      width: 250px;
+      z-index: 2;
+    }
+
+    /* ===============================
+       HOME LOGO
+    =============================== */
+    #homeLogo {
+      position: fixed;
+      top: 20px;
+      left: 420px;
+      width: 600px;
+      z-index: 9999;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    #homeLogo:hover {
+      transform: scale(1.1);
+    }
+
+    /* ===============================
+       MOBILE (ADDED ONLY)
+    =============================== */
+    @media (max-width: 768px) {
+
+      body {
+        overflow-x: hidden;
+        color: white; /* fix invisible text */
+      }
+
+      /* Center logo */
+      #homeLogo {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 250px;
+      }
+
+      /* Photo stacks above text */
+      #myPhoto {
+        position: relative;
+        top: auto;
+        left: auto;
+
+        display: block;
+        margin: 120px auto 20px auto;
+        width: 70%;
+        max-width: 280px;
+      }
+
+      /* Content becomes full-width */
+      .content {
+        position: relative;
+        top: auto;
+        left: auto;
+
+        margin: 20px;
+        max-width: 100%;
+      }
+
+      /* Text readability */
+      p {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BACKGROUND -->
+  <img src="../Images/about-background.png?v=2" id="aboutBG" alt="About Background">
+
+  <!-- HOME BUTTON -->
+  <a href="../index.html">
+    <img src="../Images/Logo-aboutpage.png?v=2" id="homeLogo" alt="Home">
+  </a>
+
+  <!-- PHOTO -->
+  <img src="../Images/Me-2026.jpg" id="myPhoto" alt="Photo of me">
+
+  <!-- CONTENT -->
+  <div class="content">
+    <p>Hello, I'm Reber — a Photographer and Science Research Journalist.</p>
+
+    <p>
+      I tend to enjoy my own company, but I also value meaningful connections and love spending time with people who are genuine and like-minded.
+      I'm drawn to the simple things: animals, cookies, water, rest, peaceful places, a good breeze, and singing loudly and openly.
+    </p>
+
+    <p>
+      I'm currently a bachelor's student in communications at Colorado State University (Go Rams!), and I'm excited to be heading
+      into my senior year. I look forward to starting my career as a communications professional and to whatever meaningful chapters come next in my personal life.
+    </p>
+
+    <p>
+      Thank you for visiting! I hope we'll chat soon!
+    </p>
+  </div>
+
+</body>
+</html>
