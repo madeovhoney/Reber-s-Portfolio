@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
@@ -16,41 +17,36 @@
     =============================== */
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Shadows Into Light', cursive;
       background: black;
       color: white;
+      overflow-x: hidden;
     }
 
     /* ===============================
-       BACKGROUND
+       GALLERY CONTAINER
     =============================== */
-    #galleryBG {
-      width: 100%;
-      height: auto;
-      max-width: 1920px;
-      display: block;
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 80px;
+      padding: 120px 20px 60px;
     }
 
     /* ===============================
-       CONTENT
+       GALLERY IMAGES
     =============================== */
-    .content {
-      position: relative;
-      z-index: 1;
-      padding: 50px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+    .gallery img {
+      width: 90%;
+      max-width: 900px;
+      border-radius: 20px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1.2rem;
-      line-height: 1.6;
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
     }
 
     /* ===============================
@@ -59,8 +55,8 @@
     #homeLogo {
       position: fixed;
       top: 10px;
-      left: 250px;   /* matches your other pages */
-      width: 400px;  /* large logo */
+      left: 250px;
+      width: 400px;
       z-index: 1000;
       cursor: pointer;
       transition: transform 0.2s ease;
@@ -69,18 +65,30 @@
     #homeLogo:hover {
       transform: scale(1.2);
     }
+
+    /* ===============================
+       OPTIONAL SCROLL SMOOTHING
+    =============================== */
+    html {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- BACKGROUND -->
-  <img src="../Images/gallery-background.png?v=2" id="galleryBG" alt="Gallery Background">
-
   <!-- UNIVERSAL LOGO -->
   <a href="../index.html">
     <img src="../Images/homebutton-logowhite.png?v=2" id="homeLogo" alt="Home">
   </a>
+
+  <!-- GALLERY -->
+  <div class="gallery">
+    <img src="../Images/gallery_IMG1.png" alt="Gallery Image 1">
+    <img src="../Images/gallery_IMG2.png" alt="Gallery Image 2">
+    <img src="../Images/gallery_IMG3.png" alt="Gallery Image 3">
+    <img src="../Images/gallery_IMG4.png" alt="Gallery Image 4">
+  </div>
 
 </body>
 </html>
