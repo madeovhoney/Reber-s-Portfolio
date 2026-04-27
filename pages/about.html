@@ -79,26 +79,27 @@
     }
 
     /* ===============================
-       MOBILE (ADDED ONLY)
+       MOBILE
     =============================== */
     @media (max-width: 768px) {
-   
-    #aboutBG {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-  }
+
+      #aboutBG {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        object-fit: cover;
+        z-index: -1;
+      }
+
       body {
         overflow-x: hidden;
-        color: white; /* fix invisible text */
+        color: white;
       }
-     @media (max-width: 768px) {
-  #aboutBG {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-  }
-}
+
       /* Center logo */
       #homeLogo {
         left: 50%;
