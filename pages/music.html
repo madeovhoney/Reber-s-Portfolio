@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Honey Space – Music</title>
-    
-  <!-- FONT -->
+
+  <!-- FONT (improved loading) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
   <style>
@@ -19,6 +21,11 @@
       font-family: 'Shadows Into Light', cursive;
       background: black;
       color: black;
+    }
+
+    /* Force font everywhere */
+    body, p {
+      font-family: 'Shadows Into Light', cursive;
     }
 
     /* ===============================
@@ -46,19 +53,18 @@
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;        /* slightly larger */
       line-height: 1.6;
+      letter-spacing: 0.5px;    /* improves readability */
     }
 
     /* ===============================
-       🎧 SPOTIFY PLAYER (DESKTOP)
+       SPOTIFY PLAYER (DESKTOP)
     =============================== */
     .spotify-player {
       position: absolute;
-
       top: 200px;
       left: 500px;
-
       z-index: 2;
     }
 
@@ -86,7 +92,7 @@
 
       body {
         overflow-x: hidden;
-        color: white; /* fix invisible text */
+        color: white; /* ensure visibility */
       }
 
       /* Center logo */
@@ -96,7 +102,7 @@
         width: 250px;
       }
 
-      /* Spotify player moves to top */
+      /* Spotify player */
       .spotify-player {
         position: relative;
         top: auto;
@@ -113,7 +119,7 @@
         height: 350px;
       }
 
-      /* Content stacks below */
+      /* Content */
       .content {
         position: relative;
         top: auto;
@@ -125,7 +131,7 @@
       }
 
       p {
-        font-size: 1rem;
+        font-size: 1.1rem;
         line-height: 1.5;
       }
     }
@@ -142,7 +148,7 @@
     <img src="../Images/homebutton-logo.png" id="homeButton" alt="Home">
   </a>
 
-  <!-- 🎧 Spotify Player -->
+  <!-- Spotify Player -->
   <div class="spotify-player">
     <iframe style="border-radius:12px"
       src="INSERT MY SPOTIFY PLAYLIST LINK"
