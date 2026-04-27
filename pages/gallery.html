@@ -52,45 +52,41 @@
     }
 
     /* ===============================
-       TITLE
-    =============================== */
-    h1 {
-      text-align: center;
-      margin-top: 120px;
-      font-size: 3rem;
-    }
-
-    /* ===============================
-       SLIDESHOW (POSITION CONTROL)
+       SLIDESHOW (YOU CONTROL SIZE HERE)
     =============================== */
     .slideshow {
-      position: absolute;   /* <-- CHANGE THIS if needed */
-      top: 200px;           /* move up/down */
-      left: 200px;          /* move left/right */
+      position: absolute;
+      top: 200px;   /* move up/down */
+      left: 200px;  /* move left/right */
 
-      width: 600x;
-      height: 1200px;
+      width: 600px;
+      height: 400px;   /* 🔥 CHANGE THIS to control height */
+
       overflow: hidden;
       border-radius: 10px;
+      background: black;
     }
 
     /* ===============================
-       TRACK (ANIMATION)
+       TRACK
     =============================== */
     .slide-track {
       display: flex;
       width: calc(600px * 8);
-      animation: scroll 20s linear infinite;
-    }
-
-    .slide-track img {
-      width: 600px;
-      height: 300px;
-      object-fit: cover;
+      animation: scroll 25s linear infinite;
     }
 
     /* ===============================
-       SCROLL ANIMATION
+       IMAGES (NO CROPPING)
+    =============================== */
+    .slide-track img {
+      width: 600px;
+      height: 100%;           /* matches slideshow height */
+      object-fit: contain;    /* shows FULL image */
+    }
+
+    /* ===============================
+       ANIMATION
     =============================== */
     @keyframes scroll {
       0% { transform: translateX(0); }
@@ -112,10 +108,11 @@
   <!-- SLIDESHOW -->
   <div class="slideshow">
     <div class="slide-track">
-      <img src="../Images/gallery_IMG 1.jpg" alt="">
-      <img src="../Images/gallery_IMG 2.jpg" alt="">
-      <img src="../Images/gallery_IMG 3.jpg" alt="">
-      <img src="../Images/gallery_IMG 4.jpg" alt="">
+      <!-- USE CONSISTENT FILE NAMES -->
+      <img src="../Images/gallery_IMG1.jpg" alt="">
+      <img src="../Images/gallery_IMG2.jpg" alt="">
+      <img src="../Images/gallery_IMG3.jpg" alt="">
+      <img src="../Images/gallery_IMG4.jpg" alt="">
 
       <!-- duplicate for smooth loop -->
       <img src="../Images/gallery_IMG1.jpg" alt="">
