@@ -51,38 +51,62 @@
     }
 
     /* ===============================
-       SLIDESHOW
+       SLIDESHOW (POSITION + SIZE CONTROL)
     =============================== */
     .slideshow {
       position: absolute;
-      top: 125px;   /* adjust vertically */
-      left: 350px;  /* adjust horizontally */
+      top: 200px;   /* adjust vertical position */
+      left: 200px;  /* adjust horizontal position */
 
       width: 600px;
-      height: 600px;   /height*/
+      height: 450px;  /* 🔥 adjust height here */
 
       overflow: hidden;
       background: black;
       border-radius: 10px;
+      padding: 20px; /* gives breathing room */
     }
 
+    /* ===============================
+       TRACK
+    =============================== */
     .slide-track {
       display: flex;
-      width: calc(600px * 8);
-      animation: scroll 25s linear infinite;
+      gap: 40px; /* spacing between slides */
+      animation: scroll 30s linear infinite;
     }
 
-    .slide-track img {
-      width: 50%;
-      height: 90%;
+    /* ===============================
+       INDIVIDUAL SLIDE
+    =============================== */
+    .slide {
+      width: 600px;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ===============================
+       IMAGE (NO EDGE-TO-EDGE)
+    =============================== */
+    .slide img {
+      max-width: 80%;
+      max-height: 90%;
       object-fit: contain;
-      margin: 0 auto;    /* center it */
-      display: block;/* shows full image */
     }
 
+    /* ===============================
+       ANIMATION
+    =============================== */
     @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-2400px); }
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-2800px); /* adjusted for spacing */
+      }
     }
   </style>
 </head>
@@ -101,20 +125,38 @@
   <div class="slideshow">
     <div class="slide-track">
 
-      <img src="../Images/gallery_IMG 1.jpg" alt="Gallery image 1"
-           onerror="this.outerHTML='<div class=&quot;img-fallback&quot;>Gallery image 1</div>';">
-      <img src="../Images/gallery_IMG 2.jpg" alt="Gallery image 2"
-           onerror="this.outerHTML='<div class=&quot;img-fallback&quot;>Gallery image 2</div>';">
-      <img src="../Images/gallery_IMG 3.jpg" alt="Gallery image 3"
-           onerror="this.outerHTML='<div class=&quot;img-fallback&quot;>Gallery image 3</div>';">
-      <img src="../Images/gallery_IMG 4.jpg" alt="Gallery image 4"
-           onerror="this.outerHTML='<div class=&quot;img-fallback&quot;>Gallery image 4</div>';">
+      <div class="slide">
+        <img src="../Images/gallery_IMG 1.jpg" alt="Gallery image 1">
+      </div>
 
-      <!-- duplicate for smooth loop -->
-      <img src="../Images/gallery_IMG 1.jpg" alt="">
-      <img src="../Images/gallery_IMG 2.jpg" alt="">
-      <img src="../Images/gallery_IMG 3.jpg" alt="">
-      <img src="../Images/gallery_IMG 4.jpg" alt="">
+      <div class="slide">
+        <img src="../Images/gallery_IMG 2.jpg" alt="Gallery image 2">
+      </div>
+
+      <div class="slide">
+        <img src="../Images/gallery_IMG 3.jpg" alt="Gallery image 3">
+      </div>
+
+      <div class="slide">
+        <img src="../Images/gallery_IMG 4.jpg" alt="Gallery image 4">
+      </div>
+
+      <!-- DUPLICATES FOR LOOP -->
+      <div class="slide">
+        <img src="../Images/gallery_IMG1.jpg" alt="">
+      </div>
+
+      <div class="slide">
+        <img src="../Images/gallery_IMG2.jpg" alt="">
+      </div>
+
+      <div class="slide">
+        <img src="../Images/gallery_IMG3.jpg" alt="">
+      </div>
+
+      <div class="slide">
+        <img src="../Images/gallery_IMG4.jpg" alt="">
+      </div>
 
     </div>
   </div>
