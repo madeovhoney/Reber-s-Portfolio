@@ -51,20 +51,19 @@
     }
 
     /* ===============================
-       SLIDESHOW (POSITION + SIZE CONTROL)
+       SLIDESHOW
     =============================== */
     .slideshow {
       position: absolute;
-      top: 124px;   /* adjust vertical position */
-      left: 250px;  /* adjust horizontal position */
+      top: 124px;
+      left: 275px;
 
       width: 600px;
-      height: 750px;  /* 🔥 adjust height here */
+      height: 750px; /* 🔥 YOU control height here */
 
       overflow: hidden;
       background: black;
       border-radius: 10px;
-      padding: 20px; /* gives breathing room */
     }
 
     /* ===============================
@@ -72,12 +71,12 @@
     =============================== */
     .slide-track {
       display: flex;
-      gap: 40px; /* spacing between slides */
+      gap: 40px;
       animation: scroll 30s linear infinite;
     }
 
     /* ===============================
-       INDIVIDUAL SLIDE
+       SLIDE (FRAME)
     =============================== */
     .slide {
       width: 600px;
@@ -89,24 +88,23 @@
     }
 
     /* ===============================
-       IMAGE (NO EDGE-TO-EDGE)
+       IMAGE (FIXED PROPERLY)
     =============================== */
     .slide img {
-      max-width: 80%;
-      max-height: 90%;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
+
+      padding: 20px;           /* 🔥 controls spacing */
+      box-sizing: border-box;  /* keeps padding inside */
     }
 
     /* ===============================
        ANIMATION
     =============================== */
     @keyframes scroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-2800px); /* adjusted for spacing */
-      }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-2800px); }
     }
   </style>
 </head>
@@ -126,19 +124,19 @@
     <div class="slide-track">
 
       <div class="slide">
-        <img src="../Images/gallery_IMG 1.jpg" alt="Gallery image 1">
+        <img src="../Images/gallery_IMG1.jpg" alt="Gallery image 1">
       </div>
 
       <div class="slide">
-        <img src="../Images/gallery_IMG 2.jpg" alt="Gallery image 2">
+        <img src="../Images/gallery_IMG2.jpg" alt="Gallery image 2">
       </div>
 
       <div class="slide">
-        <img src="../Images/gallery_IMG 3.jpg" alt="Gallery image 3">
+        <img src="../Images/gallery_IMG3.jpg" alt="Gallery image 3">
       </div>
 
       <div class="slide">
-        <img src="../Images/gallery_IMG 4.jpg" alt="Gallery image 4">
+        <img src="../Images/gallery_IMG4.jpg" alt="Gallery image 4">
       </div>
 
       <!-- DUPLICATES FOR LOOP -->
