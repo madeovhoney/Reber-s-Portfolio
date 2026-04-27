@@ -34,7 +34,7 @@
     }
 
     /* ===============================
-       CONTENT
+       CONTENT (DESKTOP)
     =============================== */
     .content {
       position: absolute;
@@ -53,13 +53,13 @@
     }
 
     /* ===============================
-       🎧 SPOTIFY PLAYER (NOW MOVABLE)
+       🎧 SPOTIFY PLAYER (DESKTOP)
     =============================== */
     .spotify-player {
       position: absolute;
 
-      top: 200px;   /* 🔧 adjust vertical position */
-      left: 500px;  /* 🔧 adjust horizontal position */
+      top: 200px;
+      left: 500px;
 
       z-index: 2;
     }
@@ -80,6 +80,57 @@
     #homeButton:hover {
       transform: scale(1.2);
     }
+
+    /* ===============================
+       MOBILE / TABLET
+    =============================== */
+    @media (max-width: 768px) {
+
+      body {
+        overflow-x: hidden;
+        color: white; /* fix invisible text */
+      }
+
+      /* Center logo */
+      #homeButton {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 250px;
+      }
+
+      /* Spotify player moves to top */
+      .spotify-player {
+        position: relative;
+        top: auto;
+        left: auto;
+
+        display: block;
+        margin: 120px auto 20px auto;
+        text-align: center;
+      }
+
+      .spotify-player iframe {
+        width: 90%;
+        max-width: 350px;
+        height: 350px;
+      }
+
+      /* Content stacks below */
+      .content {
+        position: relative;
+        top: auto;
+        left: auto;
+
+        margin: 20px;
+        max-width: 100%;
+        text-align: center;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+    }
   </style>
 </head>
 
@@ -93,13 +144,7 @@
     <img src="../Images/homebutton-logo.png" id="homeButton" alt="Home">
   </a>
 
-  <!-- Content -->
-  <div class="content">
-    <p>A Spotify music player with my personal playlist is below.</p>
-    <p>We'll dance soon, so please standby.</p>
-  </div>
-
-  <!-- 🎧 MOVABLE SPOTIFY PLAYER -->
+  <!-- 🎧 Spotify Player -->
   <div class="spotify-player">
     <iframe style="border-radius:12px"
       src="INSERT MY SPOTIFY PLAYLIST LINK"
@@ -109,6 +154,12 @@
       allowfullscreen=""
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
     </iframe>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <p>A Spotify music player with my personal playlist is below.</p>
+    <p>We'll dance soon, so please standby.</p>
   </div>
 
 </body>
