@@ -6,24 +6,29 @@
 
   <title>Honey Space – About</title>
 
+  <!-- FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
   <style>
     /* ===============================
-       GLOBAL (DESKTOP)
+       GLOBAL
     =============================== */
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, Helvetica, sans-serif;
-
-      background-color: black;
-      background-image: url("Images/about-background.png?v=2"); /* FIXED PATH */
-      background-repeat: no-repeat;
-      background-position: center top;
-      background-size: contain;
-
+      background: black;
       color: black;
+    }
+
+    /* ===============================
+       BACKGROUND
+    =============================== */
+    #aboutBG {
+      width: 100%;
+      height: auto;
+      max-width: 1920px;
+      display: block;
     }
 
     /* ===============================
@@ -32,8 +37,10 @@
     .content {
       position: absolute;
       z-index: 2;
+
       top: 200px;
       left: 450px;
+
       max-width: 1100px;
       padding: 20px;
     }
@@ -72,60 +79,76 @@
     }
 
     /* ===============================
-       MOBILE
+       MOBILE (ADDED ONLY)
     =============================== */
     @media (max-width: 768px) {
-
+   
+    #aboutBG {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
       body {
         overflow-x: hidden;
-        color: white;
-
-        background-size: cover;
-        background-position: center top;
+        color: white; /* fix invisible text */
       }
-
+     @media (max-width: 768px) {
+  #aboutBG {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
+}
+      /* Center logo */
       #homeLogo {
         left: 50%;
         transform: translateX(-50%);
         width: 250px;
       }
 
+      /* Photo stacks above text */
       #myPhoto {
         position: relative;
         top: auto;
         left: auto;
+
         display: block;
         margin: 120px auto 20px auto;
         width: 70%;
         max-width: 280px;
       }
 
+      /* Content becomes full-width */
       .content {
         position: relative;
         top: auto;
         left: auto;
+
         margin: 20px;
         max-width: 100%;
       }
 
+      /* Text readability */
       p {
         font-size: 1rem;
         line-height: 1.5;
       }
     }
-
   </style>
 </head>
 
 <body>
 
+  <!-- BACKGROUND -->
+  <img src="../Images/about-background.png?v=2" id="aboutBG" alt="About Background">
+
   <!-- HOME BUTTON -->
   <a href="../index.html">
-    <img src="Images/Logo-aboutpage.png?v=2" id="homeLogo" alt="Home">
+    <img src="../Images/Logo-aboutpage.png?v=2" id="homeLogo" alt="Home">
   </a>
 
   <!-- PHOTO -->
-  <img src="Images/Me-2026.jpg" id="myPhoto" alt="Photo of me">
+  <img src="../Images/Me-2026.jpg" id="myPhoto" alt="Photo of me">
 
   <!-- CONTENT -->
   <div class="content">
