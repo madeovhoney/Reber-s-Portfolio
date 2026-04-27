@@ -6,7 +6,6 @@
 
   <title>Honey Space – About</title>
 
-  <!-- OPTIONAL: handwritten font -->
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
   <style>
@@ -18,21 +17,22 @@
       color: black;
     }
 
-    /* BACKGROUND */
+    /* BACKGROUND (MATCH BLOG STYLE) */
     #aboutBG {
-      position: fixed;
-      top: 0;
-      left: 0;
       width: 100%;
-      z-index: -1;
+      height: auto;
+      max-width: 1920px;
+      display: block;
     }
 
-    /* CONTENT */
+    /* CONTENT (NOW CREATES PAGE HEIGHT) */
     .content {
-      position: absolute;
+      position: relative;
       z-index: 2;
-      top: 200px;
-      left: 450px;
+
+      margin-top: -900px; /* adjust to line up with background */
+      margin-left: 450px;
+
       max-width: 1100px;
       padding: 20px;
     }
@@ -44,9 +44,10 @@
 
     /* PHOTO */
     #myPhoto {
-      position: absolute;
-      top: 200px;
-      left: 175px;
+      position: relative;
+      margin-top: -800px;  /* adjust visually */
+      margin-left: 175px;
+
       width: 250px;
       z-index: 2;
     }
