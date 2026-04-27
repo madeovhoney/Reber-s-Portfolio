@@ -6,9 +6,13 @@
 
   <title>Honey Space – About</title>
 
+  <!-- FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
   <style>
+    /* ===============================
+       GLOBAL
+    =============================== */
     body {
       margin: 0;
       padding: 0;
@@ -17,7 +21,9 @@
       color: black;
     }
 
-    /* BACKGROUND (MATCH BLOG STYLE) */
+    /* ===============================
+       BACKGROUND (FIXED ISSUE HERE)
+    =============================== */
     #aboutBG {
       width: 100%;
       height: auto;
@@ -25,13 +31,15 @@
       display: block;
     }
 
-    /* CONTENT (NOW CREATES PAGE HEIGHT) */
+    /* ===============================
+       CONTENT (UNCHANGED POSITION)
+    =============================== */
     .content {
-      position: relative;
+      position: absolute;
       z-index: 2;
 
-      margin-top: -900px; /* adjust to line up with background */
-      margin-left: 450px;
+      top: 200px;
+      left: 450px;
 
       max-width: 1100px;
       padding: 20px;
@@ -42,17 +50,20 @@
       line-height: 1.6;
     }
 
-    /* PHOTO */
+    /* ===============================
+       PHOTO (UNCHANGED POSITION)
+    =============================== */
     #myPhoto {
-      position: relative;
-      margin-top: -800px;  /* adjust visually */
-      margin-left: 175px;
-
+      position: absolute;
+      top: 200px;
+      left: 175px;
       width: 250px;
       z-index: 2;
     }
 
-    /* HOME LOGO */
+    /* ===============================
+       HOME LOGO
+    =============================== */
     #homeLogo {
       position: fixed;
       top: 20px;
@@ -71,14 +82,18 @@
 
 <body>
 
+  <!-- BACKGROUND -->
   <img src="../Images/about-background.png?v=2" id="aboutBG" alt="About Background">
 
+  <!-- HOME BUTTON -->
   <a href="../index.html">
     <img src="../Images/Logo-aboutpage.png?v=2" id="homeLogo" alt="Home">
   </a>
 
+  <!-- PHOTO -->
   <img src="../Images/Me-2026.jpg" id="myPhoto" alt="Photo of me">
 
+  <!-- CONTENT -->
   <div class="content">
     <p>Hello, I'm Reber — a Photographer and Science Research Journalist.</p>
 
