@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
@@ -12,9 +11,6 @@
   <title>Honey Space – Gallery</title>
 
   <style>
-    /* ===============================
-       GLOBAL
-    =============================== */
     body {
       margin: 0;
       padding: 0;
@@ -23,9 +19,6 @@
       color: white;
     }
 
-    /* ===============================
-       BACKGROUND
-    =============================== */
     #galleryBG {
       position: fixed;
       top: 0;
@@ -34,9 +27,6 @@
       z-index: -1;
     }
 
-    /* ===============================
-       HOME LOGO
-    =============================== */
     #homeLogo {
       position: fixed;
       top: 10px;
@@ -51,43 +41,50 @@
       transform: scale(1.2);
     }
 
-    /* ===============================
-       SLIDESHOW (YOU CONTROL SIZE HERE)
-    =============================== */
+    /* SLIDESHOW */
     .slideshow {
       position: absolute;
-      top: 200px;   /* move up/down */
-      left: 200px;  /* move left/right */
+      top: 200px;
+      left: 200px;
 
       width: 600px;
-      height: 400px;   /* 🔥 CHANGE THIS to control height */
+      height: 450px; /* adjust height here */
 
       overflow: hidden;
       border-radius: 10px;
       background: black;
     }
 
-    /* ===============================
-       TRACK
-    =============================== */
     .slide-track {
       display: flex;
       width: calc(600px * 8);
       animation: scroll 25s linear infinite;
     }
 
-    /* ===============================
-       IMAGES (NO CROPPING)
-    =============================== */
-    .slide-track img {
+    /* EACH SLIDE */
+    .slide {
       width: 600px;
-      height: 100%;           /* matches slideshow height */
-      object-fit: contain;    /* shows FULL image */
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
-    /* ===============================
-       ANIMATION
-    =============================== */
+    .slide img {
+      max-width: 100%;
+      max-height: 85%;
+      object-fit: contain;
+    }
+
+    /* CAPTION */
+    .caption {
+      margin-top: 8px;
+      font-size: 1rem;
+      text-align: center;
+      opacity: 0.85;
+    }
+
     @keyframes scroll {
       0% { transform: translateX(0); }
       100% { transform: translateX(-2400px); }
@@ -97,28 +94,60 @@
 
 <body>
 
-  <!-- BACKGROUND -->
   <img src="../Images/gallery-background.png?v=2" id="galleryBG" alt="Gallery Background">
 
-  <!-- HOME BUTTON -->
   <a href="../index.html">
     <img src="../Images/homebutton-logowhite.png?v=2" id="homeLogo" alt="Home">
   </a>
 
-  <!-- SLIDESHOW -->
   <div class="slideshow">
     <div class="slide-track">
-      <!-- USE CONSISTENT FILE NAMES -->
-      <img src="../Images/gallery_IMG 1.jpg" alt="">
-      <img src="../Images/gallery_IMG 2.jpg" alt="">
-      <img src="../Images/gallery_IMG 3.jpg" alt="">
-      <img src="../Images/gallery_IMG 4.jpg" alt="">
 
-      <!-- duplicate for smooth loop -->
-      <img src="../Images/gallery_IMG1.jpg" alt="">
-      <img src="../Images/gallery_IMG2.jpg" alt="">
-      <img src="../Images/gallery_IMG3.jpg" alt="">
-      <img src="../Images/gallery_IMG4.jpg" alt="">
+      <!-- SLIDE 1 -->
+      <div class="slide">
+        <img src="../Images/gallery_IMG 1.jpg" alt="Photo 1">
+        <div class="caption">Photo Title 1</div>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="slide">
+        <img src="../Images/gallery_IMG 2.jpg" alt="Photo 2">
+        <div class="caption">Photo Title 2</div>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="slide">
+        <img src="../Images/gallery_IMG 3.jpg" alt="Photo 3">
+        <div class="caption">Photo Title 3</div>
+      </div>
+
+      <!-- SLIDE 4 -->
+      <div class="slide">
+        <img src="../Images/gallery_IMG 4.jpg" alt="Photo 4">
+        <div class="caption">Photo Title 4</div>
+      </div>
+
+      <!-- DUPLICATES FOR LOOP -->
+      <div class="slide">
+        <img src="../Images/gallery_IMG 1.jpg" alt="">
+        <div class="caption">Photo Title 1</div>
+      </div>
+
+      <div class="slide">
+        <img src="../Images/gallery_IMG 2.jpg" alt="">
+        <div class="caption">Photo Title 2</div>
+      </div>
+
+      <div class="slide">
+        <img src="../Images/gallery_IMG 3.jpg" alt="">
+        <div class="caption">Photo Title 3</div>
+      </div>
+
+      <div class="slide">
+        <img src="../Images/gallery_IMG 4.jpg" alt="">
+        <div class="caption">Photo Title 4</div>
+      </div>
+
     </div>
   </div>
 
