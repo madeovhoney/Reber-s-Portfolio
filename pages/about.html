@@ -99,22 +99,22 @@
       }
 
       /* PHOTO  */
-      .wrapPhoto {
-        float: left;
-        width: 40%;
-        max-width: 280px;
+    .wrapPhoto {
+  float: left;
+  width: 40%;
+  max-width: 280px;
 
-        margin: -900px 15px 10px 0;
+  margin: -900px 15px 10px 0;
+  transform: translateX(-120px);
+}
 
-        transform: translateX(-100px);
-      }
-
-      /* Clear float after text */
-      .content::after {
-        content: "";
-        display: block;
-        clear: both;
-      }
+.content {
+  position: relative;
+  margin-top: -25px;
+  padding: 0 20px;
+  max-width: 50%;
+  transform: translateX(60px);
+}
 
       p {
         font-size: 1rem;
