@@ -9,9 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
   <style>
-    /* ===============================
-       GLOBAL
-    =============================== */
     body {
       margin: 0;
       padding: 0;
@@ -20,9 +17,6 @@
       color: black;
     }
 
-    /* ===============================
-       BACKGROUND
-    =============================== */
     #aboutBG {
       width: 100%;
       height: auto;
@@ -30,9 +24,6 @@
       display: block;
     }
 
-    /* ===============================
-       CONTENT (DESKTOP)
-    =============================== */
     .content {
       position: absolute;
       z-index: 2;
@@ -47,9 +38,6 @@
       line-height: 1.6;
     }
 
-    /* ===============================
-       PHOTO (DESKTOP)
-    =============================== */
     #myPhoto {
       position: absolute;
       top: 200px;
@@ -58,9 +46,6 @@
       z-index: 2;
     }
 
-    /* ===============================
-       HOME LOGO
-    =============================== */
     #homeLogo {
       position: fixed;
       top: 20px;
@@ -75,9 +60,6 @@
       transform: scale(1.1);
     }
 
-    /* ===============================
-       MOBILE
-    =============================== */
     @media (max-width: 768px) {
 
       #aboutBG {
@@ -91,31 +73,30 @@
         color: white;
       }
 
-      /* Center logo */
       #homeLogo {
         left: 50%;
         transform: translateX(-50%);
         width: 250px;
       }
 
-      /* Photo */
+      /* KEEP your perfect placement */
       #myPhoto {
         position: relative;
         left: auto;
 
         display: block;
-        margin: 40px auto 20px auto; /* FIXED */
+        margin: -900px auto 20px auto;
         width: 70%;
         max-width: 280px;
       }
 
-      /* Content under photo */
+      /* PUSH content BELOW the photo */
       .content {
         position: relative;
         top: auto;
         left: auto;
 
-        margin: 0 auto 40px auto;
+        margin-top: 200px; /* <-- this is the only added fix */
         padding: 0 20px;
         max-width: 100%;
       }
