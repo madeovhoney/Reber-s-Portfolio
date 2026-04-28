@@ -9,6 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
 
   <style>
+
+    /* ===============================
+       GLOBAL (ALL DEVICES)
+    =============================== */
     body {
       margin: 0;
       padding: 0;
@@ -24,6 +28,15 @@
       display: block;
     }
 
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    /* ===============================
+       DESKTOP ONLY STYLES
+    =============================== */
+
     .content {
       position: absolute;
       z-index: 2;
@@ -31,11 +44,6 @@
       left: 450px;
       max-width: 1100px;
       padding: 20px;
-    }
-
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
     }
 
     #myPhoto {
@@ -60,8 +68,12 @@
       transform: scale(1.1);
     }
 
+    /* ===============================
+       MOBILE ONLY STYLES
+    =============================== */
     @media (max-width: 768px) {
 
+      /* ---------- BACKGROUND ---------- */
       #aboutBG {
         width: 100%;
         height: 100vh;
@@ -73,13 +85,14 @@
         color: black;
       }
 
+      /* ---------- LOGO ---------- */
       #homeLogo {
         left: 50%;
         transform: translateX(-50%);
         width: 250px;
       }
 
-      /* perfect placement */
+      /* ---------- PHOTO (YOUR PERFECT POSITION) ---------- */
       #myPhoto {
         position: relative;
         left: auto;
@@ -90,35 +103,48 @@
         max-width: 280px;
       }
 
-      /* PUSH content BELOW the photo */
+      /* ---------- CONTENT (TEXT UNDER PHOTO) ---------- */
       .content {
         position: relative;
         top: auto;
         left: auto;
 
-        margin-top: 200px; 
+        margin-top: 200px;
         padding: 0 20px;
         max-width: 60%;
+
+        /* 🔥 LEFT / RIGHT CONTROL (EDIT THIS) */
+        transform: translateX(0px);
+        /* example:
+           translateX(-50px) = move left
+           translateX(50px)  = move right
+        */
       }
 
+      /* ---------- TEXT ---------- */
       p {
         font-size: 1rem;
         line-height: 1.5;
       }
     }
+
   </style>
 </head>
 
 <body>
 
+  <!-- BACKGROUND -->
   <img src="../Images/about-background.png?v=2" id="aboutBG" alt="About Background">
 
+  <!-- LOGO -->
   <a href="../index.html">
     <img src="../Images/Logo-aboutpage.png?v=2" id="homeLogo" alt="Home">
   </a>
 
+  <!-- PHOTO -->
   <img src="../Images/Me-2026.jpg" id="myPhoto" alt="Photo of me">
 
+  <!-- CONTENT -->
   <div class="content">
     <p>Hello, I'm Reber — a Photographer and Science Research Journalist.</p>
 
