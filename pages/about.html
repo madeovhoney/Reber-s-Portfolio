@@ -11,7 +11,7 @@
   <style>
 
     /* ===============================
-       GLOBAL (ALL DEVICES)
+       GLOBAL
     =============================== */
     body {
       margin: 0;
@@ -34,9 +34,8 @@
     }
 
     /* ===============================
-       DESKTOP ONLY STYLES
+       DESKTOP
     =============================== */
-
     .content {
       position: absolute;
       z-index: 2;
@@ -69,7 +68,7 @@
     }
 
     /* ===============================
-       MOBILE ONLY STYLES
+       MOBILE (WRAPPING ENABLED)
     =============================== */
     @media (max-width: 768px) {
 
@@ -90,23 +89,16 @@
         width: 250px;
       }
 
-      /* ---------- PHOTO (NOW MOVABLE LEFT/RIGHT) ---------- */
+      /* PHOTO WITH WRAP */
       #myPhoto {
-        position: relative;
-
-        display: block;
-        margin: -900px auto 20px auto;
+        float: left;                 /* enables text wrapping */
         width: 40%;
         max-width: 280px;
 
-        transform: translateX(-275px); /* <-- CONTROL THIS */
-        /*
-           translateX(-50px) = move left
-           translateX(50px)  = move right
-        */
+        margin: -900px 20px 10px 0;  /* keeps your vertical placement + spacing */
       }
 
-      /* ---------- CONTENT ---------- */
+      /* CONTENT FLOWS AROUND IMAGE */
       .content {
         position: relative;
         top: auto;
@@ -114,9 +106,14 @@
 
         margin-top: -25px;
         padding: 0 20px;
-        max-width: 50%;
+        max-width: 100%;
+      }
 
-        transform: translateX(200px);
+      /* CLEAR FLOAT AFTER CONTENT */
+      .content::after {
+        content: "";
+        display: block;
+        clear: both;
       }
 
       p {
