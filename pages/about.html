@@ -73,7 +73,6 @@
     =============================== */
     @media (max-width: 768px) {
 
-      /* ---------- BACKGROUND ---------- */
       #aboutBG {
         width: 100%;
         height: 100vh;
@@ -85,25 +84,29 @@
         color: black;
       }
 
-      /* ---------- LOGO ---------- */
       #homeLogo {
         left: 50%;
         transform: translateX(-50%);
         width: 250px;
       }
 
-      /* ---------- PHOTO (YOUR PERFECT POSITION) ---------- */
+      /* ---------- PHOTO (NOW MOVABLE LEFT/RIGHT) ---------- */
       #myPhoto {
         position: relative;
-        left: auto;
 
         display: block;
         margin: -900px auto 20px auto;
         width: 40%;
         max-width: 280px;
+
+        transform: translateX(-75px); /* <-- CONTROL THIS */
+        /*
+           translateX(-50px) = move left
+           translateX(50px)  = move right
+        */
       }
 
-      /* ---------- CONTENT (TEXT UNDER PHOTO) ---------- */
+      /* ---------- CONTENT ---------- */
       .content {
         position: relative;
         top: auto;
@@ -113,15 +116,9 @@
         padding: 0 20px;
         max-width: 60%;
 
-        /* LEFT / RIGHT CONTROL*/
-        transform: translateX(50px);
-        /* example:
-           translateX(-50px) = move left
-           translateX(50px)  = move right
-        */
+        transform: translateX(75px);
       }
 
-      /* ---------- TEXT ---------- */
       p {
         font-size: 1rem;
         line-height: 1.5;
@@ -133,18 +130,14 @@
 
 <body>
 
-  <!-- BACKGROUND -->
   <img src="../Images/about-background.png?v=2" id="aboutBG" alt="About Background">
 
-  <!-- LOGO -->
   <a href="../index.html">
     <img src="../Images/Logo-aboutpage.png?v=2" id="homeLogo" alt="Home">
   </a>
 
-  <!-- PHOTO -->
   <img src="../Images/Me-2026.jpg" id="myPhoto" alt="Photo of me">
 
-  <!-- CONTENT -->
   <div class="content">
     <p>Hello, I'm Reber — a Photographer and Science Research Journalist.</p>
 
