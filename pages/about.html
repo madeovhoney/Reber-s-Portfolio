@@ -34,7 +34,7 @@
     }
 
     /* ===============================
-       DESKTOP
+       DESKTOP (UNCHANGED)
     =============================== */
     .content {
       position: absolute;
@@ -68,7 +68,7 @@
     }
 
     /* ===============================
-       MOBILE (WRAPPING ENABLED)
+       MOBILE (WRAP + SAME POSITION)
     =============================== */
     @media (max-width: 768px) {
 
@@ -89,27 +89,27 @@
         width: 250px;
       }
 
-      /* PHOTO WITH WRAP */
-      #myPhoto {
-        float: left;                 /* enables text wrapping */
+      /* CONTENT keeps your placement */
+      .content {
+        position: relative;
+        margin-top: -25px;
+        padding: 0 20px;
+        max-width: 50%;
+        transform: translateX(200px);
+      }
+
+      /* PHOTO now lives INSIDE content and wraps */
+      .wrapPhoto {
+        float: left;
         width: 40%;
         max-width: 280px;
 
-        margin: -900px 20px 10px 0;  /* keeps your vertical placement + spacing */
+        margin: -900px 15px 10px 0;
+
+        transform: translateX(-275px);
       }
 
-      /* CONTENT FLOWS AROUND IMAGE */
-      .content {
-        position: relative;
-        top: auto;
-        left: auto;
-
-        margin-top: 250px;
-        padding: 0 20px;
-        max-width: 100%;
-      }
-
-      /* CLEAR FLOAT AFTER CONTENT */
+      /* Clear float after text */
       .content::after {
         content: "";
         display: block;
@@ -133,9 +133,11 @@
     <img src="../Images/Logo-aboutpage.png?v=2" id="homeLogo" alt="Home">
   </a>
 
-  <img src="../Images/Me-2026.jpg" id="myPhoto" alt="Photo of me">
-
   <div class="content">
+
+    <!-- PHOTO MOVED HERE FOR WRAPPING -->
+    <img src="../Images/Me-2026.jpg" class="wrapPhoto" alt="Photo of me">
+
     <p>Hello, I'm Reber — a Photographer and Science Research Journalist.</p>
 
     <p>
@@ -151,6 +153,7 @@
     <p>
       Thank you for visiting! I hope we'll chat soon!
     </p>
+
   </div>
 
 </body>
