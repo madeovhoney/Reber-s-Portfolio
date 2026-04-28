@@ -169,7 +169,20 @@ body{
   }
 
   /* ===============================
-     MOBILE BACKGROUND EXPANSION (ADDED)
+     KEEP FLICKER ELEMENTS INSIDE SCREEN
+  =============================== */
+  .container{
+    height:100vh;
+    overflow:hidden;
+  }
+
+  #unearthedBG,
+  #earthedFade{
+    height:100%;
+  }
+
+  /* ===============================
+     MOBILE BACKGROUND EXPANSION
   =============================== */
   #unearthedBG{
     width:100%;
@@ -198,7 +211,7 @@ body{
     top:180px;
   }
 
-  /* Navigation (re-centered tighter layout) */
+  /* Navigation */
   #aboutLink, #overlayAbout{
     left:20%;
     top:300px;
