@@ -99,12 +99,12 @@
     }
 
     /* ===============================
-       MOBILE / TABLET*****************************************************************************************
+       MOBILE / TABLET
     =============================== */
     @media (max-width: 608px) {
 
       body {
-        overflow-x: hidden;
+        overflow-x: auto;
         color: white;
       }
 
@@ -113,7 +113,7 @@
         width: 100vw;
         height: 100vh;
 
-        overflow-x: hidden;
+        overflow-x: scroll;
         overflow-y: hidden;
       }
 
@@ -122,7 +122,7 @@
         height: 100vh;
         width: auto;
 
-        min-width: 150vw;
+        min-width: 220vw;
 
         object-fit: cover;
 
@@ -139,52 +139,44 @@
         width: 250px;
 
         transform: translateX(-50%);
+
+        z-index: 1000;
       }
 
       /* ---------- MOBILE SPOTIFY PLAYER ---------- */
       .spotify-player {
-        position: relative;
+        position: absolute;
 
-        margin-top: -450px;
-
-        display: flex;
-        justify-content: center;
-
-        width: 100%;
-
-        padding: 0 20px;
-
-        box-sizing: border-box;
+        top: -500px;
+        left: 50%;
 
         z-index: 2;
 
         /* LEFT / RIGHT ADJUSTMENT */
-        transform: translateX(-100px);
+        transform: translateX(-50px);
       }
 
       /* ---------- MOBILE SPOTIFY IFRAME ---------- */
       .spotify-player iframe {
-        width: 100%;
-        max-width: 350px;
+        width: 350px;
         height: 352px;
       }
 
       /* ---------- MOBILE CONTENT ---------- */
       .content {
-        position: relative;
+        position: absolute;
 
-        margin-top: -550px;
+        top: -500px;
+        left: 50%;
 
-        padding: 0 20px;
-
-        max-width: 100%;
+        width: 90%;
 
         text-align: center;
 
         z-index: 2;
 
         /* LEFT / RIGHT ADJUSTMENT */
-        transform: translateX(-100px);
+        transform: translateX(-50px);
       }
 
       /* ---------- MOBILE TEXT ---------- */
