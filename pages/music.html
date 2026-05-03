@@ -135,60 +135,62 @@
         transform: translateX(-50%);
       }
 
-/* ---------- MOBILE SPOTIFY PLAYER ---------- */
-.spotify-player {
-  position: fixed;
+/* ===============================
+   MOBILE / TABLET
+================================= */
+@media (max-width: 608px) {
 
-  top: 550px;
-  left: 550px;
+  body {
+    overflow-x: hidden;
+    color: white;
+  }
 
-  transform: translateX(-50%);
+  /* ---------- MOBILE SPOTIFY PLAYER ---------- */
+  .spotify-player {
+    position: relative;
 
-  display: flex;
-  justify-content: center;
+    margin-top: 160px;
 
-  width: 100%;
+    display: flex;
+    justify-content: center;
 
-  padding: 0 20px;
+    width: 100%;
 
-  box-sizing: border-box;
+    padding: 0 20px;
 
-  z-index: 999;
+    box-sizing: border-box;
+
+    z-index: 2;
+  }
+
+  /* ---------- MOBILE SPOTIFY IFRAME ---------- */
+  .spotify-player iframe {
+    width: 100%;
+    max-width: 350px;
+    height: 352px;
+  }
+
+  /* ---------- MOBILE CONTENT ---------- */
+  .content {
+    position: relative;
+
+    margin-top: 30px;
+
+    padding: 0 20px;
+
+    max-width: 100%;
+
+    text-align: center;
+
+    z-index: 2;
+  }
+
+  /* ---------- MOBILE TEXT ---------- */
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 }
-
-/* ---------- MOBILE SPOTIFY IFRAME ---------- */
-.spotify-player iframe {
-  width: 100%;
-  max-width: 350px;
-  height: 350px;
-}
-
-      /* ---------- MOBILE CONTENT ---------- */
-      .content {
-        position: relative;
-
-        top: 140px;
-        left: 50%;
-
-        margin-top: 20px;
-        padding: 0 20px;
-
-        max-width: 100%;
-
-        text-align: center;
-
-        transform: translateX(0px);
-
-        z-index: 2;
-      }
-
-      /* ---------- MOBILE TEXT ---------- */
-      p {
-        font-size: 1rem;
-        line-height: 1.5;
-      }
-    }
-
   </style>
 </head>
 
