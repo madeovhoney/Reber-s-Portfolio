@@ -7,6 +7,7 @@
   <title>Honey Space – Music</title>
 
   <style>
+
     /* ===============================
        GLOBAL STYLING
     =============================== */
@@ -52,8 +53,10 @@
     =============================== */
     .spotify-player {
       position: absolute;
+
       top: 200px;
       left: 500px;
+
       z-index: 2;
     }
 
@@ -62,11 +65,15 @@
     =============================== */
     #homeButton {
       position: fixed;
+
       top: 10px;
       left: 15px;
+
       width: 450px;
+
       z-index: 1000;
       cursor: pointer;
+
       transition: transform 0.2s ease;
     }
 
@@ -79,51 +86,122 @@
     =============================== */
     @media (max-width: 768px) {
 
+      /* ---------- MOBILE BODY ---------- */
       body {
         overflow-x: hidden;
-        color: white; /* ensures text is visible */
+        color: white;
       }
 
-      /* Center logo */
+      /* ---------- MOBILE BACKGROUND ---------- */
+      #musicBG {
+        width: 100%;
+        height: 100vh;
+
+        object-fit: cover;
+      }
+
+      /*
+        object-fit: cover   = fills screen
+        object-fit: contain = shows more image
+      */
+
+      /* ---------- MOBILE HOME BUTTON ---------- */
       #homeButton {
+        position: fixed;
+
+        top: 10px;
         left: 50%;
-        transform: translateX(-50%);
+
         width: 250px;
+
+        transform: translateX(-50%);
       }
 
-      /* Spotify player */
+      /*
+        top: 0px   = higher
+        top: 50px  = lower
+
+        width: 200px = smaller
+        width: 300px = larger
+      */
+
+      /* ---------- MOBILE SPOTIFY PLAYER ---------- */
       .spotify-player {
         position: relative;
+
         top: auto;
         left: auto;
 
         display: block;
-        margin: 120px auto 20px auto;
+
+        margin: -500px auto 20px auto;
+
         text-align: center;
+
+        transform: translateX(0px);
       }
 
+      /*
+        margin-top values:
+        -700px = higher
+        -300px = lower
+
+        translateX(-50px) = move left
+        translateX(50px)  = move right
+      */
+
+      /* ---------- MOBILE SPOTIFY IFRAME ---------- */
       .spotify-player iframe {
         width: 90%;
         max-width: 350px;
         height: 350px;
       }
 
-      /* Content */
+      /*
+        max-width: 250px = smaller player
+        max-width: 400px = larger player
+
+        height: 250px = shorter
+        height: 450px = taller
+      */
+
+      /* ---------- MOBILE CONTENT ---------- */
       .content {
         position: relative;
+
         top: auto;
         left: auto;
 
-        margin: 20px;
+        margin-top: 20px;
+        padding: 0 20px;
+
         max-width: 100%;
+
         text-align: center;
+
+        transform: translateX(0px);
       }
 
+      /*
+        margin-top: -100px = higher
+        margin-top: 100px  = lower
+
+        translateX(-50px) = move left
+        translateX(50px)  = move right
+      */
+
+      /* ---------- MOBILE TEXT ---------- */
       p {
         font-size: 1rem;
         line-height: 1.5;
       }
+
+      /*
+        font-size: 0.8rem = smaller text
+        font-size: 1.2rem = larger text
+      */
     }
+
   </style>
 </head>
 
@@ -139,7 +217,9 @@
 
   <!-- Spotify Player -->
   <div class="spotify-player">
-    <iframe style="border-radius:12px"
+
+    <iframe
+      style="border-radius:12px"
       src="INSERT MY SPOTIFY PLAYLIST LINK"
       width="400"
       height="400"
@@ -147,12 +227,20 @@
       allowfullscreen=""
       allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
     </iframe>
+
   </div>
 
   <!-- Content -->
   <div class="content">
-    <p>A Spotify music player with my personal playlist is below.</p>
-    <p>We'll dance soon, so please standby.</p>
+
+    <p>
+      A Spotify music player with my personal playlist is below.
+    </p>
+
+    <p>
+      We'll dance soon, so please standby.
+    </p>
+
   </div>
 
 </body>
