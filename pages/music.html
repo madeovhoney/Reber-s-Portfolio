@@ -137,25 +137,25 @@
 
 /* ---------- MOBILE SPOTIFY PLAYER ---------- */
 .spotify-player {
-  position: relative;
+  position: fixed;
 
+  top: 140px;
   left: 50%;
+
   transform: translateX(-50%);
 
   display: flex;
   justify-content: center;
 
-  width: 100vw;
-
-  margin: -715px auto 20px auto;
+  width: 100%;
 
   padding: 0 20px;
 
   box-sizing: border-box;
 
-  z-index: 2;
+  z-index: 999;
 }
-      
+
 /* ---------- MOBILE SPOTIFY IFRAME ---------- */
 .spotify-player iframe {
   width: 100%;
