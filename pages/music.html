@@ -25,7 +25,8 @@
     =============================== */
     .bg-wrapper {
       width: 100%;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: hidden;
     }
 
     /* ===============================
@@ -98,7 +99,7 @@
     }
 
     /* ===============================
-       MOBILE / TABLET***************************************************************************************
+       MOBILE / TABLET
     =============================== */
     @media (max-width: 608px) {
 
@@ -107,24 +108,35 @@
         color: white;
       }
 
-      /* ---------- MOBILE BACKGROUND ---------- */
+      /* ---------- MOBILE BACKGROUND WRAPPER ---------- */
       .bg-wrapper {
         width: 100vw;
-        overflow: hidden;
+        height: 100vh;
+
+        overflow-x: hidden;
+        overflow-y: hidden;
       }
 
+      /* ---------- MOBILE BACKGROUND ---------- */
       #musicBG {
-        width: 100%;
-        height: auto;
+        height: 100vh;
+        width: auto;
+
+        min-width: 150vw;
+
+        object-fit: cover;
 
         display: block;
       }
 
       /* ---------- MOBILE HOME BUTTON ---------- */
       #homeButton {
-        width: 250px;
+        position: fixed;
 
+        top: 10px;
         left: 50%;
+
+        width: 250px;
 
         transform: translateX(-50%);
       }
