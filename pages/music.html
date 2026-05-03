@@ -99,7 +99,7 @@
     }
 
     /* ===============================
-       MOBILE / TABLET**************************************************************************
+       MOBILE / TABLET
     =============================== */
     @media (max-width: 608px) {
 
@@ -114,7 +114,7 @@
         height: 100vh;
 
         overflow-x: scroll;
-        overflow-y: hidden;
+        overflow-y: scroll;
       }
 
       /* ---------- MOBILE BACKGROUND ---------- */
@@ -145,14 +145,14 @@
         z-index: 1000;
       }
 
-   /* ---------- MOBILE SPOTIFY PLAYER ---------- */
-.spotify-player {
-  position: absolute;
+      /* ---------- MOBILE SPOTIFY PLAYER ---------- */
+      .spotify-player {
+        position: absolute;
 
-  top: 140px;
-  left: 120px;
+        top: 140px;
+        left: 120px;
 
-  z-index: 2;
+        z-index: 2;
 
         /* LEFT / RIGHT ADJUSTMENT */
         transform: translateX(-50px);
@@ -203,6 +203,38 @@
       alt="Music Background"
     >
 
+    <!-- Spotify Player -->
+    <div class="spotify-player">
+
+      <iframe
+        data-testid="embed-iframe"
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/playlist/1D0fywty51wFsEnSvdtUTW?utm_source=generator&theme=0"
+        width="100%"
+        height="352"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+
+      <p>
+        Music has always been an essential part of my life!<br>
+        If dancing and singing in the kitchen, car, or shower is something<br>
+        you can relate to, enjoy this list of my top 10 picks.
+      </p>
+
+      <p>
+        Let's keep music strong, no matter the profession.
+      </p>
+
+    </div>
+
   </div>
 
   <!-- Home Button -->
@@ -213,38 +245,6 @@
       alt="Home"
     >
   </a>
-
-  <!-- Spotify Player -->
-  <div class="spotify-player">
-
-    <iframe
-      data-testid="embed-iframe"
-      style="border-radius:12px"
-      src="https://open.spotify.com/embed/playlist/1D0fywty51wFsEnSvdtUTW?utm_source=generator&theme=0"
-      width="100%"
-      height="352"
-      frameborder="0"
-      allowfullscreen
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy">
-    </iframe>
-
-  </div>
-
-  <!-- Content -->
-  <div class="content">
-
-    <p>
-      Music has always been an essential part of my life!<br>
-      If dancing and singing in the kitchen, car, or shower is something<br>
-      you can relate to, enjoy this list of my top 10 picks.
-    </p>
-
-    <p>
-      Let's keep music strong, no matter the profession.
-    </p>
-
-  </div>
 
 </body>
 </html>
