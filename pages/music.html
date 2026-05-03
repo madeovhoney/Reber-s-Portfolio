@@ -14,67 +14,44 @@
     body {
       margin: 0;
       padding: 0;
+
       font-family: Arial, Helvetica, sans-serif;
+
       background: black;
-      color: black;
-      overflow-x: hidden;
+
+      overflow: auto;
     }
 
     /* ===============================
-       BACKGROUND WRAPPER
+       SCROLLABLE CANVAS
     =============================== */
-    .bg-wrapper {
-      width: 100%;
-      overflow-x: hidden;
-      overflow-y: hidden;
+    .scene {
+      position: relative;
+
+      width: 220vw;
+      height: 140vh;
+
+      overflow: visible;
     }
 
     /* ===============================
-       BACKGROUND IMAGE
+       BACKGROUND
     =============================== */
     #musicBG {
-      width: 100%;
-      height: auto;
-      max-width: 1920px;
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 220vw;
+      height: 100vh;
+
+      object-fit: cover;
+      object-position: top;
+
       display: block;
-    }
 
-    /* ===============================
-       DESKTOP SPOTIFY PLAYER
-    =============================== */
-    .spotify-player {
-      position: absolute;
-
-      top: 175px;
-      left: 50%;
-
-      transform: translateX(-50%);
-
-      z-index: 2;
-    }
-
-    /* ===============================
-       DESKTOP CONTENT
-    =============================== */
-    .content {
-      position: absolute;
-
-      top: 550px;
-      left: 50%;
-
-      transform: translateX(-50%);
-
-      text-align: center;
-
-      max-width: 900px;
-      padding: 20px;
-
-      z-index: 2;
-    }
-
-    p {
-      font-size: 1.2rem;
-      line-height: 1.6;
+      z-index: 1;
     }
 
     /* ===============================
@@ -84,107 +61,102 @@
       position: fixed;
 
       top: 10px;
-      left: 15px;
+      left: 50%;
 
-      width: 450px;
+      width: 250px;
+
+      transform: translateX(-50%);
 
       z-index: 1000;
+
       cursor: pointer;
-
-      transition: transform 0.2s ease;
-    }
-
-    #homeButton:hover {
-      transform: scale(1.1);
     }
 
     /* ===============================
-       MOBILE / TABLET**************************************************************************
+       SPOTIFY PLAYER
     =============================== */
-    @media (max-width: 608px) {
+    .spotify-player {
+      position: absolute;
 
-      body {
-        overflow-x: auto;
-        color: black;
-      }
+      top: 140px;
+      left: 120px;
 
-      /* ---------- MOBILE BACKGROUND WRAPPER ---------- */
-      .bg-wrapper {
+      z-index: 2;
+    }
+
+    .spotify-player iframe {
+      width: 350px;
+      height: 352px;
+    }
+
+    /* ===============================
+       CONTENT
+    =============================== */
+    .content {
+      position: absolute;
+
+      top: 540px;
+      left: 60px;
+
+      width: 350px;
+
+      text-align: center;
+
+      color: white;
+
+      z-index: 2;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* ===============================
+       DESKTOP
+    =============================== */
+    @media (min-width: 609px) {
+
+      .scene {
         width: 100vw;
         height: 100vh;
-
-        overflow-x: scroll;
-        overflow-y: hidden;
       }
 
-      /* ---------- MOBILE BACKGROUND ---------- */
       #musicBG {
-        height: 100vh;
-        width: auto;
+        width: 100%;
+        height: auto;
 
-        min-width: 220vw;
-
-        object-fit: cover;
-
-        object-position: top;
-
-        display: block;
+        max-width: 1920px;
       }
 
-      /* ---------- MOBILE HOME BUTTON ---------- */
-      #homeButton {
-        position: fixed;
-
-        top: 10px;
+      .spotify-player {
+        top: 175px;
         left: 50%;
 
-        width: 250px;
+        transform: translateX(-50%);
+      }
+
+      .content {
+        top: 550px;
+        left: 50%;
 
         transform: translateX(-50%);
 
-        z-index: 1000;
+        width: 900px;
+
+        color: black;
       }
 
-   /* ---------- MOBILE SPOTIFY PLAYER ---------- */
-.spotify-player {
-  position: absolute;
+      #homeButton {
+        left: 15px;
 
-  top: 140px;
-  left: 120px;
+        width: 450px;
 
-  z-index: 2;
-
-        /* LEFT / RIGHT ADJUSTMENT */
-        transform: translateX(-50px);
+        transform: none;
       }
 
-      /* ---------- MOBILE SPOTIFY IFRAME ---------- */
-      .spotify-player iframe {
-        width: 350px;
-        height: 352px;
-      }
-
-      /* ---------- MOBILE CONTENT ---------- */
-      .content {
-        position: absolute;
-
-        top: 500px;
-        left: 50%;
-
-        width: 90%;
-
-        text-align: center;
-
-        z-index: 2;
-
-        /* LEFT / RIGHT ADJUSTMENT */
-        transform: translateX(-50px);
-      }
-
-      /* ---------- MOBILE TEXT ---------- */
       p {
-        font-size: 1rem;
-        line-height: 1.5;
+        font-size: 1.2rem;
       }
     }
 
@@ -193,56 +165,54 @@
 
 <body>
 
-  <!-- Background Wrapper -->
-  <div class="bg-wrapper">
-
-    <!-- Background -->
-    <img
-      src="../Images/music-background.png?v=2"
-      id="musicBG"
-      alt="Music Background"
-    >
-
-  </div>
-
   <!-- Home Button -->
   <a href="../index.html?overlay=1">
     <img
       src="../Images/homebutton-logo.png"
       id="homeButton"
-      alt="Home"
-    >
+      alt="Home">
   </a>
 
-  <!-- Spotify Player -->
-  <div class="spotify-player">
+  <!-- SCROLLABLE SCENE -->
+  <div class="scene">
 
-    <iframe
-      data-testid="embed-iframe"
-      style="border-radius:12px"
-      src="https://open.spotify.com/embed/playlist/1D0fywty51wFsEnSvdtUTW?utm_source=generator&theme=0"
-      width="100%"
-      height="352"
-      frameborder="0"
-      allowfullscreen
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-      loading="lazy">
-    </iframe>
+    <!-- Background -->
+    <img
+      src="../Images/music-background.png?v=2"
+      id="musicBG"
+      alt="Music Background">
 
-  </div>
+    <!-- Spotify Player -->
+    <div class="spotify-player">
 
-  <!-- Content -->
-  <div class="content">
+      <iframe
+        data-testid="embed-iframe"
+        style="border-radius:12px"
+        src="https://open.spotify.com/embed/playlist/1D0fywty51wFsEnSvdtUTW?utm_source=generator&theme=0"
+        width="100%"
+        height="352"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
 
-    <p>
-      Music has always been an essential part of my life!<br>
-      If dancing and singing in the kitchen, car, or shower is something<br>
-      you can relate to, enjoy this list of my top 10 picks.
-    </p>
+    </div>
 
-    <p>
-      Let's keep music strong, no matter the profession.
-    </p>
+    <!-- Content -->
+    <div class="content">
+
+      <p>
+        Music has always been an essential part of my life!<br>
+        If dancing and singing in the kitchen, car, or shower is something
+        you can relate to, enjoy this list of my top 10 picks.
+      </p>
+
+      <p>
+        Let's keep music strong, no matter the profession.
+      </p>
+
+    </div>
 
   </div>
 
