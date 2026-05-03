@@ -12,10 +12,11 @@
   <title>Honey Space – Blog</title>
 
   <style>
+
     /* ===============================
        GLOBAL STYLING
     =============================== */
-  body {
+    body {
       margin: 0;
       padding: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -66,21 +67,28 @@
       text-decoration: underline;
     }
 
-    /* LINK POSITION CONTROL (your tweakable offset) */
+    /* ===============================
+       LINK POSITION CONTROL
+    =============================== */
     .link-wrapper {
       position: relative;
-      left: 120px; /* adjust this */
+      left: 120px;
       margin-top: 10px;
     }
 
+    /*
+      left: -50px = move left
+      left: 50px  = move right
+    */
+
     /* ===============================
-       HOME BUTTON (FIXED - now visible)
+       HOME BUTTON
     =============================== */
     #homeButton {
       position: fixed;
-      top: 0px;        /* FIX: was 0px */
-      left: 700px;      /* your original value kept */
-      width: 500px;     /* your original size kept */
+      top: 0px;
+      left: 700px;
+      width: 500px;
       z-index: 1000;
       cursor: pointer;
       transition: transform 0.2s ease;
@@ -108,6 +116,130 @@
       50%  { transform: translateY(-20px); }
       100% { transform: translateY(0px); }
     }
+
+    /* ===============================
+       MOBILE ONLY STYLES
+    =============================== */
+    @media (max-width: 768px) {
+
+      /* ---------- MOBILE BODY ---------- */
+      body {
+        overflow-x: hidden;
+      }
+
+      /* ---------- MOBILE BACKGROUND ---------- */
+      #blogBG {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+      }
+
+      /* ---------- MOBILE HOME BUTTON ---------- */
+      #homeButton {
+        position: fixed;
+
+        top: 10px;
+        left: 50%;
+
+        width: 260px;
+
+        transform: translateX(-50%);
+      }
+
+      /*
+        top: 0px    = move upward
+        top: 50px   = move downward
+
+        width: 200px = smaller
+        width: 300px = larger
+      */
+
+      /* ---------- MOBILE CONTENT ---------- */
+      .content {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        margin-top: -500px;
+        padding: 0 25px;
+
+        max-width: 100%;
+
+        transform: translateX(0px);
+      }
+
+      /*
+        margin-top: -600px = higher
+        margin-top: -300px = lower
+
+        translateX(-50px) = move left
+        translateX(50px)  = move right
+      */
+
+      /* ---------- MOBILE TEXT ---------- */
+      p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+      }
+
+      /*
+        font-size: 0.7rem = smaller text
+        font-size: 1rem   = larger text
+      */
+
+      /* ---------- MOBILE LINK ---------- */
+      .blog-link {
+        font-size: 1rem;
+      }
+
+      /* ---------- MOBILE LINK POSITION ---------- */
+      .link-wrapper {
+        position: relative;
+
+        left: 0px;
+        margin-top: 20px;
+
+        transform: translateX(0px);
+      }
+
+      /*
+        left: -30px = move left
+        left: 30px  = move right
+
+        margin-top: 0px   = higher
+        margin-top: 40px  = lower
+      */
+
+      /* ---------- MOBILE BEE IMAGE ---------- */
+      #beeImage {
+        position: relative;
+
+        top: auto;
+        left: auto;
+
+        display: block;
+
+        width: 70px;
+
+        margin: -40px auto 0 auto;
+
+        transform: translateX(0px);
+      }
+
+      /*
+        width: 50px  = smaller bee
+        width: 100px = larger bee
+
+        margin-top values:
+        -100px = higher
+        50px   = lower
+
+        translateX(-50px) = move left
+        translateX(50px)  = move right
+      */
+    }
+
   </style>
 </head>
 
@@ -126,18 +258,22 @@
 
   <!-- Content -->
   <div class="content">
+
     <p>
       After taking an intense Newswriting class, I was inspired to keep a personal portfolio of scientific research 
       I found interesting and important, with a focus on peer-reviewed and credible information for the public.
     </p>
 
-    <p>To read more, click below and be redirected to Wordpress.com:</p>
+    <p>
+      To read more, click below and be redirected to Wordpress.com:
+    </p>
 
     <div class="link-wrapper">
       <a href="https://reberkk.wordpress.com/" target="_blank" class="blog-link">
         Visit My WordPress Blog
       </a>
     </div>
+
   </div>
 
 </body>
