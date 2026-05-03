@@ -247,7 +247,18 @@
         translateX(50px)  = move right
       */
     }
+/* ---------- MOBILE LINE BREAK ---------- */
+.mobile-break {
+  display: none;
+}
 
+@media (max-width: 608px) {
+
+  .mobile-break {
+    display: inline;
+  }
+
+}
   </style>
 </head>
 
@@ -267,10 +278,10 @@
   <!-- Content -->
   <div class="content">
 
-    <p>
-  After taking an intense Newswriting class,<br>
-  I was inspired to keep a personal portfolio<br>
-  of scientific research I found interesting and important.
+  <p>
+  After taking an intense Newswriting class, I was inspired to keep a personal portfolio of scientific research
+  <br class="mobile-break">
+  I found interesting and important, with a focus on peer-reviewed and credible information for the public.
 </p>
 
     <p>
