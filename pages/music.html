@@ -89,23 +89,32 @@
       /* ---------- MOBILE BODY ---------- */
       body {
         overflow-x: hidden;
-        color: white;
+        color: black;
       }
 
-      /* ---------- MOBILE BACKGROUND ---------- */
-      #musicBG {
+    /* ---------- MOBILE BACKGROUND ---------- */
+#musicBG {
   width: 100%;
   height: 100vh;
 
   object-fit: cover;
-  object-position: 50% center;
+  object-position: center;
 
-  transform: scale(0.95;
+  transform: scale(1.1);
+
+  animation: bgPan 12s ease-in-out infinite alternate;
 }
-      /*
-        object-fit: cover   = fills screen
-        object-fit: contain = shows more image
-      */
+
+/* ---------- BACKGROUND MOVEMENT ---------- */
+@keyframes bgPan {
+  0% {
+    object-position: 45% center;
+  }
+
+  100% {
+    object-position: 55% center;
+  }
+}
 
       /* ---------- MOBILE HOME BUTTON ---------- */
       #homeButton {
