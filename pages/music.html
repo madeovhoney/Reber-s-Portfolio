@@ -135,30 +135,28 @@
         transform: translateX(-50%);
       }
 
-      /* ---------- MOBILE SPOTIFY PLAYER ---------- */
-      .spotify-player {
-        position: relative;
+  /* ---------- MOBILE SPOTIFY PLAYER ---------- */
+.spotify-player {
+  position: relative;
 
-        top: auto;
-        left: auto;
+  display: flex;
+  justify-content: center;
 
-        display: block;
+  margin: -715px auto 20px auto;
 
-        margin: -715px auto 20px auto;
+  padding: 0 20px;
 
-        text-align: center;
+  box-sizing: border-box;
 
-        transform: translateX(50px);
+  z-index: 2;
+}
 
-        z-index: 2;
-      }
-
-      /* ---------- MOBILE SPOTIFY IFRAME ---------- */
-      .spotify-player iframe {
-        width: 90%;
-        max-width: 350px;
-        height: 350px;
-      }
+/* ---------- MOBILE SPOTIFY IFRAME ---------- */
+.spotify-player iframe {
+  width: 100%;
+  max-width: 350px;
+  height: 350px;
+}
 
       /* ---------- MOBILE CONTENT ---------- */
       .content {
