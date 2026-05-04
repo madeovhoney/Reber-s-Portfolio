@@ -58,7 +58,7 @@
 
     /* ==========================================
        BLUE UFO CUPID
-       FIXED OVERLAY
+       FIXED SCREEN OVERLAY
     ========================================== */
     #cupidBlueUFO {
       position: fixed;
@@ -72,10 +72,14 @@
 
       animation: cupidGrowIn 2.5s ease-out forwards;
 
-      will-change: transform;
+      /* PREVENTS SCROLL MOVEMENT */
+      transform-origin: center center;
+      backface-visibility: hidden;
     }
 
     /*
+      DESKTOP UFO ADJUSTMENTS
+
       top: 100px = higher
       top: 300px = lower
 
@@ -102,6 +106,16 @@
       animation: dreamyFloat 6s ease-in-out infinite;
     }
 
+    /*
+      RED / YELLOW CUPID ADJUSTMENTS
+
+      top: 500px = higher
+      top: 900px = lower
+
+      left: 0px   = more left
+      left: 200px = more right
+    */
+
     /* ==========================================
        CONTACT FORM CONTAINER
     ========================================== */
@@ -117,6 +131,16 @@
 
       color: white;
     }
+
+    /*
+      CONTACT FORM ADJUSTMENTS
+
+      top: 400px = higher
+      top: 700px = lower
+
+      left: 300px = more left
+      left: 650px = more right
+    */
 
     /* ==========================================
        CONTACT FORM
@@ -185,6 +209,16 @@
       transform: scale(1.1);
     }
 
+    /*
+      HOME LOGO ADJUSTMENTS
+
+      top: 50px  = higher
+      top: 200px = lower
+
+      left: 100px = more left
+      left: 600px = more right
+    */
+
     /* ==========================================
        ANIMATIONS
     ========================================== */
@@ -222,7 +256,7 @@
     }
 
     /* ==========================================
-       MOBILE / TABLET**************************************************************************************************
+       MOBILE / TABLET
     ========================================== */
     @media (max-width: 768px) {
 
@@ -261,6 +295,13 @@
         display: block;
       }
 
+      /*
+        MOBILE BACKGROUND ADJUSTMENTS
+
+        min-width: 120vw = less horizontal area
+        min-width: 200vw = more horizontal area
+      */
+
       /* ======================================
          MOBILE HOME LOGO
       ====================================== */
@@ -278,7 +319,8 @@
       }
 
       /* ======================================
-         MOBILE BLUE UFO FIXED OVERLAY
+         MOBILE BLUE UFO
+         FIXED SCREEN OVERLAY
       ====================================== */
       #cupidBlueUFO {
         position: fixed;
@@ -292,10 +334,14 @@
 
         animation: cupidGrowIn 2.5s ease-out forwards;
 
-        will-change: transform;
+        /* PREVENTS SCROLL MOVEMENT */
+        transform-origin: center center;
+        backface-visibility: hidden;
       }
 
       /*
+        MOBILE UFO ADJUSTMENTS
+
         top: 50px  = higher
         top: 250px = lower
 
@@ -322,6 +368,16 @@
         z-index: 2;
       }
 
+      /*
+        MOBILE RED / YELLOW ADJUSTMENTS
+
+        top: 350px = higher
+        top: 700px = lower
+
+        left: 10% = more left
+        left: 50% = more right
+      */
+
       /* ======================================
          MOBILE CONTACT FORM CONTAINER
       ====================================== */
@@ -342,6 +398,16 @@
 
         z-index: 5;
       }
+
+      /*
+        MOBILE FORM ADJUSTMENTS
+
+        top: -300px = higher
+        top: 100px  = lower
+
+        max-width: 300px = smaller
+        max-width: 450px = larger
+      */
 
       /* ======================================
          MOBILE CONTACT FORM
