@@ -58,10 +58,9 @@
 
     /* ==========================================
        BLUE UFO CUPID
-       FIXED SCREEN OVERLAY
     ========================================== */
     #cupidBlueUFO {
-      position: fixed;
+      position: absolute;
 
       top: 190px;
       left: 50px;
@@ -71,10 +70,6 @@
       z-index: 10;
 
       animation: cupidGrowIn 2.5s ease-out forwards;
-
-      /* PREVENTS SCROLL MOVEMENT */
-      transform-origin: center center;
-      backface-visibility: hidden;
     }
 
     /*
@@ -320,23 +315,20 @@
 
       /* ======================================
          MOBILE BLUE UFO
-         FIXED SCREEN OVERLAY
       ====================================== */
       #cupidBlueUFO {
-        position: fixed;
+        position: absolute;
 
         top: 120px;
-        left: 20px;
+        left: 30%;
 
         width: 600px;
+
+        transform: translateX(-50%);
 
         z-index: 10;
 
         animation: cupidGrowIn 2.5s ease-out forwards;
-
-        /* PREVENTS SCROLL MOVEMENT */
-        transform-origin: center center;
-        backface-visibility: hidden;
       }
 
       /*
@@ -345,8 +337,8 @@
         top: 50px  = higher
         top: 250px = lower
 
-        left: 0px   = more left
-        left: 200px = more right
+        left: 10% = more left
+        left: 50% = more right
 
         width: 400px = smaller
         width: 900px = larger
@@ -451,6 +443,13 @@
       alt="Contact Background"
     >
 
+    <!-- BLUE UFO -->
+    <img
+      src="../Images/bluecupidufocontact.png?v=3"
+      id="cupidBlueUFO"
+      alt=""
+    >
+
     <!-- RED / YELLOW CUPIDS -->
     <img
       src="../Images/redandyellowcupids.png?v=3"
@@ -498,18 +497,7 @@
 
   </div>
 
-  <!-- ======================================
-       BLUE UFO OVERLAY
-  ======================================= -->
-  <img
-    src="../Images/bluecupidufocontact.png?v=3"
-    id="cupidBlueUFO"
-    alt=""
-  >
-
-  <!-- ======================================
-       HOME LOGO
-  ======================================= -->
+  <!-- HOME LOGO -->
   <a href="../index.html">
 
     <img
