@@ -71,6 +71,8 @@
       z-index: 10;
 
       animation: cupidGrowIn 2.5s ease-out forwards;
+
+      will-change: transform;
     }
 
     /*
@@ -100,14 +102,6 @@
       animation: dreamyFloat 6s ease-in-out infinite;
     }
 
-    /*
-      top: 500px = higher
-      top: 900px = lower
-
-      left: 0px   = more left
-      left: 200px = more right
-    */
-
     /* ==========================================
        CONTACT FORM CONTAINER
     ========================================== */
@@ -123,14 +117,6 @@
 
       color: white;
     }
-
-    /*
-      top: 400px = higher
-      top: 700px = lower
-
-      left: 300px = more left
-      left: 650px = more right
-    */
 
     /* ==========================================
        CONTACT FORM
@@ -199,14 +185,6 @@
       transform: scale(1.1);
     }
 
-    /*
-      top: 50px  = higher
-      top: 200px = lower
-
-      left: 100px = more left
-      left: 600px = more right
-    */
-
     /* ==========================================
        ANIMATIONS
     ========================================== */
@@ -244,7 +222,7 @@
     }
 
     /* ==========================================
-       MOBILE / TABLET************************************************************************************************
+       MOBILE / TABLET**************************************************************************************************
     ========================================== */
     @media (max-width: 768px) {
 
@@ -283,11 +261,6 @@
         display: block;
       }
 
-      /*
-        min-width: 120vw = less horizontal area
-        min-width: 200vw = more horizontal area
-      */
-
       /* ======================================
          MOBILE HOME LOGO
       ====================================== */
@@ -307,23 +280,27 @@
       /* ======================================
          MOBILE BLUE UFO FIXED OVERLAY
       ====================================== */
-     #cupidBlueUFO {
-  position: fixed;
+      #cupidBlueUFO {
+        position: fixed;
 
-  top: 120px;
-  left: 20px;
+        top: 120px;
+        left: 20px;
 
-  width: 600px;
+        width: 600px;
 
-  z-index: 10;
-}
+        z-index: 10;
+
+        animation: cupidGrowIn 2.5s ease-out forwards;
+
+        will-change: transform;
+      }
 
       /*
         top: 50px  = higher
         top: 250px = lower
 
-        left: 10% = more left
-        left: 50% = more right
+        left: 0px   = more left
+        left: 200px = more right
 
         width: 400px = smaller
         width: 900px = larger
@@ -345,14 +322,6 @@
         z-index: 2;
       }
 
-      /*
-        top: 350px = higher
-        top: 700px = lower
-
-        left: 10% = more left
-        left: 50% = more right
-      */
-
       /* ======================================
          MOBILE CONTACT FORM CONTAINER
       ====================================== */
@@ -373,14 +342,6 @@
 
         z-index: 5;
       }
-
-      /*
-        top: -300px = higher
-        top: 100px  = lower
-
-        max-width: 300px = smaller
-        max-width: 450px = larger
-      */
 
       /* ======================================
          MOBILE CONTACT FORM
