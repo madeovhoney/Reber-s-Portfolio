@@ -117,8 +117,11 @@
     #contactFormContainer {
       position: absolute;
 
+      /* DESKTOP POSITION ADJUSTMENTS */
       top: 550px;
-      left: 470px;
+      left: 50%;
+
+      transform: translateX(-50%);
 
       width: 350px;
 
@@ -128,13 +131,16 @@
     }
 
     /*
-      CONTACT FORM ADJUSTMENTS
+      DESKTOP CONTACT FORM ADJUSTMENTS
 
       top: 400px = higher
       top: 700px = lower
 
-      left: 300px = more left
-      left: 650px = more right
+      left: 45% = more left
+      left: 55% = more right
+
+      width: 300px = smaller
+      width: 500px = larger
     */
 
     /* ==========================================
@@ -251,7 +257,7 @@
     }
 
     /* ==========================================
-       MOBILE / TABLET*************************************************************************************************
+       MOBILE / TABLET
     ========================================== */
     @media (max-width: 768px) {
 
@@ -374,17 +380,16 @@
          MOBILE CONTACT FORM CONTAINER
       ====================================== */
       #contactFormContainer {
-        position: relative;
+        position: absolute;
 
-        top: -400px;
-        left: auto;
+        /* MOBILE POSITION ADJUSTMENTS */
+        top: 520px;
+        left: 50%;
 
-        width: 100%;
+        transform: translateX(-50%);
+
+        width: 90%;
         max-width: 350px;
-
-        margin: 0 auto;
-
-        padding: 0 20px;
 
         box-sizing: border-box;
 
@@ -392,10 +397,13 @@
       }
 
       /*
-        MOBILE FORM ADJUSTMENTS
+        MOBILE CONTACT FORM ADJUSTMENTS
 
-        top: -300px = higher
-        top: 100px  = lower
+        top: 400px = higher
+        top: 700px = lower
+
+        left: 45% = more left
+        left: 55% = more right
 
         max-width: 300px = smaller
         max-width: 450px = larger
