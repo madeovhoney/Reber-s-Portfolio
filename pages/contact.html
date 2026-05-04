@@ -58,6 +58,7 @@
 
     /* ==========================================
        BLUE UFO CUPID
+       FIXED OVERLAY
     ========================================== */
     #cupidBlueUFO {
       position: absolute;
@@ -67,10 +68,21 @@
 
       width: 1175px;
 
-      z-index: 2;
+      z-index: 10;
 
       animation: cupidGrowIn 2.5s ease-out forwards;
     }
+
+    /*
+      top: 100px = higher
+      top: 300px = lower
+
+      left: 0px   = more left
+      left: 200px = more right
+
+      width: 800px  = smaller
+      width: 1400px = larger
+    */
 
     /* ==========================================
        RED / YELLOW CUPIDS
@@ -88,6 +100,14 @@
       animation: dreamyFloat 6s ease-in-out infinite;
     }
 
+    /*
+      top: 500px = higher
+      top: 900px = lower
+
+      left: 0px   = more left
+      left: 200px = more right
+    */
+
     /* ==========================================
        CONTACT FORM CONTAINER
     ========================================== */
@@ -103,6 +123,14 @@
 
       color: white;
     }
+
+    /*
+      top: 400px = higher
+      top: 700px = lower
+
+      left: 300px = more left
+      left: 650px = more right
+    */
 
     /* ==========================================
        CONTACT FORM
@@ -171,6 +199,14 @@
       transform: scale(1.1);
     }
 
+    /*
+      top: 50px  = higher
+      top: 200px = lower
+
+      left: 100px = more left
+      left: 600px = more right
+    */
+
     /* ==========================================
        ANIMATIONS
     ========================================== */
@@ -208,20 +244,20 @@
     }
 
     /* ==========================================
-       MOBILE / TABLET**************************************************************************************************
+       MOBILE / TABLET*************************************************************************************************
     ========================================== */
     @media (max-width: 768px) {
 
-      /* ------------------------------------------
+      /* ======================================
          MOBILE BODY
-      ------------------------------------------ */
+      ====================================== */
       body {
         overflow-x: auto;
       }
 
-      /* ------------------------------------------
+      /* ======================================
          MOBILE BACKGROUND WRAPPER
-      ------------------------------------------ */
+      ====================================== */
       .bg-wrapper {
         width: 100vw;
         height: 100vh;
@@ -232,9 +268,9 @@
         overflow-y: scroll;
       }
 
-      /* ------------------------------------------
-         MOBILE BACKGROUND
-      ------------------------------------------ */
+      /* ======================================
+         MOBILE BACKGROUND IMAGE
+      ====================================== */
       #contactBG {
 
         height: 100vh;
@@ -247,9 +283,14 @@
         display: block;
       }
 
-      /* ------------------------------------------
+      /*
+        min-width: 120vw = less horizontal area
+        min-width: 200vw = more horizontal area
+      */
+
+      /* ======================================
          MOBILE HOME LOGO
-      ------------------------------------------ */
+      ====================================== */
       #homeLogo {
         position: fixed;
 
@@ -263,11 +304,12 @@
         z-index: 1000;
       }
 
-      /* ------------------------------------------
-         MOBILE BLUE UFO CUPID
-      ------------------------------------------ */
+      /* ======================================
+         MOBILE BLUE UFO
+         FIXED OVERLAY
+      ====================================== */
       #cupidBlueUFO {
-        position: absolute;
+        position: fixed;
 
         top: 120px;
         left: 30%;
@@ -276,12 +318,23 @@
 
         transform: translateX(-50%);
 
-        z-index: 2;
+        z-index: 10;
       }
 
-      /* ------------------------------------------
+      /*
+        top: 50px  = higher
+        top: 250px = lower
+
+        left: 10% = more left
+        left: 50% = more right
+
+        width: 400px = smaller
+        width: 900px = larger
+      */
+
+      /* ======================================
          MOBILE RED / YELLOW CUPIDS
-      ------------------------------------------ */
+      ====================================== */
       #cupidRedYellow {
         position: absolute;
 
@@ -295,9 +348,17 @@
         z-index: 2;
       }
 
-      /* ------------------------------------------
+      /*
+        top: 350px = higher
+        top: 700px = lower
+
+        left: 10% = more left
+        left: 50% = more right
+      */
+
+      /* ======================================
          MOBILE CONTACT FORM CONTAINER
-      ------------------------------------------ */
+      ====================================== */
       #contactFormContainer {
         position: relative;
 
@@ -316,25 +377,33 @@
         z-index: 5;
       }
 
-      /* ------------------------------------------
+      /*
+        top: -300px = higher
+        top: 100px  = lower
+
+        max-width: 300px = smaller
+        max-width: 450px = larger
+      */
+
+      /* ======================================
          MOBILE CONTACT FORM
-      ------------------------------------------ */
+      ====================================== */
       #contactForm {
         padding: 24px;
       }
 
-      /* ------------------------------------------
+      /* ======================================
          MOBILE INPUTS / TEXTAREA
-      ------------------------------------------ */
+      ====================================== */
       #contactForm input,
       #contactForm textarea {
 
         font-size: 1rem;
       }
 
-      /* ------------------------------------------
+      /* ======================================
          MOBILE BUTTON
-      ------------------------------------------ */
+      ====================================== */
       #contactForm button {
 
         font-size: 1rem;
@@ -358,13 +427,7 @@
       alt="Contact Background"
     >
 
-    <!-- CUPIDS -->
-    <img
-      src="../Images/bluecupidufocontact.png?v=3"
-      id="cupidBlueUFO"
-      alt=""
-    >
-
+    <!-- RED / YELLOW CUPIDS -->
     <img
       src="../Images/redandyellowcupids.png?v=3"
       id="cupidRedYellow"
@@ -411,7 +474,18 @@
 
   </div>
 
-  <!-- HOME LOGO -->
+  <!-- ======================================
+       BLUE UFO OVERLAY
+  ======================================= -->
+  <img
+    src="../Images/bluecupidufocontact.png?v=3"
+    id="cupidBlueUFO"
+    alt=""
+  >
+
+  <!-- ======================================
+       HOME LOGO
+  ======================================= -->
   <a href="../index.html">
 
     <img
