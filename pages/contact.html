@@ -37,6 +37,9 @@
     ========================================== */
     .bg-wrapper {
       width: 100%;
+
+      position: relative;
+
       overflow-x: hidden;
       overflow-y: hidden;
     }
@@ -205,7 +208,7 @@
     }
 
     /* ==========================================
-       MOBILE / TABLET*************************************************************************************************
+       MOBILE / TABLET**************************************************************************************************
     ========================================== */
     @media (max-width: 768px) {
 
@@ -223,14 +226,11 @@
         width: 100vw;
         height: 100vh;
 
-        overflow-x: scroll;
-        overflow-y: hidden;
-      }
+        position: relative;
 
-      /*
-        overflow-x: scroll = enables horizontal swipe
-        overflow-x: hidden = locks background
-      */
+        overflow-x: scroll;
+        overflow-y: scroll;
+      }
 
       /* ------------------------------------------
          MOBILE BACKGROUND
@@ -246,11 +246,6 @@
 
         display: block;
       }
-
-      /*
-        min-width: 120vw = less horizontal space
-        min-width: 180vw = more horizontal space
-      */
 
       /* ------------------------------------------
          MOBILE HOME LOGO
@@ -268,14 +263,6 @@
         z-index: 1000;
       }
 
-      /*
-        top: 0px   = higher
-        top: 50px  = lower
-
-        width: 180px = smaller
-        width: 320px = larger
-      */
-
       /* ------------------------------------------
          MOBILE BLUE UFO CUPID
       ------------------------------------------ */
@@ -292,14 +279,6 @@
         z-index: 2;
       }
 
-      /*
-        top: 50px  = higher
-        top: 250px = lower
-
-        width: 500px = smaller
-        width: 900px = larger
-      */
-
       /* ------------------------------------------
          MOBILE RED / YELLOW CUPIDS
       ------------------------------------------ */
@@ -315,14 +294,6 @@
 
         z-index: 2;
       }
-
-      /*
-        top: 350px = higher
-        top: 700px = lower
-
-        width: 500px = smaller
-        width: 950px = larger
-      */
 
       /* ------------------------------------------
          MOBILE CONTACT FORM CONTAINER
@@ -345,25 +316,12 @@
         z-index: 5;
       }
 
-      /*
-        top: -300px = higher
-        top: 100px  = lower
-
-        max-width: 300px = smaller form
-        max-width: 450px = larger form
-      */
-
       /* ------------------------------------------
          MOBILE CONTACT FORM
       ------------------------------------------ */
       #contactForm {
         padding: 24px;
       }
-
-      /*
-        padding: 16px = tighter
-        padding: 40px = roomier
-      */
 
       /* ------------------------------------------
          MOBILE INPUTS / TEXTAREA
@@ -374,11 +332,6 @@
         font-size: 1rem;
       }
 
-      /*
-        font-size: 0.9rem = smaller
-        font-size: 1.2rem = larger
-      */
-
       /* ------------------------------------------
          MOBILE BUTTON
       ------------------------------------------ */
@@ -386,11 +339,6 @@
 
         font-size: 1rem;
       }
-
-      /*
-        font-size: 0.9rem = smaller
-        font-size: 1.2rem = larger
-      */
     }
 
   </style>
@@ -410,11 +358,60 @@
       alt="Contact Background"
     >
 
+    <!-- CUPIDS -->
+    <img
+      src="../Images/bluecupidufocontact.png?v=3"
+      id="cupidBlueUFO"
+      alt=""
+    >
+
+    <img
+      src="../Images/redandyellowcupids.png?v=3"
+      id="cupidRedYellow"
+      alt=""
+    >
+
+    <!-- CONTACT FORM -->
+    <div id="contactFormContainer">
+
+      <form
+        id="contactForm"
+        action="https://formspree.io/f/mlgoqenk"
+        method="POST"
+      >
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          required
+        >
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+        >
+
+        <textarea
+          name="message"
+          rows="5"
+          placeholder="Message"
+          required>
+        </textarea>
+
+        <button type="submit">
+          Send Message
+        </button>
+
+      </form>
+
+    </div>
+
   </div>
 
-  <!-- ======================================
-       HOME LOGO
-  ======================================= -->
+  <!-- HOME LOGO -->
   <a href="../index.html">
 
     <img
@@ -424,61 +421,6 @@
     >
 
   </a>
-
-  <!-- ======================================
-       CUPIDS
-  ======================================= -->
-  <img
-    src="../Images/bluecupidufocontact.png?v=3"
-    id="cupidBlueUFO"
-    alt=""
-  >
-
-  <img
-    src="../Images/redandyellowcupids.png?v=3"
-    id="cupidRedYellow"
-    alt=""
-  >
-
-  <!-- ======================================
-       CONTACT FORM
-  ======================================= -->
-  <div id="contactFormContainer">
-
-    <form
-      id="contactForm"
-      action="https://formspree.io/f/mlgoqenk"
-      method="POST"
-    >
-
-      <input
-        type="text"
-        name="name"
-        placeholder="Name"
-        required
-      >
-
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        required
-      >
-
-      <textarea
-        name="message"
-        rows="5"
-        placeholder="Message"
-        required>
-      </textarea>
-
-      <button type="submit">
-        Send Message
-      </button>
-
-    </form>
-
-  </div>
 
 </body>
 </html>
